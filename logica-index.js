@@ -1,193 +1,193 @@
 // ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 853.50; 
-const NUMERO_WHATSAPP = "584246192394"; 
-const PORCENTAJE_UTILIDAD = 1.30; 
-const PORCENTAJE_IVA = 1.16; 
-const TASA_INTERNA = 1000; 
+const TASA_BCV = 853.50;
+const NUMERO_WHATSAPP = "584246192394";
+const PORCENTAJE_UTILIDAD = 1.30;
+const PORCENTAJE_IVA = 1.16;
+const TASA_INTERNA = 1000;
 
 // Mostrar tasa BCV en el encabezado
-document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`; 
+document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
 
 const products = [
-    
+
     // ============================================================== //
     // ============================================================== //
 
-                // SECCIÓN: GASES REFRIGERANTES Y SOLDADURA //
-                    // (MANTENER EN REVISION CONSTANTE)
+    // SECCIÓN: GASES REFRIGERANTES Y SOLDADURA //
+    // (MANTENER EN REVISION CONSTANTE)
 
     // ============================================================== //
     // ============================================================== //
 
     {
-        id: "GAS002", 
-        name: "Recarga de Gas Refrigerante R134a (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS002",
+        name: "Recarga de Gas Refrigerante R134a (Por Kilo)",
+        category: "Refrigeración",
         model: "R134a",
         desc: `<b>Recarga de Gas R134a para Neveras / Autos</b><br><br>Servicio de recarga de gas refrigerante R134a kileado para neveras y automóviles. El precio indicado es por Kilo.`,
-        costoCompra: 13.26153846, 
+        costoCompra: 13.26153846,
         images: ["productos/GAS002.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R134a", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS003", 
-        name: "Recarga de Gas Refrigerante R410a (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS003",
+        name: "Recarga de Gas Refrigerante R410a (Por Kilo)",
+        category: "Refrigeración",
         model: "R410A",
         desc: `<b>Recarga de Gas R410A para Aires Acondicionados</b><br><br>Gas refrigerante R410A de alta eficiencia para aires acondicionados. El precio indicado es por Kilo.`,
-        costoCompra: 13.26153846, 
+        costoCompra: 13.26153846,
         images: ["productos/GAS003.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R410A", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS006", 
-        name: "Lata de Gas Propano de 400gr Maxwell MAPP PRO", 
-        category: "Herramientas", 
+        id: "GAS006",
+        name: "Lata de Gas Propano de 400gr Maxwell MAPP PRO",
+        category: "Herramientas",
         model: "MAPP 400G",
         desc: `<b>Lata de Gas Propano de 400gr Maxwell MAPP Pro</b><br><br>Lata de gas propano Maxwell MAPP Pro ideal para trabajos de soldadura fuerte en tuberías de refrigeración. Presentación por unidad.`,
-        costoCompra: 6.62307692, 
+        costoCompra: 6.62307692,
         images: ["productos/GAS006.webp"],
         specs: { "Tipo": "Gas de Soldadura", "Gas": "Propano MAPP", "Presentación": "Lata de 400G" }
     },
     {
-        id: "GAS007", 
-        name: "Recarga de Gas Refrigerante R404a (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS007",
+        name: "Recarga de Gas Refrigerante R404a (Por Kilo)",
+        category: "Refrigeración",
         model: "R404a",
         desc: `<b>Recarga de Gas R404a para Cava-Cuarto</b><br><br>Gas refrigerante R404a diseñado para sistemas de refrigeración comercial y cavas cuarto. El precio indicado es por Kilo.`,
-        costoCompra: 13.26153846, 
+        costoCompra: 13.26153846,
         images: ["productos/GAS007.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R404a", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS008", 
-        name: "Lata de Gas Refrigerante R600A de 160gr", 
-        category: "Refrigeración", 
+        id: "GAS008",
+        name: "Lata de Gas Refrigerante R600A de 160gr",
+        category: "Refrigeración",
         model: "R600A 160G",
         desc: `<b>Lata de Gas Refrigerante R600a de 160gr</b><br><br>Gas refrigerante ecológico R600a en presentación de lata desechable de 160 gramos por unidad.`,
-        costoCompra: 3.32307692, 
+        costoCompra: 3.32307692,
         images: ["productos/GAS008.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R600A", "Presentación": "Lata de 160G" }
     },
     {
-        id: "GAS012", 
-        name: "Recarga de Gas Refrigerante R407 (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS012",
+        name: "Recarga de Gas Refrigerante R407 (Por Kilo)",
+        category: "Refrigeración",
         model: "R407",
         desc: `<b>Recarga de Gas R407 Industrial</b><br><br>Servicio de recarga de gas refrigerante R407 kileado para sistemas de aire acondicionado y refrigeración industrial. El precio indicado es por Kilo.`,
-        costoCompra: 19.89230769, 
+        costoCompra: 19.89230769,
         images: ["productos/GAS012.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R407", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS013", 
-        name: "Lata de Gas Refrigerante R134a de 340gr", 
-        category: "Refrigeración", 
+        id: "GAS013",
+        name: "Lata de Gas Refrigerante R134a de 340gr",
+        category: "Refrigeración",
         model: "R134A 340G",
         desc: `<b>Lata de Gas Refrigerante R134a 340gr</b><br><br>Gas refrigerante R134A en lata de 340 gramos con válvula de rosca fina.`,
-        costoCompra: 7.99230769, 
+        costoCompra: 7.99230769,
         images: ["productos/GAS013.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R134A", "Presentación": "Lata de 340G (Rosca Fina)" }
     },
     {
-        id: "GAS018", 
-        name: "Recarga de Gas Refrigerante R32 (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS018",
+        name: "Recarga de Gas Refrigerante R32 (Por Kilo)",
+        category: "Refrigeración",
         model: "R32",
         desc: `<b>Recarga de Gas Refrigerante R32 para Aires Acondicionados</b><br><br>Gas refrigerante R32 de nueva generación para aires acondicionados modernos. El precio indicado es por Kilo.`,
-        costoCompra: 16.57692308, 
+        costoCompra: 16.57692308,
         images: ["productos/GAS018.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R32", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS019", 
-        name: "Recarga de Gas Refrigerante R422D (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS019",
+        name: "Recarga de Gas Refrigerante R422D (Por Kilo)",
+        category: "Refrigeración",
         model: "R422D",
         desc: `<b>Recarga de Gas Refrigerante R422D para Aires Acondicionados</b><br><br>Gas refrigerante R422D especial para equipos de aire acondicionado nuevos. El precio indicado es por Kilo.`,
-        costoCompra: 16.57692308, 
+        costoCompra: 16.57692308,
         images: ["productos/GAS019.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R422D", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS022", 
-        name: "Recarga de Gas Refrigerante R134a DuPont Original (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS022",
+        name: "Recarga de Gas Refrigerante R134a DuPont Original (Por Kilo)",
+        category: "Refrigeración",
         model: "R134A DuPont",
         desc: `<b>Recarga de Gas Refrigerante R134a DuPont Original</b><br><br>Servicio de recarga de gas refrigerante premium R134A marca DuPont / Chemours. El precio indicado es por Kilo.`,
-        costoCompra: 22.00000000, 
+        costoCompra: 22.00000000,
         images: ["productos/GAS022.webp"],
         specs: { "Marca": "DuPont", "Gas": "R134A", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS023", 
-        name: "Lata de Gas Propano Bernzomatic Botella de 400gr", 
-        category: "Herramientas", 
+        id: "GAS023",
+        name: "Lata de Gas Propano Bernzomatic Botella de 400gr",
+        category: "Herramientas",
         model: "Bernzomatic 400G",
         desc: `<b>Lata de Gas Propano Bernzomatic Botella 400gr</b><br><br>Cilindro de propano original marca Bernzomatic para sopletes y soldadura. Presentación por unidad de 400 gramos.`,
-        costoCompra: 7.50000000, 
+        costoCompra: 7.50000000,
         images: ["productos/GAS023.webp"],
         specs: { "Marca": "Bernzomatic", "Tipo": "Gas Propano", "Presentación": "Lata de 400G" }
     },
     {
-        id: "GAS024", 
-        name: "Recarga de Gas Refrigerante R290a (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS024",
+        name: "Recarga de Gas Refrigerante R290a (Por Kilo)",
+        category: "Refrigeración",
         model: "R290a",
         desc: `<b>Recarga de Gas Refrigerante R290a</b><br><br>Gas refrigerante ecológico de alta pureza R290a. El precio indicado es por Kilo.`,
-        costoCompra: 9.94615385, 
+        costoCompra: 9.94615385,
         images: ["productos/GAS024.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R290a", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS025", 
-        name: "Recarga de Gas Refrigerante R507A (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS025",
+        name: "Recarga de Gas Refrigerante R507A (Por Kilo)",
+        category: "Refrigeración",
         model: "R507A",
         desc: `<b>Recarga de Gas Refrigerante R507A</b><br><br>Mezcla de gas refrigerante R507A para bajas y medias temperaturas. El precio indicado es por Kilo.`,
-        costoCompra: 13.26153846, 
+        costoCompra: 13.26153846,
         images: ["productos/GAS025.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R507A", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS029", 
-        name: "Lata de Gas Refrigerante R600a de 340gr Cowplandt", 
-        category: "Refrigeración", 
+        id: "GAS029",
+        name: "Lata de Gas Refrigerante R600a de 340gr Cowplandt",
+        category: "Refrigeración",
         model: "R600A 340G",
         desc: `<b>Lata de Gas Refrigerante R600a de 340gr Cowplandt</b><br><br>Gas refrigerante ecológico R600a marca Cowplandt. Presentación de lata de 340 gramos.`,
-        costoCompra: 4.63076923, 
+        costoCompra: 4.63076923,
         images: ["productos/GAS029.webp"],
         specs: { "Marca": "Cowplandt", "Gas": "R600A", "Presentación": "Lata de 340G" }
     },
     {
-        id: "GAS031", 
-        name: "Recarga de Gas Refrigerante R417a (Por Kilo)", 
-        category: "Refrigeración", 
+        id: "GAS031",
+        name: "Recarga de Gas Refrigerante R417a (Por Kilo)",
+        category: "Refrigeración",
         model: "R417A",
         desc: `<b>Recarga de Gas Refrigerante R417A</b><br><br>Sustituto ecológico para R22 en equipos de aire acondicionado. El precio indicado es por Kilo.`,
-        costoCompra: 16.57692308, 
+        costoCompra: 16.57692308,
         images: ["productos/GAS031.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R417A", "Presentación": "Recarga (Por Kilo)" }
     },
     {
-        id: "GAS032", 
-        name: "Lata de Gas Refrigerante R290 de 300gr", 
-        category: "Refrigeración", 
+        id: "GAS032",
+        name: "Lata de Gas Refrigerante R290 de 300gr",
+        category: "Refrigeración",
         model: "R290 300G",
         desc: `<b>Lata de Gas Refrigerante R290 de 300gr</b><br><br>Gas refrigerante ecológico R290 de alta pureza. Presentación en lata de 300 gramos por unidad.`,
-        costoCompra: 6.63076923, 
+        costoCompra: 6.63076923,
         images: ["productos/GAS032.webp"],
         specs: { "Tipo": "Gas Refrigerante", "Gas": "R290", "Presentación": "Lata de 300G" }
     },
     {
-        id: "GAS034", 
-        name: "Lata de Gas Refrigerante R134a de 750gr Cowplandt", 
-        category: "Refrigeración", 
+        id: "GAS034",
+        name: "Lata de Gas Refrigerante R134a de 750gr Cowplandt",
+        category: "Refrigeración",
         model: "R134A 750G",
         desc: `<b>Lata de Gas Refrigerante R134a de 750gr Cowplandt</b><br><br>Cilindro desechable de gas refrigerante R134A marca Cowplandt. Presentación de 750 gramos.`,
-        costoCompra: 13.26153846, 
+        costoCompra: 13.26153846,
         images: ["productos/GAS034.webp"],
         specs: { "Marca": "Cowplandt", "Gas": "R134A", "Presentación": "Lata de 750G" }
     },
@@ -195,61 +195,100 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
-                    // DESDE AQUI CODIGOS NUEVOS
+    // DESDE AQUI CODIGOS NUEVOS
 
     // ============================================================== //
     // ============================================================== //
+    // ==========================================
+    // SECCIÓN: START KITS Y SÚPER ARRANQUES
+    // ==========================================
+
     {
-    id: "TIM-NEVERA-VARIANTE",
-    name: "Relojes (Timers) Defrost para Neveras",
-    category: "Neveras / Cavas",
-    model: "Varios Modelos",
-    desc: `<b>Relojes Temporizadores de Descongelamiento</b><br><br>Repuestos de temporizadores de ciclo (Timers) para control de descongelamiento en neveras. Disponibles en configuración Asiatic, Koreano, Metálico y Ajustable.`,
-    costoCompra: 3.35384615,
-    images: [
-      "productos/TIM010.webp",
-      "productos/TIM011.webp",
-      "productos/TIM016.webp",
-      "productos/TIM028.webp",
-      "productos/TIM028-2.webp",
-      "productos/TIM-AJUSTABLE.webp",
-      "productos/TIM-ASIATIC.webp",
-      "productos/TIM-KOREANO.webp",
-      "productos/TIM-METALICO.webp",
-      "productos/TIM-RECARGABLE.webp"
-    ],
-    specs: { "Tipo": "Timer Defrost", "Aplicación": "Refrigeración Doméstica" },
-    variants: [
-      // --- TIPO ASIATIC ---
-      { id: "TIM019", name: "Asiatic 10H-21M TMDGY35RB9", costoCompra: 7.95384615 },
-      { id: "TIM011", name: "Asiatic 10H-21M TMDJX21RB9", costoCompra: 5.33076923 },
-      { id: "TIM012", name: "Asiatic 10H-35M TMDJX35RB9", costoCompra: 9.94615385 },
-      { id: "TIM013", name: "Asiatic 8H-21M Sankyo Negro", costoCompra: 5.30000000 },
-      { id: "TIM027", name: "Asiatic 7H-30M TMDE625TA1", costoCompra: 3.10000000 },
-      { id: "TIM016", name: "Asiatic 6H-21M TMDJ621ZN9", costoCompra: 3.82307692 },
-      { id: "TIM023", name: "Asiatic 6H-25M TMDJ625ZQ9", costoCompra: 5.29230769 },
-      { id: "TIM003", name: "Asiatic 3x1 8H-21M TMDE807TD", costoCompra: 3.96923077 },
-      { id: "TIM007", name: "Asiatic 3x1 6H-25M DS-005", costoCompra: 3.96923077 },
-      { id: "TIM025", name: "Asiatic 3x1 6H-35M DS005-35", costoCompra: 3.35384615 },
+        id: "CAR-SPP-VARIANTE",
+        name: "Start Kit / Súper Arranque 220V (Serie SPP)",
+        category: "Capacitores",
+        model: "Serie SPP",
+        desc: `<b>Start Kit de Arranque (Súper Arranque) 220V</b><br><br>Kit de arranque de estado sólido diseñado para proporcionar un torque adicional a compresores de aire acondicionado que están atascados o tienen dificultades para arrancar. Seleccione la capacidad requerida.`,
+        costoCompra: 2.96153846, // Costo base (SPP5)
+        images: ["productos/CAR001.webp", "productos/CAR002.webp", "productos/CAR004.webp"],
+        specs: { "Tipo": "Start Kit (Estado Sólido)", "Voltaje": "220V", "Uso": "Aires Acondicionados" },
+        variants: [
+            { id: "CAR001", name: "Modelo: SPP5 (Pequeño 300%)", costoCompra: 2.96153846 },
+            { id: "CAR002", name: "Modelo: SPP6 (Mediano 500%)", costoCompra: 4.44615385 },
+            { id: "CAR004", name: "Modelo: SPP7 (Grande 600%)", costoCompra: 8.48461538 }
+        ]
+    },
+    {
+        id: "CAR003",
+        name: "Start Kit de Arranque 3 en 1 para Nevera",
+        category: "Protectores",
+        model: "3 en 1",
+        desc: `<b>Start Kit de Arranque 3 en 1 para Nevera</b><br><br>Kit de reemplazo integral (3 en 1) que sustituye simultáneamente el relé, el protector térmico y el capacitor de arranque en compresores de neveras domésticas y comerciales ligeras.`,
+        costoCompra: 5.29230769,
+        images: ["productos/CAR003.webp"],
+        specs: { "Tipo": "Kit 3 en 1", "Uso": "Neveras y Enfriadores", "Función": "Arranque y Protección" }
+    },
+    {
+        id: "CAR300",
+        name: "Start Kit de Arranque Relay/Potencial (4 a 5 Toneladas)",
+        category: "Capacitores",
+        model: "4-5 TON",
+        desc: `<b>Start Kit de Arranque con Relay Potencial (4 a 5 Toneladas)</b><br><br>Kit de arranque pesado (Hard Start) equipado con relay potencial. Indispensable para vencer la inercia en compresores centrales y equipos de gran capacidad de 4 a 5 toneladas.`,
+        costoCompra: 13.83076923,
+        images: ["productos/CAR300.webp"],
+        specs: { "Tipo": "Hard Start con Relay", "Capacidad": "4 a 5 Toneladas", "Uso": "Aires Centrales" }
+    },
+    {
+        id: "TIM-NEVERA-VARIANTE",
+        name: "Relojes (Timers) Defrost para Neveras",
+        category: "Neveras / Cavas",
+        model: "Varios Modelos",
+        desc: `<b>Relojes Temporizadores de Descongelamiento</b><br><br>Repuestos de temporizadores de ciclo (Timers) para control de descongelamiento en neveras. Disponibles en configuración Asiatic, Koreano, Metálico y Ajustable.`,
+        costoCompra: 3.35384615,
+        images: [
+            "productos/TIM010.webp",
+            "productos/TIM011.webp",
+            "productos/TIM016.webp",
+            "productos/TIM028.webp",
+            "productos/TIM028-2.webp",
+            "productos/TIM-AJUSTABLE.webp",
+            "productos/TIM-ASIATIC.webp",
+            "productos/TIM-KOREANO.webp",
+            "productos/TIM-METALICO.webp",
+            "productos/TIM-RECARGABLE.webp"
+        ],
+        specs: { "Tipo": "Timer Defrost", "Aplicación": "Refrigeración Doméstica" },
+        variants: [
+            // --- TIPO ASIATIC ---
+            { id: "TIM019", name: "Asiatic 10H-21M TMDGY35RB9", costoCompra: 7.95384615 },
+            { id: "TIM011", name: "Asiatic 10H-21M TMDJX21RB9", costoCompra: 5.33076923 },
+            { id: "TIM012", name: "Asiatic 10H-35M TMDJX35RB9", costoCompra: 9.94615385 },
+            { id: "TIM013", name: "Asiatic 8H-21M Sankyo Negro", costoCompra: 5.30000000 },
+            { id: "TIM027", name: "Asiatic 7H-30M TMDE625TA1", costoCompra: 3.10000000 },
+            { id: "TIM016", name: "Asiatic 6H-21M TMDJ621ZN9", costoCompra: 3.82307692 },
+            { id: "TIM023", name: "Asiatic 6H-25M TMDJ625ZQ9", costoCompra: 5.29230769 },
+            { id: "TIM003", name: "Asiatic 3x1 8H-21M TMDE807TD", costoCompra: 3.96923077 },
+            { id: "TIM007", name: "Asiatic 3x1 6H-25M DS-005", costoCompra: 3.96923077 },
+            { id: "TIM025", name: "Asiatic 3x1 6H-35M DS005-35", costoCompra: 3.35384615 },
 
-      // --- TIPO METÁLICO ---
-      { id: "TIM004", name: "Metálico 6H-21M DS-002 M830", costoCompra: 4.06153846 },
-      { id: "TIM005", name: "Metálico 8H-21M DTB-820MAX", costoCompra: 7.50000000 },
-      { id: "TIM026", name: "Metálico 8H-21M Degar", costoCompra: 9.94615385 },
+            // --- TIPO METÁLICO ---
+            { id: "TIM004", name: "Metálico 6H-21M DS-002 M830", costoCompra: 4.06153846 },
+            { id: "TIM005", name: "Metálico 8H-21M DTB-820MAX", costoCompra: 7.50000000 },
+            { id: "TIM026", name: "Metálico 8H-21M Degar", costoCompra: 9.94615385 },
 
-      // --- TIPO KOREANO ---
-      { id: "TIM008", name: "Koreano 6H-30M DS-006", costoCompra: 3.60000000 },
-      { id: "TIM024", name: "Koreano 12H-8M TD-20LVM SA", costoCompra: 3.96923077 },
+            // --- TIPO KOREANO ---
+            { id: "TIM008", name: "Koreano 6H-30M DS-006", costoCompra: 3.60000000 },
+            { id: "TIM024", name: "Koreano 12H-8M TD-20LVM SA", costoCompra: 3.96923077 },
 
-      // --- TIPO AJUSTABLE ---
-      { id: "TIM021", name: "Ajustable 4-6-8-10-12H Mabe", costoCompra: 5.35384615 },
-      { id: "TIM020", name: "Ajustable 6-8-12H ISYN 220V", costoCompra: 5.96153846 },
+            // --- TIPO AJUSTABLE ---
+            { id: "TIM021", name: "Ajustable 4-6-8-10-12H Mabe", costoCompra: 5.35384615 },
+            { id: "TIM020", name: "Ajustable 6-8-12H ISYN 220V", costoCompra: 5.96153846 },
 
-      // --- MARCAS ESPECÍFICAS (MABE / HAIER) ---
-      { id: "TIM010", name: "Peq Mabe/Haier 4321 DBYC100", costoCompra: 3.35384615 },
-      { id: "TIM028", name: "Haier Negro 8H-21MIN", costoCompra: 4.00000000 }
-    ]
-  },,
+            // --- MARCAS ESPECÍFICAS (MABE / HAIER) ---
+            { id: "TIM010", name: "Peq Mabe/Haier 4321 DBYC100", costoCompra: 3.35384615 },
+            { id: "TIM028", name: "Haier Negro 8H-21MIN", costoCompra: 4.00000000 }
+        ]
+    },
     {
         id: "RTK-GE-VARIANTE",
         name: "Kit de Relay y Capacitor para Nevera G.E.",
@@ -341,9 +380,9 @@ const products = [
         specs: { "Tipo": "Medidor de Diámetro Interno", "Origen": "Americano", "Uso": "Tubo Capilar" }
     },
     {
-        id: "REM-VARIANTE", 
-        name: "Resistencia de Metal para Nevera", 
-        category: "Neveras / Cavas", 
+        id: "REM-VARIANTE",
+        name: "Resistencia de Metal para Nevera",
+        category: "Neveras / Cavas",
         model: "Varias Medidas",
         desc: `<b>Resistencia de Metal de Descongelación</b><br><br>Resistencia calefactora tubular metálica de repuesto, encargada de derretir la escarcha en el evaporador de las neveras No Frost. Seleccione la longitud adecuada para su equipo.`,
         costoCompra: 3.31538462, // Costo base (33 CM)
@@ -368,9 +407,9 @@ const products = [
         ]
     },
     {
-        id: "RES-VIDRIO-VARIANTE", 
-        name: "Resistencia de Vidrio para Nevera", 
-        category: "Neveras / Cavas", 
+        id: "RES-VIDRIO-VARIANTE",
+        name: "Resistencia de Vidrio para Nevera",
+        category: "Neveras / Cavas",
         model: "Varias Medidas",
         desc: `<b>Resistencia de Vidrio de Descongelación</b><br><br>Resistencia de cuarzo/vidrio para sistemas de descongelación de refrigeradores. Alta transferencia térmica. Seleccione la longitud en pulgadas o centímetros según el modelo de su nevera.`,
         costoCompra: 1.65384615, // Costo base (10")
@@ -392,9 +431,9 @@ const products = [
         ]
     },
     {
-        id: "BIM-UNIVERSAL-VAR", 
-        name: "Bimetal para Nevera Universal (Serie L)", 
-        category: "Protectores", 
+        id: "BIM-UNIVERSAL-VAR",
+        name: "Bimetal para Nevera Universal (Serie L)",
+        category: "Protectores",
         model: "Serie L (L45 a L70)",
         desc: `<b>Bimetal Universal para Descongelación</b><br><br>Termostato bimetálico de reemplazo universal para sistemas de deshielo en neveras No Frost. Protege el evaporador controlando el encendido de la resistencia. Seleccione la medida.`,
         costoCompra: 1.32307692, // Costo base (L45)
@@ -409,12 +448,12 @@ const products = [
         ]
     },
     {
-        id: "BIM-SAMSUNG-VAR", 
-        name: "Bimetal / Termofusible para Nevera Samsung", 
-        category: "Protectores", 
+        id: "BIM-SAMSUNG-VAR",
+        name: "Bimetal / Termofusible para Nevera Samsung",
+        category: "Protectores",
         model: "Serie N",
         desc: `<b>Bimetal y Termofusible para Nevera Samsung</b><br><br>Repuestos específicos para sistemas de descongelación de refrigeradores Samsung. Disponibles en variantes de 2 o 3 cables con conectores originales.`,
-        costoCompra: 1.97692308, 
+        costoCompra: 1.97692308,
         images: [
             "productos/BIM009.webp",
             "productos/BIM010.webp",
@@ -434,12 +473,12 @@ const products = [
         ]
     },
     {
-        id: "BIM-LG-VAR", 
-        name: "Bimetal / Termofusible para Nevera LG", 
-        category: "Protectores", 
+        id: "BIM-LG-VAR",
+        name: "Bimetal / Termofusible para Nevera LG",
+        category: "Protectores",
         model: "Varios Modelos",
         desc: `<b>Bimetal y Termofusible para Nevera LG</b><br><br>Sensores bimetálicos y fusibles térmicos diseñados para encajar en el cableado original de neveras LG.`,
-        costoCompra: 1.97692308, 
+        costoCompra: 1.97692308,
         images: [
             "productos/BIM008.webp",
             "productos/BIM016.webp",
@@ -455,12 +494,12 @@ const products = [
         ]
     },
     {
-        id: "BIM-MABE-VAR", 
-        name: "Bimetal de Repuesto para Nevera Mabe / G.E.", 
-        category: "Protectores", 
+        id: "BIM-MABE-VAR",
+        name: "Bimetal de Repuesto para Nevera Mabe / G.E.",
+        category: "Protectores",
         model: "Varios Modelos",
         desc: `<b>Bimetal de Repuesto para Nevera Mabe</b><br><br>Componente de seguridad térmica para sistemas No Frost en neveras Mabe y General Electric.`,
-        costoCompra: 1.98461538, 
+        costoCompra: 1.98461538,
         images: [
             "productos/BIM024.webp",
             "productos/BIM025.webp",
@@ -474,12 +513,12 @@ const products = [
         ]
     },
     {
-        id: "BIM-OTROS-VAR", 
-        name: "Bimetales y Fusibles Especiales (Whirlpool, Haier, Asiática)", 
-        category: "Protectores", 
+        id: "BIM-OTROS-VAR",
+        name: "Bimetales y Fusibles Especiales (Whirlpool, Haier, Asiática)",
+        category: "Protectores",
         model: "Especiales",
         desc: `<b>Bimetales y Termofusibles Específicos</b><br><br>Gama de bimetales de deshielo y termofusibles para neveras Whirlpool, Haier, y marcas de fabricación asiática. Seleccione el repuesto que corresponda a su unidad.`,
-        costoCompra: 1.79230769, 
+        costoCompra: 1.79230769,
         images: [
             "productos/BIM015.webp",
             "productos/BIM030.webp",
@@ -497,12 +536,12 @@ const products = [
         ]
     },
     {
-        id: "CRU-MABE-VAR", 
-        name: "Tarjeta de Control para Nevera Mabe", 
-        category: "Neveras / Cavas", 
+        id: "CRU-MABE-VAR",
+        name: "Tarjeta de Control para Nevera Mabe",
+        category: "Neveras / Cavas",
         model: "Serie 225D7291",
         desc: `<b>Tarjeta de Control Principal Nevera Mabe</b><br><br>Placa electrónica PCB de repuesto para controlar los ciclos de enfriamiento y descongelación en neveras digitales Mabe.`,
-        costoCompra: 12.43076923, 
+        costoCompra: 12.43076923,
         images: ["productos/CRU100-102.webp"],
         specs: { "Marca": "Mabe", "Tipo": "Tarjeta de Control PCB", "Voltaje": "115V" },
         variants: [
@@ -512,19 +551,19 @@ const products = [
         ]
     },
     {
-        id: "SAS012", 
-        name: "Sensor para Nevera Cable Azul Largo Samsung", 
-        category: "Protectores", 
+        id: "SAS012",
+        name: "Sensor para Nevera Cable Azul Largo Samsung",
+        category: "Protectores",
         model: "Samsung Cable Largo",
         desc: `<b>Sensor para Nevera Samsung Cable Azul Largo</b><br><br>Sensor de temperatura tipo termistor con cable extendido azul, diseñado específicamente para la lectura precisa del frío en neveras Samsung.`,
-        costoCompra: 1.65384615, 
+        costoCompra: 1.65384615,
         images: ["productos/SAS012.webp"],
         specs: { "Marca": "Samsung", "Tipo": "Sensor Termistor", "Cable": "Azul (Largo)" }
     },
     {
-        id: "REL-NEGRO-VAR", 
-        name: "Relay Negro Universal para Nevera 115V", 
-        category: "Protectores", 
+        id: "REL-NEGRO-VAR",
+        name: "Relay Negro Universal para Nevera 115V",
+        category: "Protectores",
         model: "Varias Medidas",
         desc: `<b>Relay Negro Universal para Nevera 115V</b><br><br>Relé de arranque universal de bobina (cobre) para compresores de neveras y refrigeradores a 115V. Diseñado para un reemplazo rápido y duradero.`,
         costoCompra: 1.32307692, // Costo base (1/6 HP)
@@ -542,9 +581,9 @@ const products = [
         ]
     },
     {
-        id: "REL-BLANCO-EMB-VAR", 
-        name: "Relay Blanco Embraco para Nevera 115V", 
-        category: "Protectores", 
+        id: "REL-BLANCO-EMB-VAR",
+        name: "Relay Blanco Embraco para Nevera 115V",
+        category: "Protectores",
         model: "Tipo Embraco",
         desc: `<b>Relay Blanco Tipo Embraco 115V</b><br><br>Relé de arranque de alta calidad tipo Embraco (Blanco). Ofrece excelente compatibilidad y protección para compresores domésticos y comerciales ligeros.`,
         costoCompra: 1.32307692, // Costo base (1/4 HP)
@@ -563,9 +602,9 @@ const products = [
         ]
     },
     {
-        id: "REL-PTC-PINES-VAR", 
-        name: "Relay PTC Americold / Landsfoss (Pines)", 
-        category: "Protectores", 
+        id: "REL-PTC-PINES-VAR",
+        name: "Relay PTC Americold / Landsfoss (Pines)",
+        category: "Protectores",
         model: "PTC 1 a 3 Pines",
         desc: `<b>Relay PTC de Estado Sólido (Pines)</b><br><br>Pastilla de arranque PTC de alta eficiencia para compresores de 1/12 a 1/2 HP. Disponible en configuraciones de 1, 2 o 3 pines para adaptarse a distintos sistemas.`,
         costoCompra: 0.86923077, // Costo base (1 Pin)
@@ -584,12 +623,12 @@ const products = [
         ]
     },
     {
-        id: "REL-TARJETA-VAR", 
-        name: "Relay para Tarjeta Electrónica de Aire Acondicionado", 
-        category: "Aires Acondicionados", 
+        id: "REL-TARJETA-VAR",
+        name: "Relay para Tarjeta Electrónica de Aire Acondicionado",
+        category: "Aires Acondicionados",
         model: "MPQ Serie",
         desc: `<b>Relay para Tarjeta de Aire Acondicionado</b><br><br>Relé de potencia para soldar en placa (PCB) de tarjetas electrónicas de aire acondicionado. Garantiza la conmutación segura del compresor.`,
-        costoCompra: 1.99230769, 
+        costoCompra: 1.99230769,
         images: [
             "productos/RELAY_PARA_TARJETA_DE_AIRE(1).webp",
             "productos/RELAY_PARA_TARJETA_DE_AIRE(2).webp",
@@ -602,16 +641,16 @@ const products = [
         ]
     },
     {
-        id: "REL-EMBRACO-VAR", 
-        name: "Relay Embraco Largo", 
-        category: "Protectores", 
+        id: "REL-EMBRACO-VAR",
+        name: "Relay Embraco Largo",
+        category: "Protectores",
         model: "Varias Medidas",
         desc: `<b>Relay de Arranque Embraco Largo</b><br><br>Relé electromagnético de repuesto para compresores de neveras y cavas. Diseñado para ofrecer un arranque seguro y prolongar la vida útil del motor.`,
         costoCompra: 1.97692308, // Costo base (1/4 HP)
         images: [
-            "productos/REL-EMBRACO_LARGO.webp", 
-            "productos/REL-EMPRACO_LARGO2.webp", 
-            "productos/REL-EMBRACO_LARGO3.webp", 
+            "productos/REL-EMBRACO_LARGO.webp",
+            "productos/REL-EMPRACO_LARGO2.webp",
+            "productos/REL-EMBRACO_LARGO3.webp",
             "productos/REL-EMBRACO_LARGO4.webp"
         ],
         specs: { "Tipo": "Relay Largo", "Uso": "Compresores", "Marca": "Danfoss / Degar" },
@@ -623,15 +662,15 @@ const products = [
         ]
     },
     {
-        id: "TER-NEVERA-VAR", 
-        name: "Protector Térmico para Nevera 115V", 
-        category: "Protectores", 
+        id: "TER-NEVERA-VAR",
+        name: "Protector Térmico para Nevera 115V",
+        category: "Protectores",
         model: "Varios Caballajes",
         desc: `<b>Protector Térmico (Overload) para Nevera 115V</b><br><br>Dispositivo térmico de seguridad tipo botón/redondo. Protege el compresor de su refrigerador contra sobrecalentamientos y excesos de corriente.`,
-        costoCompra: 0.99230769, 
+        costoCompra: 0.99230769,
         images: [
-            "productos/TER-PROTECTOR_TERMICO(1).webp", 
-            "productos/TER-PROTECTOR_TERMICO(2).webp", 
+            "productos/TER-PROTECTOR_TERMICO(1).webp",
+            "productos/TER-PROTECTOR_TERMICO(2).webp",
             "productos/TER-PROTECTOR_TERMICO(3).webp"
         ],
         specs: { "Tipo": "Protector Térmico", "Voltaje": "115V", "Uso": "Neveras y Enfriadores" },
@@ -643,9 +682,9 @@ const products = [
         ]
     },
     {
-        id: "TER-ELEC-VAR", 
-        name: "Protector Térmico Electrónico Americold", 
-        category: "Protectores", 
+        id: "TER-ELEC-VAR",
+        name: "Protector Térmico Electrónico Americold",
+        category: "Protectores",
         model: "Varios Caballajes",
         desc: `<b>Protector Térmico Electrónico Americold</b><br><br>Protector térmico de estado sólido (electrónico) para compresores. Mayor precisión de corte térmico frente a picos de voltaje.`,
         costoCompra: 0.66153846, // Costo base (1/5 HP)
@@ -659,24 +698,24 @@ const products = [
         ]
     },
     {
-        id: "REL001", 
-        name: "Relay Marrón Americold PTC 4 Pines", 
-        category: "Protectores", 
+        id: "REL001",
+        name: "Relay Marrón Americold PTC 4 Pines",
+        category: "Protectores",
         model: "PTC 4 Pines",
         desc: `<b>Relay Marrón Americold PTC 4 Pines</b><br><br>Relé de arranque PTC original Americold. Dispositivo eléctrico de alta calidad y precisión para arrancar compresores de refrigeración.`,
-        costoCompra: 0.45384615, 
+        costoCompra: 0.45384615,
         images: ["productos/REL001.webp"],
         specs: { "Marca": "Americold", "Tipo": "PTC", "Pines": "4 Pines" }
     },
     {
-        id: "SWU-VARIANTE", 
-        name: "Switch Universal para Nevera (1 Botón)", 
-        category: "Eléctrico", 
+        id: "SWU-VARIANTE",
+        name: "Switch Universal para Nevera (1 Botón)",
+        category: "Eléctrico",
         model: "LTK-2",
         desc: `<b>Switch de Puerta Universal para Nevera</b><br><br>Interruptor pulsador de repuesto para encender o apagar la luz interior y controlar los ventiladores al abrir la puerta de la nevera.`,
-        costoCompra: 4.97692308, 
+        costoCompra: 4.97692308,
         images: [
-            "productos/SWU-SWITCH.webp", 
+            "productos/SWU-SWITCH.webp",
             "productos/SWU-SWITCH(2).webp"
         ],
         specs: { "Tipo": "Interruptor de Puerta", "Modelo": "1 Botón", "Uso": "Neveras" },
@@ -686,15 +725,15 @@ const products = [
         ]
     },
     {
-        id: "MDN-CERAMICO-VAR", 
-        name: "Micro Motor Cerámico para Nevera", 
-        category: "Motores", 
+        id: "MDN-CERAMICO-VAR",
+        name: "Micro Motor Cerámico para Nevera",
+        category: "Motores",
         model: "Varios Modelos",
         desc: `<b>Micro Motor Cerámico DC para Nevera</b><br><br>Motores evaporadores de alta eficiencia con tecnología cerámica, diseñados para equipos modernos. Verifique el voltaje, vatiaje y las revoluciones (RPM) que requiere su nevera.`,
         costoCompra: 13.25384615, // Costo base medio
         images: [
-            "productos/MICRO_MOTOR_CERAMICO(1).webp", 
-            "productos/MICRO_MOTOR_CERAMICO(2).webp", 
+            "productos/MICRO_MOTOR_CERAMICO(1).webp",
+            "productos/MICRO_MOTOR_CERAMICO(2).webp",
             "productos/MICRO_MOTOR_CERAMICO(3).webp"
         ],
         specs: { "Tipo": "Cerámico", "Uso": "Evaporadores de Nevera" },
@@ -712,69 +751,69 @@ const products = [
         ]
     },
     {
-        id: "MDN001", 
-        name: "Micro Motor para Nevera 670 (Eje Grueso)", 
-        category: "Motores", 
+        id: "MDN001",
+        name: "Micro Motor para Nevera 670 (Eje Grueso)",
+        category: "Motores",
         model: "670 Eje Grueso",
         desc: `<b>Micro Motor para Nevera 670 (Eje Grueso)</b><br><br>Motor ventilador interno de repuesto para neveras y refrigeradores. Diseño robusto con eje grueso para mayor durabilidad.`,
-        costoCompra: 6.17692308, 
+        costoCompra: 6.17692308,
         images: ["productos/MDN001.webp"],
         specs: { "Tipo": "Micro Motor", "Uso": "Neveras", "Eje": "Grueso" }
     },
     {
-        id: "MDN002", 
-        name: "Micro Motor para Nevera Universal 999 (Eje Fino)", 
-        category: "Motores", 
+        id: "MDN002",
+        name: "Micro Motor para Nevera Universal 999 (Eje Fino)",
+        category: "Motores",
         model: "999 Eje Fino",
         desc: `<b>Micro Motor para Nevera Universal 999 (Eje Fino)</b><br><br>Motor ventilador universal para evaporadores de nevera. Modelo 999 equipado con eje fino, adaptable a múltiples marcas.`,
-        costoCompra: 5.63846154, 
+        costoCompra: 5.63846154,
         images: ["productos/MDN002.webp"],
         specs: { "Tipo": "Micro Motor Universal", "Uso": "Neveras", "Eje": "Fino" }
     },
     {
-        id: "JMG351", 
-        name: "Protector de Goma para Reloj de Manómetro", 
-        category: "Herramientas", 
+        id: "JMG351",
+        name: "Protector de Goma para Reloj de Manómetro",
+        category: "Herramientas",
         model: "Protector de Goma",
         desc: `<b>Protector de Goma para Reloj de Manómetro</b><br><br>Funda de goma diseñada para absorber impactos y proteger los relojes de tu manifold contra caídas en el área de trabajo.`,
-        costoCompra: 0.65384615, 
+        costoCompra: 0.65384615,
         images: ["productos/JMG351.webp"],
         specs: { "Accesorio": "Funda Protectora", "Material": "Goma Antiresbalante", "Uso": "Manómetros" }
     },
     {
-        id: "REL202", 
-        name: "Reloj Manómetro Alta Presión (Rojo) R22/R134", 
-        category: "Herramientas", 
+        id: "REL202",
+        name: "Reloj Manómetro Alta Presión (Rojo) R22/R134",
+        category: "Herramientas",
         model: "RG-500",
         desc: `<b>Reloj Manómetro Alta Presión (Rojo) R22/R134</b><br><br>Reloj de repuesto para manifold de alta presión. Escalas de lectura nítidas y calibradas específicamente para gases R22 y R134a.`,
-        costoCompra: 2.64615385, 
+        costoCompra: 2.64615385,
         images: ["productos/REL202.webp", "productos/REL202-2.webp"],
         specs: { "Tipo": "Alta Presión (Rojo)", "Gases Compatibles": "R22 / R134a", "Repuesto": "Reloj Manifold" }
     },
     {
-        id: "REL204", 
-        name: "Reloj Manómetro Alta Presión (Rojo) R410", 
-        category: "Herramientas", 
+        id: "REL204",
+        name: "Reloj Manómetro Alta Presión (Rojo) R410",
+        category: "Herramientas",
         model: "RG-R410-7",
         desc: `<b>Reloj Manómetro Alta Presión (Rojo) R410</b><br><br>Reloj de repuesto diseñado para soportar y medir con precisión las altas presiones del gas refrigerante R410.`,
-        costoCompra: 3.30769231, 
+        costoCompra: 3.30769231,
         images: ["productos/REL204.webp", "productos/REL204-2.webp"],
         specs: { "Tipo": "Alta Presión (Rojo)", "Gases Compatibles": "R410", "Repuesto": "Reloj Manifold" }
     },
     {
-        id: "REL203", 
-        name: "Reloj Manómetro Baja Presión (Azul) R410", 
-        category: "Herramientas", 
+        id: "REL203",
+        name: "Reloj Manómetro Baja Presión (Azul) R410",
+        category: "Herramientas",
         model: "RG-R410",
         desc: `<b>Reloj Manómetro Baja Presión (Azul) R410</b><br><br>Reloj de repuesto para manifold de baja presión (azul), con escalas precisas para la carga y monitoreo de gas R410.`,
-        costoCompra: 3.30769231, 
+        costoCompra: 3.30769231,
         images: ["productos/REL203.webp", "productos/REL203-2.webp"],
         specs: { "Tipo": "Baja Presión (Azul)", "Gases Compatibles": "R410", "Repuesto": "Reloj Manifold" }
     },
     {
-        id: "VLB-BOLA-VARIANTE", 
-        name: "Válvula de Bola Landsfoss para Refrigeración", 
-        category: "Refrigeración", 
+        id: "VLB-BOLA-VARIANTE",
+        name: "Válvula de Bola Landsfoss para Refrigeración",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Válvula de Bola Landsfoss</b><br><br>Válvula de aislamiento de flujo completo, ideal para mantenimientos y cortes en líneas de refrigeración comercial e industrial. Garantiza un sellado hermético. Seleccione la medida.`,
         costoCompra: 12.60000000, // Costo base (3/8")
@@ -789,12 +828,12 @@ const products = [
         ]
     },
     {
-        id: "TER-ARTICCO-VAR", 
-        name: "Protector Térmico Articco (Overload)", 
-        category: "Protectores", 
+        id: "TER-ARTICCO-VAR",
+        name: "Protector Térmico Articco (Overload)",
+        category: "Protectores",
         model: "Varios BTU/Voltajes",
         desc: `<b>Protector Térmico Articco para Compresor</b><br><br>Dispositivo de seguridad (Overload) diseñado para desconectar el compresor en caso de sobrecalentamiento o picos de corriente. Seleccione la capacidad y el voltaje de su equipo.`,
-        costoCompra: 1.32307692, 
+        costoCompra: 1.32307692,
         images: ["productos/TER200-208.webp"],
         specs: { "Marca": "Articco", "Tipo": "Protector Térmico", "Uso": "Compresores de A/A" },
         variants: [
@@ -809,302 +848,302 @@ const products = [
         ]
     },
     {
-        id: "AIR099", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 220V Khaled", 
-        category: "Aires Acondicionados", 
+        id: "AIR099",
+        name: "Aire Acondicionado Ventana 12.000 BTU 220V Khaled",
+        category: "Aires Acondicionados",
         model: "12K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 220V Khaled (Nuevo en Caja)</b><br><br>Equipo de ventana marca Khaled, totalmente nuevo y sellado en su caja. Excelente capacidad de enfriamiento de 12.000 BTU.`,
-        costoCompra: 145.89230769, 
+        costoCompra: 145.89230769,
         images: ["productos/AIR099.webp"],
         specs: { "Marca": "Khaled", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Estado": "Nuevo en Caja" }
     },
     {
-        id: "AIP002", 
-        name: "Aire Acondicionado Portátil 12.000 BTU", 
-        category: "Aires Acondicionados", 
+        id: "AIP002",
+        name: "Aire Acondicionado Portátil 12.000 BTU",
+        category: "Aires Acondicionados",
         model: "Portátil 12K",
         desc: `<b>Aire Acondicionado Portátil 12.000 BTU</b><br><br>Unidad portátil de 12.000 BTU, ideal para mover entre habitaciones. Fácil instalación sin necesidad de romper paredes.`,
-        costoCompra: 152.52307692, 
+        costoCompra: 152.52307692,
         images: ["productos/AIP002.webp"],
         specs: { "Tipo": "Portátil", "Capacidad": "12.000 BTU", "Instalación": "Móvil con Ruedas" }
     },
     {
-        id: "AIR126", 
-        name: "Aire Acondicionado Mini-Split 12.000 BTU 220V Khaled", 
-        category: "Aires Acondicionados", 
+        id: "AIR126",
+        name: "Aire Acondicionado Mini-Split 12.000 BTU 220V Khaled",
+        category: "Aires Acondicionados",
         model: "12K BTU 220V",
         desc: `<b>Aire Acondicionado Mini-Split 12.000 BTU 220V Khaled</b><br><br>Equipo Mini-Split eficiente y silencioso de 12.000 BTU. Ideal para habitaciones y oficinas modernas.`,
-        costoCompra: 172.41538462, 
+        costoCompra: 172.41538462,
         images: ["productos/AIR126.webp"],
         specs: { "Marca": "Khaled", "Tipo": "Mini-Split", "Capacidad": "12.000 BTU", "Voltaje": "220V", "Estado": "Nuevo en Caja" }
     },
     {
-        id: "AIR025", 
-        name: "Aire Acondicionado Split 24.000 BTU 220V Khaled (R410)", 
-        category: "Aires Acondicionados", 
+        id: "AIR025",
+        name: "Aire Acondicionado Split 24.000 BTU 220V Khaled (R410)",
+        category: "Aires Acondicionados",
         model: "24K BTU 220V",
         desc: `<b>Aire Acondicionado Split 24.000 BTU 220V Khaled</b><br><br>Unidad Split de alta capacidad (24.000 BTU) operando con gas ecológico R410. Excelente rendimiento para espacios amplios.`,
-        costoCompra: 331.56923077, 
+        costoCompra: 331.56923077,
         images: ["productos/AIR025.webp"],
         specs: { "Marca": "Khaled", "Tipo": "Split", "Capacidad": "24.000 BTU", "Voltaje": "220V", "Estado": "Nuevo en Caja" }
     },
     {
-        id: "AIR012", 
-        name: "Aire Acondicionado Ventana 8.000 BTU 110V Danby", 
-        category: "Aires Acondicionados", 
+        id: "AIR012",
+        name: "Aire Acondicionado Ventana 8.000 BTU 110V Danby",
+        category: "Aires Acondicionados",
         model: "8K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 8.000 BTU 110V Danby</b><br><br>Climatización compacta y confiable para espacios reducidos. Este equipo destaca por su bajo consumo y panel frontal con display digital intuitivo para el ajuste de temperatura.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por manejo de importación. No incluye control remoto.`,
-        costoCompra: 106.10000000, 
+        costoCompra: 106.10000000,
         images: ["productos/AIR012.webp"],
         specs: { "Marca": "Danby", "Tipo": "Ventana", "Capacidad": "8.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR016", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 110V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR016",
+        name: "Aire Acondicionado Ventana 12.000 BTU 110V Friedrich",
+        category: "Aires Acondicionados",
         model: "12K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 110V Friedrich</b><br><br>Unidad premium de alto rendimiento diseñada para enfriar tus espacios rápidamente. Incorpora un display digital frontal que facilita la visualización y ajuste del clima ideal.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 132.62307692, 
+        costoCompra: 132.62307692,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR021", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR021",
+        name: "Aire Acondicionado Ventana 12.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "12K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 220V Friedrich</b><br><br>Potencia y eficiencia premium en 220V. Su diseño robusto garantiza una larga vida útil, complementado con un display digital de fácil lectura en el panel frontal.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 145.89230769, 
+        costoCompra: 145.89230769,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR008", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR008",
+        name: "Aire Acondicionado Ventana 14.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "14K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 220V Friedrich</b><br><br>Excelente capacidad térmica para habitaciones grandes o salas de estar. Operación confiable a 220V con panel de control y display digital integrado para una configuración precisa.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 179.04615385, 
+        costoCompra: 179.04615385,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR006", 
-        name: "Aire Acondicionado Ventana 15.000 BTU 110V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR006",
+        name: "Aire Acondicionado Ventana 15.000 BTU 110V Friedrich",
+        category: "Aires Acondicionados",
         model: "15K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 15.000 BTU 110V Friedrich</b><br><br>Alta capacidad de enfriamiento sin requerir instalación a 220V. Diseño moderno que maximiza el flujo de aire, equipado con panel de botones y display digital frontal.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 185.67692308, 
+        costoCompra: 185.67692308,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "15.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR022", 
-        name: "Aire Acondicionado Ventana 18.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR022",
+        name: "Aire Acondicionado Ventana 18.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "18K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 18.000 BTU 220V Friedrich</b><br><br>Equipo de gran capacidad (Tonelada y media), ideal para mantener climatizados espacios residenciales amplios o locales comerciales. Incluye display digital para monitoreo de temperatura.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 218.83076923, 
+        costoCompra: 218.83076923,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "18.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR020", 
-        name: "Aire Acondicionado Ventana 20.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR020",
+        name: "Aire Acondicionado Ventana 20.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "20K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 20.000 BTU 220V Friedrich</b><br><br>Potencia superior para las mayores exigencias térmicas. Sistema de enfriamiento acelerado, controlable y configurable fácilmente mediante su panel con display digital frontal.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 232.09230769, 
+        costoCompra: 232.09230769,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "20.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR003", 
-        name: "Aire Acondicionado Ventana 24.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR003",
+        name: "Aire Acondicionado Ventana 24.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "24K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 24.000 BTU 220V Friedrich</b><br><br>Unidad pesada e industrial de 2 toneladas en formato de ventana. Rendimiento inigualable para grandes áreas, gestionado de manera amigable a través de su nítido display digital.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 265.25384615, 
+        costoCompra: 265.25384615,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "24.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR005", 
-        name: "Aire Acondicionado Ventana 28.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR005",
+        name: "Aire Acondicionado Ventana 28.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "28K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 28.000 BTU 220V Friedrich</b><br><br>Climatización de ultra alto tonelaje para mangas de pared o ventanas amplias. Su panel de control con display digital permite un manejo preciso del potente flujo de aire.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 331.56153846, 
+        costoCompra: 331.56153846,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "28.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR118", 
-        name: "Aire Acondicionado Ventana 36.000 BTU 220V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR118",
+        name: "Aire Acondicionado Ventana 36.000 BTU 220V Friedrich",
+        category: "Aires Acondicionados",
         model: "36K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 36.000 BTU 220V Friedrich</b><br><br>La máxima capacidad en equipos de ventana (3 toneladas). Ideal para usos comerciales e industriales extremos. Configuración sencilla gracias a su display digital integrado.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 364.72307692, 
+        costoCompra: 364.72307692,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "36.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR028", 
-        name: "Aire Acondicionado Ventana 8.000 BTU 110V Friedrich", 
-        category: "Aires Acondicionados", 
+        id: "AIR028",
+        name: "Aire Acondicionado Ventana 8.000 BTU 110V Friedrich",
+        category: "Aires Acondicionados",
         model: "8K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 8.000 BTU 110V Friedrich</b><br><br>Eficiencia y calidad superior en un chasis compacto. Perfecto para el confort en habitaciones y oficinas, controlable fácilmente desde su panel frontal con display digital.<br><br><b>Nota:</b> Equipo nuevo con leves detalles por importación. No incluye control remoto.`,
-        costoCompra: 106.10000000, 
+        costoCompra: 106.10000000,
         images: ["productos/FRIEDRICH-CHILL.webp", "productos/FRIEDRICH-UNIFIT.webp"],
         specs: { "Marca": "Friedrich", "Tipo": "Ventana", "Capacidad": "8.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR014", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 110V Frigidaire", 
-        category: "Aires Acondicionados", 
+        id: "AIR014",
+        name: "Aire Acondicionado Ventana 12.000 BTU 110V Frigidaire",
+        category: "Aires Acondicionados",
         model: "12K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 110V Frigidaire</b><br><br>Climatización confiable y constante de la mano de Frigidaire. Su diseño incluye un práctico display digital que permite establecer la temperatura con total precisión.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 132.62307692, 
+        costoCompra: 132.62307692,
         images: ["productos/FRIGIDAIRE.webp", "productos/FRIGIDAIRE-FHTC.webp"],
         specs: { "Marca": "Frigidaire", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR102", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 110V Frigidaire", 
-        category: "Aires Acondicionados", 
+        id: "AIR102",
+        name: "Aire Acondicionado Ventana 14.000 BTU 110V Frigidaire",
+        category: "Aires Acondicionados",
         model: "14K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 110V Frigidaire</b><br><br>Potencia excepcional de 14.000 BTU en corriente de 110V, brindando frío intenso sin alterar el cableado. Incorpora panel frontal con display digital de temperatura.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.78461538, 
+        costoCompra: 165.78461538,
         images: ["productos/FRIGIDAIRE.webp", "productos/FRIGIDAIRE-FHTC.webp"],
         specs: { "Marca": "Frigidaire", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR019", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 220V Frigidaire", 
-        category: "Aires Acondicionados", 
+        id: "AIR019",
+        name: "Aire Acondicionado Ventana 14.000 BTU 220V Frigidaire",
+        category: "Aires Acondicionados",
         model: "14K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 220V Frigidaire</b><br><br>Unidad optimizada para 220V que ofrece un enfriamiento rápido y sostenido. Cuenta con panel de mando y display digital para una experiencia de uso sumamente amigable.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 179.04615385, 
+        costoCompra: 179.04615385,
         images: ["productos/FRIGIDAIRE.webp", "productos/FRIGIDAIRE-FHTC.webp"],
         specs: { "Marca": "Frigidaire", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR009", 
-        name: "Aire Acondicionado Ventana 8.000 BTU 110V Frigidaire", 
-        category: "Aires Acondicionados", 
+        id: "AIR009",
+        name: "Aire Acondicionado Ventana 8.000 BTU 110V Frigidaire",
+        category: "Aires Acondicionados",
         model: "8K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 8.000 BTU 110V Frigidaire</b><br><br>El tamaño perfecto para cuartos de estudio y habitaciones pequeñas. Operación silenciosa y un panel frontal con display digital que facilita su ajuste diario.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 106.10000000, 
+        costoCompra: 106.10000000,
         images: ["productos/FRIGIDAIRE.webp", "productos/FRIGIDAIRE-FHTC.webp"],
         specs: { "Marca": "Frigidaire", "Tipo": "Ventana", "Capacidad": "8.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR034", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 110V G.E.", 
-        category: "Aires Acondicionados", 
+        id: "AIR034",
+        name: "Aire Acondicionado Ventana 14.000 BTU 110V G.E.",
+        category: "Aires Acondicionados",
         model: "14K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 110V General Electric</b><br><br>Robusto y eficiente equipo de General Electric que garantiza un flujo de aire frío ininterrumpido. Dispone de display digital frontal para verificar la temperatura configurada.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.78461538, 
+        costoCompra: 165.78461538,
         images: ["productos/AIR034.webp"],
         specs: { "Marca": "General Electric", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR013", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 110V Hisense", 
-        category: "Aires Acondicionados", 
+        id: "AIR013",
+        name: "Aire Acondicionado Ventana 12.000 BTU 110V Hisense",
+        category: "Aires Acondicionados",
         model: "12K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 110V Hisense</b><br><br>Climatización moderna y eficiente que refresca tus espacios en minutos. Incorpora un display digital claro y fácil de usar en el panel principal.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.77692308, 
+        costoCompra: 165.77692308,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR049", 
-        name: "Aire Acondicionado Ventana 12.000 BTU 220V Hisense", 
-        category: "Aires Acondicionados", 
+        id: "AIR049",
+        name: "Aire Acondicionado Ventana 12.000 BTU 220V Hisense",
+        category: "Aires Acondicionados",
         model: "12K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 12.000 BTU 220V Hisense</b><br><br>Funcionamiento suave y silencioso diseñado para la red de 220V. Su panel cuenta con display digital para un control absoluto del confort en tu habitación.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.80769231, 
+        costoCompra: 165.80769231,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "12.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR080", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 110V Hisense", 
-        category: "Aires Acondicionados", 
+        id: "AIR080",
+        name: "Aire Acondicionado Ventana 14.000 BTU 110V Hisense",
+        category: "Aires Acondicionados",
         model: "14K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 110V Hisense</b><br><br>Mayor cobertura térmica manteniendo la practicidad de la instalación a 110V. Interfaz de usuario directa mediante su pantalla y display digital integrado.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.78461538, 
+        costoCompra: 165.78461538,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR180", 
-        name: "Aire Acondicionado Ventana 18.000 BTU 220V Hisense", 
-        category: "Aires Acondicionados", 
+        id: "AIR180",
+        name: "Aire Acondicionado Ventana 18.000 BTU 220V Hisense",
+        category: "Aires Acondicionados",
         model: "18K BTU 220V",
         desc: `<b>Aire Acondicionado de Ventana 18.000 BTU 220V Hisense</b><br><br>Alta potencia para climatizar salones o espacios de trabajo de manera rápida y uniforme. Permite visualizar la configuración actual a través de su display digital frontal.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 218.83076923, 
+        costoCompra: 218.83076923,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "18.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR026", 
-        name: "Aire Acondicionado Ventana 8.000 BTU 110V Hisense", 
-        category: "Aires Acondicionados", 
+        id: "AIR026",
+        name: "Aire Acondicionado Ventana 8.000 BTU 110V Hisense",
+        category: "Aires Acondicionados",
         model: "8K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 8.000 BTU 110V Hisense</b><br><br>Modelo compacto y ahorrativo, excelente para lograr el clima ideal en espacios pequeños. Incluye panel de control principal con display digital.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 106.10000000, 
+        costoCompra: 106.10000000,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "8.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR018", 
-        name: "Aire Acondicionado Ventana 18.000 BTU 220V Hisense (Sin Rejilla)", 
-        category: "Aires Acondicionados", 
+        id: "AIR018",
+        name: "Aire Acondicionado Ventana 18.000 BTU 220V Hisense (Sin Rejilla)",
+        category: "Aires Acondicionados",
         model: "18K BTU 220V S/R",
         desc: `<b>Aire Acondicionado de Ventana 18.000 BTU 220V Hisense</b><br><br>Equipo de gran capacidad térmica con diseño optimizado (Sin Rejilla lateral). Pantalla display digital en el frente para conocer y ajustar la temperatura al instante.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 198.93846154, 
+        costoCompra: 198.93846154,
         images: ["productos/HISENSE.webp", "productos/HISENSE-INVERTER.webp"],
         specs: { "Marca": "Hisense", "Tipo": "Ventana", "Capacidad": "18.000 BTU", "Voltaje": "220V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR047", 
-        name: "Aire Acondicionado Ventana 14.000 BTU 110V LG", 
-        category: "Aires Acondicionados", 
+        id: "AIR047",
+        name: "Aire Acondicionado Ventana 14.000 BTU 110V LG",
+        category: "Aires Acondicionados",
         model: "14K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 14.000 BTU 110V LG</b><br><br>Toda la tecnología y durabilidad de LG en una unidad sumamente potente. Diseño elegante que resalta su display digital frontal para una configuración precisa.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 165.78461538, 
+        costoCompra: 165.78461538,
         images: ["productos/LG.webp"],
         specs: { "Marca": "LG", "Tipo": "Ventana", "Capacidad": "14.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR108", 
-        name: "Aire Acondicionado Ventana 8.000 BTU 110V LG", 
-        category: "Aires Acondicionados", 
+        id: "AIR108",
+        name: "Aire Acondicionado Ventana 8.000 BTU 110V LG",
+        category: "Aires Acondicionados",
         model: "8K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 8.000 BTU 110V LG</b><br><br>Enfriamiento constante y silencioso con el indiscutible respaldo de calidad LG. Sistema de control accesible con botones y display digital numérico.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 106.10000000, 
+        costoCompra: 106.10000000,
         images: ["productos/LG.webp"],
         specs: { "Marca": "LG", "Tipo": "Ventana", "Capacidad": "8.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "AIR032", 
-        name: "Aire Acondicionado Ventana 15.000 BTU 110V TCL", 
-        category: "Aires Acondicionados", 
+        id: "AIR032",
+        name: "Aire Acondicionado Ventana 15.000 BTU 110V TCL",
+        category: "Aires Acondicionados",
         model: "15K BTU 110V",
         desc: `<b>Aire Acondicionado de Ventana 15.000 BTU 110V TCL</b><br><br>Increíble potencia de 15.000 BTU operativa con corriente de 110V estándar. Gran desempeño térmico y facilidad de ajuste gracias a su panel con display digital.<br><br><b>Nota:</b> Equipo nuevo con detalles estéticos por importación. No incluye control remoto.`,
-        costoCompra: 185.67692308, 
+        costoCompra: 185.67692308,
         images: ["productos/AIRE-8K.webp"],
         specs: { "Marca": "TCL", "Tipo": "Ventana", "Capacidad": "15.000 BTU", "Voltaje": "110V", "Condición": "Nuevo (Detalles Importación)", "Control": "Display Digital (Sin Remoto)" }
     },
     {
-        id: "ANT-VARIANTE", 
-        name: "Antivibrador Flexible de Cobre", 
-        category: "Refrigeración", 
+        id: "ANT-VARIANTE",
+        name: "Antivibrador Flexible de Cobre",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Antivibrador Flexible de Cobre</b><br><br>Diseñado para absorber la vibración del compresor y evitar fisuras en las tuberías de sistemas de refrigeración y aire acondicionado comercial. Seleccione la medida.`,
-        costoCompra: 7.29230769, 
+        costoCompra: 7.29230769,
         images: ["productos/ANT-ANTIVIBRADOR.webp"],
         specs: { "Tipo": "Flexible Antivibración", "Material": "Cobre y Acero Inox", "Uso": "Refrigeración" },
         variants: [
@@ -1118,12 +1157,12 @@ const products = [
         ]
     },
     {
-        id: "VLC-VARIANTE", 
-        name: "Válvula Check Landsfoss HVAC", 
-        category: "Refrigeración", 
+        id: "VLC-VARIANTE",
+        name: "Válvula Check Landsfoss HVAC",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Válvula Check / Retención Landsfoss</b><br><br>Válvula unidireccional de alta calidad que permite el flujo de refrigerante en una sola dirección. Ideal para sistemas comerciales.`,
-        costoCompra: 10.90000000, 
+        costoCompra: 10.90000000,
         images: ["productos/VLB-VALVULA_CHECK.webp"],
         specs: { "Marca": "Landsfoss HVAC", "Tipo": "Check (Retención)" },
         variants: [
@@ -1133,12 +1172,12 @@ const products = [
         ]
     },
     {
-        id: "VLS-VARIANTE", 
-        name: "Válvula Solenoide (Flare y Soldable)", 
-        category: "Refrigeración", 
+        id: "VLS-VARIANTE",
+        name: "Válvula Solenoide (Flare y Soldable)",
+        category: "Refrigeración",
         model: "Series EVR",
         desc: `<b>Válvula Solenoide para Refrigeración</b><br><br>Válvula electromagnética para el control automático del flujo de líquido o gas refrigerante. Disponible en conexiones Flare y Soldables (ODF).`,
-        costoCompra: 23.85384615, 
+        costoCompra: 23.85384615,
         images: ["productos/VLS-VALVULA_SOLENOIDE.webp"],
         specs: { "Tipo": "Solenoide", "Control": "Electromagnético" },
         variants: [
@@ -1149,12 +1188,12 @@ const products = [
         ]
     },
     {
-        id: "VFV-VARIANTE", 
-        name: "Válvula Tipo Block Aire Central ODF", 
-        category: "Refrigeración", 
+        id: "VFV-VARIANTE",
+        name: "Válvula Tipo Block Aire Central ODF",
+        category: "Refrigeración",
         model: "Tipo Block",
         desc: `<b>Válvula de Servicio Tipo Block ODF</b><br><br>Válvula de cierre compacta tipo block para equipos de aire acondicionado central. Conexiones soldables de alta seguridad.`,
-        costoCompra: 8.61538462, 
+        costoCompra: 8.61538462,
         images: ["productos/VFV-VALVULA_TIPO_BLOCK.webp"],
         specs: { "Tipo": "Block / Cierre", "Uso": "Aire Central", "Conexión": "ODF" },
         variants: [
@@ -1166,12 +1205,12 @@ const products = [
         ]
     },
     {
-        id: "VLB-ROT-VARIANTE", 
-        name: "Válvula Rotalock para Compresor Maneurop", 
-        category: "Refrigeración", 
+        id: "VLB-ROT-VARIANTE",
+        name: "Válvula Rotalock para Compresor Maneurop",
+        category: "Refrigeración",
         model: "Rotalock",
         desc: `<b>Válvula Rotalock para Compresores Maneurop</b><br><br>Válvulas de servicio Rotalock diseñadas para facilitar el mantenimiento y aislamiento en compresores comerciales tipo Maneurop.`,
-        costoCompra: 6.06923077, 
+        costoCompra: 6.06923077,
         images: ["productos/VLB-VALVULA_ROTALOCK.webp"],
         specs: { "Tipo": "Rotalock", "Compatibilidad": "Compresores Maneurop" },
         variants: [
@@ -1187,12 +1226,12 @@ const products = [
         ]
     },
     {
-        id: "UNR-VARIANTE", 
-        name: "Unión de Bronce Flare (Niples)", 
-        category: "Refrigeración", 
+        id: "UNR-VARIANTE",
+        name: "Unión de Bronce Flare (Niples)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Unión de Bronce Flare</b><br><br>Niples de bronce macizo para empalmar tuberías de cobre con abocardado (Flare). Garantizan un sellado resistente a altas presiones.`,
-        costoCompra: 0.99230769, 
+        costoCompra: 0.99230769,
         images: ["productos/UNR-UNION_BRONCE_FLARE.webp"],
         specs: { "Material": "Bronce", "Tipo": "Unión Flare" },
         variants: [
@@ -1206,12 +1245,12 @@ const products = [
         ]
     },
     {
-        id: "SAS-VARIANTE", 
-        name: "Sensor de Temperatura para Aire Acondicionado", 
-        category: "Aires Acondicionados", 
+        id: "SAS-VARIANTE",
+        name: "Sensor de Temperatura para Aire Acondicionado",
+        category: "Aires Acondicionados",
         model: "Varios Tipos",
         desc: `<b>Sensor de Temperatura (Termistor) para A/A</b><br><br>Sensores de repuesto (sencillos y dobles) de pozo y ambiente para tarjetas electrónicas de aires acondicionados Split.`,
-        costoCompra: 1.32307692, 
+        costoCompra: 1.32307692,
         images: ["productos/SAS-SENSOR_K.webp", "productos/SAS017.webp"],
         specs: { "Tipo": "Termistor (NTC)", "Uso": "Tarjetas de Split" },
         variants: [
@@ -1225,12 +1264,12 @@ const products = [
         ]
     },
     {
-        id: "TRM-AA-VARIANTE", 
-        name: "Termostato de Aire Acondicionado Ventana", 
-        category: "Aires Acondicionados", 
+        id: "TRM-AA-VARIANTE",
+        name: "Termostato de Aire Acondicionado Ventana",
+        category: "Aires Acondicionados",
         model: "Mecánico",
         desc: `<b>Termostato para Aire Acondicionado de Ventana</b><br><br>Control de temperatura analógico con bulbo capilar para unidades de ventana.`,
-        costoCompra: 3.30769231, 
+        costoCompra: 3.30769231,
         images: ["productos/TRM004-005.webp"],
         specs: { "Tipo": "Mecánico (Bulbo)", "Uso": "A/A Ventana" },
         variants: [
@@ -1239,12 +1278,12 @@ const products = [
         ]
     },
     {
-        id: "FIL-NEV-VARIANTE", 
-        name: "Filtro Secador para Nevera (Cobre)", 
-        category: "Refrigeración", 
+        id: "FIL-NEV-VARIANTE",
+        name: "Filtro Secador para Nevera (Cobre)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Filtro Secador de Cobre para Neveras</b><br><br>Filtros deshidratadores con sílica interior para atrapar la humedad en sistemas de refrigeración doméstica. Disponibles con o sin válvula de servicio.`,
-        costoCompra: 1.49230769, 
+        costoCompra: 1.49230769,
         images: ["productos/FIL-FILTRO_CON_VALVULA.webp", "productos/FIL010.webp", "productos/FIL303.webp"],
         specs: { "Material": "Cobre", "Uso": "Refrigeración Doméstica" },
         variants: [
@@ -1263,12 +1302,12 @@ const products = [
         ]
     },
     {
-        id: "FIL-AGUA-VAR", 
-        name: "Filtro de Agua Interno para Nevera", 
-        category: "Neveras / Cavas", 
+        id: "FIL-AGUA-VAR",
+        name: "Filtro de Agua Interno para Nevera",
+        category: "Neveras / Cavas",
         model: "Samsung / Whirlpool",
         desc: `<b>Filtro Purificador de Agua para Neveras</b><br><br>Cartucho filtrante de repuesto para dispensadores de agua y fabricadores de hielo en neveras tipo Side-by-Side.`,
-        costoCompra: 5.63076923, 
+        costoCompra: 5.63076923,
         images: ["productos/FIL350.webp", "productos/FIL351.webp"],
         specs: { "Uso": "Purificación de Agua", "Instalación": "Interna" },
         variants: [
@@ -1277,12 +1316,12 @@ const products = [
         ]
     },
     {
-        id: "TMH-VARIANTE", 
-        name: "Terminales Eléctricos y Conectores", 
-        category: "Eléctrico", 
+        id: "TMH-VARIANTE",
+        name: "Terminales Eléctricos y Conectores",
+        category: "Eléctrico",
         model: "Varios Tipos",
         desc: `<b>Terminales y Conectores Eléctricos</b><br><br>Accesorios de conexión para cableado seguro. Disponibles en formato de ojal, tipo U, desconectables y regletas para cables múltiples.`,
-        costoCompra: 0.03846154, 
+        costoCompra: 0.03846154,
         images: ["productos/TMH-TERMINALES.webp"],
         specs: { "Tipo": "Terminal de Cobre/Aleación", "Uso": "Conexiones Eléctricas" },
         variants: [
@@ -1297,170 +1336,170 @@ const products = [
         ]
     },
     {
-        id: "TRA001", 
-        name: "Transformador 24V/40/240 ECNMC", 
-        category: "Eléctrico", 
+        id: "TRA001",
+        name: "Transformador 24V/40/240 ECNMC",
+        category: "Eléctrico",
         model: "24V 40VA",
         desc: `<b>Transformador de Control 24V</b><br><br>Transformador reductor para suministrar voltaje de control de 24VAC a contactores, termostatos y tarjetas electrónicas.`,
-        costoCompra: 7.28461538, 
+        costoCompra: 7.28461538,
         images: ["productos/TRA001.webp"],
         specs: { "Salida": "24VAC", "Capacidad": "40VA", "Uso": "Control HVAC" }
     },
     {
-        id: "REL301", 
-        name: "Relay Potencial 064 220V", 
-        category: "Protectores", 
+        id: "REL301",
+        name: "Relay Potencial 064 220V",
+        category: "Protectores",
         model: "064 - 220V",
         desc: `<b>Relé de Potencial 064 (220V)</b><br><br>Relé electromecánico para desconectar el capacitor de arranque una vez que el compresor alcanza su velocidad operativa.`,
-        costoCompra: 5.30000000, 
+        costoCompra: 5.30000000,
         images: ["productos/REL301.webp"],
         specs: { "Tipo": "Potencial", "Voltaje": "220V", "Modelo": "064" }
     },
     {
-        id: "REL401", 
-        name: "Relay Potencial 063 110V", 
-        category: "Protectores", 
+        id: "REL401",
+        name: "Relay Potencial 063 110V",
+        category: "Protectores",
         model: "063 - 110V",
         desc: `<b>Relé de Potencial 063 (110V)</b><br><br>Relé electromecánico diseñado para sistemas de 110V, gestiona el corte del capacitor de arranque del compresor.`,
-        costoCompra: 5.30000000, 
+        costoCompra: 5.30000000,
         images: ["productos/REL401.webp"],
         specs: { "Tipo": "Potencial", "Voltaje": "110V", "Modelo": "063" }
     },
     {
-        id: "REL302", 
-        name: "Relay Fan 360 de 24V", 
-        category: "Protectores", 
+        id: "REL302",
+        name: "Relay Fan 360 de 24V",
+        category: "Protectores",
         model: "360 - 24V",
         desc: `<b>Relé para Motor Ventilador (Fan) 360 de 24V</b><br><br>Relé de control accionado por 24V para encender motores de ventilación y sopladores en unidades centrales.`,
-        costoCompra: 3.08461538, 
+        costoCompra: 3.08461538,
         images: ["productos/REL302.webp"],
         specs: { "Uso": "Motor Ventilador (Fan)", "Bobina": "24V" }
     },
     {
-        id: "REL304", 
-        name: "Relay Fan 364 208/240V", 
-        category: "Protectores", 
+        id: "REL304",
+        name: "Relay Fan 364 208/240V",
+        category: "Protectores",
         model: "364 - 240V",
         desc: `<b>Relé para Motor Ventilador (Fan) 364</b><br><br>Relé de conmutación de alto rendimiento para motores de ventilador operados con voltaje de 208/240V.`,
-        costoCompra: 3.77692308, 
+        costoCompra: 3.77692308,
         images: ["productos/REL304.webp"],
         specs: { "Uso": "Motor Ventilador (Fan)", "Bobina": "208/240V" }
     },
     {
-        id: "REL305", 
-        name: "Relay de Potencia G7L-2A-TUB 240VAC", 
-        category: "Protectores", 
+        id: "REL305",
+        name: "Relay de Potencia G7L-2A-TUB 240VAC",
+        category: "Protectores",
         model: "G7L-2A-TUB",
         desc: `<b>Relé de Potencia G7L-2A-TUB 240VAC</b><br><br>Relé de propósito general y alta capacidad de carga, ideal para circuitos de potencia y calentadores.`,
-        costoCompra: 3.29230769, 
+        costoCompra: 3.29230769,
         images: ["productos/REL305.webp"],
         specs: { "Tipo": "Propósito General", "Voltaje": "240VAC", "Contactos": "Doble Polo" }
     },
     {
-        id: "PDV014", 
-        name: "Protector Landsfoss 220V de 60AMP ", 
-        category: "Protectores", 
+        id: "PDV014",
+        name: "Protector Landsfoss 220V de 60AMP ",
+        category: "Protectores",
         model: "60AMP 220V",
         desc: `<b>Protector de Voltaje 220V 60AMP Principal Landsfoss</b><br><br>Protector de voltaje integral para el suministro principal o equipos de alta capacidad. Soporta hasta 60 Amperios a 220V, protegiendo contra alzas, bajas y picos de tensión.`,
-        costoCompra: 33.38461538, 
+        costoCompra: 33.38461538,
         images: ["productos/PDV014.webp"],
         specs: { "Marca": "Landsfoss", "Voltaje": "220V", "Capacidad": "60 AMP" }
     },
     {
-        id: "CNT301", 
-        name: "Controlador Digital Full Gauge MT-512E 110-220V", 
-        category: "Refrigeración", 
+        id: "CNT301",
+        name: "Controlador Digital Full Gauge MT-512E 110-220V",
+        category: "Refrigeración",
         model: "MT-512E",
         desc: `<b>Controlador Digital Full Gauge MT-512E (110-220V)</b><br><br>Controlador e indicador de temperatura con deshielo natural por parada de compresor. Salida de relé potente. Bivolt (110V/220V).`,
-        costoCompra: 26.51538462, 
+        costoCompra: 26.51538462,
         images: ["productos/CNT301.webp", "productos/CNT301-2.webp"],
         specs: { "Marca": "Full Gauge", "Modelo": "MT-512E", "Voltaje": "110V-220V" }
     },
     {
-        id: "CNT324", 
-        name: "Controlador de Temperatura STC-1000 110V", 
-        category: "Refrigeración", 
+        id: "CNT324",
+        name: "Controlador de Temperatura STC-1000 110V",
+        category: "Refrigeración",
         model: "STC-1000",
         desc: `<b>Controlador de Temperatura Digital STC-1000 (110V)</b><br><br>Termostato digital multiuso con doble relé (frío/calor). Ideal para cavas, incubadoras y acuarios. Alimentación a 110V.`,
-        costoCompra: 13.25384615, 
+        costoCompra: 13.25384615,
         images: ["productos/CNT324.webp"],
         specs: { "Modelo": "STC-1000", "Voltaje": "110V", "Función": "Frío y Calor" }
     },
     {
-        id: "CNT350", 
-        name: "Sensor NTC para Controlador Full Gauge SB70", 
-        category: "Refrigeración", 
+        id: "CNT350",
+        name: "Sensor NTC para Controlador Full Gauge SB70",
+        category: "Refrigeración",
         model: "SB70 (NTC)",
         desc: `<b>Sensor de Temperatura NTC Full Gauge SB70</b><br><br>Sensor de repuesto original Full Gauge tipo NTC, compatible con la mayoría de sus controladores de temperatura.`,
-        costoCompra: 7.95384615, 
+        costoCompra: 7.95384615,
         images: ["productos/CNT350.webp"],
         specs: { "Marca": "Full Gauge", "Tipo": "Sensor NTC", "Modelo": "SB70" }
     },
     {
-        id: "TRM000", 
-        name: "Termostato Ambiental Analógico", 
-        category: "Refrigeración", 
+        id: "TRM000",
+        name: "Termostato Ambiental Analógico",
+        category: "Refrigeración",
         model: "Analógico",
         desc: `<b>Termostato Ambiental Analógico SQ</b><br><br>Termostato de control ambiental básico y resistente. Ideal para sistemas de aire acondicionado y ventilación comercial.`,
-        costoCompra: 4.63846154, 
+        costoCompra: 4.63846154,
         images: ["productos/TRM000.webp"],
         specs: { "Tipo": "Analógico", "Uso": "Ambiental", "Modelo": "SQ" }
     },
     {
-        id: "TRM006", 
-        name: "Termostato Ambiental de Perilla", 
-        category: "Refrigeración", 
+        id: "TRM006",
+        name: "Termostato Ambiental de Perilla",
+        category: "Refrigeración",
         model: "Perilla Multi Fan",
         desc: `<b>Termostato Ambiental Analógico (Perilla) Multi Fan</b><br><br>Termostato de control ambiental clásico con perilla de ajuste. Fácil instalación y manejo para sistemas de ventilación y aire acondicionado.`,
-        costoCompra: 6.63076923, 
+        costoCompra: 6.63076923,
         images: ["productos/TRM006.webp"],
         specs: { "Tipo": "Analógico (Perilla)", "Uso": "Ambiental", "Aplicación": "Multi Fan" }
     },
     {
-        id: "TRM050", 
-        name: "Termostato Lechero Económico (+30°C a -30°C) 220V", 
-        category: "Refrigeración", 
+        id: "TRM050",
+        name: "Termostato Lechero Económico (+30°C a -30°C) 220V",
+        category: "Refrigeración",
         model: "Lechero Económico",
         desc: `<b>Termostato Lechero Económico 220V</b><br><br>Termostato de bulbo capilar con rango de temperatura de +30°C a -30°C. Excelente relación calidad-precio para tanques de enfriamiento y cavas.`,
-        costoCompra: 6.06153846, 
+        costoCompra: 6.06153846,
         images: ["productos/TRM050.webp"],
         specs: { "Tipo": "Bulbo Capilar", "Rango": "+30°C a -30°C", "Voltaje": "220V" }
     },
     {
-        id: "TRM052", 
-        name: "Termostato Lechero 220V", 
-        category: "Refrigeración", 
+        id: "TRM052",
+        name: "Termostato Lechero 220V",
+        category: "Refrigeración",
         model: "Lechero HVAC",
         desc: `<b>Termostato Mecánico 220V "Lechero"</b><br><br>Termostato de bulbo capilar de alta precisión, diseñado especialmente para enfriadores de leche, tanques de agua y aplicaciones HVAC exigentes.`,
-        costoCompra: 19.89230769, 
+        costoCompra: 19.89230769,
         images: ["productos/TRM052.webp"],
         specs: { "Marca": "Landsfoss, Maxwell y Everwell", "Tipo": "Bulbo Capilar", "Voltaje": "220V" }
     },
     {
-        id: "TRM102", 
-        name: "Termostato Digital Inalámbrico Confort Start", 
-        category: "Aires Acondicionados", 
+        id: "TRM102",
+        name: "Termostato Digital Inalámbrico Confort Start",
+        category: "Aires Acondicionados",
         model: "Confort Sart",
         desc: `<b>Termostato Digital Inalámbrico Confort S</b><br><br>Moderno termostato digital con conectividad inalámbrica para controlar unidades de aire acondicionado a distancia. Pantalla LCD de fácil lectura.`,
-        costoCompra: 19.88461538, 
+        costoCompra: 19.88461538,
         images: ["productos/TRM102.webp", "productos/TRM102-2.webp", "productos/TRM102-3.webp"],
         specs: { "Tipo": "Digital Inalámbrico", "Pantalla": "LCD", "Uso": "Aires Acondicionados" }
     },
     {
-        id: "TRM107", 
-        name: "Termostato Digital Inteligente Programable Degar", 
-        category: "Aires Acondicionados", 
+        id: "TRM107",
+        name: "Termostato Digital Inteligente Programable Degar",
+        category: "Aires Acondicionados",
         model: "Degar",
         desc: `<b>Termostato Digital Programable Degar</b><br><br>Termostato avanzado para empotrar en pared, permite programar ciclos de temperatura para maximizar el confort y el ahorro energético.`,
-        costoCompra: 38.80769231, 
+        costoCompra: 38.80769231,
         images: ["productos/TRM107.webp"],
         specs: { "Marca": "Degar", "Tipo": "Digital Programable", "Uso": "Pared (A/A)" }
     },
 
     {
-        id: "TRM-CAJAS-VARIANTE", 
-        name: "Caja Protectora Acrílica para Termostatos", 
-        category: "Aires Acondicionados", 
+        id: "TRM-CAJAS-VARIANTE",
+        name: "Caja Protectora Acrílica para Termostatos",
+        category: "Aires Acondicionados",
         model: "Varias Medidas",
         desc: `<b>Caja Protectora de Acrílico con Llave</b><br><br>Caja de seguridad transparente para proteger termostatos ambientales contra manipulaciones no autorizadas en oficinas, comercios o áreas públicas. Incluye cerradura con llave.`,
         costoCompra: 5.30769231, // Costo base (Pequeña)
@@ -1473,9 +1512,9 @@ const products = [
         ]
     },
     {
-        id: "JMG-SET-VARIANTE", 
-        name: "Juego de Mangueras para Manifold (Estándar)", 
-        category: "Herramientas", 
+        id: "JMG-SET-VARIANTE",
+        name: "Juego de Mangueras para Manifold (Estándar)",
+        category: "Herramientas",
         model: "Varias Medidas",
         desc: `<b>Juego de Mangueras para Manifold (Estándar)</b><br><br>Set de 3 mangueras (roja, amarilla y azul) para manómetros de refrigeración. Disponibles en diferentes longitudes y capacidades de presión. Seleccione la medida en las opciones.`,
         costoCompra: 4.96923077, // Costo base (36")
@@ -1489,9 +1528,9 @@ const products = [
         ]
     },
     {
-        id: "JMG-IND-VARIANTE", 
-        name: "Manguera Individual para Manómetro", 
-        category: "Herramientas", 
+        id: "JMG-IND-VARIANTE",
+        name: "Manguera Individual para Manómetro",
+        category: "Herramientas",
         model: "Varias Medidas",
         desc: `<b>Manguera Individual para Manómetro</b><br><br>Manguera de repuesto vendida por unidad para manómetros de refrigeración. Ideal para reemplazar una manguera dañada sin necesidad de comprar el set completo.`,
         costoCompra: 1.66153846, // Costo base (36")
@@ -1504,9 +1543,9 @@ const products = [
         ]
     },
     {
-        id: "JMG-PREM-VARIANTE", 
-        name: "Juego de Mangueras Alta Calidad (Landsfoss)", 
-        category: "Herramientas", 
+        id: "JMG-PREM-VARIANTE",
+        name: "Juego de Mangueras Alta Calidad (Landsfoss)",
+        category: "Herramientas",
         model: "Alta Calidad",
         desc: `<b>Juego de Mangueras de Alta Calidad (Landsfoss)</b><br><br>Set de 3 mangueras premium diseñadas para técnicos exigentes. Ofrecen mayor resistencia a la presión, flexibilidad y un sellado superior en las conexiones.`,
         costoCompra: 9.34615385, // Costo base (36")
@@ -1518,199 +1557,199 @@ const products = [
         ]
     },
     {
-        id: "CTP005", 
-        name: "Contactor 3 Polos 60 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP005",
+        name: "Contactor 3 Polos 60 AMP 220V",
+        category: "Protectores",
         model: "3 Polos 60A",
         desc: `<b>Contactor Eléctrico 3 Polos 60 AMP (Bobina 220V)</b><br><br>Contactor de alta capacidad para cargas eléctricas pesadas. 3 Polos, 60 Amperios y accionamiento de bobina a 220V.`,
-        costoCompra: 18.56153846, 
+        costoCompra: 18.56153846,
         images: ["productos/CTP005.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "60 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP010", 
-        name: "Contactor de Potencia SC6511 65A 220V", 
-        category: "Protectores", 
+        id: "CTP010",
+        name: "Contactor de Potencia SC6511 65A 220V",
+        category: "Protectores",
         model: "SC6511",
         desc: `<b>Contactor de Potencia SC6511 65A 220V</b><br><br>Contactor de potencia serie SC para aplicaciones industriales exigentes. Maneja hasta 65 Amperios con bobina de 220V.`,
-        costoCompra: 33.15384615, 
+        costoCompra: 33.15384615,
         images: ["productos/CTP010.webp"],
         specs: { "Modelo": "SC6511", "Amperaje": "65 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP011", 
-        name: "Contactor de Potencia SC4011 40A 220V", 
-        category: "Protectores", 
+        id: "CTP011",
+        name: "Contactor de Potencia SC4011 40A 220V",
+        category: "Protectores",
         model: "SC4011",
         desc: `<b>Contactor de Potencia SC4011 40A 220V</b><br><br>Contactor industrial serie SC diseñado para controlar motores y sistemas de hasta 40 Amperios. Bobina de 220V.`,
-        costoCompra: 23.86153846, 
+        costoCompra: 23.86153846,
         images: ["productos/CTP011.webp"],
         specs: { "Modelo": "SC4011", "Amperaje": "40 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP012", 
-        name: "Contactor 3 Polos 50 AMP 24V", 
-        category: "Protectores", 
+        id: "CTP012",
+        name: "Contactor 3 Polos 50 AMP 24V",
+        category: "Protectores",
         model: "3 Polos 50A",
         desc: `<b>Contactor Eléctrico 3 Polos 50 AMP (Bobina 24V)</b><br><br>Contactor trifásico de 50 Amperios, diseñado para sistemas de control de baja tensión con bobina de 24V.`,
-        costoCompra: 17.90000000, 
+        costoCompra: 17.90000000,
         images: ["productos/CTP012.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "50 AMP", "Voltaje de Bobina": "24V" }
     },
     {
-        id: "CTP015", 
-        name: "Contactor 3 Polos 60 AMP 220V Chint", 
-        category: "Protectores", 
+        id: "CTP015",
+        name: "Contactor 3 Polos 60 AMP 220V Chint",
+        category: "Protectores",
         model: "Chint 60A",
         desc: `<b>Contactor 3 Polos 60 AMP 220V Chint</b><br><br>Contactor industrial marca Chint. Alta capacidad de corte para sistemas pesados de 60 Amperios con control a 220V.`,
-        costoCompra: 18.47692308, 
+        costoCompra: 18.47692308,
         images: ["productos/CTP015.webp"],
         specs: { "Marca": "Chint", "Polos": "3 Polos", "Amperaje": "60 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "ACT401", 
-        name: "Aceite 68 Mineral de Galón Suniso 4GS", 
-        category: "Químicos", 
+        id: "ACT401",
+        name: "Aceite 68 Mineral de Galón Suniso 4GS",
+        category: "Químicos",
         model: "4GS ISO 68",
         desc: `<b>Aceite 68 Mineral de Galón Suniso 4GS ISO P</b><br><br>Aceite mineral de alta calidad marca Suniso. Presentación en galón, ideal para la lubricación de compresores de refrigeración comercial e industrial.`,
-        costoCompra: 35.14615385, 
+        costoCompra: 35.14615385,
         images: ["productos/ACT401.webp"],
         specs: { "Marca": "Suniso", "Tipo": "Mineral (4GS)", "Presentación": "Galón" }
     },
     {
-        id: "CTP001", 
-        name: "Contactor 2 Polos 40 AMP 24V", 
-        category: "Protectores", 
+        id: "CTP001",
+        name: "Contactor 2 Polos 40 AMP 24V",
+        category: "Protectores",
         model: "2 Polos 40A",
         desc: `<b>Contactor Eléctrico 2 Polos 40 AMP (Bobina 24V)</b><br><br>Contactor de propósito definido de 2 polos para control de cargas eléctricas en sistemas de aire acondicionado y refrigeración. Bobina de 24V.`,
-        costoCompra: 6.63076923, 
+        costoCompra: 6.63076923,
         images: ["productos/CTP001.webp", "productos/CTP001-2.webp"],
         specs: { "Polos": "2 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "24V" }
     },
     {
-        id: "CTP009", 
-        name: "Contactor 2 Polos 40 AMP 110V", 
-        category: "Protectores", 
+        id: "CTP009",
+        name: "Contactor 2 Polos 40 AMP 110V",
+        category: "Protectores",
         model: "2 Polos 40A",
         desc: `<b>Contactor Eléctrico 2 Polos 40 AMP (Bobina 110V)</b><br><br>Contactor de propósito definido de 2 polos, ideal para el arranque seguro de equipos con voltaje de control de 110V.`,
-        costoCompra: 5.30000000, 
+        costoCompra: 5.30000000,
         images: ["productos/CTP009.webp", "productos/CTP009-2.webp"],
         specs: { "Polos": "2 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "110V" }
     },
     {
-        id: "CTP002", 
-        name: "Contactor 2 Polos 40 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP002",
+        name: "Contactor 2 Polos 40 AMP 220V",
+        category: "Protectores",
         model: "2 Polos 40A",
         desc: `<b>Contactor Eléctrico 2 Polos 40 AMP (Bobina 220V)</b><br><br>Contactor de potencia de 2 polos, diseñado para sistemas que requieren un voltaje de bobina de 220V. Excelente conductividad y resistencia.`,
-        costoCompra: 6.63076923, 
+        costoCompra: 6.63076923,
         images: ["productos/CTP002.webp", "productos/CTP002-2.webp"],
         specs: { "Polos": "2 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP003", 
-        name: "Contactor 3 Polos 40 AMP 24V", 
-        category: "Protectores", 
+        id: "CTP003",
+        name: "Contactor 3 Polos 40 AMP 24V",
+        category: "Protectores",
         model: "3 Polos 40A",
         desc: `<b>Contactor Eléctrico 3 Polos 40 AMP (Bobina 24V)</b><br><br>Contactor trifásico / 3 polos de alto rendimiento para el control de motores y compresores. Voltaje de accionamiento de la bobina: 24V.`,
-        costoCompra: 8.29230769, 
+        costoCompra: 8.29230769,
         images: ["productos/CTP003.webp", "productos/CTP003-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "24V" }
     },
     {
-        id: "CTP004", 
-        name: "Contactor 3 Polos 40 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP004",
+        name: "Contactor 3 Polos 40 AMP 220V",
+        category: "Protectores",
         model: "3 Polos 40A",
         desc: `<b>Contactor Eléctrico 3 Polos 40 AMP (Bobina 220V)</b><br><br>Contactor de 3 polos de uso pesado para sistemas de climatización comercial e industrial. Bobina de 220V.`,
-        costoCompra: 7.94615385, 
+        costoCompra: 7.94615385,
         images: ["productos/CTP004.webp", "productos/CTP004-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP006", 
-        name: "Contactor 3 Polos 50 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP006",
+        name: "Contactor 3 Polos 50 AMP 220V",
+        category: "Protectores",
         model: "3 Polos 50A",
         desc: `<b>Contactor Eléctrico 3 Polos 50 AMP (Bobina 220V)</b><br><br>Contactor de gran capacidad (50 Amperios) y 3 polos. Ideal para cargas industriales de alta demanda con control a 220V.`,
-        costoCompra: 14.62307692, 
+        costoCompra: 14.62307692,
         images: ["productos/CTP006.webp", "productos/CTP006-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "50 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP007", 
-        name: "Contactor 3 Polos 90 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP007",
+        name: "Contactor 3 Polos 90 AMP 220V",
+        category: "Protectores",
         model: "3 Polos 90A",
         desc: `<b>Contactor Eléctrico 3 Polos 90 AMP (Bobina 220V)</b><br><br>Contactor industrial de máxima capacidad (90 Amperios) diseñado para el control seguro de maquinaria pesada y grandes compresores. Bobina 220V.`,
-        costoCompra: 62.99230769, 
+        costoCompra: 62.99230769,
         images: ["productos/CTP007.webp", "productos/CTP007-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "90 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP008", 
-        name: "Contactor 3 Polos 30 AMP 110V", 
-        category: "Protectores", 
+        id: "CTP008",
+        name: "Contactor 3 Polos 30 AMP 110V",
+        category: "Protectores",
         model: "3 Polos 30A",
         desc: `<b>Contactor Eléctrico 3 Polos 30 AMP (Bobina 110V)</b><br><br>Dispositivo de conmutación de 3 polos con soporte de 30 Amperios y accionamiento mediante bobina de 110V.`,
-        costoCompra: 9.94615385, 
+        costoCompra: 9.94615385,
         images: ["productos/CTP008.webp", "productos/CTP008-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "30 AMP", "Voltaje de Bobina": "110V" }
     },
     {
-        id: "CTP013", 
-        name: "Contactor 3 Polos 40 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP013",
+        name: "Contactor 3 Polos 40 AMP 220V",
+        category: "Protectores",
         model: "Pickens LC1",
         desc: `<b>Contactor 3 Polos 40 AMP 220V Pickens LC1</b><br><br>Contactor de grado industrial marca Pickens serie LC1. Garantiza durabilidad y resistencia en el manejo de cargas de 40 Amperios a 220V.`,
-        costoCompra: 49.73076923, 
+        costoCompra: 49.73076923,
         images: ["productos/CTP013.webp"],
         specs: { "Marca": "Pickens", "Polos": "3 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP014", 
-        name: "Contactor 3 Polos 32 AMP 110V", 
-        category: "Protectores", 
+        id: "CTP014",
+        name: "Contactor 3 Polos 32 AMP 110V",
+        category: "Protectores",
         model: "Chint 32A",
         desc: `<b>Contactor 3 Polos 32 AMP 110V Chint</b><br><br>Contactor de alta fiabilidad de la reconocida marca Chint. Configuración de 3 polos, 32 Amperios y bobina de accionamiento a 110V.`,
-        costoCompra: 7.19230769, 
+        costoCompra: 7.19230769,
         images: ["productos/CTP014.webp", "productos/CTP014-2.webp"],
         specs: { "Marca": "Chint", "Polos": "3 Polos", "Amperaje": "32 AMP", "Voltaje de Bobina": "110V" }
     },
     {
-        id: "CTP016", 
-        name: "Contactor 3 Polos 30 AMP 220V", 
-        category: "Protectores", 
+        id: "CTP016",
+        name: "Contactor 3 Polos 30 AMP 220V",
+        category: "Protectores",
         model: "3 Polos 30A",
         desc: `<b>Contactor Eléctrico 3 Polos 30 AMP (Bobina 220V)</b><br><br>Contactor trifásico estándar para el manejo eficiente de circuitos y motores. Capacidad de 30 Amperios con bobina 220V.`,
-        costoCompra: 6.63076923, 
+        costoCompra: 6.63076923,
         images: ["productos/CTP016.webp", "productos/CTP016-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "30 AMP", "Voltaje de Bobina": "220V" }
     },
     {
-        id: "CTP017", 
-        name: "Contactor 3 Polos 30 AMP 24V", 
-        category: "Protectores", 
+        id: "CTP017",
+        name: "Contactor 3 Polos 30 AMP 24V",
+        category: "Protectores",
         model: "3 Polos 30A",
         desc: `<b>Contactor Eléctrico 3 Polos 30 AMP (Bobina 24V)</b><br><br>Contactor de 3 polos diseñado para sistemas de control de baja tensión con bobina de 24V. Soporta hasta 30 Amperios.`,
-        costoCompra: 7.29230769, 
+        costoCompra: 7.29230769,
         images: ["productos/CTP017.webp", "productos/CTP017-2.webp"],
         specs: { "Polos": "3 Polos", "Amperaje": "30 AMP", "Voltaje de Bobina": "24V" }
     },
     {
-        id: "CNT012", 
-        name: "Contactor 3 Polos 40 AMP 110V", 
-        category: "Protectores", 
+        id: "CNT012",
+        name: "Contactor 3 Polos 40 AMP 110V",
+        category: "Protectores",
         model: "Chint 40A",
         desc: `<b>Contactor 3 Polos 40 AMP 110V</b><br><br>Contactor industrial marca Chint. Alta capacidad de corte y conducción eléctrica segura para sistemas de 40 Amperios con control de 110V.`,
-        costoCompra: 9.94615385, 
+        costoCompra: 9.94615385,
         images: ["productos/CNT012.webp", "productos/CNT012-2.webp"],
         specs: { "Marca": "Chint", "Polos": "3 Polos", "Amperaje": "40 AMP", "Voltaje de Bobina": "110V" }
     },
     {
-        id: "TUB-CAP-VARIANTE", 
-        name: "Tubo Capilar de Cobre (Varias Medidas) (Por Metro)", 
-        category: "Refrigeración", 
+        id: "TUB-CAP-VARIANTE",
+        name: "Tubo Capilar de Cobre (Varias Medidas) (Por Metro)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Tubo Capilar de Cobre</b><br><br>Tubería capilar de cobre de alta precisión, esencial para la expansión y control de flujo de gas en sistemas de refrigeración. Seleccione la medida requerida en las opciones.`,
         costoCompra: 0.43846154, // Costo base (0.26)
@@ -1731,9 +1770,9 @@ const products = [
         ]
     },
     {
-        id: "TUB-FLEX-VARIANTE", 
-        name: "Tubería Flexible de Cobre (Varias Medidas) (Por Metro)", 
-        category: "Refrigeración", 
+        id: "TUB-FLEX-VARIANTE",
+        name: "Tubería Flexible de Cobre (Varias Medidas) (Por Metro)",
+        category: "Refrigeración",
         model: "Rollo Flexible",
         desc: `<b>Tubería Flexible de Cobre (Pancake)</b><br><br>Rollo de tubería de cobre flexible, ideal para la instalación de aires acondicionados y sistemas de refrigeración. Resistente a altas presiones. Seleccione la medida.`,
         costoCompra: 2.16923077, // Costo base (1/4")
@@ -1751,59 +1790,59 @@ const products = [
         ]
     },
     {
-        id: "CRU002", 
-        name: "Tarjeta Universal Con Control Remoto Para Aires Acondicionados 220V", 
-        category: "Aires Acondicionados", 
+        id: "CRU002",
+        name: "Tarjeta Universal Con Control Remoto Para Aires Acondicionados 220V",
+        category: "Aires Acondicionados",
         model: "QD-U02B",
         desc: `<b>Tarjeta Universal Con Control Remoto Para Aires Acondicionados 220V</b><br><br>Placa de control universal para reparación y actualización de aires acondicionados a 220V. Incluye control remoto y terminales de conexión.`,
-        costoCompra: 10.77692308, 
+        costoCompra: 10.77692308,
         images: ["productos/CRU002.webp"],
         specs: { "Tipo": "Tarjeta Electrónica", "Voltaje": "220V", "Incluye": "Control Remoto" }
     },
     {
-        id: "CRU003", 
-        name: "Tarjeta Universal Con Display Inteligente y Control Remoto para Aires Acondicionados 220v", 
-        category: "Aires Acondicionados", 
+        id: "CRU003",
+        name: "Tarjeta Universal Con Display Inteligente y Control Remoto para Aires Acondicionados 220v",
+        category: "Aires Acondicionados",
         model: "QD-U11A",
         desc: `<b>Tarjeta Universal Con Display Inteligente y Control Remoto para Aires Acondicionados 220v</b><br><br>Placa de control universal para aires acondicionados. Incluye display digital de temperatura y control remoto para una visualización y manejo cómodos.`,
-        costoCompra: 16.57692308, 
+        costoCompra: 16.57692308,
         images: ["productos/CRU003.webp", "productos/CRU003 (2).webp"],
         specs: { "Tipo": "Tarjeta Electrónica", "Compatibilidad": "Universal", "Incluye": "Display y Control Remoto" }
     },
     {
-        id: "CRU005", 
-        name: "Tarjeta Universal Con Control Remoto para Aires Acondicionados 110V", 
-        category: "Aires Acondicionados", 
+        id: "CRU005",
+        name: "Tarjeta Universal Con Control Remoto para Aires Acondicionados 110V",
+        category: "Aires Acondicionados",
         model: "QD-U02B (SW)",
         desc: `<b>Tarjeta Universal Con Control Remoto para Aires Acondicionados 110V</b><br><br>Placa de control universal específica para la reparación y modernización de aires acondicionados con alimentación a 110V. Incluye control remoto.`,
-        costoCompra: 10.78461538, 
+        costoCompra: 10.78461538,
         images: ["productos/CRU005.webp"],
         specs: { "Tipo": "Tarjeta Electrónica", "Voltaje": "110V", "Incluye": "Control Remoto" }
     },
     {
-        id: "CRU010", 
-        name: "Tarjeta Universal con Control para Aires Acondicionados 220v para Motores PG", 
-        category: "Aires Acondicionados", 
+        id: "CRU010",
+        name: "Tarjeta Universal con Control para Aires Acondicionados 220v para Motores PG",
+        category: "Aires Acondicionados",
         model: "QD-U05PGC+",
         desc: `<b>Tarjeta Universal con Control para Aires Acondicionados 220v para Motores PG</b><br><br>Sistema de control universal avanzado para aires acondicionados, modelo QD-U05PGC+ con soporte para motores PG (ventiladores con sensor de velocidad). Incluye display y control remoto.`,
-        costoCompra: 11.83846154, 
+        costoCompra: 11.83846154,
         images: ["productos/CRU010.webp"],
         specs: { "Tipo": "Tarjeta Electrónica", "Modelo": "QD-U05PGC+", "Motor compatible": "Motores PG" }
     },
     {
-        id: "CRU011", 
-        name: "Tarjeta Universal Degar Con Control Remoto para Aires Acondicionados 220V", 
-        category: "Aires Acondicionados", 
+        id: "CRU011",
+        name: "Tarjeta Universal Degar Con Control Remoto para Aires Acondicionados 220V",
+        category: "Aires Acondicionados",
         model: "EL-QD-U02B",
         desc: `<b>Tarjeta Universal Degar Con Control Remoto para Aires Acondicionados 220V</b><br><br>Placa de control electrónico de alta calidad de la marca Degar para aires acondicionados de 220V. Garantía de durabilidad. Incluye control remoto.`,
-        costoCompra: 13.66153846, 
+        costoCompra: 13.66153846,
         images: ["productos/CRU011.webp"],
         specs: { "Marca": "Degar", "Voltaje": "220V", "Incluye": "Control Remoto" }
     },
-{
-        id: "CAP-NEGRO-VAR", 
-        name: "Capacitor Cuadrado Negro (Varias Medidas)", 
-        category: "Capacitores", 
+    {
+        id: "CAP-NEGRO-VAR",
+        name: "Capacitor Cuadrado Negro (Varias Medidas)",
+        category: "Capacitores",
         model: "Varias Medidas",
         desc: `<b>Capacitor Cuadrado Negro 450V</b><br><br>Capacitor de marcha de resina plástica negra. Ideal para motores de ventilador de consolas y equipos de aire acondicionado. Por favor, seleccione la capacitancia (MFD) que necesita.`,
         costoCompra: 0.39787798, // Costo base (1 MFD)
@@ -1833,9 +1872,9 @@ const products = [
         ]
     },
     {
-        id: "CAP-METAL-VAR", 
-        name: "Capacitor Metálico de Marcha (Varias Medidas)", 
-        category: "Capacitores", 
+        id: "CAP-METAL-VAR",
+        name: "Capacitor Metálico de Marcha (Varias Medidas)",
+        category: "Capacitores",
         model: "Varias Medidas",
         desc: `<b>Capacitor de Marcha Metálico (Sencillo y Dual)</b><br><br>Capacitor cilíndrico de aluminio para el arranque y marcha continua de compresores y ventiladores de aire acondicionado. Resistente y duradero.`,
         costoCompra: 1.06100796, // Costo base (4 MFD)
@@ -1866,7 +1905,7 @@ const products = [
             { id: "CAP036", name: "80 MFD 370/450V", costoCompra: 3.64721485 },
             { id: "CAP037", name: "85 MFD 370/450V", costoCompra: 3.81299735 },
             { id: "CAP039", name: "100 MFD 370/450V", costoCompra: 5.96816976 },
-            
+
             // Dobles (Dual) Mantenidos
             { id: "CAP042", name: "20+5 MFD 440V", costoCompra: 2.50000000 },
             { id: "CAP040", name: "25+5 MFD 440V", costoCompra: 2.50000000 },
@@ -1890,9 +1929,9 @@ const products = [
         ]
     },
     {
-        id: "CAP-BOMBA-VAR", 
-        name: "Capacitor para Bomba de Agua (Varias Medidas)", 
-        category: "Capacitores", 
+        id: "CAP-BOMBA-VAR",
+        name: "Capacitor para Bomba de Agua (Varias Medidas)",
+        category: "Capacitores",
         model: "Varias Medidas",
         desc: `<b>Capacitor para Bomba de Agua</b><br><br>Capacitor cilíndrico recubierto, ideal para el arranque y funcionamiento de bombas de agua periféricas y centrífugas. Por favor seleccione la capacidad.`,
         costoCompra: 0.90000000, // Costo base (20 MFD)
@@ -1923,9 +1962,9 @@ const products = [
         ]
     },
     {
-        id: "CAP-ARRANQUE-VAR", 
-        name: "Capacitor de Arranque (Varias Medidas)", 
-        category: "Capacitores", 
+        id: "CAP-ARRANQUE-VAR",
+        name: "Capacitor de Arranque (Varias Medidas)",
+        category: "Capacitores",
         model: "Varias Medidas",
         desc: `<b>Capacitor de Arranque (Start Capacitor)</b><br><br>Capacitor electrolítico diseñado para proporcionar el torque inicial necesario para arrancar compresores pesados. Alta fiabilidad comercial e industrial.`,
         costoCompra: 1.54615385, // Costo base (88-106 uF)
@@ -1961,7 +2000,7 @@ const products = [
             { id: "CAP154", name: "708-850 µF 110/125V", costoCompra: 3.80769231 },
             { id: "CAP145", name: "720-864 µF 110/125V", costoCompra: 4.58461538 },
             { id: "CAP160", name: "829-995 µF 110/125V", costoCompra: 3.77692308 },
-            
+
             // Rango 220/250V
             { id: "CAP127", name: "88-106 µF 220/250V", costoCompra: 2.43076923 },
             { id: "CAP150", name: "88-108 µF 220/250V", costoCompra: 2.43076923 },
@@ -2001,9 +2040,9 @@ const products = [
         ]
     },
     {
-        id: "ANC-VARIANTE", 
-        name: "Anillo de Cobre Soldable (Varias Medidas)", 
-        category: "Refrigeración", 
+        id: "ANC-VARIANTE",
+        name: "Anillo de Cobre Soldable (Varias Medidas)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Anillo de Cobre Soldable</b><br><br>Cople o anillo de cobre de alta pureza diseñado para unir tuberías de refrigeración y aire acondicionado mediante soldadura. Seleccione la medida requerida.`,
         costoCompra: 0.14615385, // Costo base (1/4")
@@ -2021,9 +2060,9 @@ const products = [
         ]
     },
     {
-        id: "VRA-VARIANTE", 
-        name: "Válvula Restrictora (Varios Tamaños)", 
-        category: "Refrigeración", 
+        id: "VRA-VARIANTE",
+        name: "Válvula Restrictora (Varios Tamaños)",
+        category: "Refrigeración",
         model: "Varios Modelos",
         desc: `<b>Válvula Restrictora para Aire Acondicionado</b><br><br>Válvula restrictora (pistón) de precisión para controlar el flujo de refrigerante en sistemas de aire acondicionado. Modelos disponibles por capacidad (BTU o HP).`,
         costoCompra: 1.74615385, // Costo base (12k BTU)
@@ -2043,9 +2082,9 @@ const products = [
         ]
     },
     {
-        id: "VRS-VARIANTE", 
-        name: "Válvula de Servicio para Split (Varias Medidas)", 
-        category: "Refrigeración", 
+        id: "VRS-VARIANTE",
+        name: "Válvula de Servicio para Split (Varias Medidas)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Válvula de Servicio para Aires Acondicionados Split</b><br><br>Válvula de servicio de latón de alta calidad para condensadoras de equipos Split. Permite retener y liberar el paso de gas refrigerante de forma segura. Seleccione la medida requerida.`,
         costoCompra: 2.10769231, // Costo base (1/4)
@@ -2061,12 +2100,12 @@ const products = [
         ]
     },
     {
-        id: "VAL-PINCHAR-VARIANTE", 
-        name: "Válvula de Pinchar (Varios Tamaños)", 
-        category: "Herramientas", 
+        id: "VAL-PINCHAR-VARIANTE",
+        name: "Válvula de Pinchar (Varios Tamaños)",
+        category: "Herramientas",
         model: "Válvula Perforadora",
         desc: `<b>Válvula de Pinchar / Perforadora para Tuberías</b><br><br>Válvula para perforar tuberías de refrigeración selladas sin necesidad de soldar, permitiendo la toma de presión o carga de gas rápida.`,
-        costoCompra: 1.75384615, 
+        costoCompra: 1.75384615,
         images: ["productos/VAL002-003.webp"],
         specs: { "Tipo": "De Pinchar (Perforadora)", "Uso": "Acceso a líneas selladas", "Material": "Aleación metálica" },
         variants: [
@@ -2075,19 +2114,19 @@ const products = [
         ]
     },
     {
-        id: "VAL001", 
-        name: "Válvula de Servicio Soldable con Gusanillo 1/4\"", 
-        category: "Refrigeración", 
+        id: "VAL001",
+        name: "Válvula de Servicio Soldable con Gusanillo 1/4\"",
+        category: "Refrigeración",
         model: "1/4 Pulgada",
         desc: `<b>Válvula de Servicio Soldable 1/4\" con Gusanillo</b><br><br>Válvula de acceso de cobre soldable (tipo gusanillo) de 1/4 de pulgada. Incluye tapa y núcleo (obús) para la carga y descarga de gas en sistemas de refrigeración.`,
-        costoCompra: 0.33076923, 
+        costoCompra: 0.33076923,
         images: ["productos/VAL001.webp"],
         specs: { "Medida": "1/4\"", "Tipo": "Soldable con Gusanillo", "Incluye": "Núcleo y Tapa" }
     },
     {
-        id: "TEE-VARIANTE", 
-        name: "Conexion en T de Cobre (Varias Medidas)", 
-        category: "Refrigeración", 
+        id: "TEE-VARIANTE",
+        name: "Conexion en T de Cobre (Varias Medidas)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Tee de Cobre para Soldar</b><br><br>Conexión en T de cobre de alta calidad, indispensable para derivaciones en sistemas de tuberías de aire acondicionado y refrigeración. Seleccione la medida requerida.`,
         costoCompra: 0.40000000, // Costo base (Tee 1/2)
@@ -2104,9 +2143,9 @@ const products = [
         ]
     },
     {
-        id: "COC-VARIANTE", 
-        name: "Codo de Cobre Soldable (Varias Medidas)", 
-        category: "Refrigeración", 
+        id: "COC-VARIANTE",
+        name: "Codo de Cobre Soldable (Varias Medidas)",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Codo de Cobre Soldable</b><br><br>Codo de cobre duradero para realizar giros y conexiones precisas en las líneas de refrigeración. Máxima resistencia a la presión. Seleccione la medida.`,
         costoCompra: 0.48461538, // Costo base
@@ -2126,12 +2165,12 @@ const products = [
         ]
     },
     {
-        id: "ADU-VARIANTE", 
-        name: "Adaptadores de Bronce (R22 a R410 y R410 a R22)", 
-        category: "Refrigeración", 
+        id: "ADU-VARIANTE",
+        name: "Adaptadores de Bronce (R22 a R410 y R410 a R22)",
+        category: "Refrigeración",
         model: "Varios Tipos",
         desc: `<b>Adaptadores de Conexión R22 / R410</b><br><br>Adaptador metálico indispensable para las mangueras de los manómetros al trabajar con equipos de nueva generación R410A o R22 tradicional.`,
-        costoCompra: 1.32307692, 
+        costoCompra: 1.32307692,
         images: ["productos/ADU300-350.webp"],
         specs: { "Tipo": "Adaptador de Rosca", "Material": "Bronce" },
         variants: [
@@ -2140,12 +2179,12 @@ const products = [
         ]
     },
     {
-        id: "TUR-VARIANTE", 
-        name: "Tuerca Reforzada de Bronce", 
-        category: "Refrigeración", 
+        id: "TUR-VARIANTE",
+        name: "Tuerca Reforzada de Bronce",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Tuerca Reforzada para Conexiones Flare</b><br><br>Tuerca de bronce macizo forjado y reforzado. Asegura un sellado impecable y duradero en conexiones abocinadas (flare).`,
-        costoCompra: 0.86153846, 
+        costoCompra: 0.86153846,
         images: ["productos/TUR001---007.webp"],
         specs: { "Material": "Bronce", "Tipo": "Reforzada", "Uso": "Sistemas Flare" },
         variants: [
@@ -2159,19 +2198,19 @@ const products = [
         ]
     },
     {
-        id: "MCP003", 
-        name: "Medidor de Tubo Capilar Maxwell", 
-        category: "Herramientas", 
+        id: "MCP003",
+        name: "Medidor de Tubo Capilar Maxwell",
+        category: "Herramientas",
         model: "Regla Medidora",
         desc: `<b>Medidor Capilar Maxwell</b><br><br>Plantilla de medición de precisión para tubos capilares. Incluye aguja limpiadora. Una herramienta obligatoria para garantizar la expansión correcta del gas.`,
-        costoCompra: 9.66153846, 
+        costoCompra: 9.66153846,
         images: ["productos/MCP003.webp"],
         specs: { "Marca": "Maxwell", "Herramienta": "Medidor de Capilar", "Incluye": "Aguja Limpiadora" }
     },
     {
-        id: "ROL-VARIANTE", 
-        name: "Rolineras y Rodamientos (Varias Medidas)", 
-        category: "Motores", 
+        id: "ROL-VARIANTE",
+        name: "Rolineras y Rodamientos (Varias Medidas)",
+        category: "Motores",
         model: "Varias Medidas",
         desc: `<b>Rodamientos y Rolineras para Motores</b><br><br>Rolineras de alta calidad con sello de goma (RS/2RS) o metálico (ZZ), garantizando un rodamiento suave, silencioso y resistente al polvo. Seleccione el modelo específico.`,
         costoCompra: 0.86153846, // Costo base visual
@@ -2214,320 +2253,320 @@ const products = [
         ]
     },
     {
-        id: "ACT037", 
-        name: "Aceite Sintético EmkarOil (RBV) POE 32H de 1Lts", 
-        category: "Químicos", 
+        id: "ACT037",
+        name: "Aceite Sintético EmkarOil (RBV) POE 32H de 1Lts",
+        category: "Químicos",
         model: "RL32H",
         desc: `<b>Aceite Sintético EmkarOil (RBV) POE 32H de 1Lts</b><br><br>Lubricante sintético premium EmkarOil (RBV) POE 32H. Formulado específicamente para un rendimiento óptimo en sistemas de refrigeración modernos.`,
-        costoCompra: 9.94694960, 
+        costoCompra: 9.94694960,
         images: ["productos/ACT037.webp"],
         specs: { "Marca": "RBV", "Tipo": "Sintético POE", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT030", 
-        name: "Aceite Sintético POE 68H de 1Lts para R410/R134", 
-        category: "Químicos", 
+        id: "ACT030",
+        name: "Aceite Sintético POE 68H de 1Lts para R410/R134",
+        category: "Químicos",
         model: "POE 68H",
         desc: `<b>Aceite Sintético POE 68H 1 Litro</b><br><br>Aceite lubricante sintético de alta calidad para compresores de refrigeración. Especialmente formulado para trabajar con gases refrigerantes R410 y R134.`,
-        costoCompra: 9.93846154, 
+        costoCompra: 9.93846154,
         images: ["productos/ACT030.webp"],
         specs: { "Tipo": "Sintético POE", "Viscosidad": "68H", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT032", 
-        name: "Aceite Sintético POE 32H de 1Lts para R410/R134", 
-        category: "Químicos", 
+        id: "ACT032",
+        name: "Aceite Sintético POE 32H de 1Lts para R410/R134",
+        category: "Químicos",
         model: "POE 32H",
         desc: `<b>Aceite Sintético POE 32H 1 Litro</b><br><br>Aceite lubricante sintético de alto rendimiento formulado para compresores que operan con gases refrigerantes R410 y R134.`,
-        costoCompra: 8.61538462, 
+        costoCompra: 8.61538462,
         images: ["productos/ACT032.webp"],
         specs: { "Tipo": "Sintético POE", "Viscosidad": "32H", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT011", 
-        name: "Aceite 68 Mineral de 1Lts 4GS Landsfoss", 
-        category: "Químicos", 
+        id: "ACT011",
+        name: "Aceite 68 Mineral de 1Lts 4GS Landsfoss",
+        category: "Químicos",
         model: "4GS 68 Mineral",
         desc: `<b>Aceite 68 Mineral 1 Litro 4GS Landsfoss</b><br><br>Aceite mineral 4GS de grado premium marca Landsfoss. Ideal para sistemas de aire acondicionado y refrigeración comercial.`,
-        costoCompra: 4.36153846, 
+        costoCompra: 4.36153846,
         images: ["productos/ACT011.webp"],
         specs: { "Marca": "Landsfoss", "Tipo": "Mineral", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT403", 
-        name: "Aceite Sintético RL 68H Emkarate de Lata", 
-        category: "Químicos", 
+        id: "ACT403",
+        name: "Aceite Sintético RL 68H Emkarate de Lata",
+        category: "Químicos",
         model: "POE 68H",
         desc: `<b>Aceite Sintético Emkarate RL 68H de Lata (1Lts)</b><br><br>Aceite sintético original Emkarate RL 68H en presentación de lata de 1 Litro. Máxima protección y lubricación para compresores.`,
-        costoCompra: 35.75384615, 
+        costoCompra: 35.75384615,
         images: ["productos/ACT403.webp"],
         specs: { "Marca": "Emkarate", "Tipo": "Sintético POE", "Presentación": "Lata de 1 Litro" }
     },
     {
-        id: "ACT036", 
-        name: "Aceite Sintético RL 32H Emkarate de Lata", 
-        category: "Químicos", 
+        id: "ACT036",
+        name: "Aceite Sintético RL 32H Emkarate de Lata",
+        category: "Químicos",
         model: "RL32H",
         desc: `<b>Aceite Sintético Emkarate RL 32H de Lata (1Lts)</b><br><br>Lubricante sintético premium Emkarate RL32. Formulado específicamente para un rendimiento óptimo en sistemas de refrigeración modernos.`,
-        costoCompra: 35.75384615, 
+        costoCompra: 35.75384615,
         images: ["productos/ACT036.webp"],
         specs: { "Marca": "Emkarate", "Tipo": "Sintético POE", "Presentación": "Lata de 1 Litro" }
     },
     {
-        id: "ACT043", 
-        name: "Aceite Para Bomba de Vacío de 1Lts Maslex", 
-        category: "Químicos", 
+        id: "ACT043",
+        name: "Aceite Para Bomba de Vacío de 1Lts Maslex",
+        category: "Químicos",
         model: "Bomba de Vacío 1L",
         desc: `<b>Aceite Para Bomba de Vacío 1 Litro Maslex</b><br><br>Aceite especializado de alta pureza para bombas de vacío. Garantiza la máxima eficiencia y prolonga la vida útil de su equipo.`,
-        costoCompra: 6.43846154, 
+        costoCompra: 6.43846154,
         images: ["productos/ACT043.webp"],
         specs: { "Marca": "Maslex", "Tipo": "Aceite para Bomba", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT040", 
-        name: "Aceite Para Bomba de Vacío de 8 Oz Landsfoss", 
-        category: "Químicos", 
+        id: "ACT040",
+        name: "Aceite Para Bomba de Vacío de 8 Oz Landsfoss",
+        category: "Químicos",
         model: "Bomba de Vacío 8Oz",
         desc: `<b>Aceite Para Bomba de Vacío 8 Onzas Landsfoss</b><br><br>Aceite premium para mantenimiento y óptimo funcionamiento de bombas de vacío. Presentación práctica de 8 onzas.`,
-        costoCompra: 2.64615385, 
+        costoCompra: 2.64615385,
         images: ["productos/ACT040.webp"],
         specs: { "Marca": "Landsfoss", "Tipo": "Aceite para Bomba", "Presentación": "8 Onzas" }
     },
     {
-        id: "ACT045", 
-        name: "Aceite POE 32 de 1Lts 100% Puro Maslex", 
-        category: "Químicos", 
+        id: "ACT045",
+        name: "Aceite POE 32 de 1Lts 100% Puro Maslex",
+        category: "Químicos",
         model: "POE-32",
         desc: `<b>Aceite POE 32 1 Litro 100% Puro Maslex</b><br><br>Aceite sintético POE-32 de máxima pureza. Excelente estabilidad térmica para sistemas de refrigeración y aires acondicionados.`,
-        costoCompra: 25.20769231, 
+        costoCompra: 25.20769231,
         images: ["productos/ACT045.webp"],
         specs: { "Marca": "Maslex", "Tipo": "Sintético POE", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT044", 
-        name: "Aceite POE 68 de 1Lts 100% Puro Maslex", 
-        category: "Químicos", 
+        id: "ACT044",
+        name: "Aceite POE 68 de 1Lts 100% Puro Maslex",
+        category: "Químicos",
         model: "POE-68",
         desc: `<b>Aceite POE 68 1 Litro 100% Puro Maslex</b><br><br>Aceite sintético POE-68 100% puro. Proporciona una lubricación superior y mayor vida útil para los compresores.`,
-        costoCompra: 26.52307692, 
+        costoCompra: 26.52307692,
         images: ["productos/ACT044.webp"],
         specs: { "Marca": "Maslex", "Tipo": "Sintético POE", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT025", 
-        name: "Aceite Éster Sintético Para Sistemas R134", 
-        category: "Automotriz", 
+        id: "ACT025",
+        name: "Aceite Éster Sintético Para Sistemas R134",
+        category: "Automotriz",
         model: "Éster Sintético",
         desc: `<b>Aceite Éster Sintético Para Sistemas R134</b><br><br>Lubricante éster sintético universal formulado para sistemas de aire acondicionado y refrigeración que utilizan gas R134.`,
-        costoCompra: 5.40000000, 
+        costoCompra: 5.40000000,
         images: ["productos/ACT025.webp"],
         specs: { "Tipo": "Éster Sintético", "Compatibilidad": "R134", "Presentación": "1 Litro" }
     },
     {
-        id: "ACT035", 
-        name: "Aceite 32 Mineral Capell-Oil TX-ISO-32", 
-        category: "Químicos", 
+        id: "ACT035",
+        name: "Aceite 32 Mineral Capell-Oil TX-ISO-32",
+        category: "Químicos",
         model: "TX-ISO-32",
         desc: `<b>Aceite 32 Mineral Capell-Oil TX-ISO-32</b><br><br>Aceite lubricante mineral grado ISO 32 marca Capell-Oil. Formulado para compresores de refrigeración.`,
-        costoCompra: 8.61538462, 
+        costoCompra: 8.61538462,
         images: ["productos/ACT035.webp"],
         specs: { "Marca": "Capell-Oil", "Tipo": "Mineral", "Grado": "ISO 32" }
     },
     {
-        id: "ACT016", 
-        name: "Aceite para Compresor de Nevera R134 de 8 Oz", 
-        category: "Químicos", 
+        id: "ACT016",
+        name: "Aceite para Compresor de Nevera R134 de 8 Oz",
+        category: "Químicos",
         model: "R134 8 Oz",
         desc: `<b>Aceite Compresor Nevera R134 8 Onzas</b><br><br>Aceite lubricante de alta calidad envasado específicamente para compresores de neveras que emplean gas R134.`,
-        costoCompra: 2.50000000, 
+        costoCompra: 2.50000000,
         images: ["productos/ACT016.webp"],
         specs: { "Uso": "Compresores de Nevera", "Compatibilidad": "R134", "Presentación": "8 Onzas" }
     },
     {
-        id: "ACT005", 
-        name: "Aceite PAG 46 c/UV R134 Johnsen's Org.", 
-        category: "Automotriz", 
+        id: "ACT005",
+        name: "Aceite PAG 46 c/UV R134 Johnsen's Org.",
+        category: "Automotriz",
         model: "PAG 46 UV",
         desc: `<b>Aceite PAG 46 c/UV R134 Johnsen's Original</b><br><br>Aceite sintético PAG 46 formulado con tinte UV para una rápida detección de fugas en sistemas automotrices R134a.`,
-        costoCompra: 5.83076923, 
+        costoCompra: 5.83076923,
         images: ["productos/ACT005.webp"],
         specs: { "Marca": "Johnsen's", "Tipo": "PAG 46 con UV", "Uso": "Automotriz" }
     },
     {
-        id: "ACT004", 
-        name: "Aceite PAG 100 c/UV R134 Johnsen's Org.", 
-        category: "Automotriz", 
+        id: "ACT004",
+        name: "Aceite PAG 100 c/UV R134 Johnsen's Org.",
+        category: "Automotriz",
         model: "PAG 100 UV",
         desc: `<b>Aceite PAG 100 c/UV R134 Johnsen's Original</b><br><br>Aceite sintético PAG 100 de alta viscosidad con tinte UV rastreador para sistemas de aire acondicionado automotriz R134a.`,
-        costoCompra: 5.83846154, 
+        costoCompra: 5.83846154,
         images: ["productos/ACT004.webp"],
         specs: { "Marca": "Johnsen's", "Tipo": "PAG 100 con UV", "Uso": "Automotriz" }
     },
     {
-        id: "ACT003", 
-        name: "Aceite PAG 150 c/UV R134 Johnsen's Org.", 
-        category: "Automotriz", 
+        id: "ACT003",
+        name: "Aceite PAG 150 c/UV R134 Johnsen's Org.",
+        category: "Automotriz",
         model: "PAG 150 UV",
         desc: `<b>Aceite PAG 150 c/UV R134 Johnsen's Original</b><br><br>Aceite sintético PAG 150 de máxima viscosidad, con detector de fugas UV, diseñado para compresores automotrices pesados R134a.`,
-        costoCompra: 5.66153846, 
+        costoCompra: 5.66153846,
         images: ["productos/ACT003.webp"],
         specs: { "Marca": "Johnsen's", "Tipo": "PAG 150 con UV", "Uso": "Automotriz" }
     },
     {
-        id: "QMC018", 
-        name: "Limpiador Alcalino Albrite 880ML", 
-        category: "Químicos", 
+        id: "QMC018",
+        name: "Limpiador Alcalino Albrite 880ML",
+        category: "Químicos",
         model: "880 ML",
         desc: `<b>Limpiador Alcalino Albrite 880ML</b><br><br>Limpiador desincrustante alcalino de alta eficiencia para serpentines y paneles de aluminio.`,
-        costoCompra: 1.65384615, 
+        costoCompra: 1.65384615,
         images: ["productos/QMC018.webp"],
         specs: { "Tipo": "Limpiador Alcalino", "Presentación": "880 ML", "Uso": "Mantenimiento" }
     },
     {
-        id: "QMC008", 
-        name: "Ácido Evar22 Limpiador de 1Lts", 
-        category: "Químicos", 
+        id: "QMC008",
+        name: "Ácido Evar22 Limpiador de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Ácido Evar 22 Limpiador 1 Litro</b><br><br>Fórmula ácida concentrada para la limpieza profunda y remoción de óxido en sistemas de refrigeración.`,
-        costoCompra: 4.63846154, 
+        costoCompra: 4.63846154,
         images: ["productos/QMC008.webp"],
         specs: { "Marca": "Evar 22", "Tipo": "Ácido Limpiador", "Presentación": "1 Litro" }
     },
     {
-        id: "QMC023", 
-        name: "Ácido Evar22 Limpiador Mediano de 480ML", 
-        category: "Químicos", 
+        id: "QMC023",
+        name: "Ácido Evar22 Limpiador Mediano de 480ML",
+        category: "Químicos",
         model: "480 ML",
         desc: `<b>Ácido Evar 22 Limpiador Mediano 480ML</b><br><br>Limpiador ácido concentrado en presentación mediana, ideal para mantenimientos rápidos de equipos de refrigeración.`,
-        costoCompra: 2.45384615, 
+        costoCompra: 2.45384615,
         images: ["productos/QMC023.webp"],
         specs: { "Marca": "Evar 22", "Tipo": "Ácido Limpiador", "Presentación": "480 ML" }
     },
     {
-        id: "QMC021", 
-        name: "Limpiador Alcalino de Aluminio Alcalin de 1Lts", 
-        category: "Químicos", 
+        id: "QMC021",
+        name: "Limpiador Alcalino de Aluminio Alcalin de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Limpiador Alcalino de Aluminio Alcalin 1L</b><br><br>Solución alcalina formulada para abrillantar y limpiar paneles de aluminio sin dañar el metal.`,
-        costoCompra: 1.38461538, 
+        costoCompra: 1.38461538,
         images: ["productos/QMC021.webp"],
         specs: { "Marca": "RQ5", "Tipo": "Limpiador Alcalino", "Presentación": "1 Litro" }
     },
     {
-        id: "QMC002", 
-        name: "Limpiador Ácido de Aluminio Hidroflush de 1Lts", 
-        category: "Químicos", 
+        id: "QMC002",
+        name: "Limpiador Ácido de Aluminio Hidroflush de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Limpiador Ácido de Aluminio Hidroflush 1L</b><br><br>Limpiador ácido de acción rápida para eliminar incrustaciones severas en sistemas de aire acondicionado.`,
-        costoCompra: 1.86923077, 
+        costoCompra: 1.86923077,
         images: ["productos/QMC002.webp"],
         specs: { "Marca": "RQ5", "Tipo": "Ácido Limpiador", "Presentación": "1 Litro" }
     },
     {
-        id: "QMC027", 
-        name: "Desplazador de Humedad Metil de 1Lts", 
-        category: "Químicos", 
+        id: "QMC027",
+        name: "Desplazador de Humedad Metil de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Desplazador de Humedad Metil 1 Litro</b><br><br>Líquido químico diseñado para eliminar los rastros de humedad dentro del sistema de refrigeración y prevenir congelamientos.`,
-        costoCompra: 1.86923077, 
+        costoCompra: 1.86923077,
         images: ["productos/QMC027.webp"],
         specs: { "Marca": "RQ5", "Función": "Desplazador de Humedad", "Presentación": "1 Litro" }
     },
     {
-        id: "QMC025", 
-        name: "Dieléctrico Desengrasante RQ5 de 1Lts", 
-        category: "Químicos", 
+        id: "QMC025",
+        name: "Dieléctrico Desengrasante RQ5 de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Dieléctrico Desengrasante RQ5 1 Litro</b><br><br>Solvente dieléctrico de alta pureza para la limpieza segura de tableros, tarjetas y componentes eléctricos.`,
-        costoCompra: 2.37692308, 
+        costoCompra: 2.37692308,
         images: ["productos/QMC025.webp"],
         specs: { "Marca": "RQ5", "Tipo": "Solvente Dieléctrico", "Presentación": "1 Litro" }
     },
     {
-        id: "QMC026", 
-        name: "Dieléctrico Desengrasante RQ5 de 500ML", 
-        category: "Químicos", 
+        id: "QMC026",
+        name: "Dieléctrico Desengrasante RQ5 de 500ML",
+        category: "Químicos",
         model: "1/2 Litro",
         desc: `<b>Dieléctrico Desengrasante RQ5 1/2 Litro</b><br><br>Solvente dieléctrico desengrasante en presentación práctica de medio litro para limpiezas de precisión.`,
-        costoCompra: 1.43846154, 
+        costoCompra: 1.43846154,
         images: ["productos/QMC026.webp"],
         specs: { "Marca": "RQ5", "Tipo": "Solvente Dieléctrico", "Presentación": "1/2 Litro" }
     },
     {
-        id: "QMC022", 
-        name: "Dieléctrico Desengrasante de Lata RBV de 5KG", 
-        category: "Químicos", 
+        id: "QMC022",
+        name: "Dieléctrico Desengrasante de Lata RBV de 5KG",
+        category: "Químicos",
         model: "5 Kilos",
         desc: `<b>Dieléctrico Desengrasante Lata RBV 5KG</b><br><br>Solvente dieléctrico en presentación industrial de 5 kilos, ideal para limpiezas a gran escala y talleres de mantenimiento.`,
-        costoCompra: 21.06153846, 
+        costoCompra: 21.06153846,
         images: ["productos/QMC022.webp"],
         specs: { "Tipo": "Solvente Dieléctrico", "Presentación": "Lata 5 KG", "Uso": "Industrial" }
     },
     {
-        id: "QMC005-RBV", 
-        name: "Limpiador Dieléctrico RVB de Lata de 500Gr", 
-        category: "Químicos", 
+        id: "QMC005-RBV",
+        name: "Limpiador Dieléctrico RVB de Lata de 500Gr",
+        category: "Químicos",
         model: "1/2 Litro",
         desc: `<b>Limpiador Dielectrico RVB de Lata de 1/2kg</b><br><br>Solvente para la limpieza de componentes eléctricos sin riesgo de cortocircuitos. Presentación de 500ml.`,
-        costoCompra: 1.65384615, 
+        costoCompra: 1.65384615,
         images: ["productos/QMC005-RBV.webp"],
         specs: { "Marca": "RBV Compresors Oil", "Presentación": "Lata de 1/2L", "Uso": "Solvente Dieléctrico" }
     },
     {
-        id: "QMC006-RBV", 
-        name: "Limpiador Dielectrico RBV de Lata de 1kg", 
-        category: "Químicos", 
+        id: "QMC006-RBV",
+        name: "Limpiador Dielectrico RBV de Lata de 1kg",
+        category: "Químicos",
         model: "1 Kilo",
         desc: `<b>Limpiador Dielectrico RBV de 1kg<br>Fórmula dieléctrica de máxima pureza y rápida evaporación. Presentación en lata de 1 Kilo para uso profesional.`,
-        costoCompra: 4.63846154, 
+        costoCompra: 4.63846154,
         images: ["productos/QMC006-RBV.webp"],
         specs: { "Marca": "RBV Compresors Oil", "Presentación": "Lata 1 Kilo", "Uso": "Dieléctrico Premium" }
     },
     {
-        id: "QMC019", 
-        name: "Limpiador Químico AirClean Ultra de 1Lts", 
-        category: "Químicos", 
+        id: "QMC019",
+        name: "Limpiador Químico AirClean Ultra de 1Lts",
+        category: "Químicos",
         model: "1 Litro",
         desc: `<b>Limpiador Químico Multiuso Ultra Clean 1L</b><br><br>Limpiador multipropósito formulado para aflojar y remover suciedad pesada en componentes de refrigeración.`,
-        costoCompra: 1.32307692, 
+        costoCompra: 1.32307692,
         images: ["productos/QMC019.webp"],
         specs: { "Tipo": "Limpiador Multiuso", "Presentación": "1 Litro", "Aplicación": "General" }
     },
     {
-        id: "QMC007", 
-        name: "Panel Cool 66 (Alcohol Metilico) de 500ml", 
-        category: "Químicos", 
+        id: "QMC007",
+        name: "Panel Cool 66 (Alcohol Metilico) de 500ml",
+        category: "Químicos",
         model: "0.5 Litros",
         desc: `<b>Alcohol Metílico 0.5 Litros</b><br><br>Alcohol metílico de alta pureza diseñado para absorber la humedad residual en tuberías y prevenir congelamiento.`,
-        costoCompra: 1.32307692, 
+        costoCompra: 1.32307692,
         images: ["productos/QMC007.webp"],
         specs: { "Función": "Absorbedor de Humedad", "Presentación": "0.5 Litros", "Uso": "Interno" }
     },
     {
-        id: "QMC024", 
-        name: "Panel Clean 66 Limpiador de Galón de 3.75Lts", 
-        category: "Químicos", 
+        id: "QMC024",
+        name: "Panel Clean 66 Limpiador de Galón de 3.75Lts",
+        category: "Químicos",
         model: "1 Galón (3.75L)",
         desc: `<b>Limpiador Panel Clean 66 Galón 3.750LTS</b><br><br>Limpiador profundo de aluminio para serpentines en presentación industrial de 1 Galón. Alto rendimiento.`,
-        costoCompra: 5.30000000, 
+        costoCompra: 5.30000000,
         images: ["productos/QMC024.webp"],
         specs: { "Marca": "Productos 66", "Presentación": "1 Galón (3.75L)", "Uso": "Limpiador de Aluminio" }
     },
     {
-        id: "QMC011", 
-        name: "Ácido Limpiador Evar22 Galón 3.78Lts", 
-        category: "Químicos", 
+        id: "QMC011",
+        name: "Ácido Limpiador Evar22 Galón 3.78Lts",
+        category: "Químicos",
         model: "1 Galón (3.78L)",
         desc: `<b>Ácido Evar 22 Limpiador Galón 3.78 LTS</b><br><br>Ácido limpiador concentrado en tamaño industrial de 1 galón. Máxima potencia para limpiezas mayores.`,
-        costoCompra: 16.36153846, 
+        costoCompra: 16.36153846,
         images: ["productos/QMC011.webp"],
         specs: { "Marca": "Evar 22", "Tipo": "Ácido Limpiador", "Presentación": "1 Galón (3.78L)" }
     },
 
     {
-        id: "PUN-MEDIDA", 
-        name: "Evaporador de Placa para Nevera con Capilar", 
-        category: "Refrigeración", 
+        id: "PUN-MEDIDA",
+        name: "Evaporador de Placa para Nevera con Capilar",
+        category: "Refrigeración",
         model: "Varias Medidas",
         desc: `<b>Evaporador de Placa para Nevera con Capilar</b><br><br>Evaporador de aluminio tipo placa de alta eficiencia térmica. Incluye tubo capilar soldado. Excelente para reemplazos de sistemas congeladores. Por favor, seleccione la medida que necesita.`,
         costoCompra: 14.59230769, // Costo base para la visualización inicial (equivale a Bs 20.904,94)
@@ -2543,89 +2582,89 @@ const products = [
         ]
     },
     {
-        id: "NEV100", 
-        name: "Nevera Hotpoint de 2 Puertas Importada", 
-        category: "Neveras / Cavas", 
+        id: "NEV100",
+        name: "Nevera Hotpoint de 2 Puertas Importada",
+        category: "Neveras / Cavas",
         model: "Hotpoint",
         desc: `<b>Nevera Kenmore 2 Puertas Importada</b><br><br>Refrigerador de alta capacidad, diseño clásico de 2 puertas. Componentes de calidad garantizada para máxima durabilidad.`,
-        costoCompra: 437.66923077, 
+        costoCompra: 437.66923077,
         images: ["productos/NEV100.webp"],
         specs: { "Marca": "HotPonit", "Tipo": "2 Puertas", "Categoría": "Importada" }
     },
     {
-        id: "NEV104", 
-        name: "Nevera GE de 2 Puertas Importada", 
-        category: "Neveras / Cavas", 
+        id: "NEV104",
+        name: "Nevera GE de 2 Puertas Importada",
+        category: "Neveras / Cavas",
         model: "General Electric",
         desc: `<b>Nevera GE de 2 Puertas Importada</b><br><br>Nevera refrigeradora de la marca General Electric. Diseño compacto y eficiente, ideal para espacios modernos.`,
-        costoCompra: 497.34615385, 
+        costoCompra: 497.34615385,
         images: ["productos/NEV104.webp"],
         specs: { "Marca": "General Electric", "Categoría": "Importada" }
     },
     {
-        id: "NEV107", 
-        name: "Nevera GE Side by Side Vertical de 2 Puertas", 
-        category: "Neveras / Cavas", 
+        id: "NEV107",
+        name: "Nevera GE Side by Side Vertical de 2 Puertas",
+        category: "Neveras / Cavas",
         model: "General Electric",
         desc: `<b>Nevera Hotpoint GE 20.5 Pies Cúbicos Blanca</b><br><br>Nevera General Electric Hotpoint de gran capacidad (20.5 pies cúbicos), diseño de 2 puertas. Sistema de enfriamiento superior.`,
-        costoCompra: 464.19230769, 
+        costoCompra: 464.19230769,
         images: ["productos/NEV107.webp"],
         specs: { "Marca": "General Electric", "Capacidad": "760 Litros", "Color": "Blanca" }
     },
     {
-        id: "RES008", 
-        name: "Resistencia de Nevera Samsung DA47-00038B", 
-        category: "Neveras / Cavas", 
+        id: "RES008",
+        name: "Resistencia de Nevera Samsung DA47-00038B",
+        category: "Neveras / Cavas",
         model: "DA47-00038B",
         desc: `<b>Resistencia Nevera Samsung DA47-00038B</b><br><br>Resistencia de descongelación original para neveras Samsung. Componente esencial para el sistema No Frost.`,
-        costoCompra: 32.92307692, 
+        costoCompra: 32.92307692,
         images: ["productos/RES008.webp"],
         specs: { "Marca": "Samsung", "Repuesto": "Resistencia de Deshielo", "Modelo": "DA47-00038B" }
     },
     {
-        id: "RES047", 
-        name: "Resistencia de Nevera Samsung DA81-01691B", 
-        category: "Neveras / Cavas", 
+        id: "RES047",
+        name: "Resistencia de Nevera Samsung DA81-01691B",
+        category: "Neveras / Cavas",
         model: "DA81-01691B",
         desc: `<b>Resistencia H. Nevera Samsung DA81-01691B</b><br><br>Resistencia calefactora tipo H para sistemas de refrigeración Samsung. Reemplazo directo y garantizado.`,
-        costoCompra: 21.93846154, 
+        costoCompra: 21.93846154,
         images: ["productos/RES047.webp"],
         specs: { "Marca": "Samsung", "Tipo": "Forma en H", "Modelo": "DA81-01691B" }
     },
     {
-        id: "RES044", 
-        name: "Resistencia de Nevera Samsung DA81-01691A", 
-        category: "Neveras / Cavas", 
+        id: "RES044",
+        name: "Resistencia de Nevera Samsung DA81-01691A",
+        category: "Neveras / Cavas",
         model: "DA81-01691A",
         desc: `<b>Resistencia H. Nevera Samsung DA81-01691A</b><br><br>Resistencia calefactora tipo H para sistemas de refrigeración Samsung. Reemplazo directo y garantizado.`,
-        costoCompra: 10.96923077, 
+        costoCompra: 10.96923077,
         images: ["productos/RES044.webp"],
         specs: { "Marca": "Samsung", "Tipo": "Forma en H", "Modelo": "DA81-01691A" }
     },
     {
-        id: "RES045", 
-        name: "Resistencia Nevera Samsung G001A081SMB", 
-        category: "Neveras / Cavas", 
+        id: "RES045",
+        name: "Resistencia Nevera Samsung G001A081SMB",
+        category: "Neveras / Cavas",
         model: "G001A081SMB",
         desc: `<b>Resistencia H. Nevera Samsung G001A081SMB</b><br><br>Resistencia calefactora tipo H para sistemas de refrigeración Samsung. Reemplazo directo y garantizado.`,
-        costoCompra: 13.72307692, 
+        costoCompra: 13.72307692,
         images: ["productos/RES045.webp"],
         specs: { "Marca": "Samsung", "Tipo": "Forma en H", "Modelo": "G001A081SMB" }
     },
     {
-        id: "CNV300", 
-        name: "Condensador Tipo Parrilla de 3 Vueltas Para Cava 1/3", 
-        category: "Refrigeración", 
+        id: "CNV300",
+        name: "Condensador Tipo Parrilla de 3 Vueltas Para Cava 1/3",
+        category: "Refrigeración",
         model: "1/3 HP",
         desc: `<b>Condensador Tipo Parrilla de 3 Vueltas Para Cava 1/3</b><br><br>Parrilla condensadora estática de alta transferencia de calor diseñada para unidades de 1/3 HP. Ideal para cavas y exhibidores.`,
-        costoCompra: 10.25384615, 
+        costoCompra: 10.25384615,
         images: ["productos/CNV300.webp"],
         specs: { "Tipo": "Parrilla Estática", "Capacidad": "1/3 HP", "Uso": "Cavas" }
     },
     {
-        id: "CNV301", 
-        name: "Condensador Tipo Parrilla de 2 Vueltas Para Cava 1/5", 
-        category: "Refrigeración", 
+        id: "CNV301",
+        name: "Condensador Tipo Parrilla de 2 Vueltas Para Cava 1/5",
+        category: "Refrigeración",
         model: "1/3 HP",
         desc: `<b>Condensador Tipo Parrilla de 2 Vueltas Para Cava 1/5</b><br><br>Parrilla condensadora estática de alta transferencia de calor diseñada para unidades de 1/5 HP. Ideal para cavas y exhibidores.`,
         costoCompra: 7.3692307692,
@@ -2876,7 +2915,7 @@ const products = [
     {
         id: "HID012", name: "Hidrojet de Alta Presión 1600W INGCO", category: "Herramientas", model: "1600W",
         desc: `<b>Hidrojet de Alta Presión 1600W INGCO</b><br><br>Hidrolavadora de alta presión. Ideal para limpieza profunda industrial y comercial.`,
-        costoCompra: 86.207692, images: ["productos/HID012.webp"], 
+        costoCompra: 86.207692, images: ["productos/HID012.webp"],
         specs: { "Marca": "INGCO", "Potencia": "1600W", "Tipo": "Alta Presión" }
     },
     {
@@ -2888,7 +2927,7 @@ const products = [
     {
         id: "BMB098", name: "Bomba de Agua 1HP 110V INGCO", category: "Herramientas", model: "1 HP",
         desc: `<b>Bomba de Agua 1HP 110V INGCO (Bobina de Cobre)</b><br><br>Bomba periférica de alto rendimiento con embobinado de cobre para mayor durabilidad y potencia.`,
-        costoCompra: 72.353846, images: [ "productos/BMB098-2.webp", "productos/BMB098.webp"],
+        costoCompra: 72.353846, images: ["productos/BMB098-2.webp", "productos/BMB098.webp"],
         specs: { "Marca": "INGCO", "Caballaje": "1 HP", "Voltaje": "110V", "Bobina": "Cobre" }
     },
     {
@@ -2984,7 +3023,7 @@ const products = [
     {
         id: "ALT105", name: "Alicate Corta Cable 6\" INGCO", category: "Herramientas", model: "6 Pulgadas",
         desc: `<b>Alicate Corta Cable 6\" INGCO</b><br><br>Pinza compacta corta cable con mangos aislados antideslizantes.`,
-        costoCompra: 3.323077, images: ["productos/ALT106.webp"], 
+        costoCompra: 3.323077, images: ["productos/ALT106.webp"],
         specs: { "Marca": "INGCO", "Tamaño": "6 Pulgadas", "Función": "Corta Cable" }
     },
     {
@@ -3277,7 +3316,7 @@ function setupPagination(filteredArray) {
     const container = document.getElementById('pagination-container');
     container.innerHTML = '';
     if (totalPages <= 1) return;
-    
+
     container.innerHTML += `<button class="page-btn page-arrow" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>&laquo; Ant</button>`;
     for (let i = 1; i <= totalPages; i++) {
         container.innerHTML += `<button class="page-btn ${currentPage === i ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
@@ -3304,11 +3343,11 @@ function renderProducts(productList) {
     productList.forEach(prod => {
         const precios = calcularPrecios(prod.costoCompra);
         // Verificamos si el producto tiene imágenes guardadas. Si no, usamos NO_PHOTO
-    const imgSrc = (prod.images && prod.images.length > 0) ? prod.images[0] : 'productos/NO_PHOTO.webp';
-    
-    // Creamos la etiqueta de imagen usando la variable segura que acabamos de crear
-    const imgTag = `<img src="${imgSrc}" alt="${prod.name}" loading="lazy" onclick="openQuickView('${prod.id}')" onerror="this.src='productos/NO_PHOTO.webp'">`;
-        
+        const imgSrc = (prod.images && prod.images.length > 0) ? prod.images[0] : 'productos/NO_PHOTO.webp';
+
+        // Creamos la etiqueta de imagen usando la variable segura que acabamos de crear
+        const imgTag = `<img src="${imgSrc}" alt="${prod.name}" loading="lazy" onclick="openQuickView('${prod.id}')" onerror="this.src='productos/NO_PHOTO.webp'">`;
+
         // Si el producto tiene variantes (ej: la placa PUN), el botón dice "Ver Opciones"
         const btnText = prod.variants ? 'Ver Opciones' : 'Agregar al Pedido';
         const btnAction = prod.variants ? `openQuickView('${prod.id}')` : `addToCart('${prod.id}')`;
@@ -3338,68 +3377,68 @@ let currentVariantIndex = 0;
 function openQuickView(productId) {
     currentViewedProduct = products.find(p => p.id === productId);
     if (!currentViewedProduct) return;
-    
+
     currentVariantIndex = 0; // Reiniciamos el índice de la variante
-    
+
     document.getElementById('qvCategory').innerText = currentViewedProduct.category;
     document.getElementById('qvTitle').innerText = currentViewedProduct.name;
-    
+
     const descEl = document.getElementById('qvDesc');
     const btnEl = document.getElementById('qvReadMoreBtn');
     descEl.innerHTML = currentViewedProduct.desc;
     descEl.classList.remove('expanded');
     btnEl.innerText = 'Leer más';
-    
+
     if (currentViewedProduct.desc.length > 130) {
         btnEl.style.display = 'inline-block';
     } else {
         btnEl.style.display = 'none';
         descEl.classList.add('expanded');
     }
-    
+
     // --- MANEJO DE VARIANTES (MEDIDAS) ---
     const variantContainer = document.getElementById('qvVariantContainer');
     const variantSelect = document.getElementById('qvVariantSelect');
-    
+
     if (currentViewedProduct.variants) {
         variantContainer.style.display = 'block';
         variantSelect.innerHTML = '';
         currentViewedProduct.variants.forEach((v, index) => {
             variantSelect.innerHTML += `<option value="${index}">${v.name}</option>`;
         });
-        
+
         // Al cambiar de medida en el select, actualizamos precios y código
-        variantSelect.onchange = function() {
+        variantSelect.onchange = function () {
             currentVariantIndex = parseInt(this.value);
             updateQuickViewPrices();
         };
     } else {
         variantContainer.style.display = 'none';
     }
-    
+
     // Actualizamos precios (con o sin variante)
     updateQuickViewPrices();
-    
+
     // Especificaciones
     const specsTable = document.getElementById('qvSpecsTable');
     specsTable.innerHTML = '';
     for (const [key, value] of Object.entries(currentViewedProduct.specs)) {
         specsTable.innerHTML += `<tr><td>${key}</td><td>${value}</td></tr>`;
     }
-    
+
     // Imagen Principal
     const mainImg = document.getElementById('qvMainImg');
     const imgSrc = (currentViewedProduct.images && currentViewedProduct.images.length > 0) ? currentViewedProduct.images[0] : 'productos/NO_PHOTO.webp';
     mainImg.src = imgSrc;
     mainImg.onerror = function () { this.src = 'productos/NO_PHOTO.webp'; };
-    
+
     // Miniaturas
     const thumbContainer = document.getElementById('qvThumbnails');
     thumbContainer.innerHTML = '';
     currentViewedProduct.images.forEach((imgUrl) => {
         thumbContainer.innerHTML += `<img src="${imgUrl}" class="qv-thumb" onclick="changeMainImage(this.src)" onerror="this.style.display='none'">`;
     });
-    
+
     // Botón Agregar al Pedido desde el Modal
     const addBtn = document.getElementById('qvAddBtn');
     addBtn.onclick = function () {
@@ -3419,22 +3458,22 @@ function openQuickView(productId) {
         }
         closeQuickView();
     };
-    
+
     document.getElementById('quickViewModal').classList.add('active');
 }
 
 function updateQuickViewPrices() {
     let costo = currentViewedProduct.costoCompra;
     let codigo = currentViewedProduct.id;
-    
+
     // Si tiene variantes, obtenemos el costo y el código de la variante seleccionada
     if (currentViewedProduct.variants) {
         costo = currentViewedProduct.variants[currentVariantIndex].costoCompra;
         codigo = currentViewedProduct.variants[currentVariantIndex].id;
     }
-    
+
     document.getElementById('qvCode').innerText = `CÓDIGO: ${codigo}`;
-    
+
     const precios = calcularPrecios(costo);
     document.getElementById('qvPrice').innerText = `Precio: $${precios.publicoUSD.toFixed(2)}`;
     document.getElementById('qvPriceVes').innerText = `Ref: Bs. ${precios.publicoBs.toFixed(2)}`;
@@ -3465,8 +3504,8 @@ function toggleDescription() {
     }
 }
 
-function changeMainImage(url) { 
-    document.getElementById('qvMainImg').src = url; 
+function changeMainImage(url) {
+    document.getElementById('qvMainImg').src = url;
 }
 
 function closeQuickView(event) {
@@ -3505,18 +3544,18 @@ function updateCartUI() {
     const cartTotalPublic = document.getElementById('cart-total-public');
     const cartTotalNova = document.getElementById('cart-total-nova');
     let totalPublicUSD = 0;
-    let totalPublicBs = 0; 
+    let totalPublicBs = 0;
     let totalNovaUSD = 0;
     let totalItems = 0;
-    
+
     if (cart.length === 0) {
         cartContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top: 20px;">Tu carrito está vacío.</p>';
         cartCount.innerText = "0";
-        cartTotalPublic.innerText = "$0.00 (Bs. 0.00)"; 
+        cartTotalPublic.innerText = "$0.00 (Bs. 0.00)";
         cartTotalNova.innerText = "$0.00";
         return;
     }
-    
+
     let htmlContent = '';
     cart.forEach((item, index) => {
         const preciosItem = calcularPrecios(item.costoCompra);
@@ -3524,9 +3563,9 @@ function updateCartUI() {
         totalPublicBs += preciosItem.publicoBs * item.quantity;
         totalNovaUSD += preciosItem.novaClientesUSD * item.quantity;
         totalItems += item.quantity;
-        
+
         const imgSource = item.images && item.images.length > 0 ? item.images[0] : 'https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg';
-        
+
         htmlContent += `
             <div class="cart-item">
                 <div class="cart-item-info">
@@ -3549,20 +3588,20 @@ function updateCartUI() {
             </div>
         `;
     });
-    
+
     cartContainer.innerHTML = htmlContent;
     cartCount.innerText = totalItems;
     cartTotalPublic.innerText = `$${totalPublicUSD.toFixed(2)} (Bs. ${totalPublicBs.toFixed(2)})`;
     cartTotalNova.innerText = `$${totalNovaUSD.toFixed(2)}`;
 }
 
-function removeFromCart(index) { 
-    cart.splice(index, 1); 
-    updateCartUI(); 
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
 }
 
-function toggleCart() { 
-    document.getElementById('cartModal').classList.toggle('active'); 
+function toggleCart() {
+    document.getElementById('cartModal').classList.toggle('active');
 }
 
 function sendWhatsApp() {
@@ -3572,21 +3611,21 @@ function sendWhatsApp() {
     }
     const clientName = document.getElementById('customerName').value.trim();
     const clientPhone = document.getElementById('customerPhone').value.trim();
-    
+
     if (clientName === "" || clientPhone === "") {
         alert("Por favor, ingresa tu Nombre y tu número de WhatsApp para registrar el pedido.");
         document.getElementById('customerName').focus();
         return;
     }
-    
+
     let message = `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* y quisiera consultar la disponibilidad de los siguientes repuestos de su web:%0A%0A`;
-    
+
     cart.forEach(item => {
         message += `• Código: *${item.id}* - (Cantidad: ${item.quantity})%0A`;
     });
-    
+
     const whatsappURL = `https://wa.me/${NUMERO_WHATSAPP}?text=${message}`;
-    window.open(whatsappURL, '_blank'); 
+    window.open(whatsappURL, '_blank');
 }
 
 // ==========================================
