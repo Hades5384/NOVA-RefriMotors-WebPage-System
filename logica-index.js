@@ -202,6 +202,68 @@ const products = [
 
 
     {
+        id: "MTU-GENERICO-VAR",
+        name: "Motor W (Vatiaje) para Nevera / Cava (Genérico)",
+        category: "Motores",
+        model: "Varias Capacidades",
+        desc: `<b>Motor Ventilador Multiuso (Vatiaje)</b><br><br>Motor de extracción y ventilación ideal para difusores y condensadores de cavas cuarto y neveras comerciales. Disponibles en versiones con base y aspa, o reforzados con rolineras. Seleccione la potencia y voltaje requeridos.`,
+        costoCompra: 7.00000000, // Costo base (10W 110V C/Base)
+        images: ["productos/MTU-MOTOR_W.webp"],
+        specs: { "Tipo": "Motor de Vatiaje (W)", "Uso": "Cavas / Neveras", "Conexión": "Universal" },
+        variants: [
+            { id: "MTU001", name: "10W 110V (C/ Base y Aspa Aluminio)", costoCompra: 7.00000000 },
+            { id: "MTU002", name: "10W 110V (Con Rolinera)", costoCompra: 12.37692308 },
+            { id: "MTU015", name: "10W 220V (C/ Base y Aspa)", costoCompra: 14.00000000 },
+            { id: "MTU014", name: "10/15W 110-220V (Plástico 1300RPM)", costoCompra: 11.93076923 },
+            { id: "MTU009", name: "16W 110V (C/ Base y Aspa)", costoCompra: 13.26153846 },
+            { id: "MTU003", name: "18W 110V (C/ Base y Aspa)", costoCompra: 14.59230769 },
+            { id: "MTU008", name: "18W 110V (Con Rolinera)", costoCompra: 17.23846154 },
+            { id: "MTU004", name: "25W 110V (C/ Base y Aspa)", costoCompra: 16.57692308 },
+            { id: "MTU012", name: "25W 110V (Con Rolinera)", costoCompra: 18.56153846 },
+            { id: "MTU005", name: "34W 220V (C/ Base y Aspa)", costoCompra: 22.40000000 },
+            { id: "MTU006", name: "34W 110V (C/ Base y Aspa)", costoCompra: 18.56153846 },
+            { id: "MTU010", name: "34W 110V (Con Rolinera)", costoCompra: 22.40000000 },
+            { id: "MTU016", name: "50W 220V (C/ Base y Aspa)", costoCompra: 28.39230769 }
+        ]
+    },
+    {
+        id: "MTU-MARCAS-VAR",
+        name: "Motor W (Vatiaje) Landsfoss / Cowplandt",
+        category: "Motores",
+        model: "Landsfoss / Cowplandt",
+        desc: `<b>Motor Ventilador de Vatiaje (Marcas Importadas)</b><br><br>Motores de ventilación de alta calidad y rendimiento comprobado de las marcas Landsfoss y Cowplandt, para aplicaciones comerciales en cavas y exhibidores.`,
+        costoCompra: 14.00000000,
+        images: ["productos/MTU-MOTOR_W.webp"],
+        specs: { "Tipo": "Motor de Vatiaje (W)", "Uso": "Cavas / Neveras Comerciales", "Calidad": "Importada" },
+        variants: [
+            { id: "MTU013", name: "10W 220V 1550RPM (Landsfoss)", costoCompra: 14.00000000 },
+            { id: "MTU109", name: "18W 220V 1550RPM (Landsfoss)", costoCompra: 15.06923077 },
+            { id: "MTU007", name: "50W 220V 1550RPM (Landsfoss)", costoCompra: 28.39230769 },
+            { id: "MTU011", name: "50W 220V 1550RPM (Cowplandt)", costoCompra: 23.18461538 }
+        ]
+    },
+    {
+        id: "MTU-MOTORVENCA-VAR",
+        name: "Motor W (Vatiaje) Motorvenca Original",
+        category: "Motores",
+        model: "Motorvenca",
+        desc: `<b>Motor Ventilador Motorvenca (Original)</b><br><br>La legendaria durabilidad de Motorvenca en motores de vatiaje. Diseñados para resistir el trabajo pesado y continuo en cavas cuarto y sistemas de congelación industrial.`,
+        costoCompra: 20.00000000, // Costo base (5W)
+        images: ["productos/MTU-MOTOR_W_MOTORVENCA.webp"],
+        specs: { "Marca": "Motorvenca", "Tipo": "Motor de Vatiaje (W)", "Origen": "Nacional (Alta Durabilidad)" },
+        variants: [
+            { id: "MTU108", name: "5W 110V 1550RPM", costoCompra: 20.00000000 },
+            { id: "MTU100", name: "10W 110V 1550RPM", costoCompra: 23.53846154 },
+            { id: "MTU101", name: "10W 220V 1550RPM", costoCompra: 23.20769231 },
+            { id: "MTU102", name: "18W 110V 1550RPM", costoCompra: 25.19230769 },
+            { id: "MTU106", name: "18W 220V 1550RPM", costoCompra: 24.56923077 },
+            { id: "MTU103", name: "34W 110V 1550RPM", costoCompra: 34.83846154 },
+            { id: "MTU104", name: "34W 220V 1550RPM", costoCompra: 39.77692308 },
+            { id: "MTU107", name: "50W 110V 1625RPM", costoCompra: 46.41538462 },
+            { id: "MTU105", name: "50W 220V 1625RPM", costoCompra: 53.03846154 }
+        ]
+    },
+    {
         id: "CAR-SPP-VARIANTE",
         name: "Start Kit / Súper Arranque 220V (Serie SPP)",
         category: "Capacitores",
@@ -3269,11 +3331,13 @@ function setLetterFilter(letter) {
     }
     currentPage = 1;
     filterProducts();
+    updateHash();
 }
 
 function resetPaginationAndFilter() {
     currentPage = 1;
     filterProducts();
+    updateHash();
 }
 
 function calcularPrecios(costoCompra) {
@@ -3289,6 +3353,7 @@ function setCategory(categoryName, btnElement) {
     btnElement.classList.add('active');
     currentPage = 1;
     filterProducts();
+    updateHash();
 }
 
 function filterProducts() {
@@ -3325,6 +3390,7 @@ function setupPagination(filteredArray) {
 function changePage(pageNumber) {
     currentPage = pageNumber;
     filterProducts();
+    updateHash();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3458,6 +3524,7 @@ function openQuickView(productId) {
     };
 
     document.getElementById('quickViewModal').classList.add('active');
+    openProductInHash(productId);
 }
 
 function updateQuickViewPrices() {
@@ -3509,6 +3576,7 @@ function changeMainImage(url) {
 function closeQuickView(event) {
     if (!event || event.target.id === 'quickViewModal' || event.target.classList.contains('close-qv')) {
         document.getElementById('quickViewModal').classList.remove('active');
+        removeProductFromHash();
     }
 }
 
@@ -3627,7 +3695,103 @@ function sendWhatsApp() {
 }
 
 // ==========================================
+// HASH ROUTING — Estado persistente en URL
+// ==========================================
+function updateHash() {
+    const params = new URLSearchParams();
+    if (currentPage > 1) params.set('page', currentPage);
+    if (currentCategory !== 'Todos') params.set('category', currentCategory);
+    if (currentLetterFilter !== '') params.set('letter', currentLetterFilter);
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) params.set('search', query);
+
+    const hashStr = params.toString();
+    history.replaceState(null, '', hashStr ? '#' + hashStr : location.pathname + location.search);
+}
+
+function openProductInHash(productId) {
+    const params = new URLSearchParams(location.hash.slice(1));
+    params.set('product', productId);
+    history.replaceState(null, '', '#' + params.toString());
+}
+
+function removeProductFromHash() {
+    const params = new URLSearchParams(location.hash.slice(1));
+    params.delete('product');
+    const hashStr = params.toString();
+    history.replaceState(null, '', hashStr ? '#' + hashStr : location.pathname + location.search);
+}
+
+function readHashAndRestore() {
+    const hash = location.hash.slice(1);
+    if (!hash) { filterProducts(); return; }
+
+    const params = new URLSearchParams(hash);
+
+    // Restaurar categoría
+    const category = params.get('category');
+    if (category) {
+        currentCategory = category;
+        document.querySelectorAll('.cat-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent.trim() === category) btn.classList.add('active');
+        });
+    }
+
+    // Restaurar filtro de letra
+    const letter = params.get('letter');
+    if (letter) {
+        currentLetterFilter = letter;
+        document.querySelectorAll('.alpha-btn').forEach(btn => btn.classList.remove('active'));
+        const letterBtn = document.getElementById('letter-' + letter);
+        if (letterBtn) letterBtn.classList.add('active');
+    }
+
+    // Restaurar búsqueda
+    const search = params.get('search');
+    if (search) document.getElementById('searchInput').value = search;
+
+    // Restaurar página
+    const page = parseInt(params.get('page'));
+    if (page && page > 0) currentPage = page;
+
+    // Renderizar con el estado restaurado
+    filterProducts();
+
+    // Abrir producto si viene en el hash
+    const productId = params.get('product');
+    if (productId) {
+        // Buscar como producto principal
+        const found = products.find(p => p.id === productId);
+        if (found) {
+            openQuickView(productId);
+        } else {
+            // Buscar como variante dentro de un producto padre
+            for (const p of products) {
+                if (p.variants) {
+                    const vi = p.variants.findIndex(v => v.id === productId);
+                    if (vi !== -1) {
+                        openQuickView(p.id);
+                        const sel = document.getElementById('qvVariantSelect');
+                        if (sel) {
+                            sel.value = vi;
+                            currentVariantIndex = vi;
+                            updateQuickViewPrices();
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    } else {
+        // Cerrar QuickView si estaba abierta
+        document.getElementById('quickViewModal').classList.remove('active');
+    }
+}
+
+// ==========================================
 // ARRANQUE DEL SISTEMA
 // ==========================================
 renderAlphabet();
-filterProducts();
+readHashAndRestore();
+window.addEventListener('hashchange', readHashAndRestore);
