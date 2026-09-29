@@ -3796,13 +3796,14 @@ function sendWhatsApp() {
         return;
     }
 
-    let message = `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* y quisiera consultar la disponibilidad de los siguientes repuestos de su web:%0A%0A`;
+    let message = `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su web:%0A%0A`;
 
     cart.forEach(item => {
         message += `• Código: *${item.id}* - (Cantidad: ${item.quantity})%0A`;
     });
 
-    const whatsappURL = `https://wa.me/${NUMERO_WHATSAPP}?text=${message}`;
+    const destinationPhone = NUMERO_WHATSAPP.replace(/[^0-9]/g, '');
+    const whatsappURL = `https://wa.me/${destinationPhone}?text=${message}`;
     window.open(whatsappURL, '_blank');
 }
 
