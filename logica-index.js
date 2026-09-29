@@ -3715,31 +3715,41 @@ async function generateAndCopyInvoice() {
     // Llenar Items
     const itemsContainer = document.getElementById('inv-items');
     itemsContainer.innerHTML = '';
-    let totalUSD = 0;
+    
+    const isUSD = method === 'EFECTIVO_USD' || method === 'OTRAS FORMAS DE PAGO';
+    const currencySymbol = isUSD ? '$' : 'Bs. ';
+    
+    let totalFactura = 0;
     let totalItems = 0;
     
     cart.forEach(item => {
         const preciosItem = calcularPrecios(item.costoCompra);
-        const lineTotal = preciosItem.novaClientesUSD * item.quantity;
-        totalUSD += lineTotal;
+        let itemPrice = isUSD ? preciosItem.novaClientesUSD : (preciosItem.novaClientesUSD * TASA_BCV);
+        
+        const lineTotal = itemPrice * item.quantity;
+        totalFactura += lineTotal;
         totalItems += item.quantity;
         
         itemsContainer.innerHTML += `
             <div class="invoice-item">
-                <div class="invoice-item-name">${item.quantity}x ${item.name}</div>
-                <div class="invoice-item-price">$${lineTotal.toFixed(2)}</div>
+                <div class="invoice-item-name">${item.quantity}x [${item.id}] ${item.name}</div>
+                <div class="invoice-item-price">${currencySymbol}${lineTotal.toFixed(2)}</div>
             </div>
         `;
     });
     
-    // Llenar Totales y Métodos de pago
-    document.getElementById('inv-total').innerText = totalUSD.toFixed(2);
-    document.getElementById('inv-efectivo').innerText = method === 'EFECTIVO' ? totalUSD.toFixed(2) : '0,00';
-    document.getElementById('inv-debito').innerText = method === 'DEBITO' ? totalUSD.toFixed(2) : '0,00';
-    document.getElementById('inv-transferencia').innerText = method === 'TRANSFERENCIA' ? totalUSD.toFixed(2) : '0,00';
-    document.getElementById('inv-biopago').innerText = method === 'BIOPAGO' ? totalUSD.toFixed(2) : '0,00';
-    document.getElementById('inv-otras').innerText = method === 'OTRAS FORMAS DE PAGO' ? totalUSD.toFixed(2) : '0,00';
-    document.getElementById('inv-total-items').innerText = totalItems;
+    // Llenar Totales y Métodos de pago dinámicamente
+    const totalsContainer = document.getElementById('inv-totals-container');
+    let methodNameDisplay = method;
+    if (method === 'EFECTIVO_USD') methodNameDisplay = 'EFECTIVO USD';
+    if (method === 'EFECTIVO_BS') methodNameDisplay = 'EFECTIVO BS';
+    if (method === 'OTRAS FORMAS DE PAGO') methodNameDisplay = 'OTRAS FORMAS DE PAGO';
+    
+    totalsContainer.innerHTML = `
+        <div>TOTAL <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
+        <div>${methodNameDisplay} <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
+        <div style="margin-top: 5px;">TOTAL PRODUCTOS VENDIDOS: <span style="float:right;">${totalItems}</span></div>
+    `;
     
     // Generar Imagen con html2canvas
     try {
