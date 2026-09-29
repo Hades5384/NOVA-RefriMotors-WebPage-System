@@ -1,7 +1,7 @@
 // ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 853.50;
+const TASA_BCV = 857.88;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
