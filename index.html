@@ -121,18 +121,36 @@
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
             <div class="customer-form">
-                <label for="customerName">Datos del Cliente:</label>
-                <input type="text" id="customerName" placeholder="Ingresa tu Nombre y Apellido" required>
+                <label for="customerName">Nombre del Cliente:</label>
+                <input type="text" id="customerName" placeholder="Ingresa Nombre del Cliente" required>
+                
+                <label for="customerRif">RIF / Cédula:</label>
+                <input type="text" id="customerRif" placeholder="V-12345678 / J-123456789" required>
+
                 <label for="customerPhone">Número de WhatsApp:</label>
                 <input type="tel" id="customerPhone" placeholder="Ej: 0414-1234567" required>
+
+                <label for="paymentMethod">Método de Pago:</label>
+                <select id="paymentMethod" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid var(--border-light); border-radius: 8px; outline: none; font-size: 14px;">
+                    <option value="EFECTIVO">Efectivo</option>
+                    <option value="DEBITO">Débito</option>
+                    <option value="TRANSFERENCIA">Transferencia</option>
+                    <option value="BIOPAGO">Biopago</option>
+                    <option value="OTRAS FORMAS DE PAGO">Otras formas de pago</option>
+                </select>
+
+
             </div>
             <div class="cart-total">
                 <div style="font-size: 14px; color: var(--text-light);">Total: <span id="cart-total-public">$0.00</span></div>
                 <div style="font-size: 18px; color: var(--nova-blue); font-weight: 900;">Descuento NovaClientes: <span id="cart-total-nova">$0.00</span></div>
             </div>
-            <button class="whatsapp-btn" onclick="sendWhatsApp()">
+            <button class="whatsapp-btn" onclick="sendWhatsApp()" style="margin-bottom: 10px;">
                 <img src="whatsapp-icono.png" alt="Icono WhatsApp">
                 Enviar Pedido
+            </button>
+            <button class="invoice-btn" onclick="generateAndCopyInvoice()">
+                🧾 Copiar Factura como Imagen
             </button>
         </div>
     </div>
@@ -167,6 +185,49 @@
         </div>
     </footer>
 
+    <!-- ==========================================
+         PLANTILLA DE FACTURA DIGITAL (OCULTA)
+    =========================================== -->
+    <div id="invoice-wrapper" style="position: absolute; left: -9999px; top: -9999px;">
+        <div id="invoice-container" class="invoice-container">
+            <div class="invoice-header">
+                <img src="nova-factura.png" alt="Nova Factura" style="max-width: 100%; height: auto; display: block; margin: 0 auto 10px auto;">
+                <h3>NOTA DE DESPACHO</h3>
+            </div>
+            <div class="invoice-client-info">
+                <div>NOMBRE: <span id="inv-nombre"></span></div>
+                <div>RIF: <span id="inv-rif"></span></div>
+            </div>
+            <div class="invoice-meta">
+                <div>NOTA DE DESPACHO: <span id="inv-nro">00000001</span></div>
+                <div>FECHA: <span id="inv-fecha"></span> &nbsp;&nbsp;&nbsp;HORA: <span id="inv-hora"></span></div>
+            </div>
+            <div class="invoice-divider"></div>
+            <div class="invoice-items" id="inv-items">
+                <!-- Items se inyectan acá -->
+            </div>
+            <div class="invoice-divider"></div>
+            <div class="invoice-totals">
+                <div>TOTAL <span id="inv-total" style="float:right;"></span></div>
+                <div>EFECTIVO <span id="inv-efectivo" style="float:right;">0,00</span></div>
+                <div>DEBITO <span id="inv-debito" style="float:right;">0,00</span></div>
+                <div>TRANSFERENCIA <span id="inv-transferencia" style="float:right;">0,00</span></div>
+                <div>BIOPAGO <span id="inv-biopago" style="float:right;">0,00</span></div>
+                <div>OTRAS FORMAS DE PAGO <span id="inv-otras" style="float:right;">0,00</span></div>
+                <div style="margin-top: 5px;">TOTAL PRODUCTOS VENDIDOS: <span id="inv-total-items" style="float:right;"></span></div>
+            </div>
+            <div class="invoice-footer">
+                <div>USUARIO: <span id="inv-usuario">0.11-Usuario activo</span></div>
+                <div class="invoice-notes">
+                    *** CONSERVE SU RECIBO PARA CUALQUIER RECLAMO ***<br>
+                    **** LAS PIEZAS ELECTRICAS NO TIENEN GARANTIA ****
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Librería html2canvas para generación de imágenes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- LÓGICA DE PROGRAMACIÓN -->
     <script src="logica-index.js"></script>
 </body>

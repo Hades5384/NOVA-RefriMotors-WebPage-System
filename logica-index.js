@@ -3357,16 +3357,30 @@ function setCategory(categoryName, btnElement) {
 }
 
 function filterProducts() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = products.filter(prod => {
-        const matchesSearch = prod.name.toLowerCase().includes(query) || prod.id.toLowerCase().includes(query) || prod.model.toLowerCase().includes(query);
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const filtered = products.map(prod => {
+        let matchesSearch = prod.name.toLowerCase().includes(query) || prod.id.toLowerCase().includes(query) || prod.model.toLowerCase().includes(query);
+        let matchingVariantIndex = -1;
+        
+        if (query !== '' && prod.variants) {
+            matchingVariantIndex = prod.variants.findIndex(v => v.name.toLowerCase().includes(query) || v.id.toLowerCase().includes(query));
+            if (matchingVariantIndex !== -1) {
+                matchesSearch = true;
+            }
+        }
+        
         const matchesCategory = (currentCategory === 'Todos') || (prod.category === currentCategory);
         let matchesLetter = true;
         if (currentLetterFilter !== '') {
             matchesLetter = prod.name.charAt(0).toUpperCase() === currentLetterFilter;
         }
-        return matchesSearch && matchesCategory && matchesLetter;
-    });
+        
+        if (matchesSearch && matchesCategory && matchesLetter) {
+            return { ...prod, _matchedVariantIndex: matchingVariantIndex };
+        }
+        return null;
+    }).filter(p => p !== null);
+    
     setupPagination(filtered);
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -3409,18 +3423,21 @@ function renderProducts(productList) {
         // Verificamos si el producto tiene imágenes guardadas. Si no, usamos NO_PHOTO
         const imgSrc = (prod.images && prod.images.length > 0) ? prod.images[0] : 'productos/NO_PHOTO.webp';
 
+        const variantParam = (prod._matchedVariantIndex !== undefined && prod._matchedVariantIndex !== -1) ? `, ${prod._matchedVariantIndex}` : '';
+        const onClk = `openQuickView('${prod.id}'${variantParam})`;
+
         // Creamos la etiqueta de imagen usando la variable segura que acabamos de crear
-        const imgTag = `<img src="${imgSrc}" alt="${prod.name}" loading="lazy" onclick="openQuickView('${prod.id}')" onerror="this.src='productos/NO_PHOTO.webp'">`;
+        const imgTag = `<img src="${imgSrc}" alt="${prod.name}" loading="lazy" onclick="${onClk}" onerror="this.src='productos/NO_PHOTO.webp'">`;
 
         // Si el producto tiene variantes (ej: la placa PUN), el botón dice "Ver Opciones"
         const btnText = prod.variants ? 'Ver Opciones' : 'Agregar al Pedido';
-        const btnAction = prod.variants ? `openQuickView('${prod.id}')` : `addToCart('${prod.id}')`;
+        const btnAction = prod.variants ? onClk : `addToCart('${prod.id}')`;
 
         htmlContent += `
             <div class="product-card">
                 ${imgTag}
-                <div class="product-code" onclick="openQuickView('${prod.id}')">CÓDIGO: ${prod.id}</div>
-                <div class="product-title" onclick="openQuickView('${prod.id}')">${prod.name}</div>
+                <div class="product-code" onclick="${onClk}">CÓDIGO: ${prod.id}</div>
+                <div class="product-title" onclick="${onClk}">${prod.name}</div>
                 <div class="price-container" style="margin-top: auto;">
                     <div class="price-public-usd">Precio: $${precios.publicoUSD.toFixed(2)}</div>
                     <div class="price-public-bs">Ref: Bs. ${precios.publicoBs.toFixed(2)}</div>
@@ -3438,11 +3455,11 @@ function renderProducts(productList) {
 let currentViewedProduct = null;
 let currentVariantIndex = 0;
 
-function openQuickView(productId) {
+function openQuickView(productId, autoVariantIndex = -1) {
     currentViewedProduct = products.find(p => p.id === productId);
     if (!currentViewedProduct) return;
 
-    currentVariantIndex = 0; // Reiniciamos el índice de la variante
+    currentVariantIndex = (autoVariantIndex !== -1 && autoVariantIndex !== undefined) ? autoVariantIndex : 0;
 
     document.getElementById('qvCategory').innerText = currentViewedProduct.category;
     document.getElementById('qvTitle').innerText = currentViewedProduct.name;
@@ -3470,6 +3487,10 @@ function openQuickView(productId) {
         currentViewedProduct.variants.forEach((v, index) => {
             variantSelect.innerHTML += `<option value="${index}">${v.name}</option>`;
         });
+        
+        if (currentVariantIndex >= 0 && currentVariantIndex < currentViewedProduct.variants.length) {
+            variantSelect.value = currentVariantIndex;
+        }
 
         // Al cambiar de medida en el select, actualizamos precios y código
         variantSelect.onchange = function () {
@@ -3670,6 +3691,87 @@ function toggleCart() {
     document.getElementById('cartModal').classList.toggle('active');
 }
 
+async function generateAndCopyInvoice() {
+    if (cart.length === 0) {
+        alert("Agrega al menos un repuesto para generar la factura.");
+        return;
+    }
+    
+    const clientName = document.getElementById('customerName').value.trim() || 'Cliente No Registrado';
+    const clientRif = document.getElementById('customerRif').value.trim() || 'J-000000000';
+    const method = document.getElementById('paymentMethod').value;
+    
+    // Configurar Fecha y Hora
+    const now = new Date();
+    const fecha = now.toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const hora = now.toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit', hour12: true });
+    
+    // Llenar Datos Generales
+    document.getElementById('inv-nombre').innerText = clientName;
+    document.getElementById('inv-rif').innerText = clientRif;
+    document.getElementById('inv-fecha').innerText = fecha;
+    document.getElementById('inv-hora').innerText = hora;
+    
+    // Llenar Items
+    const itemsContainer = document.getElementById('inv-items');
+    itemsContainer.innerHTML = '';
+    let totalUSD = 0;
+    let totalItems = 0;
+    
+    cart.forEach(item => {
+        const preciosItem = calcularPrecios(item.costoCompra);
+        const lineTotal = preciosItem.novaClientesUSD * item.quantity;
+        totalUSD += lineTotal;
+        totalItems += item.quantity;
+        
+        itemsContainer.innerHTML += `
+            <div class="invoice-item">
+                <div class="invoice-item-name">${item.quantity}x ${item.name}</div>
+                <div class="invoice-item-price">$${lineTotal.toFixed(2)}</div>
+            </div>
+        `;
+    });
+    
+    // Llenar Totales y Métodos de pago
+    document.getElementById('inv-total').innerText = totalUSD.toFixed(2);
+    document.getElementById('inv-efectivo').innerText = method === 'EFECTIVO' ? totalUSD.toFixed(2) : '0,00';
+    document.getElementById('inv-debito').innerText = method === 'DEBITO' ? totalUSD.toFixed(2) : '0,00';
+    document.getElementById('inv-transferencia').innerText = method === 'TRANSFERENCIA' ? totalUSD.toFixed(2) : '0,00';
+    document.getElementById('inv-biopago').innerText = method === 'BIOPAGO' ? totalUSD.toFixed(2) : '0,00';
+    document.getElementById('inv-otras').innerText = method === 'OTRAS FORMAS DE PAGO' ? totalUSD.toFixed(2) : '0,00';
+    document.getElementById('inv-total-items').innerText = totalItems;
+    
+    // Generar Imagen con html2canvas
+    try {
+        const originalBtnText = document.querySelector('.invoice-btn').innerText;
+        document.querySelector('.invoice-btn').innerText = "Generando...";
+        
+        const canvas = await html2canvas(document.getElementById('invoice-container'), {
+            scale: 2, // Mejor resolución
+            backgroundColor: "#ffffff"
+        });
+        
+        canvas.toBlob(async function(blob) {
+            try {
+                const item = new ClipboardItem({ "image/png": blob });
+                await navigator.clipboard.write([item]);
+                alert("¡Factura copiada al portapapeles! Ya puedes pegarla en WhatsApp.");
+            } catch (err) {
+                alert("Tu navegador no soporta el copiado directo de imágenes o faltan permisos. Se abrirá la imagen en una pestaña nueva para que la descargues o copies.");
+                const imgUrl = canvas.toDataURL("image/png");
+                const newWin = window.open();
+                newWin.document.write('<img src="' + imgUrl + '"/>');
+            } finally {
+                document.querySelector('.invoice-btn').innerText = originalBtnText;
+            }
+        });
+    } catch (e) {
+        alert("Hubo un error al generar la factura.");
+        console.error(e);
+        document.querySelector('.invoice-btn').innerText = "🧾 Copiar Factura como Imagen";
+    }
+}
+
 function sendWhatsApp() {
     if (cart.length === 0) {
         alert("Agrega al menos un repuesto para consultar la disponibilidad.");
@@ -3771,13 +3873,7 @@ function readHashAndRestore() {
                 if (p.variants) {
                     const vi = p.variants.findIndex(v => v.id === productId);
                     if (vi !== -1) {
-                        openQuickView(p.id);
-                        const sel = document.getElementById('qvVariantSelect');
-                        if (sel) {
-                            sel.value = vi;
-                            currentVariantIndex = vi;
-                            updateQuickViewPrices();
-                        }
+                        openQuickView(p.id, vi);
                         break;
                     }
                 }
