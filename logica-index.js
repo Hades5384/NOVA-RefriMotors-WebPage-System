@@ -1,4 +1,4 @@
-// ==========================================
+﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
 const TASA_BCV = 857.88;
@@ -3308,31 +3308,13 @@ const products = [
 // 3. VARIABLES GLOBALES Y PAGINACIÓN
 // ==========================================
 let currentCategory = 'Todos';
-let currentLetterFilter = '';
 let cart = [];
 let currentPage = 1;
 const itemsPerPage = 20;
 
-function renderAlphabet() {
-    const sidebar = document.getElementById('alphabetSidebar');
-    sidebar.innerHTML = '<div class="alpha-btn" onclick="setLetterFilter(\'\')" title="Borrar filtro">↺</div>';
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-    letters.forEach(char => {
-        sidebar.innerHTML += `<div class="alpha-btn" id="letter-${char}" onclick="setLetterFilter('${char}')">${char}</div>`;
-    });
-}
 
-function setLetterFilter(letter) {
-    if (currentLetterFilter === letter) { currentLetterFilter = ''; }
-    else { currentLetterFilter = letter; }
-    document.querySelectorAll('.alpha-btn').forEach(btn => btn.classList.remove('active'));
-    if (currentLetterFilter !== '') {
-        document.getElementById(`letter-${currentLetterFilter}`).classList.add('active');
-    }
-    currentPage = 1;
-    filterProducts();
-    updateHash();
-}
+
+
 
 function resetPaginationAndFilter() {
     currentPage = 1;
@@ -3370,12 +3352,8 @@ function filterProducts() {
         }
 
         const matchesCategory = (currentCategory === 'Todos') || (prod.category === currentCategory);
-        let matchesLetter = true;
-        if (currentLetterFilter !== '') {
-            matchesLetter = prod.name.charAt(0).toUpperCase() === currentLetterFilter;
-        }
 
-        if (matchesSearch && matchesCategory && matchesLetter) {
+        if (matchesSearch && matchesCategory) {
             return { ...prod, _matchedVariantIndex: matchingVariantIndex };
         }
         return null;
@@ -3722,7 +3700,6 @@ function updateHash() {
     const params = new URLSearchParams();
     if (currentPage > 1) params.set('page', currentPage);
     if (currentCategory !== 'Todos') params.set('category', currentCategory);
-    if (currentLetterFilter !== '') params.set('letter', currentLetterFilter);
     const query = document.getElementById('searchInput').value.trim();
     if (query) params.set('search', query);
 
@@ -3807,6 +3784,6 @@ function readHashAndRestore() {
 // ==========================================
 // ARRANQUE DEL SISTEMA
 // ==========================================
-renderAlphabet();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
+

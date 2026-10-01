@@ -53,7 +53,7 @@ header {
 
 .category-menu {
     display: flex; gap: 10px; padding: 20px 5%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid var(--border-light);
-    background: var(--white);
+    background: var(--white); scrollbar-width: none;
 }
 .category-menu::-webkit-scrollbar { display: none; }
 .cat-btn {
@@ -65,9 +65,9 @@ header {
 
 .products-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Esto crea las múltiples columnas automáticas */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px; 
-    padding: 30px 50px 30px 5%; 
+    padding: 30px 5%; 
 }
 .product-card {
     background: var(--white); border: 1px solid var(--border-light); border-radius: 16px;
@@ -90,13 +90,6 @@ header {
     padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 13px; width: 100%; transition: 0.3s;
 }
 .add-btn:hover { background-color: #a00000; box-shadow: 0 4px 12px rgba(192,0,0,0.2); }
-
-.alphabet-sidebar {
-    position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: linear-gradient(to bottom, #00458a, #001f3f);
-    border-radius: 10px 0 0 10px; padding: 15px 5px; display: flex; flex-direction: column; gap: 4px; z-index: 150; box-shadow: -4px 0 15px rgba(0,0,0,0.2);
-}
-.alpha-btn { color: rgba(255,255,255,0.7); font-size: 12px; font-weight: bold; text-align: center; cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: all 0.2s; }
-.alpha-btn:hover, .alpha-btn.active { color: var(--white); background: var(--nova-red); transform: scale(1.2); }
 
 .pagination { 
     display: flex; 
@@ -242,24 +235,11 @@ header {
     /* 1. GRID EN 1 SOLA COLUMNA VERTICAL (SOLO PARA MÓVIL) */
     .products-grid { 
         grid-template-columns: 1fr; /* Fuerza 1 solo producto por fila */
-        padding: 20px 50px 30px 5%; /* Margen para la nueva barra alfabética */
+        padding: 20px 5% 30px 5%; 
         gap: 20px; 
     }
     
-/* 2. BARRA ALFABÉTICA COMPACTA Y ACCESIBLE */
-    .alphabet-sidebar { 
-        padding: 6px 2px; 
-        gap: 0px; /* Quitamos el espacio extra entre letras para reducir la altura total */
-        border-radius: 10px 0 0 10px; 
-        width: 32px; /* Un poco más delgada pero sigue siendo cómoda para el dedo */
-        background: rgba(0, 69, 138, 0.95); 
-    }
-    .alpha-btn { 
-        font-size: 10px; /* Letra ligeramente más pequeña */
-        padding: 2.5px 0; /* Reducimos el relleno vertical para acortar la barra */
-        font-weight: 700; 
-    }
-    
+
     /* 3. PAGINACIÓN EN MÓVIL */
     .pagination { justify-content: flex-start; }
 
