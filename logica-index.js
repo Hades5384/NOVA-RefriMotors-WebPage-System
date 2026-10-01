@@ -1,7 +1,7 @@
-﻿// ==========================================
+// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 860.18;
+const TASA_BCV = 857.88;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -3308,13 +3308,31 @@ const products = [
 // 3. VARIABLES GLOBALES Y PAGINACIÓN
 // ==========================================
 let currentCategory = 'Todos';
+let currentLetterFilter = '';
 let cart = [];
 let currentPage = 1;
 const itemsPerPage = 20;
 
+function renderAlphabet() {
+    const sidebar = document.getElementById('alphabetSidebar');
+    sidebar.innerHTML = '<div class="alpha-btn" onclick="setLetterFilter(\'\')" title="Borrar filtro">↺</div>';
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+    letters.forEach(char => {
+        sidebar.innerHTML += `<div class="alpha-btn" id="letter-${char}" onclick="setLetterFilter('${char}')">${char}</div>`;
+    });
+}
 
-
-
+function setLetterFilter(letter) {
+    if (currentLetterFilter === letter) { currentLetterFilter = ''; }
+    else { currentLetterFilter = letter; }
+    document.querySelectorAll('.alpha-btn').forEach(btn => btn.classList.remove('active'));
+    if (currentLetterFilter !== '') {
+        document.getElementById(`letter-${currentLetterFilter}`).classList.add('active');
+    }
+    currentPage = 1;
+    filterProducts();
+    updateHash();
+}
 
 function resetPaginationAndFilter() {
     currentPage = 1;
@@ -3352,8 +3370,12 @@ function filterProducts() {
         }
 
         const matchesCategory = (currentCategory === 'Todos') || (prod.category === currentCategory);
+        let matchesLetter = true;
+        if (currentLetterFilter !== '') {
+            matchesLetter = prod.name.charAt(0).toUpperCase() === currentLetterFilter;
+        }
 
-        if (matchesSearch && matchesCategory) {
+        if (matchesSearch && matchesCategory && matchesLetter) {
             return { ...prod, _matchedVariantIndex: matchingVariantIndex };
         }
         return null;
@@ -3669,99 +3691,6 @@ function toggleCart() {
     document.getElementById('cartModal').classList.toggle('active');
 }
 
-async function generateAndCopyInvoice() {
-    if (cart.length === 0) {
-        alert("Agrega al menos un repuesto para generar la factura.");
-        return;
-    }
-
-    const clientName = document.getElementById('customerName').value.trim() || 'Cliente No Registrado';
-    const clientRif = document.getElementById('customerRif').value.trim() || 'J-000000000';
-    const clientPhone = document.getElementById('customerPhone').value.trim() || 'No especificado';
-    const method = document.getElementById('paymentMethod').value;
-
-    // Configurar Fecha y Hora
-    const now = new Date();
-    const fecha = now.toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    const hora = now.toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit', hour12: true });
-
-    // Llenar Datos Generales
-    document.getElementById('inv-nombre').innerText = clientName;
-    document.getElementById('inv-rif').innerText = clientRif;
-    document.getElementById('inv-telefono').innerText = clientPhone;
-    document.getElementById('inv-fecha').innerText = fecha;
-    document.getElementById('inv-hora').innerText = hora;
-
-    // Llenar Items
-    const itemsContainer = document.getElementById('inv-items');
-    itemsContainer.innerHTML = '';
-
-    const isUSD = method === 'EFECTIVO_USD' || method === 'OTRAS FORMAS DE PAGO';
-    const currencySymbol = isUSD ? '$' : 'Bs. ';
-
-    let totalFactura = 0;
-    let totalItems = 0;
-
-    cart.forEach(item => {
-        const preciosItem = calcularPrecios(item.costoCompra);
-        let itemPrice = isUSD ? preciosItem.novaClientesUSD : (preciosItem.novaClientesUSD * TASA_BCV);
-
-        const lineTotal = itemPrice * item.quantity;
-        totalFactura += lineTotal;
-        totalItems += item.quantity;
-
-        itemsContainer.innerHTML += `
-            <div class="invoice-item">
-                <div class="invoice-item-name">${item.quantity}x [${item.id}] ${item.name}</div>
-                <div class="invoice-item-price">${currencySymbol}${lineTotal.toFixed(2)}</div>
-            </div>
-        `;
-    });
-
-    // Llenar Totales y Métodos de pago dinámicamente
-    const totalsContainer = document.getElementById('inv-totals-container');
-    let methodNameDisplay = method;
-    if (method === 'EFECTIVO_USD') methodNameDisplay = 'EFECTIVO USD';
-    if (method === 'EFECTIVO_BS') methodNameDisplay = 'EFECTIVO BS';
-    if (method === 'OTRAS FORMAS DE PAGO') methodNameDisplay = 'OTRAS FORMAS DE PAGO';
-
-    totalsContainer.innerHTML = `
-        <div>TOTAL <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
-        <div>${methodNameDisplay} <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
-        <div style="margin-top: 5px;">TOTAL PRODUCTOS VENDIDOS: <span style="float:right;">${totalItems}</span></div>
-    `;
-
-    // Generar Imagen con html2canvas
-    try {
-        const originalBtnText = document.querySelector('.invoice-btn').innerText;
-        document.querySelector('.invoice-btn').innerText = "Generando...";
-
-        const canvas = await html2canvas(document.getElementById('invoice-container'), {
-            scale: 2, // Mejor resolución
-            backgroundColor: "#ffffff"
-        });
-
-        canvas.toBlob(async function (blob) {
-            try {
-                const item = new ClipboardItem({ "image/png": blob });
-                await navigator.clipboard.write([item]);
-                alert("¡Factura copiada al portapapeles! Ya puedes pegarla en WhatsApp.");
-            } catch (err) {
-                alert("Tu navegador no soporta el copiado directo de imágenes o faltan permisos. Se abrirá la imagen en una pestaña nueva para que la descargues o copies.");
-                const imgUrl = canvas.toDataURL("image/png");
-                const newWin = window.open();
-                newWin.document.write('<img src="' + imgUrl + '"/>');
-            } finally {
-                document.querySelector('.invoice-btn').innerText = originalBtnText;
-            }
-        });
-    } catch (e) {
-        alert("Hubo un error al generar la factura.");
-        console.error(e);
-        document.querySelector('.invoice-btn').innerText = "🧾 Copiar Factura como Imagen";
-    }
-}
-
 function sendWhatsApp() {
     if (cart.length === 0) {
         alert("Agrega al menos un repuesto para consultar la disponibilidad.");
@@ -3776,14 +3705,13 @@ function sendWhatsApp() {
         return;
     }
 
-    let message = `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su web:%0A%0A`;
+    let message = `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* y quisiera consultar la disponibilidad de los siguientes repuestos de su web:%0A%0A`;
 
     cart.forEach(item => {
         message += `• Código: *${item.id}* - (Cantidad: ${item.quantity})%0A`;
     });
 
-    const destinationPhone = NUMERO_WHATSAPP.replace(/[^0-9]/g, '');
-    const whatsappURL = `https://wa.me/${destinationPhone}?text=${message}`;
+    const whatsappURL = `https://wa.me/${NUMERO_WHATSAPP}?text=${message}`;
     window.open(whatsappURL, '_blank');
 }
 
@@ -3794,6 +3722,7 @@ function updateHash() {
     const params = new URLSearchParams();
     if (currentPage > 1) params.set('page', currentPage);
     if (currentCategory !== 'Todos') params.set('category', currentCategory);
+    if (currentLetterFilter !== '') params.set('letter', currentLetterFilter);
     const query = document.getElementById('searchInput').value.trim();
     if (query) params.set('search', query);
 
@@ -3878,7 +3807,6 @@ function readHashAndRestore() {
 // ==========================================
 // ARRANQUE DEL SISTEMA
 // ==========================================
+renderAlphabet();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
-
-

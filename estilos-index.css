@@ -53,7 +53,7 @@ header {
 
 .category-menu {
     display: flex; gap: 10px; padding: 20px 5%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid var(--border-light);
-    background: var(--white); scrollbar-width: none;
+    background: var(--white);
 }
 .category-menu::-webkit-scrollbar { display: none; }
 .cat-btn {
@@ -65,9 +65,9 @@ header {
 
 .products-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Esto crea las múltiples columnas automáticas */
     gap: 25px; 
-    padding: 30px 5%; 
+    padding: 30px 50px 30px 5%; 
 }
 .product-card {
     background: var(--white); border: 1px solid var(--border-light); border-radius: 16px;
@@ -90,6 +90,13 @@ header {
     padding: 10px; border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 13px; width: 100%; transition: 0.3s;
 }
 .add-btn:hover { background-color: #a00000; box-shadow: 0 4px 12px rgba(192,0,0,0.2); }
+
+.alphabet-sidebar {
+    position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: linear-gradient(to bottom, #00458a, #001f3f);
+    border-radius: 10px 0 0 10px; padding: 15px 5px; display: flex; flex-direction: column; gap: 4px; z-index: 150; box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+}
+.alpha-btn { color: rgba(255,255,255,0.7); font-size: 12px; font-weight: bold; text-align: center; cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: all 0.2s; }
+.alpha-btn:hover, .alpha-btn.active { color: var(--white); background: var(--nova-red); transform: scale(1.2); }
 
 .pagination { 
     display: flex; 
@@ -149,8 +156,8 @@ header {
 .qv-code { font-size: 11px; font-weight: 700; color: var(--text-light); margin-bottom: 15px; letter-spacing: 0.5px;}
 
 .qv-desc-container { margin-bottom: 20px; }
-.qv-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; transition: max-height 0.3s ease; }
-.qv-desc.expanded { -webkit-line-clamp: unset; line-clamp: unset; display: block; }
+.qv-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; transition: max-height 0.3s ease; }
+.qv-desc.expanded { -webkit-line-clamp: unset; display: block; }
 .read-more-btn { background: none; border: none; color: var(--nova-blue); font-size: 12px; font-weight: 800; cursor: pointer; padding: 5px 0 0 0; display: inline-block; margin-top: 5px; }
 .read-more-btn:hover { text-decoration: underline; }
 
@@ -235,11 +242,24 @@ header {
     /* 1. GRID EN 1 SOLA COLUMNA VERTICAL (SOLO PARA MÓVIL) */
     .products-grid { 
         grid-template-columns: 1fr; /* Fuerza 1 solo producto por fila */
-        padding: 20px 5% 30px 5%; 
+        padding: 20px 50px 30px 5%; /* Margen para la nueva barra alfabética */
         gap: 20px; 
     }
     
-
+/* 2. BARRA ALFABÉTICA COMPACTA Y ACCESIBLE */
+    .alphabet-sidebar { 
+        padding: 6px 2px; 
+        gap: 0px; /* Quitamos el espacio extra entre letras para reducir la altura total */
+        border-radius: 10px 0 0 10px; 
+        width: 32px; /* Un poco más delgada pero sigue siendo cómoda para el dedo */
+        background: rgba(0, 69, 138, 0.95); 
+    }
+    .alpha-btn { 
+        font-size: 10px; /* Letra ligeramente más pequeña */
+        padding: 2.5px 0; /* Reducimos el relleno vertical para acortar la barra */
+        font-weight: 700; 
+    }
+    
     /* 3. PAGINACIÓN EN MÓVIL */
     .pagination { justify-content: flex-start; }
 
@@ -251,93 +271,4 @@ header {
     .footer-content { grid-template-columns: 1fr; text-align: center; gap: 30px; }
     .footer-col img { margin: 0 auto 15px auto !important; display: block; }
     .footer-bottom { flex-direction: column; text-align: center; gap: 10px; }
-}
-
-/* ==========================================
-   FACTURA DIGITAL (TICKET THERMAL)
-========================================== */
-.invoice-btn {
-    width: 100%;
-    padding: 12px;
-    background: #f1f3f5;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.invoice-btn:hover {
-    background: #e9ecef;
-}
-
-.invoice-container {
-    width: 320px;
-    padding: 20px;
-    background: #fff;
-    color: #000;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 11px;
-    line-height: 1.4;
-    box-sizing: border-box;
-}
-
-.invoice-header {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.invoice-header h3 {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.invoice-client-info, .invoice-meta {
-    margin-bottom: 5px;
-}
-
-.invoice-divider {
-    border-bottom: 1px dashed #000;
-    margin: 8px 0;
-}
-
-.invoice-items {
-    margin-bottom: 10px;
-}
-
-.invoice-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4px;
-}
-
-.invoice-item-name {
-    width: 65%;
-    word-wrap: break-word;
-}
-
-.invoice-item-price {
-    width: 30%;
-    text-align: right;
-}
-
-.invoice-totals {
-    font-weight: bold;
-}
-
-.invoice-footer {
-    margin-top: 15px;
-}
-
-.invoice-notes {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 10px;
 }
