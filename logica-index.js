@@ -3699,6 +3699,7 @@ async function generateAndCopyInvoice() {
     
     const clientName = document.getElementById('customerName').value.trim() || 'Cliente No Registrado';
     const clientRif = document.getElementById('customerRif').value.trim() || 'J-000000000';
+    const clientPhone = document.getElementById('customerPhone').value.trim() || 'No especificado';
     const method = document.getElementById('paymentMethod').value;
     
     // Configurar Fecha y Hora
@@ -3709,6 +3710,7 @@ async function generateAndCopyInvoice() {
     // Llenar Datos Generales
     document.getElementById('inv-nombre').innerText = clientName;
     document.getElementById('inv-rif').innerText = clientRif;
+    document.getElementById('inv-telefono').innerText = clientPhone;
     document.getElementById('inv-fecha').innerText = fecha;
     document.getElementById('inv-hora').innerText = hora;
     
