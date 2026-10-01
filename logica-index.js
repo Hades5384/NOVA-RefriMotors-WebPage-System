@@ -1,7 +1,7 @@
-// ==========================================
+﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 857.88;
+const TASA_BCV = 860.18;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -2563,13 +2563,13 @@ const products = [
         specs: { "Tipo": "Solvente Dieléctrico", "Presentación": "Lata 5 KG", "Uso": "Industrial" }
     },
     {
-        id: "QMC005-RBV",
+        id: "QMC013-RBV",
         name: "Limpiador Dieléctrico RVB de Lata de 500Gr",
         category: "Químicos",
         model: "1/2 Litro",
         desc: `<b>Limpiador Dielectrico RVB de Lata de 1/2kg</b><br><br>Solvente para la limpieza de componentes eléctricos sin riesgo de cortocircuitos. Presentación de 500ml.`,
         costoCompra: 1.65384615,
-        images: ["productos/QMC005-RBV.webp"],
+        images: ["productos/QMC013-RBV.webp"],
         specs: { "Marca": "RBV Compresors Oil", "Presentación": "Lata de 1/2L", "Uso": "Solvente Dieléctrico" }
     },
     {
@@ -3308,31 +3308,13 @@ const products = [
 // 3. VARIABLES GLOBALES Y PAGINACIÓN
 // ==========================================
 let currentCategory = 'Todos';
-let currentLetterFilter = '';
 let cart = [];
 let currentPage = 1;
 const itemsPerPage = 20;
 
-function renderAlphabet() {
-    const sidebar = document.getElementById('alphabetSidebar');
-    sidebar.innerHTML = '<div class="alpha-btn" onclick="setLetterFilter(\'\')" title="Borrar filtro">↺</div>';
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-    letters.forEach(char => {
-        sidebar.innerHTML += `<div class="alpha-btn" id="letter-${char}" onclick="setLetterFilter('${char}')">${char}</div>`;
-    });
-}
 
-function setLetterFilter(letter) {
-    if (currentLetterFilter === letter) { currentLetterFilter = ''; }
-    else { currentLetterFilter = letter; }
-    document.querySelectorAll('.alpha-btn').forEach(btn => btn.classList.remove('active'));
-    if (currentLetterFilter !== '') {
-        document.getElementById(`letter-${currentLetterFilter}`).classList.add('active');
-    }
-    currentPage = 1;
-    filterProducts();
-    updateHash();
-}
+
+
 
 function resetPaginationAndFilter() {
     currentPage = 1;
@@ -3361,26 +3343,22 @@ function filterProducts() {
     const filtered = products.map(prod => {
         let matchesSearch = prod.name.toLowerCase().includes(query) || prod.id.toLowerCase().includes(query) || prod.model.toLowerCase().includes(query);
         let matchingVariantIndex = -1;
-        
+
         if (query !== '' && prod.variants) {
             matchingVariantIndex = prod.variants.findIndex(v => v.name.toLowerCase().includes(query) || v.id.toLowerCase().includes(query));
             if (matchingVariantIndex !== -1) {
                 matchesSearch = true;
             }
         }
-        
+
         const matchesCategory = (currentCategory === 'Todos') || (prod.category === currentCategory);
-        let matchesLetter = true;
-        if (currentLetterFilter !== '') {
-            matchesLetter = prod.name.charAt(0).toUpperCase() === currentLetterFilter;
-        }
-        
-        if (matchesSearch && matchesCategory && matchesLetter) {
+
+        if (matchesSearch && matchesCategory) {
             return { ...prod, _matchedVariantIndex: matchingVariantIndex };
         }
         return null;
     }).filter(p => p !== null);
-    
+
     setupPagination(filtered);
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -3487,7 +3465,7 @@ function openQuickView(productId, autoVariantIndex = -1) {
         currentViewedProduct.variants.forEach((v, index) => {
             variantSelect.innerHTML += `<option value="${index}">${v.name}</option>`;
         });
-        
+
         if (currentVariantIndex >= 0 && currentVariantIndex < currentViewedProduct.variants.length) {
             variantSelect.value = currentVariantIndex;
         }
@@ -3696,40 +3674,42 @@ async function generateAndCopyInvoice() {
         alert("Agrega al menos un repuesto para generar la factura.");
         return;
     }
-    
+
     const clientName = document.getElementById('customerName').value.trim() || 'Cliente No Registrado';
     const clientRif = document.getElementById('customerRif').value.trim() || 'J-000000000';
+    const clientPhone = document.getElementById('customerPhone').value.trim() || 'No especificado';
     const method = document.getElementById('paymentMethod').value;
-    
+
     // Configurar Fecha y Hora
     const now = new Date();
     const fecha = now.toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: 'numeric' });
     const hora = now.toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit', hour12: true });
-    
+
     // Llenar Datos Generales
     document.getElementById('inv-nombre').innerText = clientName;
     document.getElementById('inv-rif').innerText = clientRif;
+    document.getElementById('inv-telefono').innerText = clientPhone;
     document.getElementById('inv-fecha').innerText = fecha;
     document.getElementById('inv-hora').innerText = hora;
-    
+
     // Llenar Items
     const itemsContainer = document.getElementById('inv-items');
     itemsContainer.innerHTML = '';
-    
+
     const isUSD = method === 'EFECTIVO_USD' || method === 'OTRAS FORMAS DE PAGO';
     const currencySymbol = isUSD ? '$' : 'Bs. ';
-    
+
     let totalFactura = 0;
     let totalItems = 0;
-    
+
     cart.forEach(item => {
         const preciosItem = calcularPrecios(item.costoCompra);
         let itemPrice = isUSD ? preciosItem.novaClientesUSD : (preciosItem.novaClientesUSD * TASA_BCV);
-        
+
         const lineTotal = itemPrice * item.quantity;
         totalFactura += lineTotal;
         totalItems += item.quantity;
-        
+
         itemsContainer.innerHTML += `
             <div class="invoice-item">
                 <div class="invoice-item-name">${item.quantity}x [${item.id}] ${item.name}</div>
@@ -3737,31 +3717,31 @@ async function generateAndCopyInvoice() {
             </div>
         `;
     });
-    
+
     // Llenar Totales y Métodos de pago dinámicamente
     const totalsContainer = document.getElementById('inv-totals-container');
     let methodNameDisplay = method;
     if (method === 'EFECTIVO_USD') methodNameDisplay = 'EFECTIVO USD';
     if (method === 'EFECTIVO_BS') methodNameDisplay = 'EFECTIVO BS';
     if (method === 'OTRAS FORMAS DE PAGO') methodNameDisplay = 'OTRAS FORMAS DE PAGO';
-    
+
     totalsContainer.innerHTML = `
         <div>TOTAL <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
         <div>${methodNameDisplay} <span style="float:right;">${currencySymbol}${totalFactura.toFixed(2)}</span></div>
         <div style="margin-top: 5px;">TOTAL PRODUCTOS VENDIDOS: <span style="float:right;">${totalItems}</span></div>
     `;
-    
+
     // Generar Imagen con html2canvas
     try {
         const originalBtnText = document.querySelector('.invoice-btn').innerText;
         document.querySelector('.invoice-btn').innerText = "Generando...";
-        
+
         const canvas = await html2canvas(document.getElementById('invoice-container'), {
             scale: 2, // Mejor resolución
             backgroundColor: "#ffffff"
         });
-        
-        canvas.toBlob(async function(blob) {
+
+        canvas.toBlob(async function (blob) {
             try {
                 const item = new ClipboardItem({ "image/png": blob });
                 await navigator.clipboard.write([item]);
@@ -3814,7 +3794,6 @@ function updateHash() {
     const params = new URLSearchParams();
     if (currentPage > 1) params.set('page', currentPage);
     if (currentCategory !== 'Todos') params.set('category', currentCategory);
-    if (currentLetterFilter !== '') params.set('letter', currentLetterFilter);
     const query = document.getElementById('searchInput').value.trim();
     if (query) params.set('search', query);
 
@@ -3899,6 +3878,7 @@ function readHashAndRestore() {
 // ==========================================
 // ARRANQUE DEL SISTEMA
 // ==========================================
-renderAlphabet();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
+
+

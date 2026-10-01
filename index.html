@@ -53,8 +53,6 @@
         <button class="cat-btn" onclick="setCategory('Herramientas', this)">Herramientas</button>
     </nav>
 
-    <!-- BARRA ALFABÉTICA LATERAL -->
-    <div class="alphabet-sidebar" id="alphabetSidebar"></div>
 
     <!-- CONTENEDOR DE PRODUCTOS -->
     <main class="products-grid" id="products-container"></main>
@@ -127,8 +125,8 @@
                 <label for="customerRif">RIF / Cédula:</label>
                 <input type="text" id="customerRif" placeholder="V-12345678 / J-123456789" oninput="this.value = this.value.replace(/[^vjgeVJGE0-9-]/g, '')" required>
 
-                <label for="customerPhone">Número de WhatsApp:</label>
-                <input type="tel" id="customerPhone" placeholder="Ej: 0414-1234567" oninput="this.value = this.value.replace(/[^0-9-]/g, '')" required>
+                <label for="customerPhone">Número de WhatsApp / Teléfono:</label>
+                <input type="tel" id="customerPhone" placeholder="Ej: 0414-1234567 o 04141234567" oninput="this.value = this.value.replace(/[^0-9+\s-]/g, '')" required>
 
                 <label for="paymentMethod">Método de Pago:</label>
                 <select id="paymentMethod" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid var(--border-light); border-radius: 8px; outline: none; font-size: 14px;">
@@ -197,6 +195,7 @@
             <div class="invoice-client-info">
                 <div>NOMBRE: <span id="inv-nombre"></span></div>
                 <div>RIF: <span id="inv-rif"></span></div>
+                <div>TELÉFONO: <span id="inv-telefono"></span></div>
             </div>
             <div class="invoice-meta">
                 <div>FECHA: <span id="inv-fecha"></span> &nbsp;&nbsp;&nbsp;HORA: <span id="inv-hora"></span></div>
