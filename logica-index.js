@@ -264,8 +264,11 @@ const products = [
             "productos/FIL130.webp",
             "productos/FIL131.webp",
             "productos/FIL146.webp",
+            "productos/FIL152.webp",
             "productos/FIL154.webp",
+            "productos/FIL158.webp",
             "productos/FIL160.webp",
+            "productos/FIL161.webp",
             "productos/FIL170.webp",
             "productos/FIL171.webp"
         ],
@@ -279,7 +282,10 @@ const products = [
             { id: "FIL130", name: "1/4 SD-162 ISYN (1-3 TON)", costoCompra: 4.96923077 },
             { id: "FIL100", name: "3/8 SEK-163F Económico (3-5 TON)", costoCompra: 3.97692308 },
             { id: "FIL131", name: "3/8 SEK-163 Landsfoss (3-5 TON)", costoCompra: 5.96923077 },
-            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 }
+            { id: "FIL152", name: "1/2 SEK-164 Landsfoss (3-5 TON)", costoCompra: 5.29230769 },
+            { id: "FIL161", name: "5/8 Núcleo Sólido Maxwell", costoCompra: 4.63076923 },
+            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 },
+            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
         ]
     },
     {
