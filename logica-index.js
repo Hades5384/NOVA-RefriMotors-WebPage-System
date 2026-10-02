@@ -215,7 +215,6 @@ const products = [
             "productos/FIL131.webp",
             "productos/FIL146.webp",
             "productos/FIL154.webp",
-            "productos/FIL158.webp",
             "productos/FIL160.webp",
             "productos/FIL170.webp",
             "productos/FIL171.webp"
@@ -230,8 +229,7 @@ const products = [
             { id: "FIL130", name: "1/4 SD-162 ISYN (1-3 TON)", costoCompra: 4.96923077 },
             { id: "FIL100", name: "3/8 SEK-163F Económico (3-5 TON)", costoCompra: 3.97692308 },
             { id: "FIL131", name: "3/8 SEK-163 Landsfoss (3-5 TON)", costoCompra: 5.96923077 },
-            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 },
-            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
+            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 }
         ]
     },
     {
@@ -244,13 +242,15 @@ const products = [
         images: [
             "productos/FIL149.webp",
             "productos/FIL153.webp",
-            "productos/FIL157.webp"
+            "productos/FIL157.webp",
+            "productos/FIL158.webp"
         ],
         specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Soldable (ODF)", "Uso": "Refrigeración Comercial" },
         variants: [
             { id: "FIL149", name: "1/4 SG-162S Soldable ISYN", costoCompra: 5.29230769 },
             { id: "FIL153", name: "1/2 FD164S Soldable Degar", costoCompra: 7.95384615 },
-            { id: "FIL157", name: "5/8 FD305S Soldable Degar", costoCompra: 17.30000000 }
+            { id: "FIL157", name: "5/8 FD305S Soldable Degar", costoCompra: 17.30000000 },
+            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
         ]
     },
     {
