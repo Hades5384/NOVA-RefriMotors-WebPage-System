@@ -209,16 +209,16 @@ const products = [
         desc: `<b>Filtro Secador de Rosca (Flare)</b><br><br>Filtro desecante de núcleo sólido para la línea de líquido en sistemas de aire acondicionado y refrigeración comercial. Conexión roscada (Flare) para fácil instalación y mantenimiento. Seleccione la capacidad y medida.`,
         costoCompra: 3.97692308, // Costo base (FIL100)
         images: [
-            "productos/FIL100.png",
-            "productos/FIL112.png",
-            "productos/FIL130.png",
-            "productos/FIL131.png",
-            "productos/FIL146.png",
-            "productos/FIL154.png",
-            "productos/FIL158.png",
-            "productos/FIL160.png",
-            "productos/FIL170.png",
-            "productos/FIL171.png"
+            "productos/FIL100.webp",
+            "productos/FIL112.webp",
+            "productos/FIL130.webp",
+            "productos/FIL131.webp",
+            "productos/FIL146.webp",
+            "productos/FIL154.webp",
+            "productos/FIL158.webp",
+            "productos/FIL160.webp",
+            "productos/FIL170.webp",
+            "productos/FIL171.webp"
         ],
         specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Rosca (Flare)", "Uso": "A/A y Refrigeración" },
         variants: [
@@ -242,9 +242,9 @@ const products = [
         desc: `<b>Filtro Secador Soldable (ODF)</b><br><br>Filtro de bloque sólido desecante diseñado para conexiones soldables permanentes, previniendo fugas en sistemas de refrigeración de alta exigencia.`,
         costoCompra: 5.29230769, // Costo base (FIL149)
         images: [
-            "productos/FIL149.png",
-            "productos/FIL153.png",
-            "productos/FIL157.png"
+            "productos/FIL149.webp",
+            "productos/FIL153.webp",
+            "productos/FIL157.webp"
         ],
         specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Soldable (ODF)", "Uso": "Refrigeración Comercial" },
         variants: [
@@ -260,7 +260,7 @@ const products = [
         model: "163 / 163S",
         desc: `<b>Filtro Secador de Línea con Visor Integrado</b><br><br>Filtro de núcleo sólido de alta capacidad con un práctico visor (mirilla) integrado que permite monitorear el flujo de refrigerante y detectar humedad en el sistema.`,
         costoCompra: 9.95384615,
-        images: ["productos/FIL122-172.png"],
+        images: ["productos/FIL122-172.webp"],
         specs: { "Característica": "Visor Integrado (Mirilla)", "Medida": "3/8", "Uso": "Monitoreo y Filtrado" },
         variants: [
             { id: "FIL122", name: "3/8 163 Núcleo S. con Visor (Rosca)", costoCompra: 9.95384615 },
