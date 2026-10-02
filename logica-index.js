@@ -202,6 +202,72 @@ const products = [
 
 
     {
+        id: "FIL-LINEA-ROSCADO",
+        name: "Filtro Secador de Rosca (Línea de Líquido)",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Filtro Secador de Rosca (Flare)</b><br><br>Filtro desecante de núcleo sólido para la línea de líquido en sistemas de aire acondicionado y refrigeración comercial. Conexión roscada (Flare) para fácil instalación y mantenimiento. Seleccione la capacidad y medida.`,
+        costoCompra: 3.97692308, // Costo base (FIL100)
+        images: [
+            "productos/FIL100.png",
+            "productos/FIL112.png",
+            "productos/FIL130.png",
+            "productos/FIL131.png",
+            "productos/FIL146.png",
+            "productos/FIL154.png",
+            "productos/FIL158.png",
+            "productos/FIL160.png",
+            "productos/FIL170.png",
+            "productos/FIL171.png"
+        ],
+        specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Rosca (Flare)", "Uso": "A/A y Refrigeración" },
+        variants: [
+            { id: "FIL171", name: "1/4 SEK-032 Landsfoss (3 TON)", costoCompra: 2.43076923 },
+            { id: "FIL170", name: "1/4 032 MEK-032 Maxwell", costoCompra: 2.59230769 },
+            { id: "FIL160", name: "1/4 Núcleo Sólido Maxwell", costoCompra: 3.04615385 },
+            { id: "FIL112", name: "1/4 SEK-052 (1-2 TON)", costoCompra: 3.20000000 },
+            { id: "FIL154", name: "1/4 FD032S Degar", costoCompra: 3.96923077 },
+            { id: "FIL130", name: "1/4 SD-162 ISYN (1-3 TON)", costoCompra: 4.96923077 },
+            { id: "FIL100", name: "3/8 SEK-163F Económico (3-5 TON)", costoCompra: 3.97692308 },
+            { id: "FIL131", name: "3/8 SEK-163 Landsfoss (3-5 TON)", costoCompra: 5.96923077 },
+            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 },
+            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
+        ]
+    },
+    {
+        id: "FIL-LINEA-SOLDABLE",
+        name: "Filtro Secador Soldable (Línea de Líquido)",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Filtro Secador Soldable (ODF)</b><br><br>Filtro de bloque sólido desecante diseñado para conexiones soldables permanentes, previniendo fugas en sistemas de refrigeración de alta exigencia.`,
+        costoCompra: 5.29230769, // Costo base (FIL149)
+        images: [
+            "productos/FIL149.png",
+            "productos/FIL153.png",
+            "productos/FIL157.png"
+        ],
+        specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Soldable (ODF)", "Uso": "Refrigeración Comercial" },
+        variants: [
+            { id: "FIL149", name: "1/4 SG-162S Soldable ISYN", costoCompra: 5.29230769 },
+            { id: "FIL153", name: "1/2 FD164S Soldable Degar", costoCompra: 7.95384615 },
+            { id: "FIL157", name: "5/8 FD305S Soldable Degar", costoCompra: 17.30000000 }
+        ]
+    },
+    {
+        id: "FIL-VISOR-VARIANTE",
+        name: "Filtro Secador de Línea con Visor de Líquido",
+        category: "Refrigeración",
+        model: "163 / 163S",
+        desc: `<b>Filtro Secador de Línea con Visor Integrado</b><br><br>Filtro de núcleo sólido de alta capacidad con un práctico visor (mirilla) integrado que permite monitorear el flujo de refrigerante y detectar humedad en el sistema.`,
+        costoCompra: 9.95384615,
+        images: ["productos/FIL122-172.png"],
+        specs: { "Característica": "Visor Integrado (Mirilla)", "Medida": "3/8", "Uso": "Monitoreo y Filtrado" },
+        variants: [
+            { id: "FIL122", name: "3/8 163 Núcleo S. con Visor (Rosca)", costoCompra: 9.95384615 },
+            { id: "FIL172", name: "3/8 163S Núcleo S. con Visor (Soldable)", costoCompra: 9.95384615 }
+        ]
+    },
+    {
         id: "MTU-GENERICO-VAR",
         name: "Motor W (Vatiaje) para Nevera / Cava (Genérico)",
         category: "Motores",
