@@ -200,7 +200,57 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
-
+    // ==========================================
+    // SECCIÓN: FILTROS DE SUCCIÓN Y ALTA CAPACIDAD (SERIE S / SFX)
+    // ==========================================
+    {
+        id: "FIL-SUCCION-VAR",
+        name: "Filtro Secador de Succión Soldable (Serie SFX)",
+        category: "Refrigeración",
+        model: "Serie SFX",
+        desc: `<b>Filtro Secador de Succión Soldable</b><br><br>Filtro secador diseñado específicamente para instalarse en la línea de succión de sistemas comerciales e industriales. Ayuda a retener contaminantes, ácidos y humedad antes de que ingresen y dañen el compresor.`,
+        costoCompra: 10.58461538, // Costo base (3/8")
+        images: [
+            "productos/FIL150.webp",
+            "productos/FIL108.webp",
+            "productos/FIL109.webp",
+            "productos/FIL104.webp"
+        ],
+        specs: { "Tipo": "Línea de Succión", "Conexión": "Soldable (ODF)", "Uso": "Protección de Compresor" },
+        variants: [
+            { id: "FIL150", name: "Medida: 3/8\" Soldable (SFX-283T)", costoCompra: 10.58461538 },
+            { id: "FIL108", name: "Medida: 1/2\" Soldable (SFX-284T)", costoCompra: 10.75384615 },
+            { id: "FIL109", name: "Medida: 5/8\" Soldable (SFX-285T)", costoCompra: 11.01538462 },
+            { id: "FIL104", name: "Medida: 7/8\" Soldable (SFX-287T)", costoCompra: 15.00000000 }
+        ]
+    },
+    {
+        id: "FIL-ROSCADO-ALTA",
+        name: "Filtro Secador de Rosca Alta Capacidad (Serie S)",
+        category: "Refrigeración",
+        model: "Series S-300 / S-400",
+        desc: `<b>Filtro Secador de Rosca de Alta Capacidad</b><br><br>Filtros desecantes de núcleo sólido de gran volumen (Series 300 y 400) para la línea de líquido. Ideales para equipos de refrigeración central y aire acondicionado comercial de gran tonelaje.`,
+        costoCompra: 6.43076923, // Costo base (303 ISY)
+        images: [
+            "productos/FIL135.webp",
+            "productos/FIL151.webp",
+            "productos/FIL169.webp",
+            "productos/FIL129.webp",
+            "productos/FIL132.webp",
+            "productos/FIL113.webp",
+            "productos/FIL118.webp"
+        ],
+        specs: { "Tipo": "Alta Capacidad (Núcleo Sólido)", "Conexión": "Rosca (Flare)", "Uso": "Equipos de Gran Tonelaje" },
+        variants: [
+            { id: "FIL135", name: "3/8\" 303 ISYN (5 a 7.5 Toneladas)", costoCompra: 6.43076923 },
+            { id: "FIL151", name: "3/8\" S-303 (5 a 7.5 Toneladas)", costoCompra: 7.94615385 },
+            { id: "FIL169", name: "1/2\" S-304 (10 Toneladas)", costoCompra: 8.75384615 },
+            { id: "FIL129", name: "5/8\" S-305 (5 a 10 Toneladas)", costoCompra: 9.94615385 },
+            { id: "FIL132", name: "7/8\" S-307 (10 Toneladas)", costoCompra: 9.27692308 },
+            { id: "FIL113", name: "5/8\" S-415 (15 Toneladas)", costoCompra: 13.26153846 },
+            { id: "FIL118", name: "1/2\" S-414 (10 a 15 Toneladas)", costoCompra: 16.45384615 }
+        ]
+    },
     {
         id: "FIL-LINEA-ROSCADO",
         name: "Filtro Secador de Rosca (Línea de Líquido)",
