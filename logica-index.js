@@ -200,9 +200,16 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
-    // ==========================================
-    // SECCIÓN: FILTROS DE SUCCIÓN Y ALTA CAPACIDAD (SERIE S / SFX)
-    // ==========================================
+    {
+        id: "JLC001",
+        name: "Juego Cuadrante Oster Rosca Gruesa Original",
+        category: "Licuadoras",
+        model: "BLSTAC-KIT",
+        desc: `<b>Conjunto de Acople Cuadrante Oster Original</b><br><br>Kit de acoplamiento de rosca gruesa original para licuadoras Oster. Acople metálico diseñado para transmitir toda la potencia del motor con máxima durabilidad y desempeño.`,
+        costoCompra: 1.65384615,
+        images: ["productos/JLC001.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Cuadrante / Acople", "Rosca": "Gruesa", "Material": "Metálico" }
+    },
     {
         id: "FIL-SUCCION-VAR",
         name: "Filtro Secador de Succión Soldable (Serie SFX)",
