@@ -200,6 +200,65 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+
+    {
+        id: "MVE-VARIANTE",
+        name: "Motor Ventilador Evaporador Split (Consola Interna)",
+        category: "Motores",
+        model: "Varias Medidas",
+        desc: `<b>Motor Ventilador de Evaporador (Split)</b><br><br>Motor de repuesto para la turbina de la unidad interna (consola) de aires acondicionados tipo Split a 220V. Disponibles en distintas capacidades (W) y longitudes de eje. Verifique el largo del eje de su motor dañado antes de elegir.`,
+        costoCompra: 13.26153846, // Costo base (MVE006)
+        images: ["productos/MVE.webp"],
+        specs: { "Tipo": "Motor Evaporador", "Voltaje": "220V", "Uso": "Consola Interna (Split)" },
+        variants: [
+            // Ejes Cortos (aprox 3.3cm - 3.5cm)
+            { id: "MVE016", name: "16W 220V (Eje 3.3 CM)", costoCompra: 16.41538462 },
+            { id: "MVE019", name: "19W 220V (Eje 3.3 CM)", costoCompra: 13.30769231 },
+            { id: "MVE024", name: "20W 220V (Eje 3.5 CM)", costoCompra: 13.26153846 },
+            { id: "MVE023", name: "23W 220V (Eje 3.3 CM)", costoCompra: 18.37692308 },
+            { id: "MVE006", name: "30W 220V (Eje 3.3 CM)", costoCompra: 13.26153846 },
+            { id: "MVE007", name: "33W 220V (Eje 3.3 CM)", costoCompra: 14.58461538 },
+
+            // Ejes Largos (7.5cm - 7.8cm y Especiales)
+            { id: "MVE001", name: "12W 220V (Eje 7.5 CM)", costoCompra: 18.62307692 },
+            { id: "MVE003", name: "22W 220V (Eje 7.5 CM)", costoCompra: 18.30000000 },
+            { id: "MVC031", name: "25W 220V (Eje 7.5 CM)", costoCompra: 17.89230769 },
+            { id: "MVE005", name: "26W 220V (Eje 7.5 CM)", costoCompra: 24.33076923 },
+            { id: "MVE027", name: "26W 220V (Eje 7.8 CM)", costoCompra: 19.89230769 },
+            { id: "MVE025", name: "27W 220V (Eje Largo)", costoCompra: 23.21538462 },
+
+            // Modelos Específicos / Marcas
+            { id: "MVE022", name: "22W 220V (Haier B 18kBTU)", costoCompra: 23.20769231 },
+            { id: "MVE026", name: "26W 220V (KSFD-20A)", costoCompra: 13.26153846 },
+            { id: "MVE008", name: "35W 220V (Landsfoss)", costoCompra: 14.58461538 },
+            { id: "MVE009", name: "40W 220V (Landsfoss)", costoCompra: 19.26923077 }
+        ]
+    },
+    {
+        id: "MVC-VARIANTE",
+        name: "Motor Ventilador Condensador Split (Unidad Externa)",
+        category: "Motores",
+        model: "Varias Medidas",
+        desc: `<b>Motor Ventilador de Condensador (Split)</b><br><br>Motor de repuesto para la aspa de la unidad externa (condensadora) de aires acondicionados tipo Split a 220V. Resistente a la intemperie y altas temperaturas. Verifique el grosor del eje (5/16 o 1/2) antes de realizar su pedido.`,
+        costoCompra: 17.89230769, // Costo base (MVC029)
+        images: ["productos/MCV.webp"],
+        specs: { "Tipo": "Motor Condensador", "Voltaje": "220V", "Uso": "Unidad Externa (Split)" },
+        variants: [
+            // Eje 5/16
+            { id: "MVC029", name: "25W 220V (Eje 5/16)", costoCompra: 17.89230769 },
+            { id: "MVC030", name: "30W 220V (Eje 5/16)", costoCompra: 17.89230769 },
+            { id: "MVC035", name: "35W 220V (Eje 5/16)", costoCompra: 17.90000000 },
+            { id: "MVC100", name: "40W 220V (Eje 5/16 YDK40)", costoCompra: 19.89230769 },
+            { id: "MVC051", name: "50W 220V (Eje 5/16)", costoCompra: 29.38461538 },
+
+            // Eje 1/2
+            { id: "MVC050", name: "50W 220V (Eje 1/2)", costoCompra: 23.20769231 },
+
+            // Modelos Específicos / Marcas
+            { id: "MVC110", name: "33W 220V (Haier 12/18kBTU)", costoCompra: 16.56923077 },
+            { id: "MVC032", name: "36W 220V (CY 18kBTU)", costoCompra: 26.52307692 }
+        ]
+    },
     {
         id: "CLC001",
         name: "Cuchilla Oster de 4 Aletas P/Hielo Original",
