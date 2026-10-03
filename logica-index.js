@@ -207,7 +207,7 @@ const products = [
         model: "4 Aletas Original",
         desc: `<b>Cuchilla Picahielo Oster Original de 4 Aletas</b><br><br>Repuesto original Oster diseñado con 4 aspas de acero inoxidable de alta resistencia. Ideal para triturar hielo y procesar alimentos duros sin perder el filo.`,
         costoCompra: 3.64615385,
-        images: ["productos/CLC002.webp"],
+        images: ["productos/CUCHILLA_4_ASPAS_OSTER.webp"],
         specs: { "Material": "Acero Inoxidable", "Aletas": "4", "Compatibilidad": "Rosca Estándar Oster" }
     },
     {
