@@ -1,7 +1,7 @@
 ﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-let TASA_BCV = 871.37;
+const TASA_BCV = 871.37;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -9,36 +9,6 @@ const TASA_INTERNA = 1000;
 
 // Mostrar tasa BCV en el encabezado
 document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
-
-// ==========================================
-// 1.1 ACTUALIZACIÃ“N AUTOMÃTICA DE TASA BCV
-// ==========================================
-async function updateTasaBCV() {
-    try {
-        const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
-        if (!response.ok) throw new Error('API no respondiÃ³ correctamente');
-        const data = await response.json();
-        
-        if (data && data.promedio) {
-            TASA_BCV = parseFloat(data.promedio);
-            document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
-            
-            // Actualizar los componentes de la interfaz con los nuevos precios
-            if (typeof filterProducts === 'function') filterProducts();
-            if (typeof updateCartUI === 'function') updateCartUI();
-            if (typeof currentViewedProduct !== 'undefined' && currentViewedProduct !== null) {
-                if (typeof updateQuickViewPrices === 'function') updateQuickViewPrices();
-            }
-            
-            console.log('Tasa BCV actualizada exitosamente desde la API:', TASA_BCV);
-        }
-    } catch (error) {
-        console.warn('No se pudo obtener la tasa BCV actualizada. Usando tasa manual de respaldo:', TASA_BCV);
-    }
-}
-
-// Iniciar actualizaciÃ³n
-updateTasaBCV();
 
 const products = [
 
