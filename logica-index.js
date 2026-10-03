@@ -201,6 +201,26 @@ const products = [
     // ============================================================== //
 
     {
+        id: "CLC001",
+        name: "Cuchilla Oster de 4 Aletas P/Hielo Original",
+        category: "Licuadoras",
+        model: "4 Aletas Original",
+        desc: `<b>Cuchilla Picahielo Oster Original de 4 Aletas</b><br><br>Repuesto original Oster diseñado con 4 aspas de acero inoxidable de alta resistencia. Ideal para triturar hielo y procesar alimentos duros sin perder el filo.`,
+        costoCompra: 3.64615385,
+        images: ["productos/CLC002.webp"],
+        specs: { "Material": "Acero Inoxidable", "Aletas": "4", "Compatibilidad": "Rosca Estándar Oster" }
+    },
+    {
+        id: "CLC032",
+        name: "Cuchilla Oster de 6 Aletas P/Hielo Original",
+        category: "Licuadoras",
+        model: "4980 (6 Aletas)",
+        desc: `<b>Cuchilla Oster de 6 Aletas Procesadora Original</b><br><br>Repuesto de alto rendimiento (Modelo 4980) con diseño de 6 aspas en múltiples niveles para un procesado rápido y uniforme. Máxima potencia para batidos y trituración de hielo.`,
+        costoCompra: 6.69230769,
+        images: ["productos/CLC032.webp"],
+        specs: { "Material": "Acero Inoxidable", "Aletas": "6", "Modelo OEM": "4980" }
+    },
+    {
         id: "JLC001",
         name: "Juego Cuadrante Oster Rosca Gruesa Original",
         category: "Licuadoras",
