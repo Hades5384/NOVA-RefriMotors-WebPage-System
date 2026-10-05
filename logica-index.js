@@ -202,6 +202,57 @@ const products = [
 
 
     {
+        id: "TMP-SIFON-VAR",
+        name: "Trampa Sifón de Cobre (Varias Medidas)",
+        category: "Refrigeración",
+        model: "Trampa Sifón (P-Trap)",
+        desc: `<b>Trampa Sifón de Cobre (P-Trap)</b><br><br>Accesorio de cobre esencial para garantizar el retorno adecuado de aceite al compresor en tuberías verticales de refrigeración y aire acondicionado. Seleccione la medida requerida.`,
+        costoCompra: 1.98461538, // Costo base (1/2)
+        images: ["productos/TMP-SIFON.webp"],
+        specs: { "Material": "Cobre", "Tipo": "Sifón (P-Trap)", "Uso": "Retorno de Aceite" },
+        variants: [
+            { id: "TMP100", name: "Medida: 1/2\"", costoCompra: 1.98461538 },
+            { id: "TMP103", name: "Medida: 5/8\"", costoCompra: 2.87692308 },
+            { id: "TMP102", name: "Medida: 3/4\"", costoCompra: 5.63076923 },
+            { id: "TMP101", name: "Medida: 7/8\"", costoCompra: 7.54615385 },
+            { id: "TMP104", name: "Medida: 1-1/8\"", costoCompra: 10.13076923 }
+        ]
+    },
+    {
+        id: "VFA-VARIANTE",
+        name: "Válvulas para Filtro de Agua (Par Azul/Rojo)",
+        category: "Neveras / Cavas",
+        model: "Macho / Hembra",
+        desc: `<b>Válvulas Dispensadoras para Filtro de Agua</b><br><br>Repuesto de llaves o válvulas de acción rápida (color azul para agua fría y rojo para agua caliente) para dispensadores y filtros de agua. Disponibles con conexión de rosca macho o hembra.`,
+        costoCompra: 2.64615385,
+        images: ["productos/VFA100.webp", "productos/VFA101.webp"],
+        specs: { "Tipo": "Válvula Dispensadora", "Color": "Azul y Rojo", "Uso": "Filtros y Dispensadores" },
+        variants: [
+            { id: "VFA100", name: "Conexión: Rosca Macho (Par)", costoCompra: 2.64615385 },
+            { id: "VFA101", name: "Conexión: Rosca Hembra (Par)", costoCompra: 2.64615385 }
+        ]
+    },
+    {
+        id: "TIM051",
+        name: "Temporizador / Retardador de Voltaje 3-10M",
+        category: "Protectores",
+        model: "Delay On Make",
+        desc: `<b>Temporizador / Retardador de Voltaje (Delay On Make)</b><br><br>Módulo retardador de encendido ajustable (de 3 a 10 minutos). Protege compresores y motores al evitar arranques inmediatos o en seco tras un corte eléctrico.`,
+        costoCompra: 3.00000000,
+        images: ["productos/TIM051.webp"],
+        specs: { "Tipo": "Retardador (Delay)", "Ajuste": "3 a 10 Minutos", "Uso": "Protección de Compresores" }
+    },
+    {
+        id: "TIM004",
+        name: "Reloj Temporizador de Nevera Metálico 6H-21M",
+        category: "Neveras / Cavas",
+        model: "DS-002 M830",
+        desc: `<b>Reloj Temporizador de Nevera Metálico (6H - 21M)</b><br><br>Temporizador de descongelación (Timer) con carcasa y engranajes mecánicos metálicos para una durabilidad superior. Ciclo de trabajo de 6 horas y 21 minutos de deshielo.`,
+        costoCompra: 4.06153846,
+        images: ["productos/TIM004.webp"],
+        specs: { "Tipo": "Timer Defrost Metálico", "Ciclo": "6 Horas / 21 Minutos", "Uso": "Neveras No Frost" }
+    },
+    {
         id: "MVE-VARIANTE",
         name: "Motor Ventilador Evaporador Split (Consola Interna)",
         category: "Motores",
