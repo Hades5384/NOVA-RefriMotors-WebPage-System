@@ -202,6 +202,108 @@ const products = [
 
 
     {
+        id: "BIS-CAVA-VAR",
+        name: "Bisagras para Cava Cuarto y Congelador",
+        category: "Neveras / Cavas",
+        model: "Varias Medidas",
+        desc: `<b>Bisagras para Cava Cuarto y Congeladores</b><br><br>Bisagras de alta resistencia para puertas de cavas cuarto y congeladores comerciales. Fabricadas para soportar trabajo pesado y sellar de manera hermética a bajas temperaturas. Seleccione el modelo según el tamaño de su puerta.`,
+        costoCompra: 16.57692308, // Base (BIS100)
+        images: ["productos/BIS-BISAGRA-CAVA.webp"],
+        specs: { "Tipo": "Bisagra Comercial", "Uso": "Cavas Cuarto y Congeladores", "Material": "Metal Cromado Reforzado" },
+        variants: [
+            { id: "BIS102", name: "CT-1432 Pequeña", costoCompra: 4.30769231 },
+            { id: "BIS105", name: "3.5MM YL-650 (Par / Congelador)", costoCompra: 7.95384615 },
+            { id: "BIS100", name: "LT-1460 Landsfoss", costoCompra: 16.57692308 },
+            { id: "BIS103", name: "CT-1230N Grande", costoCompra: 23.20000000 },
+            { id: "BIS101", name: "LT-1470 Landsfoss G", costoCompra: 29.83846154 },
+            { id: "BIS104", name: "LT-1480 Landsfoss", costoCompra: 47.03580902 }
+        ]
+    },
+    {
+        id: "SIL-VARIANTE",
+        name: "Silicón Sellador en Pomo (Transparente / Rojo)",
+        category: "Químicos",
+        model: "Transparente / Rojo",
+        desc: `<b>Silicón Sellador Alta Temperatura y Multiuso</b><br><br>Silicón sellador en presentación de pomo, ideal para sellar juntas, aislar componentes y evitar fugas. Disponible en versión Transparente (multiuso) y Rojo (alta temperatura).`,
+        costoCompra: 1.33076923,
+        images: ["productos/SIL103.webp", "productos/SLC102.webp"],
+        specs: { "Tipo": "Silicón Sellador", "Presentación": "Pomo", "Uso": "Mantenimiento / Sellado" },
+        variants: [
+            { id: "SIL103", name: "Silicón Transparente Multiuso (70ml)", costoCompra: 1.33076923 },
+            { id: "SLC102", name: "Silicón Rojo Alta Temperatura (85G)", costoCompra: 1.33076923 }
+        ]
+    },
+    {
+        id: "ORG300",
+        name: "Kit de O-Rings y Gomas Surtidas Maxwell",
+        category: "Herramientas",
+        model: "Surtido CH2",
+        desc: `<b>Estuche Kit de O-Rings y Gomas Maxwell</b><br><br>Completo kit surtido de O-rings (juntas tóricas) y gomas, esencial para sellar fugas en manómetros, válvulas y mangueras de refrigeración.`,
+        costoCompra: 7.95384615,
+        images: ["productos/ORG300.webp"],
+        specs: { "Marca": "Maxwell", "Tipo": "Kit Surtido", "Uso": "Sellado de Fugas" }
+    },
+    {
+        id: "ARM020",
+        name: "Cinta de Aislamiento Foam Armaflex (5cm x 9mts)",
+        category: "Refrigeración",
+        model: "Foam Tape",
+        desc: `<b>Cinta de Aislamiento Foam (Armaflex)</b><br><br>Cinta aislante de espuma elastomérica autoadhesiva, diseñada para recubrir tuberías de refrigeración y prevenir la condensación y pérdida de energía térmica. Rollo de 5cm de ancho por 9 metros de largo.`,
+        costoCompra: 4.64615385,
+        images: ["productos/ARM020.webp"],
+        specs: { "Tipo": "Cinta Aislante (Foam)", "Medidas": "5cm x 9mts", "Uso": "Aislamiento de Tuberías" }
+    },
+    {
+        id: "CAB001",
+        name: "Soportes Adhesivos para Cables 19x19mm (100 Pcs)",
+        category: "Eléctrico",
+        model: "19x19mm",
+        desc: `<b>Bolsa de Soportes Adhesivos para Cables</b><br><br>Bases plásticas cuadradas con reverso autoadhesivo para fijar y organizar el cableado eléctrico con tirraps de manera profesional. Bolsa de 100 piezas (19x19mm).`,
+        costoCompra: 4.92307692,
+        images: ["productos/CAB001.webp"],
+        specs: { "Tipo": "Soporte Adhesivo", "Cantidad": "100 Piezas", "Medida": "19x19mm" }
+    },
+    {
+        id: "EST004",
+        name: "Estaño para Soldadura en Tubito 25G 1MM",
+        category: "Herramientas",
+        model: "Tubito 25G",
+        desc: `<b>Estaño para Soldadura en Tubito Dispensador</b><br><br>Rollo compacto de estaño de 1mm (25 gramos) en práctico tubo dispensador. Ideal para trabajos de precisión, reparaciones electrónicas y placas de control.`,
+        costoCompra: 1.65384615,
+        images: ["productos/EST004.webp"],
+        specs: { "Tipo": "Estaño", "Grosor": "1mm", "Peso": "25G" }
+    },
+    {
+        id: "FUS100",
+        name: "Fundente Borax Harris Stay-Silv 4 Oz (Blanco)",
+        category: "Químicos",
+        model: "Stay-Silv Blanco",
+        desc: `<b>Pasta Fundente (Borax) Harris Stay-Silv 4 Oz</b><br><br>Fundente blanco original Harris de alta calidad. Facilita el flujo de la aleación de plata durante la soldadura, limpiando el metal y previniendo la oxidación térmica en las tuberías.`,
+        costoCompra: 7.19230769,
+        images: ["productos/FUS100.webp"],
+        specs: { "Marca": "Harris", "Tipo": "Fundente en Pasta (Borax)", "Presentación": "4 Onzas" }
+    },
+    {
+        id: "TOR001",
+        name: "Bolsa de Tornillos Cabeza Celosía 8x3/4",
+        category: "Herramientas",
+        model: "8x3/4",
+        desc: `<b>Bolsa de Tornillos Cabeza Celosía</b><br><br>Bolsa de tornillos metálicos autoperforantes (punta aguda) con cabeza celosía (wafer). Excelentes para fijar chapas, paneles y componentes en equipos de aire acondicionado y ductería.`,
+        costoCompra: 2.64615385,
+        images: ["productos/TOR001.webp"],
+        specs: { "Tipo": "Tornillo Celosía", "Medida": "8 x 3/4\"", "Uso": "Chapas y Perfiles" }
+    },
+    {
+        id: "YSK200",
+        name: "Yesquero Encendedor de Chispa para Soldar",
+        category: "Herramientas",
+        model: "Chispero",
+        desc: `<b>Yesquero Encendedor de Chispa (Chispero)</b><br><br>Encendedor manual de fricción diseñado para encender de forma rápida y segura sopletes de acetileno, MAPP y propano en trabajos de soldadura de refrigeración.`,
+        costoCompra: 2.98461538,
+        images: ["productos/YSK200.webp"],
+        specs: { "Tipo": "Chispero Manual", "Uso": "Soldadura Autógena / MAPP" }
+    },
+    {
         id: "TMP-SIFON-VAR",
         name: "Trampa Sifón de Cobre (Varias Medidas)",
         category: "Refrigeración",
