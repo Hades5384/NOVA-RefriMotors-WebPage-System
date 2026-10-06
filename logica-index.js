@@ -202,6 +202,70 @@ const products = [
 
 
     {
+        id: "PDV007",
+        name: "Protector de Voltaje 120V Enchufable Exceline GSM-LPM120",
+        category: "Protectores",
+        model: "GSM-LPM120",
+        desc: `<b>Protector 120V E-E Exceline GSM-LPM120</b><br><br>Protector de voltaje enchufable (Entrada-Enchufe) compacto y seguro. Ideal para proteger electrodomésticos y equipos electrónicos sensibles contra fluctuaciones de energía.`,
+        costoCompra: 6.63076923,
+        images: ["productos/GSM-LPM.webp"],
+        specs: { "Marca": "Exceline", "Voltaje": "120V", "Tipo": "Enchufable (E-E)" }
+    },
+    {
+        id: "PDV010",
+        name: "Protector Multitoma 120V Exceline con USB",
+        category: "Protectores",
+        model: "GMT-3R3U",
+        desc: `<b>Protector Multitoma 120V Exceline GMT-3R3U</b><br><br>Estación de protección completa con múltiples tomas de corriente a 120V y puertos USB de carga inteligente. Protección integral para estaciones de trabajo o centros de entretenimiento.`,
+        costoCompra: 9.94615385,
+        images: ["productos/PDV010.webp"],
+        specs: { "Marca": "Exceline", "Voltaje": "120V", "Características": "Múltiples Tomas + Puertos USB" }
+    },
+    {
+        id: "PDV028",
+        name: "Protector Electrónico 110V de 3 Tomas Exceline",
+        category: "Protectores",
+        model: "GSME120",
+        desc: `<b>Protector Electrónico 110V 3 Tomas GSME120</b><br><br>Protector de voltaje con 3 tomas de salida integradas, diseñado para salvaguardar equipos electrónicos, computadoras y electrodomésticos ligeros.`,
+        costoCompra: 13.26153846,
+        images: ["productos/PDV028.webp"],
+        specs: { "Marca": "Exceline", "Voltaje": "110V / 120V", "Salidas": "3 Tomas" }
+    },
+    {
+        id: "PDV027",
+        name: "Protector Exceline 220V Cable a Cable para Compresores",
+        category: "Protectores",
+        model: "GSM-RF220B/3",
+        desc: `<b>Protector 220V C-C Exceline GSM-RF220B/3</b><br><br>Protector de voltaje de conexión cable a cable (C-C) mediante bornera, diseñado para soportar equipos de aire acondicionado y refrigeración de alta carga a 220V.`,
+        costoCompra: 13.26153846,
+        images: ["productos/PDV027.webp"],
+        specs: { "Marca": "Exceline", "Voltaje": "220V", "Tipo": "Cable a Cable (Bornera)" }
+    },
+    {
+        id: "PDV049",
+        name: "Supervisor Trifásico 220V Exceline",
+        category: "Protectores",
+        model: "Trifásico 220V",
+        desc: `<b>Supervisor Trifásico 220V Exceline</b><br><br>Supervisor de voltaje de grado industrial para sistemas trifásicos. Protege contra fallas de fase, asimetría, alta y baja tensión, asegurando la integridad de motores y compresores pesados.`,
+        costoCompra: 11.93846154,
+        images: ["productos/PDV049.webp"],
+        specs: { "Marca": "Exceline", "Fase": "Trifásico", "Voltaje": "220V" }
+    },
+    {
+        id: "SUPERVISOR-MONO-VAR",
+        name: "Supervisor Monofásico Exceline (120V / 220V)",
+        category: "Protectores",
+        model: "Monofásico",
+        desc: `<b>Supervisor Monofásico de Voltaje Exceline</b><br><br>Módulo de supervisión de voltaje para montaje en riel DIN o panel. Ofrece protección avanzada para equipos y tableros eléctricos. Seleccione el voltaje de operación requerido (120V o 220V).`,
+        costoCompra: 13.26153846, // Costo base (PFV014)
+        images: ["productos/PFV014-PDV050.webp"],
+        specs: { "Marca": "Exceline", "Tipo": "Supervisor Monofásico", "Montaje": "Tablero / Riel DIN" },
+        variants: [
+            { id: "PFV014", name: "Supervisor Monofásico 120V", costoCompra: 13.26153846 },
+            { id: "PDV050", name: "Supervisor Monofásico 220V", costoCompra: 13.26153846 }
+        ]
+    },
+    {
         id: "BIS-CAVA-VAR",
         name: "Bisagras para Cava Cuarto y Congelador",
         category: "Neveras / Cavas",
