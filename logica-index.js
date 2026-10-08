@@ -445,20 +445,6 @@ const products = [
         ]
     },
     {
-        id: "SUPERVISOR-MONO-VAR",
-        name: "Supervisor Monofásico Exceline (120V / 220V)",
-        category: "Protectores",
-        model: "Monofásico",
-        desc: `<b>Supervisor Monofásico de Voltaje Exceline</b><br><br>Módulo de supervisión de voltaje para montaje en riel DIN o panel. Ofrece protección avanzada para equipos y tableros eléctricos. Seleccione el voltaje de operación requerido (120V o 220V).`,
-        costoCompra: 13.26153846, // Costo base (PFV014)
-        images: ["productos/PFV014-PDV050.webp"],
-        specs: { "Marca": "Exceline", "Tipo": "Supervisor Monofásico", "Montaje": "Tablero / Riel DIN" },
-        variants: [
-            { id: "PFV014", name: "Supervisor Monofásico 120V", costoCompra: 13.26153846 },
-            { id: "PDV050", name: "Supervisor Monofásico 220V", costoCompra: 13.26153846 }
-        ]
-    },
-    {
         id: "BIS-CAVA-VAR",
         name: "Bisagras para Cava Cuarto y Congelador",
         category: "Neveras / Cavas",
