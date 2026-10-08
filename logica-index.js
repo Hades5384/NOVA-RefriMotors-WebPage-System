@@ -1,11 +1,11 @@
 ﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 872.39;
+const TASA_BCV = 874.73;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
-const TASA_INTERNA = 1000;
+const TASA_INTERNA = 1050;
 
 // Mostrar tasa BCV en el encabezado
 document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
@@ -200,7 +200,186 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
-
+    {
+        id: "ANT002",
+        name: "Pico para Soldar con Encendedor y Manguera",
+        category: "Herramientas",
+        model: "Con Manguera",
+        desc: `<b>Pico para Soldar con Encendedor y Manguera</b><br><br>Antorcha de alto rendimiento para trabajos de soldadura en refrigeración. Incluye encendido electrónico automático y manguera de extensión para maniobrar con mayor comodidad y seguridad en espacios reducidos.`,
+        costoCompra: 18.93846154,
+        images: ["productos/ANT002.webp"],
+        specs: { "Tipo": "Pico / Antorcha", "Uso": "Soldadura Autógena / MAPP", "Incluye": "Manguera y Encendedor" }
+    },
+    {
+        id: "ANT004",
+        name: "Pico para Soldar Doble Antorcha",
+        category: "Herramientas",
+        model: "Doble Antorcha",
+        desc: `<b>Pico para Soldar Doble Antorcha</b><br><br>Pico de soldar equipado con doble boquilla. Proporciona una mayor cobertura térmica, envolviendo el tubo para lograr soldaduras mucho más rápidas y uniformes, ideal para tuberías de cobre de gran diámetro.`,
+        costoCompra: 16.15384615,
+        images: ["productos/ANT004.webp"],
+        specs: { "Tipo": "Doble Antorcha", "Uso": "Soldadura Rápida / MAPP" }
+    },
+    {
+        id: "ANT008",
+        name: "Protector Metálico para Pico de Soldar GB-5DB",
+        category: "Herramientas",
+        model: "GB-5DB",
+        desc: `<b>Protector Metálico para Pico de Soldar GB-5DB</b><br><br>Escudo protector o pantalla térmica metálica diseñada para acoplarse al pico de soldar. Su función es rebotar el calor hacia la tubería y proteger paredes, cables o componentes cercanos de quemaduras accidentales.`,
+        costoCompra: 5.86923077,
+        images: ["productos/ANT008.webp"],
+        specs: { "Tipo": "Escudo Térmico / Protector", "Uso": "Picos de Soldar", "Modelo": "GB-5DB" }
+    },
+    {
+        id: "KIT-TERMO-VAR",
+        name: "Kit de Tubos Termocontraíbles (Termoencogibles)",
+        category: "Eléctrico",
+        model: "Varios Kits",
+        desc: `<b>Kits de Tubos Termocontraíbles</b><br><br>Cajas surtidas de tubos termoencogibles para aislamiento eléctrico, protección de cables y empalmes seguros en sistemas de refrigeración y tarjetas electrónicas.`,
+        costoCompra: 10.00000000,
+        images: ["productos/KIT002.webp", "productos/KIT003.webp", "productos/TMC302.webp"],
+        specs: { "Tipo": "Termocontraíble", "Uso": "Aislamiento Eléctrico", "Presentación": "Caja Surtida" },
+        variants: [
+            { id: "TMC302", name: "Caja 164 Piezas Varios", costoCompra: 4.25384615 },
+            { id: "KIT002", name: "Kit 540 Piezas Multicolores", costoCompra: 10.00000000 },
+            { id: "KIT003", name: "Kit 270 Piezas Impermeable", costoCompra: 17.99230769 }
+        ]
+    },
+    {
+        id: "SCG-EXTRACTOR-VAR",
+        name: "Válvula Extractora de Gusanillo",
+        category: "Herramientas",
+        model: "Varias Medidas",
+        desc: `<b>Válvula Extractora de Gusanillo (Obús)</b><br><br>Herramienta especializada para extraer y reemplazar el gusanillo de las válvulas de servicio sin perder el gas refrigerante del sistema. Imprescindible para técnicos.`,
+        costoCompra: 11.93076923,
+        images: ["productos/SCG-EXTRACTOR_GUSANILLO.webp"],
+        specs: { "Tipo": "Extractor de Gusanillo", "Uso": "Mantenimiento bajo presión" },
+        variants: [
+            { id: "SCG500", name: "Para R22 y R410A (Refrigeración)", costoCompra: 11.93076923 },
+            { id: "SCG501", name: "Para R134a Baja (Automotriz)", costoCompra: 13.26153846 },
+            { id: "SCG502", name: "Para R134a Alta (Automotriz)", costoCompra: 13.26153846 }
+        ]
+    },
+    {
+        id: "TRM-TEMP-VAR",
+        name: "Termómetro para Refrigeración y Cavas",
+        category: "Herramientas",
+        model: "Digital / Analógico",
+        desc: `<b>Termómetros de Medición Térmica</b><br><br>Instrumentos de precisión para monitorear la temperatura en cavas cuarto, congeladores y ambientes. Disponibles en modelos digitales de panel con sonda y analógicos de reloj.`,
+        costoCompra: 2.64615385,
+        images: [
+            "productos/TRM301.webp",
+            "productos/TRM302.webp",
+            "productos/TRM155.webp",
+            "productos/TRM150.webp"
+        ],
+        specs: { "Tipo": "Termómetro", "Uso": "Cavas y Congeladores" },
+        variants: [
+            { id: "TRM302", name: "Digital c/Batería TPM30 (-50° a 70°)", costoCompra: 2.39230769 },
+            { id: "TRM301", name: "Digital c/Batería TPM10 (-50° a 70°)", costoCompra: 2.64615385 },
+            { id: "TRM155", name: "Digital Tipo Reloj en Acero (Cava)", costoCompra: 7.56923077 },
+            { id: "TRM150", name: "Analógico Reloj de Aguja (Cava Cuarto)", costoCompra: 9.94615385 }
+        ]
+    },
+    {
+        id: "VIS-LINEA-VAR",
+        name: "Visor de Línea para Refrigeración",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Visor de Línea (Mirilla)</b><br><br>Visor de líquido en cobre y latón para soldar o enroscar en la línea de refrigeración. Permite monitorear visualmente el flujo de gas y la presencia de humedad en el sistema.`,
+        costoCompra: 6.63076923,
+        images: ["productos/VISOR.webp"],
+        specs: { "Tipo": "Visor de Líquido", "Material": "Cobre / Latón" },
+        variants: [
+            { id: "VIS103", name: "Medida: 3/8\" (Rosca)", costoCompra: 4.99230769 },
+            { id: "VIS101", name: "Medida: 1/4\" (Rosca)", costoCompra: 6.62307692 },
+            { id: "VIS100", name: "Medida: 1/2\" (Rosca)", costoCompra: 6.63076923 },
+            { id: "VIS105", name: "Medida: 5/8\" (Rosca)", costoCompra: 7.94615385 },
+            { id: "VIS102", name: "Medida: 3/4\" (Rosca)", costoCompra: 12.59230769 },
+            { id: "VIS104", name: "Medida: 7/8\" (Rosca)", costoCompra: 12.59230769 },
+            { id: "VIS106", name: "Medida: 7/8\" (Soldable)", costoCompra: 13.92307692 }
+        ]
+    },
+    {
+        id: "ARM100",
+        name: "Cinta de Arnés Carga Pesada (2 Metros)",
+        category: "Herramientas",
+        model: "318KG",
+        desc: `<b>Cinta de Arnés para Carga Pesada</b><br><br>Eslinga o cinta de amarre reforzada capaz de soportar hasta 318 KG. Ideal para asegurar e izar compresores pesados y equipos de aire acondicionado de forma segura.`,
+        costoCompra: 8.94615385,
+        images: ["productos/ARM100.webp"],
+        specs: { "Capacidad": "318 KG", "Longitud": "2 Metros", "Uso": "Carga y Amarre" }
+    },
+    {
+        id: "CAU006",
+        name: "Cautín 60W con Estación de Soldado WADF",
+        category: "Herramientas",
+        model: "60W WADF",
+        desc: `<b>Cautín 60W con Estación WADF</b><br><br>Estación de soldadura electrónica de 60W. Control de temperatura preciso, ideal para reparar tarjetas electrónicas de aires acondicionados y neveras digitales.`,
+        costoCompra: 25.19230769,
+        images: ["productos/CAU006.webp"],
+        specs: { "Potencia": "60W", "Marca": "WADF", "Tipo": "Estación de Soldado" }
+    },
+    {
+        id: "MAN003",
+        name: "Manómetro de Baja Presión (Azul) Sencillo con Válvula",
+        category: "Herramientas",
+        model: "Baja Presión",
+        desc: `<b>Manómetro de Baja Presión (Sencillo)</b><br><br>Cuerpo de manómetro azul para la lectura de baja presión en sistemas de refrigeración. Incluye válvula de apertura. Diseño robusto y fácil de leer.`,
+        costoCompra: 5.98461538,
+        images: ["productos/MAN003.webp"],
+        specs: { "Tipo": "Manómetro Sencillo", "Presión": "Baja (Azul)", "Incluye": "Válvula" }
+    },
+    {
+        id: "PDV015",
+        name: "Protector Inteligente Maxwell 40A 220V",
+        category: "Protectores",
+        model: "40A 220V",
+        desc: `<b>Protector Inteligente Maxwell 40A 220V</b><br><br>Protector de voltaje digital e inteligente para montaje en tablero. Soporta hasta 40 amperios y ofrece lectura en tiempo real del voltaje, protegiendo equipos de alta demanda.`,
+        costoCompra: 10.93846154,
+        images: ["productos/PDV015.webp"],
+        specs: { "Marca": "Maxwell", "Amperaje": "40A", "Voltaje": "220V", "Tipo": "Digital Inteligente" }
+    },
+    {
+        id: "PDV041",
+        name: "Protector Inteligente Trifásico 220V",
+        category: "Protectores",
+        model: "Trifásico 220V",
+        desc: `<b>Protector Inteligente Trifásico 220V</b><br><br>Módulo supervisor y protector inteligente para sistemas de voltaje trifásico. Pantalla digital para monitoreo de fases, ideal para tableros de cavas cuarto y aires centrales.`,
+        costoCompra: 23.20000000,
+        images: ["productos/PDV041.webp"],
+        specs: { "Fase": "Trifásico", "Voltaje": "220V", "Tipo": "Digital Inteligente de Tablero" }
+    },
+    {
+        id: "PRT001",
+        name: "Cinta Prestite 2\" MT x 1/8\"",
+        category: "Refrigeración",
+        model: "2 Pulgadas",
+        desc: `<b>Cinta de Aislamiento Prestite</b><br><br>Cinta de masilla aislante (Prestite) para sellar y evitar la condensación (goteo) en las conexiones y válvulas de los aires acondicionados tipo Split.`,
+        costoCompra: 0.98461538,
+        images: ["productos/PRT001.webp"],
+        specs: { "Tipo": "Cinta Prestite", "Medidas": "2\" x 1/8\"", "Uso": "Aislamiento de Válvulas" }
+    },
+    {
+        id: "REG600",
+        name: "Regulador de Filtro de Agua y Aceite 1/4",
+        category: "Herramientas",
+        model: "1/4 Neumático",
+        desc: `<b>Regulador y Filtro Separador de Agua/Aceite</b><br><br>Accesorio neumático de 1/4" para conectar a compresores de aire. Filtra la humedad y el aceite de la línea, garantizando aire limpio para limpieza de serpentines o aplicación de químicos.`,
+        costoCompra: 9.94615385,
+        images: ["productos/REG600.webp"],
+        specs: { "Tipo": "Filtro Neumático", "Medida": "1/4\"", "Función": "Separador Agua/Aceite" }
+    },
+    {
+        id: "TRM016",
+        name: "Termostato Digital Everwell RD-60",
+        category: "Refrigeración",
+        model: "RD-60",
+        desc: `<b>Termostato Digital Everwell RD-60</b><br><br>Controlador de temperatura digital de alta precisión para sistemas de refrigeración comercial. Diseño redondo fácil de empotrar en paneles de cavas y vitrinas exhibidoras.`,
+        costoCompra: 10.83846154,
+        images: ["productos/TRM016.webp"],
+        specs: { "Marca": "Everwell", "Modelo": "RD-60", "Tipo": "Digital de Panel" }
+    },
     {
         id: "PDV007",
         name: "Protector Exceline para Conexión a Internet Enchufable 110V",
