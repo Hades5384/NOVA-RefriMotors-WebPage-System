@@ -201,6 +201,26 @@ const products = [
     // ============================================================== //
 
     {
+        id: "VAM114",
+        name: "Multímetro Tester Analógico YX-1000A",
+        category: "Herramientas",
+        model: "YX-1000A",
+        desc: `<b>Multímetro Tester Analógico YX-1000A</b><br><br>Tester analógico clásico y confiable para mediciones eléctricas rápidas de voltaje, corriente y resistencia. Diseño compacto y ligero, ideal para diagnósticos básicos en equipos de refrigeración.`,
+        costoCompra: 3.83846154,
+        images: ["productos/VAM114.webp"],
+        specs: { "Tipo": "Analógico", "Modelo": "YX-1000A", "Uso": "Medición Eléctrica Básica" }
+    },
+    {
+        id: "VAM100",
+        name: "Voltiamperímetro Digital MT-87 Pequeño (Landsfoss)",
+        category: "Herramientas",
+        model: "MT-87",
+        desc: `<b>Voltiamperímetro (Pinza Amperimétrica) Digital MT-87</b><br><br>Pinza amperimétrica digital compacta marca Landsfoss. Permite medir el consumo eléctrico (amperaje) de los compresores de forma segura sin pelar cables, además de contar con funciones de multímetro estándar en su pantalla LCD.`,
+        costoCompra: 5.96923077,
+        images: ["productos/VAM100.webp"],
+        specs: { "Marca": "Landsfoss", "Tipo": "Pinza Amperimétrica Digital", "Modelo": "MT-87" }
+    },
+    {
         id: "ANT002",
         name: "Pico para Soldar con Encendedor y Manguera",
         category: "Herramientas",
