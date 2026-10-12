@@ -325,7 +325,7 @@ const products = [
     },
     {
         id: "LJA-VAR",
-        name: "Lija de Esmeril (Diesel Tools)",
+        name: "Lija de Esmeril (Diesel Tools) X Unidad",
         category: "Herramientas",
         model: "Varios Granos",
         desc: `<b>Lija de Esmeril / Lija de Agua</b><br><br>Hojas de lija de alta abrasión para pulir y limpiar impurezas en tuberías de cobre antes de soldar, asegurando una adherencia perfecta del fundente y la aleación.`,
@@ -1192,7 +1192,7 @@ const products = [
         model: "DA32-00006W",
         desc: `<b>Sensor para Nevera Samsung DA32-00006W (Cable Amarillo)</b><br><br>Termistor original de reemplazo para el control de temperatura en refrigeradores Samsung.`,
         costoCompra: 1.65384615,
-        images: ["productos/SAS007.png"],
+        images: ["productos/SAS007.webp"],
         specs: { "Marca": "Samsung", "Tipo": "Sensor Termistor", "Color de Cable": "Amarillo" }
     },
     {
@@ -1202,7 +1202,7 @@ const products = [
         model: "Frigidaire/Electrolux",
         desc: `<b>Sensor Termistor para Nevera Frigidaire y Electrolux</b><br><br>Sensor de temperatura de alta precisión, compatible con diversos modelos de neveras Frigidaire y Electrolux.`,
         costoCompra: 2.14615385,
-        images: ["productos/SAS016.png"],
+        images: ["productos/SAS016.webp"],
         specs: { "Marca": "Frigidaire / Electrolux", "Tipo": "Sensor Termistor" }
     },
     {
@@ -1213,12 +1213,12 @@ const products = [
         desc: `<b>Termostatos de Repuesto para Neveras y Congeladores</b><br><br>Controles de temperatura mecánicos con capilar para diferentes aplicaciones (neveras de 1 o 2 puertas, vitrinas, congeladores horizontales). Seleccione el modelo específico.`,
         costoCompra: 4.63846154,
         images: [
-            "productos/TRM013.png",
-            "productos/TRM014.png",
-            "productos/TRM018-019.png",
-            "productos/TRM020.png",
-            "productos/TRM021.png",
-            "productos/TRM022.png",
+            "productos/TRM013.webp",
+            "productos/TRM014.webp",
+            "productos/TRM018-019.webp",
+            "productos/TRM020.webp",
+            "productos/TRM021.webp",
+            "productos/TRM022.webp",
             "productos/TRM023.png"
         ],
         specs: { "Tipo": "Termostato Mecánico", "Aplicación": "Refrigeración Doméstica / Comercial" },
