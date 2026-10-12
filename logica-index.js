@@ -201,6 +201,204 @@ const products = [
     // ============================================================== //
 
     {
+        id: "TRR-VARIANTE",
+        name: "Tirrap Fino (Abrazadera Plástica)",
+        category: "Eléctrico",
+        model: "Varias Medidas",
+        desc: `<b>Tirrap Fino (Abrazaderas Plásticas)</b><br><br>Abrazaderas de nylon de alta resistencia para organizar cableado, fijar tuberías ligeras o asegurar componentes. Disponibles en distintas longitudes y grosores para adaptarse a cualquier instalación.`,
+        costoCompra: 0.04615385, // Base (TRR003 / TRR004)
+        images: ["productos/TIRRAP.webp"],
+        specs: { "Tipo": "Abrazadera (Tirrap)", "Material": "Nylon", "Uso": "Fijación y Organización" },
+        variants: [
+            { id: "TRR003", name: "Medio 5.2x250mm", costoCompra: 0.04615385 },
+            { id: "TRR004", name: "Largo 7.6x300mm", costoCompra: 0.04615385 },
+            { id: "TRR001", name: "Largo 4.8x350mm", costoCompra: 0.06923077 },
+            { id: "TRR005", name: "Largo 4.8x450mm", costoCompra: 0.10769231 },
+            { id: "TRR002", name: "Corto 3.8x350mm", costoCompra: 0.14615385 }
+        ]
+    },
+    {
+        id: "ALT101",
+        name: "Alicate de Presión Curvo 10\" (254mm)",
+        category: "Herramientas",
+        model: "10 Pulgadas",
+        desc: `<b>Alicate de Presión Curvo 10"</b><br><br>Herramienta de sujeción indispensable de 10 pulgadas (254mm). Su mandíbula curva permite un agarre extra fuerte en tuberías, tuercas redondeadas y piezas cilíndricas.`,
+        costoCompra: 4.63846154,
+        images: ["productos/ALT101.webp"],
+        specs: { "Tipo": "Alicate de Presión", "Tamaño": "10\" (254mm)", "Forma": "Curva" }
+    },
+    {
+        id: "BASE-AA-VAR",
+        name: "Base para Aire Acondicionado (Consola / Piso)",
+        category: "Aires Acondicionados",
+        model: "Pared / Piso PVC",
+        desc: `<b>Bases de Soporte para Aires Acondicionados</b><br><br>Soportes de alta resistencia para garantizar una instalación segura de tu aire acondicionado. Disponibles en formato de escuadra metálica para consolas de pared o bases antivibración de PVC para condensadoras de piso.`,
+        costoCompra: 5.30769231, // Base (BPS001)
+        images: ["productos/BPS001.webp", "productos/GBC013.webp"],
+        specs: { "Tipo": "Soporte / Base", "Uso": "Instalación de A/A" },
+        variants: [
+            { id: "BPS001", name: "Base Escuadra para Consola (Hasta 30k BTU)", costoCompra: 5.30769231 },
+            { id: "GBC013", name: "Base Condensadora de Piso PVC (Hasta 12k BTU)", costoCompra: 11.93076923 }
+        ]
+    },
+    {
+        id: "CAM201",
+        name: "Juego de Cables para Amperímetro (Alta Calidad)",
+        category: "Herramientas",
+        model: "Cables Universales",
+        desc: `<b>Juego de Cables para Amperímetro / Tester</b><br><br>Cables de prueba (puntas de tester) de alta calidad, recubiertos en silicona flexible. Puntas precisas y resistentes para multímetros y pinzas amperimétricas universales.`,
+        costoCompra: 1.03846154,
+        images: ["productos/CAM201.webp"],
+        specs: { "Tipo": "Cables de Medición", "Uso": "Tester / Multímetro", "Calidad": "Alta" }
+    },
+    {
+        id: "CAP-METER-VAR",
+        name: "Capacímetro Digital Profesional",
+        category: "Herramientas",
+        model: "Varios Modelos",
+        desc: `<b>Capacímetro Digital Profesional</b><br><br>Instrumento de medición especializado para leer con exactitud la capacitancia (microfaradios) de los condensadores de marcha y arranque. Evite diagnósticos erróneos en compresores y motores.`,
+        costoCompra: 9.93846154, // Base (CAP251)
+        images: ["productos/CAP251.webp", "productos/CAP250.webp"],
+        specs: { "Tipo": "Capacímetro Digital", "Uso": "Medición de Capacitores" },
+        variants: [
+            { id: "CAP251", name: "Capacímetro Digital Negro (CM7115A)", costoCompra: 9.93846154 },
+            { id: "CAP250", name: "Capacímetro Digital Zenic 2.8V (M6013)", costoCompra: 19.23076923 }
+        ]
+    },
+    {
+        id: "CNA-VAR",
+        name: "Conectores Aislantes Wire Caps (Wadfow)",
+        category: "Eléctrico",
+        model: "P3 / P4",
+        desc: `<b>Conectores Aislantes (Wire Caps) Wadfow</b><br><br>Capuchones plásticos con espiral metálica interna para realizar empalmes eléctricos rápidos, seguros y sin necesidad de cinta aislante. Resistentes a la vibración y temperatura.`,
+        costoCompra: 1.00000000, // Base (CNA001)
+        images: ["productos/CNA001.webp", "productos/CNA002.webp"],
+        specs: { "Marca": "Wadfow", "Tipo": "Wire Caps", "Uso": "Empalmes Eléctricos" },
+        variants: [
+            { id: "CNA001", name: "Conectores Amarillos P4 (12 Piezas)", costoCompra: 1.00000000 },
+            { id: "CNA002", name: "Conectores Naranjas P3 (20 Piezas)", costoCompra: 1.05384615 }
+        ]
+    },
+    {
+        id: "EST003",
+        name: "Pasta Térmica para Soldar Estaño (50G)",
+        category: "Químicos",
+        model: "Pasta Fundente",
+        desc: `<b>Pasta Térmica para Soldar Estaño</b><br><br>Fundente en pasta (50 gramos) que facilita la adhesión del estaño en componentes electrónicos y placas. Limpia la superficie y asegura soldaduras brillantes y sin residuos aislantes.`,
+        costoCompra: 1.75384615,
+        images: ["productos/EST003.webp"],
+        specs: { "Tipo": "Pasta de Soldar", "Presentación": "50 Gramos", "Uso": "Electrónica" }
+    },
+    {
+        id: "EXT301",
+        name: "Extractor de Aire 110V 8\" con Rejilla Maxwell",
+        category: "Motores",
+        model: "8 Pulgadas 110V",
+        desc: `<b>Extractor de Aire 110V 8" Maxwell</b><br><br>Ventilador extractor de grado comercial con aspas de 8 pulgadas y alimentación a 110V. Incluye rejilla protectora. Ideal para ventilación de cuartos, tableros o espacios confinados.`,
+        costoCompra: 16.57692308,
+        images: ["productos/EXT301.webp"],
+        specs: { "Marca": "Maxwell", "Tipo": "Extractor Axial", "Tamaño": "8 Pulgadas", "Voltaje": "110V" }
+    },
+    {
+        id: "HID-EXT-VAR",
+        name: "Extensión Larga para Pistola de Hidrojet",
+        category: "Herramientas",
+        model: "Curva 45° / 90°",
+        desc: `<b>Extensión de Pistola para Hidrojet</b><br><br>Lanza de extensión metálica para llegar a las zonas más difíciles de los serpentines y paneles. Disponible con curvatura en la punta para mejorar el ángulo de lavado.`,
+        costoCompra: 5.30769231,
+        images: ["productos/HID013.webp", "productos/HID014.webp"],
+        specs: { "Tipo": "Extensión de Lavado", "Uso": "Hidrojet Mantenimiento" },
+        variants: [
+            { id: "HID013", name: "Extensión Curva 45°", costoCompra: 5.30769231 },
+            { id: "HID014", name: "Extensión Curva 90°", costoCompra: 5.30769231 }
+        ]
+    },
+    {
+        id: "HSE100",
+        name: "Hoja de Segueta Morse 18 Dientes",
+        category: "Herramientas",
+        model: "18 Dientes",
+        desc: `<b>Hoja de Segueta Bimetálica Morse</b><br><br>Hoja de corte de 18 dientes por pulgada. Extraordinaria resistencia y flexibilidad, diseñada para realizar cortes limpios y rápidos en metales, tuberías de cobre y PVC.`,
+        costoCompra: 1.57692308,
+        images: ["productos/HSE100.webp"],
+        specs: { "Marca": "Morse", "Dientes": "18 TPI", "Uso": "Corte de Metales" }
+    },
+    {
+        id: "LJA-VAR",
+        name: "Lija de Esmeril (Diesel Tools)",
+        category: "Herramientas",
+        model: "Varios Granos",
+        desc: `<b>Lija de Esmeril / Lija de Agua</b><br><br>Hojas de lija de alta abrasión para pulir y limpiar impurezas en tuberías de cobre antes de soldar, asegurando una adherencia perfecta del fundente y la aleación.`,
+        costoCompra: 0.39230769,
+        images: ["productos/LIJA.webp"],
+        specs: { "Marca": "Diesel Tools", "Tipo": "Esmeril", "Uso": "Limpieza de Tuberías" },
+        variants: [
+            { id: "LJA100", name: "Lija Grano N° 100", costoCompra: 0.39230769 },
+            { id: "LJA101", name: "Lija Grano N° 180", costoCompra: 0.39230769 }
+        ]
+    },
+    {
+        id: "MAF001",
+        name: "Juego de Flaring Kit 3/16 - 5/8 (Abocardador)",
+        category: "Herramientas",
+        model: "Azul/Rojo",
+        desc: `<b>Juego de Flaring Kit (Abocardador)</b><br><br>Herramienta esencial para expandir los extremos de las tuberías de cobre (flare) y asegurar uniones herméticas con tuercas en sistemas de aire acondicionado. Cubre diámetros desde 3/16" hasta 5/8".`,
+        costoCompra: 13.92307692,
+        images: ["productos/MAF001.webp"],
+        specs: { "Tipo": "Abocardador (Flaring)", "Capacidad": "3/16\" a 5/8\"", "Uso": "Tubería de Cobre" }
+    },
+    {
+        id: "PST-VAR",
+        name: "Presostato para Aire Central R410",
+        category: "Refrigeración",
+        model: "Alta / Baja Presión",
+        desc: `<b>Presostato de Protección para Aire Central R410</b><br><br>Interruptor de presión de seguridad que desconecta el sistema automáticamente si la presión del gas R410 sube o baja a niveles peligrosos, protegiendo el compresor.`,
+        costoCompra: 3.64615385,
+        images: ["productos/PST005.webp", "productos/PST006.webp"],
+        specs: { "Tipo": "Presostato Cápsula", "Gas": "R410", "Uso": "Aire Central" },
+        variants: [
+            { id: "PST005", name: "Presostato de Alta Presión (Rojo)", costoCompra: 3.64615385 },
+            { id: "PST006", name: "Presostato de Baja Presión (Azul)", costoCompra: 3.64615385 }
+        ]
+    },
+    {
+        id: "RAM-VAR",
+        name: "Ramplug / Tacos de Expansión (Plástico y Hierro)",
+        category: "Herramientas",
+        model: "Varias Medidas",
+        desc: `<b>Ramplug de Anclaje para Instalaciones</b><br><br>Tacos de expansión de alta fijación para mampostería y concreto. Indispensables para colgar y fijar de forma segura soportes y consolas de aire acondicionado.`,
+        costoCompra: 0.33076923, // Base (Hierro 1/4)
+        images: ["productos/RAMPLU.webp"],
+        specs: { "Tipo": "Taco de Expansión", "Uso": "Anclaje en Concreto/Pared" },
+        variants: [
+            { id: "RAM001", name: "Ramplug de Plástico Verde 1/4\"", costoCompra: 0.01538462 },
+            { id: "RAM003", name: "Ramplug de Hierro 1/4\" (#1)", costoCompra: 0.33076923 },
+            { id: "RAM002", name: "Ramplug de Hierro 5/16\" (#2)", costoCompra: 0.66153846 },
+            { id: "RAM004", name: "Ramplug de Hierro 3/8\" (#3)", costoCompra: 0.66153846 },
+            { id: "RAM005", name: "Ramplug de Hierro 1/2\" (#4)", costoCompra: 0.99230769 }
+        ]
+    },
+    {
+        id: "TJP501",
+        name: "Tijera Corta Manguera Automotriz",
+        category: "Herramientas",
+        model: "Corte Preciso",
+        desc: `<b>Tijera Corta Mangueras Automotriz y PVC</b><br><br>Pinza cortadora tipo tijera diseñada para realizar cortes perfectamente rectos, limpios y sin aplastamientos en mangueras automotrices, PVC y tubos plásticos.`,
+        costoCompra: 5.96153846,
+        images: ["productos/TJP501.webp"],
+        specs: { "Tipo": "Tijera Cortatubos", "Uso": "Mangueras y Plásticos", "Corte": "Recto Limpio" }
+    },
+    {
+        id: "VAM001",
+        name: "Pinza Amperimétrica UNI-T UT200B+ 600VAC",
+        category: "Herramientas",
+        model: "UT200B+",
+        desc: `<b>Pinza Amperimétrica Profesional UNI-T UT200B+</b><br><br>Multímetro de gancho de precisión superior marca UNI-T. Ideal para técnicos que requieren mediciones de corriente alterna hasta 600V con alta confiabilidad y pantalla LCD retroiluminada.`,
+        costoCompra: 26.52307692,
+        images: ["productos/VAM001.webp"],
+        specs: { "Marca": "UNI-T", "Modelo": "UT200B+", "Tipo": "Pinza Amperimétrica Profesional" }
+    },
+    {
         id: "VAM114",
         name: "Multímetro Tester Analógico YX-1000A",
         category: "Herramientas",
@@ -2006,7 +2204,7 @@ const products = [
         model: "Varios Tipos",
         desc: `<b>Terminales y Conectores Eléctricos</b><br><br>Accesorios de conexión para cableado seguro. Disponibles en formato de ojal, tipo U, desconectables y regletas para cables múltiples.`,
         costoCompra: 0.03846154,
-        images: ["productos/TMH-TERMINALES.webp"],
+        images: ["productos/TMH-TERMINALES.webp", "productos/TMH203.webp"],
         specs: { "Tipo": "Terminal de Cobre/Aleación", "Uso": "Conexiones Eléctricas" },
         variants: [
             { id: "TMH205", name: "Tipo U 10-12 (SVS5.5-6)", costoCompra: 0.03846154 },
