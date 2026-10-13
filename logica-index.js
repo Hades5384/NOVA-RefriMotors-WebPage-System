@@ -201,6 +201,25 @@ const products = [
     // ============================================================== //
 
     {
+        id: "GBC-VARIANTE",
+        name: "Gomas Antivibración para Base de Compresor / Motor",
+        category: "Aires Acondicionados",
+        model: "Varias Medidas",
+        desc: `<b>Gomas Antivibración para Compresor y Motor</b><br><br>Set de gomas (tacos amortiguadores) de caucho resistente, diseñadas para absorber las vibraciones, aislar el ruido y evitar el desgaste prematuro de las bases metálicas en equipos de aire acondicionado.`,
+        costoCompra: 1.65384615, // Base (GBC001 - 12K BTU)
+        images: ["productos/GBC-GOMAS_COMPRESOR.webp"],
+        specs: { "Tipo": "Amortiguador (Goma)", "Material": "Caucho Resistente", "Uso": "Compresores y Motores" },
+        variants: [
+            { id: "GBC001", name: "Para Compresor 12K BTU (Split)", costoCompra: 1.65384615 },
+            { id: "GBC002", name: "Para Compresor 18K BTU", costoCompra: 1.98461538 },
+            { id: "GBC004", name: "Para Compresor 24K BTU", costoCompra: 2.50000000 },
+            { id: "GBC003", name: "Para Compresor 5 Toneladas", costoCompra: 3.97692308 },
+            { id: "GBC007", name: "Para Compresor Perfil Alta", costoCompra: 2.50000000 },
+            { id: "GBC008", name: "Para Compresor Tipo Scroll (4 Pzas)", costoCompra: 2.50000000 },
+            { id: "GBC006", name: "Para Motor Ventilador Split (2 Pzas)", costoCompra: 1.98461538 }
+        ]
+    },
+    {
         id: "TRR-VARIANTE",
         name: "Tirrap Fino (Abrazadera Plástica)",
         category: "Eléctrico",
