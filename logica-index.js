@@ -201,6 +201,104 @@ const products = [
     // ============================================================== //
 
     {
+        id: "MAN006",
+        name: "Juego de Manómetro Digital ISYN R22/R134/R410",
+        category: "Herramientas",
+        model: "Digital (Estuche)",
+        desc: `<b>Manómetro Digital Profesional ISYN</b><br><br>Set de manómetros digitales de alta precisión y durabilidad para refrigeración y aire acondicionado. Compatible con múltiples gases (R22, R134a, R410A, entre otros). Incluye estuche de transporte resistente, mangueras y accesorios.`,
+        costoCompra: 99.46923077,
+        images: ["productos/MAN006.webp", "productos/MAN006-2.webp"],
+        specs: { "Marca": "ISYN", "Tipo": "Digital", "Gases": "Múltiples (R22, R134a, R410a)", "Incluye": "Estuche" }
+    },
+
+    // --- BREAKERS MARCA PICKENS ---
+    {
+        id: "BRK-PICKENS-EMP-1P",
+        name: "Breaker 1 Polo Empotrar (Pickens)",
+        category: "Eléctrico",
+        model: "1 Polo (THQL)",
+        desc: `<b>Breaker Termomagnético 1 Polo de Empotrar Pickens</b><br><br>Interruptor termomagnético enchufable (tipo THQL) de 1 polo marca Pickens. Diseñado para tableros residenciales y comerciales, protegiendo contra sobrecargas y cortocircuitos.`,
+        costoCompra: 2.50000000, // Base (BRK280)
+        images: ["productos/BRK-BREAKER(4).webp"],
+        specs: { "Polos": "1 Polo (110V)", "Instalación": "Empotrar (Enchufable)", "Marca": "Pickens" },
+        variants: [
+            { id: "BRK270", name: "15 Amperios (THQL)", costoCompra: 2.94615385 },
+            { id: "BRK280", name: "20 Amperios (THQL)", costoCompra: 2.50000000 },
+            { id: "BRK285", name: "30 Amperios (THQL)", costoCompra: 3.97692308 },
+            { id: "BRK231", name: "40 Amperios (THQL)", costoCompra: 3.20000000 }
+        ]
+    },
+    {
+        id: "BRK-PICKENS-EMP-2P",
+        name: "Breaker 2 Polos Empotrar (Pickens)",
+        category: "Eléctrico",
+        model: "2 Polos (THQL/TQL)",
+        desc: `<b>Breaker Termomagnético 2 Polos de Empotrar Pickens</b><br><br>Interruptor enchufable de 2 polos (220V) marca Pickens para tableros. Ideal para aires acondicionados y equipos de alto consumo.`,
+        costoCompra: 5.50000000, // Base (BRK260)
+        images: ["productos/BRK-BREAKER(4).webp"],
+        specs: { "Polos": "2 Polos (220V)", "Instalación": "Empotrar", "Marca": "Pickens" },
+        variants: [
+            { id: "BRK261", name: "20 Amperios (THQL)", costoCompra: 5.50000000 },
+            { id: "BRK260", name: "30 Amperios (THQL)", costoCompra: 5.50000000 },
+            { id: "BRK250", name: "40 Amperios (THQL)", costoCompra: 5.60769231 },
+            { id: "BRK284", name: "60 Amperios (THQL)", costoCompra: 5.70000000 },
+            { id: "BRK233", name: "80 Amperios (TQL)", costoCompra: 8.40000000 },
+            { id: "BRK234", name: "100 Amperios (TQL)", costoCompra: 10.50000000 }
+        ]
+    },
+    {
+        id: "BRK-PICKENS-SUP-1P",
+        name: "Breaker 1 Polo Superficial (Pickens)",
+        category: "Eléctrico",
+        model: "1 Polo (THQC)",
+        desc: `<b>Breaker Termomagnético 1 Polo Superficial Pickens</b><br><br>Interruptor automático de 1 polo atornillable (tipo THQC) marca Pickens. Ideal para montaje fuera de tablero en cajas superficiales a 110V.`,
+        costoCompra: 3.97692308, // Base (BRK115)
+        images: ["productos/BRK-BREAKER(4).webp"],
+        specs: { "Polos": "1 Polo (110V)", "Instalación": "Superficial (Atornillable)", "Marca": "Pickens" },
+        variants: [
+            { id: "BRK115", name: "15 Amperios (THQC)", costoCompra: 3.97692308 },
+            { id: "BRK281", name: "20 Amperios (THQC)", costoCompra: 4.63846154 },
+            { id: "BRK283", name: "30 Amperios (THQC)", costoCompra: 4.63846154 },
+            { id: "BRK232", name: "40 Amperios (THQC)", costoCompra: 4.03076923 }
+        ]
+    },
+    {
+        id: "BRK-PICKENS-SUP-2P",
+        name: "Breaker 2 Polos Superficial (Pickens)",
+        category: "Eléctrico",
+        model: "2 Polos (THQC)",
+        desc: `<b>Breaker Termomagnético 2 Polos Superficial Pickens</b><br><br>Interruptor de doble polo atornillable marca Pickens para montaje superficial. Ideal para colocar junto a aires acondicionados 220V que requieran corte rápido local.`,
+        costoCompra: 7.95384615, // Base (BRK271)
+        images: ["productos/BRK-BREAKER(4).webp"],
+        specs: { "Polos": "2 Polos (220V)", "Instalación": "Superficial (Atornillable)", "Marca": "Pickens" },
+        variants: [
+            { id: "BRK271", name: "20 Amperios (THQC)", costoCompra: 7.95384615 },
+            { id: "BRK230", name: "30 Amperios (THQC)", costoCompra: 8.60769231 },
+            { id: "BRK240", name: "40 Amperios (THQC)", costoCompra: 8.10769231 },
+            { id: "BRK241", name: "50 Amperios (THQC)", costoCompra: 7.95384615 },
+            { id: "BRK282", name: "60 Amperios (THQC)", costoCompra: 9.40000000 },
+            { id: "BRK235", name: "80 Amperios (THQC)", costoCompra: 10.60000000 },
+            { id: "BRK236", name: "100 Amperios (THQC)", costoCompra: 12.60000000 }
+        ]
+    },
+
+    // --- BREAKERS MARCA TANIA (10KA) ---
+    {
+        id: "BRK-TANIA-VAR",
+        name: "Breaker Termomagnético 2 Polos 10KA (Tania)",
+        category: "Eléctrico",
+        model: "2 Polos (10KA)",
+        desc: `<b>Breaker Termomagnético 2 Polos de Alta Capacidad (Tania)</b><br><br>Interruptores de doble polo (220V) marca Tania. Cuentan con una alta capacidad de ruptura de 10KA, diseñados para soportar cargas pesadas y proteger instalaciones exigentes. Disponibles en versiones para empotrar o superficiales.`,
+        costoCompra: 8.62307692, // Base (BRK001)
+        images: ["productos/BRK-BREAKER(3).webp", "productos/BRK-BREAKER(5).webp"],
+        specs: { "Marca": "Tania", "Polos": "2 Polos (220V)", "Capacidad de Ruptura": "10KA" },
+        variants: [
+            { id: "BRK001", name: "20 Amperios (Empotrar)", costoCompra: 8.62307692 },
+            { id: "BRK002", name: "40 Amperios (Empotrar)", costoCompra: 8.62307692 },
+            { id: "BRK003", name: "20 Amperios (Superficial)", costoCompra: 11.27692308 }
+        ]
+    },
+    {
         id: "GBC-VARIANTE",
         name: "Gomas Antivibración para Base de Compresor / Motor",
         category: "Aires Acondicionados",
