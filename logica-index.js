@@ -1,4 +1,4 @@
-﻿// ==========================================
+// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
 const TASA_BCV = 881.07;
@@ -1630,7 +1630,7 @@ const products = [
             "productos/TRM020.webp",
             "productos/TRM021.webp",
             "productos/TRM022.webp",
-            "productos/TRM023.png"
+            "productos/TRM023.webp"
         ],
         specs: { "Tipo": "Termostato Mecánico", "Aplicación": "Refrigeración Doméstica / Comercial" },
         variants: [
@@ -4703,10 +4703,11 @@ function openQuickView(productId, autoVariantIndex = -1) {
             variantSelect.value = currentVariantIndex;
         }
 
-        // Al cambiar de medida en el select, actualizamos precios y código
+        // Al cambiar de medida en el select, actualizamos precios, código e imagen correspondiente
         variantSelect.onchange = function () {
             currentVariantIndex = parseInt(this.value);
             updateQuickViewPrices();
+            updateQuickViewVariantImage();
         };
     } else {
         variantContainer.style.display = 'none';
@@ -4722,18 +4723,19 @@ function openQuickView(productId, autoVariantIndex = -1) {
         specsTable.innerHTML += `<tr><td>${key}</td><td>${value}</td></tr>`;
     }
 
-    // Imagen Principal
-    const mainImg = document.getElementById('qvMainImg');
-    const imgSrc = (currentViewedProduct.images && currentViewedProduct.images.length > 0) ? currentViewedProduct.images[0] : 'productos/NO_PHOTO.webp';
-    mainImg.src = imgSrc;
-    mainImg.onerror = function () { this.src = 'productos/NO_PHOTO.webp'; };
-
     // Miniaturas
     const thumbContainer = document.getElementById('qvThumbnails');
     thumbContainer.innerHTML = '';
-    currentViewedProduct.images.forEach((imgUrl) => {
-        thumbContainer.innerHTML += `<img src="${imgUrl}" class="qv-thumb" onclick="changeMainImage(this.src)" onerror="this.style.display='none'">`;
+    const imagesList = (currentViewedProduct.images && currentViewedProduct.images.length > 0)
+        ? currentViewedProduct.images
+        : ['productos/NO_PHOTO.webp'];
+
+    imagesList.forEach((imgUrl, idx) => {
+        thumbContainer.innerHTML += `<img src="${imgUrl}" class="qv-thumb ${idx === 0 ? 'active' : ''}" onclick="changeMainImage(this.src, this)" onerror="this.style.display='none'">`;
     });
+
+    // Actualizamos la imagen inicial del modal (según variante seleccionada o predeterminada)
+    updateQuickViewVariantImage();
 
     // Botón Agregar al Pedido desde el Modal
     const addBtn = document.getElementById('qvAddBtn');
@@ -4801,8 +4803,87 @@ function toggleDescription() {
     }
 }
 
-function changeMainImage(url) {
-    document.getElementById('qvMainImg').src = url;
+function findVariantImage(variantId) {
+    if (!currentViewedProduct) return null;
+    const defaultList = currentViewedProduct.images || [];
+    if (!variantId) return defaultList[0] || 'productos/NO_PHOTO.webp';
+
+    const cleanCode = variantId.trim().toUpperCase();
+
+    // 1. Buscar en las imágenes declaradas del producto que contengan el código de la variante
+    const matchedInImages = defaultList.find(imgUrl => {
+        const fn = imgUrl.split('/').pop().toUpperCase().replace(/\.[^/.]+$/, "");
+        return fn === cleanCode || fn.includes(cleanCode);
+    });
+    if (matchedInImages) return matchedInImages;
+
+    return null;
+}
+
+function updateQuickViewVariantImage() {
+    if (!currentViewedProduct) return;
+    const mainImg = document.getElementById('qvMainImg');
+    const defaultImg = (currentViewedProduct.images && currentViewedProduct.images.length > 0) 
+        ? currentViewedProduct.images[0] 
+        : 'productos/NO_PHOTO.webp';
+
+    let targetImg = defaultImg;
+
+    if (currentViewedProduct.variants && currentViewedProduct.variants[currentVariantIndex]) {
+        const variant = currentViewedProduct.variants[currentVariantIndex];
+        const found = findVariantImage(variant.id);
+        if (found) {
+            targetImg = found;
+        }
+    }
+
+    // Aplicar imagen seleccionada con fallback
+    mainImg.src = targetImg;
+    mainImg.onerror = function () {
+        this.src = defaultImg;
+        this.onerror = function () { this.src = 'productos/NO_PHOTO.webp'; };
+    };
+
+    // Resaltar miniatura activa
+    highlightThumbnail(targetImg);
+}
+
+function highlightThumbnail(targetSrc) {
+    const thumbs = document.querySelectorAll('.qv-thumb');
+    thumbs.forEach(thumb => {
+        const thumbSrc = thumb.getAttribute('src');
+        if (targetSrc && (targetSrc === thumbSrc || targetSrc.endsWith(thumbSrc) || thumbSrc.endsWith(targetSrc))) {
+            thumb.classList.add('active');
+        } else {
+            thumb.classList.remove('active');
+        }
+    });
+}
+
+function changeMainImage(url, thumbElement) {
+    const mainImg = document.getElementById('qvMainImg');
+    mainImg.src = url;
+    if (thumbElement) {
+        document.querySelectorAll('.qv-thumb').forEach(t => t.classList.remove('active'));
+        thumbElement.classList.add('active');
+    } else {
+        highlightThumbnail(url);
+    }
+
+    // Sincronizar select si la miniatura seleccionada coincide con una variante
+    if (currentViewedProduct && currentViewedProduct.variants) {
+        const fn = url.split('/').pop().toUpperCase().replace(/\.[^/.]+$/, "");
+        const matchedIndex = currentViewedProduct.variants.findIndex(v => {
+            const vCode = v.id.toUpperCase();
+            return fn === vCode || fn.includes(vCode);
+        });
+        if (matchedIndex !== -1 && matchedIndex !== currentVariantIndex) {
+            currentVariantIndex = matchedIndex;
+            const selectEl = document.getElementById('qvVariantSelect');
+            if (selectEl) selectEl.value = currentVariantIndex;
+            updateQuickViewPrices();
+        }
+    }
 }
 
 function closeQuickView(event) {

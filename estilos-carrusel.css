@@ -1,277 +1,829 @@
-/* estilos-carrusel.css */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ==========================================================================
+   ESTILOS CARRUSEL — NOVA REFRIMOTORS
+   Diseño de Alta Gama con Identidad Cromática por Marca
+   ========================================================================== */
 
-body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: #f0f4f8; 
-    color: #1a202c; 
-    overflow-x: hidden; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- ENCABEZADO Y MENÚ INTEGRADO --- */
-.carousel-header { 
-    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); 
-    padding: 15px 5%; 
-    display: flex; justify-content: space-between; align-items: center; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100;
-    gap: 30px;
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0f172a;
+    color: #1e293b;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
-.logo-img { height: 50px; object-fit: contain; transition: transform 0.3s; }
-.logo-img:hover { transform: scale(1.05); }
 
-.back-btn { 
-    text-decoration: none; color: #00458a; font-weight: 800; 
-    border: 2px solid #00458a; padding: 10px 24px; 
-    border-radius: 30px; transition: all 0.3s ease; font-size: 14px; text-transform: uppercase; 
-    white-space: nowrap;
+/* ==========================================
+   ENCABEZADO Y SELECTOR DE MARCAS FLOTANTE
+   =========================================== */
+.carousel-header {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 12px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    gap: 20px;
 }
-.back-btn:hover { background: #00458a; color: white; box-shadow: 0 4px 15px rgba(0, 69, 138, 0.2); }
 
-/* --- PESTAÑAS SELECTORAS DE MARCAS --- */
+.logo-img {
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Pestañas de marcas estilo cápsula interactiva */
 .brand-menu {
-    display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; 
-    border: none; background: transparent; padding: 0; flex-grow: 1; justify-content: center;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 4px 0;
+    flex-grow: 1;
+    justify-content: center;
+    scrollbar-width: none;
 }
-.brand-menu::-webkit-scrollbar { display: none; }
+
+.brand-menu::-webkit-scrollbar {
+    display: none;
+}
 
 .brand-tab {
-    padding: 10px 22px; border: 1px solid #e2e8f0; background: #ffffff;
-    border-radius: 25px; cursor: pointer; font-size: 15px; font-weight: 700; 
-    transition: 0.3s; color: #718096;
+    padding: 9px 20px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748b;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    outline: none;
+    user-select: none;
 }
-.brand-tab:hover { border-color: #00458a; color: #00458a; }
 
-/* Colores dinámicos para cada pestaña activa */
-.brand-tab.tab-exceline.active { background: #ff6600; border-color: #ff6600; color: white; }
-.brand-tab.tab-paragon.active { background: #cc0000; border-color: #cc0000; color: white; }
-.brand-tab.tab-oster.active { background: #00458a; border-color: #00458a; color: white; }
-.brand-tab.tab-productos66.active { background: #111d4a; border-color: #111d4a; color: white; }
-.brand-tab.tab-maxwell.active { background: #d38312; border-color: #d38312; color: white; box-shadow: 0 6px 15px rgba(211, 131, 18, 0.3); }
-.brand-tab.tab-ingco.active { background: #f39c12; border-color: #f39c12; color: #1a1a1a; box-shadow: 0 6px 15px rgba(243, 156, 18, 0.3); }
-.brand-tab.tab-steinmann.active { background: #1565c0; border-color: #1565c0; color: white; box-shadow: 0 6px 15px rgba(21, 101, 192, 0.3); }
+.brand-tab:hover {
+    border-color: #94a3b8;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
 
-/* --- ESTRUCTURA DE LA TARJETA ADAPTATIVA A PANTALLA COMPLETA --- */
-.master-carousel-container { width: 100%; }
+/* Colores dinámicos por marca activa */
+.brand-tab.tab-exceline.active {
+    background: #ff6600;
+    border-color: #ff6600;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(255, 102, 0, 0.35);
+}
+
+.brand-tab.tab-paragon.active {
+    background: #cc0000;
+    border-color: #cc0000;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(204, 0, 0, 0.35);
+}
+
+.brand-tab.tab-oster.active {
+    background: #00458a;
+    border-color: #00458a;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 69, 138, 0.35);
+}
+
+.brand-tab.tab-productos66.active {
+    background: #111d4a;
+    border-color: #111d4a;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(17, 29, 74, 0.35);
+}
+
+.brand-tab.tab-maxwell.active {
+    background: #d38312;
+    border-color: #d38312;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(211, 131, 18, 0.35);
+}
+
+.brand-tab.tab-ingco.active {
+    background: #f39c12;
+    border-color: #f39c12;
+    color: #1a1a1a;
+    box-shadow: 0 6px 18px rgba(243, 156, 18, 0.35);
+}
+
+.brand-tab.tab-steinmann.active {
+    background: #1565c0;
+    border-color: #1565c0;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(21, 101, 192, 0.35);
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #00458a;
+    font-weight: 800;
+    border: 2px solid #00458a;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #ffffff;
+    white-space: nowrap;
+}
+
+.back-btn:hover {
+    background: #00458a;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 69, 138, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   ESTRUCTURA DE SECCIÓN DE MARCA A PANTALLA COMPLETA
+   =========================================== */
+.master-carousel-container {
+    width: 100%;
+}
 
 .carousel-bg-card {
-    width: 100%; 
-    border-radius: 0; 
-    padding: 40px 0; 
-    min-height: calc(100vh - 85px); 
+    width: 100%;
+    min-height: calc(100vh - 78px);
+    padding: 30px 0 45px 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    animation: fadeIn 0.4s ease-out;
+    overflow: hidden;
+}
+
+.carousel-bg-card.active-brand {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado del contenido de la marca */
+.carousel-header-text {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.brand-logo-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 28px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    min-height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo-container:hover {
+    transform: scale(1.04);
+}
+
+.brand-logo-container img {
+    height: 35px;
+    display: block;
+    object-fit: contain;
+}
+
+.oster-logo img { height: 50px; }
+.productos66-logo img { height: 50px; }
+.maxwell-logo img { height: 75px; }
+.ingco-logo img { height: 50px; }
+.steinmann-logo img { height: 60px; }
+
+/* Tipografía de títulos de marca */
+.carousel-title {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.carousel-subtitle {
+    font-size: 15px;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   TRACK Y CONTROLES DEL CARRUSEL
+   =========================================== */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 65px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 15px 10px 25px 10px;
+    scrollbar-width: none;
+    align-items: stretch;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+/* ==========================================
+   BARRA DE PROGRESO DE ALTA GAMA (DESLIZAMIENTO)
+   =========================================== */
+.carousel-progress-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    z-index: 5;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-progress-bar {
+    width: 150px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-progress-fill {
+    height: 100%;
+    width: 25%;
+    border-radius: 10px;
+    background: #ffffff;
+    transition: width 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carousel-counter {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 3px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    margin-left: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+/* Colores de la barra de progreso y contador por tema */
+.theme-exceline .carousel-progress-bar { background: rgba(0, 0, 0, 0.18); }
+.theme-exceline .carousel-progress-fill { background: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); }
+.theme-exceline .carousel-counter { background: rgba(0, 0, 0, 0.2); border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+
+.theme-paragon .carousel-progress-bar { background: rgba(255, 255, 255, 0.18); }
+.theme-paragon .carousel-progress-fill { background: #cc0000; box-shadow: 0 0 10px rgba(204, 0, 0, 0.9); }
+.theme-paragon .carousel-counter { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
+
+.theme-oster .carousel-progress-bar { background: rgba(255, 255, 255, 0.22); }
+.theme-oster .carousel-progress-fill { background: #90caf9; box-shadow: 0 0 10px rgba(144, 202, 249, 0.9); }
+.theme-oster .carousel-counter { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.28); color: #ffffff; }
+
+.theme-productos66 .carousel-progress-bar { background: rgba(17, 29, 74, 0.16); }
+.theme-productos66 .carousel-progress-fill { background: #111d4a; box-shadow: 0 0 8px rgba(17, 29, 74, 0.5); }
+.theme-productos66 .carousel-counter { background: rgba(17, 29, 74, 0.08); border-color: rgba(17, 29, 74, 0.2); color: #111d4a; }
+
+.theme-maxwell .carousel-progress-bar { background: rgba(0, 0, 0, 0.22); }
+.theme-maxwell .carousel-progress-fill { background: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); }
+.theme-maxwell .carousel-counter { background: rgba(0, 0, 0, 0.22); border-color: rgba(255, 255, 255, 0.3); color: #ffffff; }
+
+.theme-ingco .carousel-progress-bar { background: rgba(0, 0, 0, 0.22); }
+.theme-ingco .carousel-progress-fill { background: #1a1a1a; box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
+.theme-ingco .carousel-counter { background: rgba(0, 0, 0, 0.15); border-color: rgba(0, 0, 0, 0.25); color: #1a1a1a; }
+
+.theme-steinmann .carousel-progress-bar { background: rgba(255, 255, 255, 0.22); }
+.theme-steinmann .carousel-progress-fill { background: #bbdefb; box-shadow: 0 0 10px rgba(187, 222, 251, 0.9); }
+.theme-steinmann .carousel-counter { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.3); color: #ffffff; }
+
+/* ==========================================
+   TARJETAS INTERNAS DE PRODUCTO (ELEVADAS)
+   =========================================== */
+.carousel-slide {
+    flex: 0 0 320px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 5px solid transparent;
+    scroll-snap-align: center;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    position: relative; 
-    animation: fadeIn 0.5s ease;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    transform-style: preserve-3d;
 }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.carousel-header-text { text-align: center; margin-bottom: 30px; position: relative; z-index: 2; padding: 0 20px; }
-.brand-logo-container { display: inline-flex; justify-content: center; align-items: center; padding: 10px 30px; border-radius: 30px; margin-bottom: 20px; min-height: 50px; }
-.brand-logo-container img { height: 35px; display: block; object-fit: contain; border-radius: 4px; } 
-
-.carousel-title { font-size: 42px; margin-bottom: 12px; font-weight: 900; line-height: 1.2; letter-spacing: -1px; }
-.carousel-subtitle { font-size: 18px; font-weight: 500; max-width: 800px; margin: 0 auto; color: rgba(255,255,255,0.9); }
-
-.carousel-wrapper { position: relative; display: flex; align-items: center; justify-content: center; z-index: 2; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 60px; }
-
-/* --- TRACK DEL CARRUSEL --- */
-.carousel-track { 
-    display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; 
-    scroll-behavior: smooth; padding: 40px 10px; 
-    scrollbar-width: none; align-items: stretch; width: 100%;
+.carousel-slide:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25), 0 6px 16px rgba(0, 0, 0, 0.08);
 }
-.carousel-track::-webkit-scrollbar { display: none; }
 
-/* --- TARJETAS INTERNAS --- */
-.carousel-slide { 
-    flex: 0 0 320px; background: #ffffff; border-radius: 20px; 
-    scroll-snap-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    display: flex; flex-direction: column; overflow: hidden; border: none;
-}
-.carousel-slide:hover { transform: translateY(-15px) scale(1.03); }
-
+/* Contenedor de Imagen con Efecto de Destello de Cristal (Sheen) */
 .img-wrapper {
-    position: relative; background: radial-gradient(circle, #ffffff 0%, #f4f7f6 100%);
-    padding: 30px 20px; border-bottom: 1px solid #edf2f7; display: flex; justify-content: center; align-items: center;
+    position: relative;
+    background: radial-gradient(circle, #ffffff 40%, #f8fafc 100%);
+    padding: 26px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
-.img-wrapper img { width: 100%; height: 180px; object-fit: contain; transition: transform 0.5s ease; }
-.carousel-slide:hover .img-wrapper img { transform: scale(1.1); }
 
+.img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -140%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.75s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.carousel-slide:hover .img-wrapper::after {
+    left: 160%;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.06));
+}
+
+.carousel-slide:hover .img-wrapper img {
+    transform: scale(1.08);
+}
+
+/* Badges estilo píldora brillante */
 .badge {
-    position: absolute; top: 15px; left: 15px; padding: 6px 12px; border-radius: 20px;
-    font-size: 11px; font-weight: 800; text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-.badge-hot { background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; }
-.badge-offer { background: linear-gradient(135deg, #f6d365, #fda085); color: #8c3b00; }
-.badge-new { background: linear-gradient(135deg, #00458a, #007bff); color: white; }
 
-.card-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; text-align: left; }
-.card-category { font-size: 12px; color: #a0aec0; font-weight: 800; margin-bottom: 8px; }
-.carousel-slide h3 { font-size: 19px; color: #1a202c; margin-bottom: 12px; font-weight: 900; line-height: 1.3; }
-.carousel-slide p { font-size: 14px; color: #718096; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
-
-.buy-btn { 
-    display: flex; justify-content: center; align-items: center; gap: 8px;
-    color: #ffffff; text-decoration: none; padding: 14px 20px; border-radius: 12px; 
-    font-weight: 800; font-size: 15px; transition: all 0.3s ease; width: 100%; margin-top: auto; border: none;
+/* Contenido informativo de la tarjeta */
+.card-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
 }
-.buy-btn svg { transition: transform 0.3s ease; }
-.buy-btn:hover svg { transform: translateX(5px); }
 
-/* Botones de flechas */
-.slider-btn { 
-    position: absolute; top: 50%; transform: translateY(-50%); 
-    background: #ffffff; border: none; font-size: 20px; color: #333; 
-    width: 60px; height: 60px; border-radius: 50%; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 10; transition: all 0.3s ease;
+.card-category {
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
 }
-.prev-btn { left: 0; }
-.next-btn { right: 0; }
 
-/* ==========================================
-   TEMAS DE MARCAS (COLORES ESPECÍFICOS)
-=========================================== */
+.carousel-slide h3 {
+    font-size: 18px;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-weight: 800;
+    line-height: 1.3;
+}
 
-/* TEMA EXCELINE */
-.theme-exceline { background: linear-gradient(135deg, #ff7a00, #cc3300); }
-.theme-exceline .carousel-title { color: #ffffff; }
-.exceline-logo { background: #ffffff; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); }
-.theme-exceline .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); border-bottom: 4px solid transparent; }
-.theme-exceline .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); border-bottom: 4px solid #ff6600; }
-.exceline-btn { background: linear-gradient(135deg, #ff6600, #cc5200); color: white; }
-.exceline-btn:hover { background: linear-gradient(135deg, #e65c00, #b34700); box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4); }
-.theme-exceline .slider-btn:hover { background: #ff6600; color: white; }
+.carousel-slide p {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 22px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
 
-/* TEMA PARAGON */
-.theme-paragon { background: linear-gradient(135deg, #1a1a1a, #000000); }
-.theme-paragon .carousel-title { color: #ffffff; }
-.paragon-logo { background: #000000; box-shadow: 0 8px 20px rgba(204, 0, 0, 0.3); border: 1px solid #333; }
-.theme-paragon .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); border-bottom: 4px solid transparent; }
-.theme-paragon .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); border-bottom: 4px solid #cc0000; }
-.paragon-btn { background: linear-gradient(135deg, #e60000, #990000); }
-.paragon-btn:hover { background: linear-gradient(135deg, #cc0000, #800000); box-shadow: 0 8px 20px rgba(230, 0, 0, 0.4); }
-.theme-paragon .slider-btn:hover { background: #e60000; color: white; }
+/* Botón de compra / ver catálogo */
+.buy-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 13px 20px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    width: 100%;
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+}
 
-/* TEMA OSTER */
-.theme-oster { background: linear-gradient(135deg, #00458a, #001f3f); }
-.theme-oster .carousel-title { color: #ffffff; }
-.oster-logo { background: transparent; padding: 0; box-shadow: none; margin-bottom: 25px; }
-.oster-logo img { height: 60px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5)); } 
-.theme-oster .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); border-bottom: 4px solid transparent; }
-.theme-oster .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); border-bottom: 4px solid #00458a; }
-.oster-btn { background: linear-gradient(135deg, #00458a, #002b5e); color: white; }
-.oster-btn:hover { background: linear-gradient(135deg, #0056b3, #003366); box-shadow: 0 8px 20px rgba(0, 69, 138, 0.4); }
-.theme-oster .slider-btn:hover { background: #00458a; color: white; }
+.buy-btn svg {
+    transition: transform 0.3s ease;
+}
 
-/* TEMA PRODUCTOS 66 */
-.theme-productos66 { background: linear-gradient(135deg, #eef2f5, #dce4eb); border-top: 5px solid #111d4a; }
-.theme-productos66 .carousel-title { color: #1a202c; } 
-.theme-productos66 .carousel-subtitle { color: #4a5568; }
-.productos66-logo { background: transparent; padding: 0; box-shadow: none; margin-bottom: 25px; }
-.productos66-logo img { height: 60px; filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15)); } 
-.theme-productos66 .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); border-bottom: 4px solid transparent; }
-.theme-productos66 .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); border-bottom: 4px solid #111d4a; }
-.productos66-btn { background: linear-gradient(135deg, #111d4a, #0b1330); color: white;}
-.productos66-btn:hover { background: linear-gradient(135deg, #1c2e6b, #111d4a); box-shadow: 0 8px 20px rgba(17, 29, 74, 0.3); }
-.theme-productos66 .slider-btn:hover { background: #111d4a; color: white; }
+.buy-btn:hover svg {
+    transform: translateX(5px);
+}
 
-/* TEMA MAXWELL */
-.theme-maxwell { background: linear-gradient(135deg, #d38312, #8b4e04); border-top: 5px solid #1a1a1a; }
-.theme-maxwell .carousel-title { color: #ffffff; }
-.theme-maxwell .carousel-subtitle { color: #ffffff; font-weight: 600; }
-.maxwell-logo { background: transparent; padding: 0; box-shadow: none; margin-bottom: 25px; }
-.maxwell-logo img { height: 115px; object-fit: contain; filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.25)); }
-.theme-maxwell .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); border-bottom: 4px solid transparent; }
-.theme-maxwell .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); border-bottom: 4px solid #d38312; }
-.maxwell-btn { background: linear-gradient(135deg, #d38312, #a66008); color: #ffffff; }
-.maxwell-btn:hover { background: linear-gradient(135deg, #e59015, #8b4e04); box-shadow: 0 8px 20px rgba(211, 131, 18, 0.4); }
-.theme-maxwell .slider-btn:hover { background: #d38312; color: white; }
+/* Flechas de navegación (Prev / Next) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 20px;
+    color: #1e293b;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    outline: none;
+}
 
-/* TEMA INGCO */
-.theme-ingco { background: linear-gradient(135deg, #f39c12, #e67e22); border-top: 5px solid #1a1a1a; }
+.prev-btn { left: 8px; }
+.next-btn { right: 8px; }
+
+.slider-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+/* ==========================================================================
+   TEMAS ESPECÍFICOS POR MARCA (COLORES Y FONDOS EXACTOS A SU IDENTIDAD)
+   ========================================================================== */
+
+/* --- 1. TEMA EXCELINE --- */
+.theme-exceline {
+    background: radial-gradient(circle at 50% 25%, #ff841f 0%, #ff6600 50%, #b83a00 100%);
+}
+.theme-exceline .carousel-title { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+.theme-exceline .carousel-subtitle { color: rgba(255, 255, 255, 0.95); }
+.exceline-logo {
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.theme-exceline .carousel-slide:hover {
+    border-bottom: 5px solid #ff6600;
+}
+.exceline-btn {
+    background: linear-gradient(135deg, #ff6600, #d94b00);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(255, 102, 0, 0.35);
+}
+.exceline-btn:hover {
+    background: linear-gradient(135deg, #e65c00, #bd3a00);
+    box-shadow: 0 8px 24px rgba(255, 102, 0, 0.55);
+}
+.theme-exceline .slider-btn:hover {
+    background: #ff6600;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+}
+
+/* --- 2. TEMA PARAGON --- */
+.theme-paragon {
+    background: radial-gradient(circle at 50% 25%, #262626 0%, #141414 60%, #030303 100%);
+}
+.theme-paragon .carousel-title { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.theme-paragon .carousel-subtitle { color: #d4d4d8; }
+.paragon-logo {
+    background: #0d0d0d;
+    border: 1px solid #333333;
+    box-shadow: 0 10px 25px rgba(204, 0, 0, 0.3);
+}
+.theme-paragon .carousel-slide:hover {
+    border-bottom: 5px solid #cc0000;
+}
+.paragon-btn {
+    background: linear-gradient(135deg, #e60000, #990000);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(204, 0, 0, 0.35);
+}
+.paragon-btn:hover {
+    background: linear-gradient(135deg, #cc0000, #800000);
+    box-shadow: 0 8px 24px rgba(204, 0, 0, 0.55);
+}
+.theme-paragon .slider-btn:hover {
+    background: #cc0000;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+}
+
+/* --- 3. TEMA OSTER --- */
+.theme-oster {
+    background: radial-gradient(circle at 50% 25%, #005bb5 0%, #00458a 55%, #00224d 100%);
+}
+.theme-oster .carousel-title { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.theme-oster .carousel-subtitle { color: #d6e8ff; }
+.oster-logo {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+.oster-logo img {
+    height: 60px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45));
+}
+.theme-oster .carousel-slide:hover {
+    border-bottom: 5px solid #00458a;
+}
+.oster-btn {
+    background: linear-gradient(135deg, #0056b3, #003366);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 69, 138, 0.35);
+}
+.oster-btn:hover {
+    background: linear-gradient(135deg, #0066cc, #002b59);
+    box-shadow: 0 8px 24px rgba(0, 69, 138, 0.55);
+}
+.theme-oster .slider-btn:hover {
+    background: #00458a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 69, 138, 0.4);
+}
+
+/* --- 4. TEMA PRODUCTOS 66 --- */
+.theme-productos66 {
+    background: radial-gradient(circle at 50% 25%, #ffffff 0%, #f1f5f9 55%, #dce5ee 100%);
+    border-top: 5px solid #111d4a;
+}
+.theme-productos66 .carousel-title { color: #111d4a; }
+.theme-productos66 .carousel-subtitle { color: #475569; font-weight: 500; }
+.productos66-logo {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+.productos66-logo img {
+    height: 60px;
+    filter: drop-shadow(0 4px 8px rgba(17, 29, 74, 0.2));
+}
+.theme-productos66 .carousel-slide:hover {
+    border-bottom: 5px solid #111d4a;
+}
+.productos66-btn {
+    background: linear-gradient(135deg, #111d4a, #0b1330);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(17, 29, 74, 0.35);
+}
+.productos66-btn:hover {
+    background: linear-gradient(135deg, #1d2e6e, #111d4a);
+    box-shadow: 0 8px 24px rgba(17, 29, 74, 0.55);
+}
+.theme-productos66 .slider-btn:hover {
+    background: #111d4a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(17, 29, 74, 0.4);
+}
+
+/* --- 5. TEMA MAXWELL --- */
+.theme-maxwell {
+    background: radial-gradient(circle at 50% 25%, #e08e16 0%, #d38312 50%, #7d4404 100%);
+    border-top: 5px solid #1a1a1a;
+}
+.theme-maxwell .carousel-title { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.25); }
+.theme-maxwell .carousel-subtitle { color: #fff3db; font-weight: 600; }
+.maxwell-logo {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+.maxwell-logo img {
+    height: 105px;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+}
+.theme-maxwell .carousel-slide:hover {
+    border-bottom: 5px solid #d38312;
+}
+.maxwell-btn {
+    background: linear-gradient(135deg, #d38312, #945304);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(211, 131, 18, 0.35);
+}
+.maxwell-btn:hover {
+    background: linear-gradient(135deg, #e59015, #804402);
+    box-shadow: 0 8px 24px rgba(211, 131, 18, 0.55);
+}
+.theme-maxwell .slider-btn:hover {
+    background: #d38312;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(211, 131, 18, 0.4);
+}
+
+/* --- 6. TEMA INGCO --- */
+.theme-ingco {
+    background: radial-gradient(circle at 50% 25%, #ffab2e 0%, #f39c12 50%, #c26900 100%);
+    border-top: 5px solid #1a1a1a;
+}
 .theme-ingco .carousel-title { color: #1a1a1a; }
-.theme-ingco .carousel-subtitle { color: #333333; font-weight: 600;}
-.ingco-logo { background: transparent; padding: 0; box-shadow: none; margin-bottom: 25px; }
-.ingco-logo img { height: 70px; object-fit: contain; filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15)); }
-.theme-ingco .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); border-bottom: 4px solid transparent; }
-.theme-ingco .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); border-bottom: 4px solid #1a1a1a; }
-.ingco-btn { background: linear-gradient(135deg, #1a1a1a, #000000); color: #ffffff; }
-.ingco-btn:hover { background: linear-gradient(135deg, #333333, #1a1a1a); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }
-.theme-ingco .slider-btn:hover { background: #1a1a1a; color: white; }
+.theme-ingco .carousel-subtitle { color: #2d2d2d; font-weight: 600; }
+.ingco-logo {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+.ingco-logo img {
+    height: 65px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+}
+.theme-ingco .carousel-slide:hover {
+    border-bottom: 5px solid #1a1a1a;
+}
+.ingco-btn {
+    background: linear-gradient(135deg, #1a1a1a, #000000);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.ingco-btn:hover {
+    background: linear-gradient(135deg, #333333, #1a1a1a);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+}
+.theme-ingco .slider-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
 
-/* TEMA STEINMANN (Fondo Azul Rey / Navy) */
-.theme-steinmann { background: linear-gradient(135deg, #1565c0, #0d47a1); border-top: 5px solid #002171; }
-.theme-steinmann .carousel-title { color: #ffffff; }
+/* --- 7. TEMA STEINMANN --- */
+.theme-steinmann {
+    background: radial-gradient(circle at 50% 25%, #1976d2 0%, #1565c0 55%, #0a3d82 100%);
+    border-top: 5px solid #002171;
+}
+.theme-steinmann .carousel-title { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.25); }
 .theme-steinmann .carousel-subtitle { color: #bbdefb; }
-
-.steinmann-logo { background: transparent; padding: 0; box-shadow: none; margin-bottom: 25px; }
-.steinmann-logo img { height: 90px; object-fit: contain; filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3)); }
-
-.theme-steinmann .carousel-slide { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); border-bottom: 4px solid transparent; }
-.theme-steinmann .carousel-slide:hover { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); border-bottom: 4px solid #64b5f6; }
-.steinmann-btn { background: linear-gradient(135deg, #0d47a1, #002171); color: #ffffff; }
-.steinmann-btn:hover { background: linear-gradient(135deg, #1565c0, #0d47a1); box-shadow: 0 8px 20px rgba(13, 71, 161, 0.4); }
-.theme-steinmann .slider-btn:hover { background: #1565c0; color: white; }
+.steinmann-logo {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+.steinmann-logo img {
+    height: 85px;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+}
+.theme-steinmann .carousel-slide:hover {
+    border-bottom: 5px solid #64b5f6;
+}
+.steinmann-btn {
+    background: linear-gradient(135deg, #0d47a1, #002171);
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(13, 71, 161, 0.35);
+}
+.steinmann-btn:hover {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    box-shadow: 0 8px 24px rgba(21, 101, 192, 0.55);
+}
+.theme-steinmann .slider-btn:hover {
+    background: #1565c0;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4);
+}
 
 /* ==========================================
-   DISEÑO MÓVIL (PANTALLA COMPLETA Y ADAPTATIVA)
-=========================================== */
-@media(max-width: 768px) {
-    .carousel-header { flex-wrap: wrap; padding: 12px 15px; gap: 10px; }
-    .logo-img { height: 35px; }
-    .back-btn { font-size: 12px; padding: 8px 16px; }
-    
-    .brand-menu { 
-        order: 3; width: 100%; justify-content: flex-start; 
-        padding: 12px 0 0 0; margin-top: 2px; border-top: 1px solid #e2e8f0; 
+   DISEÑO MÓVIL Y PANTALLAS PEQUEÑAS
+   =========================================== */
+@media (max-width: 820px) {
+    .carousel-header {
+        flex-wrap: wrap;
+        padding: 10px 16px;
+        gap: 10px;
     }
-    .brand-tab { padding: 8px 16px; font-size: 14px; }
-    
-    .carousel-bg-card { 
-        padding: 30px 0 40px 0; 
-        /* ⬅️ ESTA ES LA LÍNEA MÁGICA QUE ARREGLA EL ESPACIO BLANCO */
-        min-height: calc(100vh - 115px); 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
+    .logo-img { height: 38px; }
+    .back-btn { font-size: 11px; padding: 7px 15px; }
+
+    .brand-menu {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 0 2px 0;
+        border-top: 1px solid #e2e8f0;
+        margin-top: 2px;
     }
-    
-    .carousel-header-text { margin-bottom: 20px; }
-    
-    .brand-logo-container { padding: 8px 25px; margin-bottom: 15px; min-height: 45px; }
-    .brand-logo-container img { height: 30px; } 
-    
-    .oster-logo, .productos66-logo, .maxwell-logo, .ingco-logo, .steinmann-logo { 
-        padding: 0; min-height: auto; margin-bottom: 15px; 
+    .brand-tab { padding: 7px 15px; font-size: 13px; }
+
+    .carousel-bg-card {
+        padding: 22px 0 30px 0;
+        min-height: calc(100vh - 110px);
     }
-    .oster-logo img, .productos66-logo img { height: 45px; }
-    .ingco-logo img { height: 48px; }
-    .steinmann-logo img { height: 50px; }
-    .maxwell-logo img { height: 65px; } 
-    
-    .carousel-title { font-size: 24px; padding: 0 15px; margin-bottom: 8px; }
-    .carousel-subtitle { 
-        font-size: 14px; padding: 0 15px; margin-bottom: 0; line-height: 1.4; 
-        display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; 
+    .carousel-header-text { margin-bottom: 15px; }
+    .carousel-title { font-size: 24px; padding: 0 10px; margin-bottom: 6px; }
+    .carousel-subtitle {
+        font-size: 13px;
+        padding: 0 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
-    
-    .slider-btn { display: none; } /* Ocultamos flechas para forzar el scroll táctil */
+
+    .slider-btn { display: none; }
     .carousel-wrapper { padding: 0; width: 100%; }
-    
-    /* Fix para evitar overflow horizontal en el track */
-    .carousel-track { gap: 15px; padding: 20px 15px 10px 15px; } 
-    
-    .carousel-slide { flex: 0 0 85%; border-radius: 20px; }
-    .img-wrapper { padding: 25px 15px; }
-    .img-wrapper img { height: 180px; }
-    
-    .card-info { padding: 20px; }
-    .card-category { font-size: 12px; margin-bottom: 8px; }
-    .carousel-slide h3 { font-size: 18px; margin-bottom: 10px; }
-    .carousel-slide p { 
-        font-size: 14px; margin-bottom: 20px; line-height: 1.5; 
-        display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; 
+    .carousel-track {
+        gap: 15px;
+        padding: 10px 16px 20px 16px;
     }
-    .buy-btn { padding: 14px 20px; font-size: 15px; }
+    .carousel-slide { flex: 0 0 85%; }
+    .img-wrapper { padding: 20px 15px; }
+    .img-wrapper img { height: 160px; }
+    .card-info { padding: 18px; }
+    .carousel-slide h3 { font-size: 17px; }
+    .carousel-slide p {
+        font-size: 13px;
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .buy-btn { padding: 12px 18px; font-size: 13px; }
+    .carousel-progress-bar { width: 110px; }
 }
