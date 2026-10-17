@@ -201,6 +201,120 @@ const products = [
     // ============================================================== //
 
 
+    // --- SAMURAY ---
+    {
+        id: "LIC-SAMURAY-VAR",
+        name: "Repuestos para Licuadora Samuray",
+        category: "Licuadoras",
+        model: "Samuray",
+        desc: `<b>Repuestos y Accesorios para Licuadoras Samuray</b><br><br>Encuentra aquí las cuchillas de corte (para hielo o estándar), tapas de seguridad y roscas inferiores de repuesto para mantener tu licuadora Samuray funcionando como nueva.`,
+        costoCompra: 2.97692308, // Base (CLC005)
+        images: ["productos/CLC005.webp", "productos/CLC004.webp", "productos/RLC112.webp", "productos/JLC010.webp"],
+        specs: { "Marca": "Samuray", "Tipo": "Repuestos Originales / Genéricos", "Compatibilidad": "Licuadoras Samuray" },
+        variants: [
+            { id: "CLC005", name: "Cuchilla Blanca (Para Hielo)", costoCompra: 2.97692308 },
+            { id: "CLC004", name: "Cuchilla GSC (Original)", costoCompra: 2.98461538 },
+            { id: "JLC010", name: "Rosca Inferior (Modelo Viejo)", costoCompra: 1.98461538 },
+            { id: "RLC112", name: "Tapa de Vaso (Original)", costoCompra: 0.66153846 }
+        ]
+    },
+
+    // --- PREMIER ---
+    {
+        id: "LIC-PREMIER-VAR",
+        name: "Repuestos para Licuadora Premier",
+        category: "Licuadoras",
+        model: "Premier",
+        desc: `<b>Repuestos para Licuadoras Premier</b><br><br>Cuchillas de acero inoxidable con base integrada y roscas de fijación diseñadas específicamente para encajar en vasos de licuadoras marca Premier.`,
+        costoCompra: 1.98461538, // Base (CLC010)
+        images: ["productos/CLC010.webp", "productos/CLC012.webp", "productos/RLC111.webp"],
+        specs: { "Marca": "Premier", "Tipo": "Cuchillas y Roscas", "Material": "Acero Inoxidable / Plástico" },
+        variants: [
+            { id: "CLC010", name: "Cuchilla Estándar Premier", costoCompra: 1.98461538 },
+            { id: "CLC012", name: "Cuchilla Premier con Rosca Mediana", costoCompra: 2.31538462 },
+            { id: "RLC111", name: "Rosca Inferior (Original)", costoCompra: 0.99230769 }
+        ]
+    },
+
+    // --- BLACK+DECKER ---
+    {
+        id: "LIC-BLACKDECKER-VAR",
+        name: "Cuchillas para Licuadora Black+Decker",
+        category: "Licuadoras",
+        model: "Black+Decker",
+        desc: `<b>Cuchillas de Repuesto Black+Decker</b><br><br>Aspas de corte de repuesto para licuadoras Black & Decker. Diferentes modelos metálicos disponibles con base cuadrada o circular para asegurar un ajuste perfecto.`,
+        costoCompra: 2.64615385, // Base (CLC028 / CLC029)
+        images: ["productos/CLC023.webp", "productos/CLC028.webp", "productos/CLC029.webp"],
+        specs: { "Marca": "Black+Decker", "Tipo": "Cuchillas", "Material": "Metal" },
+        variants: [
+            { id: "CLC028", name: "Cuchilla Metálica Base Cuadrada (Mod 1)", costoCompra: 2.64615385 },
+            { id: "CLC029", name: "Cuchilla Metálica Base Cuadrada (Mod 2)", costoCompra: 2.64615385 },
+            { id: "CLC023", name: "Cuchilla Metálica Estándar", costoCompra: 3.31538462 }
+        ]
+    },
+
+    // --- MIALLEGRO ---
+    {
+        id: "LIC-MIALLEGRO-VAR",
+        name: "Repuestos para Licuadora Miallegro (Mod 7080)",
+        category: "Licuadoras",
+        model: "Miallegro 7080",
+        desc: `<b>Repuestos para Licuadora Miallegro 7080</b><br><br>Piezas de ensamblaje para el modelo 7080 de Miallegro, incluyendo la cuchilla trituradora y la rosca base inferior.`,
+        costoCompra: 3.31538462, // Base (CLC027)
+        images: ["productos/CLC027.webp", "productos/RLC108.webp"],
+        specs: { "Marca": "Miallegro", "Modelo Compatible": "7080", "Tipo": "Cuchilla y Rosca" },
+        variants: [
+            { id: "CLC027", name: "Cuchilla de Corte (Mod 7080)", costoCompra: 3.31538462 },
+            { id: "RLC108", name: "Rosca Inferior (Mod 7080)", costoCompra: 1.98461538 }
+        ]
+    },
+
+    // --- OTRAS MARCAS (Oster, Cuisinart, Holstein, Imusa, Hamilton) ---
+    {
+        id: "JLC023",
+        name: "Juego Cuadrante (Pin) Oster Normal",
+        category: "Licuadoras",
+        model: "Pin Acople",
+        desc: `<b>Acople Cuadrante (Pin) Oster Normal</b><br><br>Repuesto del pin metálico superior (cuadrante) encargado de transmitir el giro del motor a la cuchilla en licuadoras Oster clásicas.`,
+        costoCompra: 1.05384615,
+        images: ["productos/JLC023.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Acople (Cuadrante)", "Material": "Metal" }
+    },
+    {
+        id: "CLC020",
+        name: "Cuchilla para Licuadora Cuisinart (Original)",
+        category: "Licuadoras",
+        model: "Cuisinart",
+        desc: `<b>Cuchilla de Corte Cuisinart Original</b><br><br>Aspa de repuesto original para licuadoras Cuisinart. Base plástica resistente de color blanco con navajas de acero inoxidable afiladas.`,
+        costoCompra: 2.31538462,
+        images: ["productos/CLC020.webp"],
+        specs: { "Marca": "Cuisinart", "Tipo": "Cuchilla Original", "Color de Base": "Blanco" }
+    },
+    {
+        id: "CLC025",
+        name: "Cuchilla con Base para Licuadora Holstein",
+        category: "Licuadoras",
+        model: "Holstein",
+        desc: `<b>Cuchilla con Base para Licuadora Holstein</b><br><br>Pieza de corte completa que integra la cuchilla y la base roscada en un solo cuerpo, diseñada para licuadoras marca Holstein.`,
+        costoCompra: 2.31538462,
+        images: ["productos/CLC025.webp", "productos/CLC025-2.webp"],
+        specs: { "Marca": "Holstein", "Tipo": "Cuchilla + Base Integrada" }
+    },
+    {
+        id: "VLC-VASOS-VAR",
+        name: "Vasos de Repuesto para Licuadoras",
+        category: "Licuadoras",
+        model: "Varias Marcas",
+        desc: `<b>Vasos de Repuesto para Licuadoras</b><br><br>Selección de jarras o vasos de repuesto compatibles con distintas marcas. Encuentra modelos en vidrio o plástico, incluyendo el clásico tipo trébol de Oster o la jarra extra grande de Imusa.`,
+        costoCompra: 3.97692308, // Base (Oster / Hamilton)
+        images: ["productos/VLC010.webp", "productos/VLC013.webp", "productos/VLC017.webp"],
+        specs: { "Material": "Vidrio / Plástico", "Uso": "Reemplazo de Jarra", "Compatibilidad": "Oster, Hamilton, Imusa" },
+        variants: [
+            { id: "VLC010", name: "Vaso de Vidrio Oster (Tipo Trébol)", costoCompra: 3.97692308 },
+            { id: "VLC013", name: "Vaso Plástico Hamilton Beach (Con Tapa)", costoCompra: 3.97692308 },
+            { id: "VLC017", name: "Vaso Vidrio XL Imusa Faciclick", costoCompra: 3.11538462 }
+        ]
+    },
     {
         id: "VAM103",
         name: "Voltiamperímetro + Capacímetro Econ DT-203",
