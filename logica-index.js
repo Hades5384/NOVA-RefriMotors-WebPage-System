@@ -1,7 +1,7 @@
 ﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 876.80;
+const TASA_BCV = 881.07;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -200,6 +200,186 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+
+    {
+        id: "VAM103",
+        name: "Voltiamperímetro + Capacímetro Econ DT-203",
+        category: "Herramientas",
+        model: "DT-203",
+        desc: `<b>Pinza Amperimétrica y Capacímetro (Económica)</b><br><br>Herramienta 2 en 1 ideal para técnicos. Combina las funciones de un voltiamperímetro digital de gancho con la capacidad de medir microfaradios de condensadores. Modelo económico y versátil.`,
+        costoCompra: 13.92307692,
+        images: ["productos/VAM103.webp"],
+        specs: { "Tipo": "Pinza Digital", "Funciones": "Voltaje, Corriente, Capacitancia", "Modelo": "DT-203" }
+    },
+    {
+        id: "VAL008",
+        name: "Válvula de Carga para Lata de Gas (1/4 y 5/16)",
+        category: "Herramientas",
+        model: "Pinchadora de Lata",
+        desc: `<b>Válvula Dispensadora para Latas de Refrigerante</b><br><br>Válvula perforadora tipo mariposa fabricada en bronce. Permite extraer el gas de las botellas o latas de refrigerante de forma segura, con salida dual para conexiones de 1/4" y 5/16".`,
+        costoCompra: 2.98461538,
+        images: ["productos/VAL008.webp"],
+        specs: { "Tipo": "Válvula Pinchadora", "Uso": "Latas de Gas Desechables", "Salida": "1/4 y 5/16" }
+    },
+    {
+        id: "DSC-VARIANTE",
+        name: "Ducto de Extracción para Secadora",
+        category: "Aires Acondicionados", // Ajusta si tienes categoría de línea blanca
+        model: "Ducto Flexible",
+        desc: `<b>Ducto de Aluminio Flexible para Secadora</b><br><br>Sistemas de extracción de pelusa y aire caliente para secadoras domésticas. Disponibles en kits completos con recipientes trampa de pelusa (interiores) o con rejillas de salida exterior (americano).`,
+        costoCompra: 5.45384615, // Base (DSC100)
+        images: [
+            "productos/DSC100.webp",
+            "productos/DSC106.webp",
+            "productos/DSC107.webp",
+            "productos/DSC108.webp"
+        ],
+        specs: { "Material": "Aluminio Flexible", "Uso": "Ventilación de Secadoras", "Tipo": "Kits de Instalación" },
+        variants: [
+            { id: "DSC100", name: "Ducto con Recipiente (10.2cm x 1.5m)", costoCompra: 5.45384615 },
+            { id: "DSC106", name: "Ducto con Recipiente C. (10.2cm x 1.5m)", costoCompra: 7.50000000 },
+            { id: "DSC108", name: "Ducto con Recipiente Lambro (USA)", costoCompra: 11.02307692 },
+            { id: "DSC107", name: "Ducto con Rejilla Americana (4\" x 2.4m)", costoCompra: 23.16923077 }
+        ]
+    },
+    {
+        id: "TMC-110V-VAR",
+        name: "Tomacorriente 110V (Sencillo y Doble)",
+        category: "Eléctrico",
+        model: "Para Empotrar",
+        desc: `<b>Tomacorrientes de Pared 110V</b><br><br>Tomacorrientes residenciales para empotrar. Opciones disponibles en formato hembra individual, doble polarizado tradicional y modelo doble decorativo en color beige.`,
+        costoCompra: 0.60769231, // Base (TMC001)
+        images: ["productos/TMC001.webp", "productos/TMC010.webp", "productos/TMC013.webp"],
+        specs: { "Voltaje": "110V / 125V", "Instalación": "Empotrar (Pared)" },
+        variants: [
+            { id: "TMC001", name: "Toma Doble Polarizada", costoCompra: 0.60769231 },
+            { id: "TMC013", name: "Toma Hembra Individual", costoCompra: 1.65384615 },
+            { id: "TMC010", name: "Toma Doble Beige Decorativa", costoCompra: 1.65384615 }
+        ]
+    },
+    {
+        id: "TMC-220V-VAR",
+        name: "Tomacorriente 220V (Bipolar y 3 Polos)",
+        category: "Eléctrico",
+        model: "Alta Carga",
+        desc: `<b>Tomacorrientes Industriales y de Alta Carga 220V</b><br><br>Conectores de pared robustos diseñados para soportar el consumo de aires acondicionados y equipos pesados. Disponibles en configuración bipolar con tierra (20A) y de 3 polos (50A).`,
+        costoCompra: 2.32307692, // Base (TMC016)
+        images: ["productos/TMC016.webp", "productos/TMC015.webp"],
+        specs: { "Voltaje": "220V / 250V", "Uso": "Aires Acondicionados y Maquinaria" },
+        variants: [
+            { id: "TMC016", name: "Toma Bipolar c/Tierra 20A 250V", costoCompra: 2.32307692 },
+            { id: "TMC015", name: "Toma 3 Polos 50A 250V (P/Embutir)", costoCompra: 3.97692308 }
+        ]
+    },
+    {
+        id: "TMT004",
+        name: "Tapa para Tomacorriente Circular",
+        category: "Eléctrico",
+        model: "Tapa Ciega/Circular",
+        desc: `<b>Tapa Decorativa para Tomacorriente Circular</b><br><br>Placa plástica resistente diseñada para cubrir y dar un acabado estético a cajetines con salidas de tomacorrientes redondos o conexiones individuales.`,
+        costoCompra: 0.53076923,
+        images: ["productos/TMT004.webp"],
+        specs: { "Tipo": "Tapa Plástica", "Formato": "Circular", "Uso": "Acabado Eléctrico" }
+    },
+    {
+        id: "CPR001",
+        name: "Cajetín Blanco PVC Plástico Rectangular",
+        category: "Eléctrico",
+        model: "Superficial PVC",
+        desc: `<b>Cajetín Rectangular Superficial de PVC</b><br><br>Caja de montaje superficial fabricada en PVC blanco ignífugo. Ideal para instalar tomacorrientes e interruptores sin necesidad de romper o empotrar en la pared.`,
+        costoCompra: 0.43846154,
+        images: ["productos/CPR001.webp"],
+        specs: { "Material": "Plástico PVC", "Instalación": "Superficial", "Forma": "Rectangular" }
+    },
+    {
+        id: "TEA-ALUM-VAR",
+        name: "Cinta de Aluminio para Ductos (Teipe Aluminio)",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Cinta de Aluminio Adhesiva</b><br><br>Cinta metálica de aluminio puro o recubrimiento aluminizado. Indispensable para sellar juntas en ductos de aire acondicionado, reparar aislamientos y reflejar el calor. Excelente adherencia y durabilidad térmica.`,
+        costoCompra: 1.98461538, // Base (TEA302)
+        images: ["productos/TEA300.webp", "productos/TEA302.webp", "productos/TEI005.webp"],
+        specs: { "Tipo": "Cinta Metálica Adhesiva", "Uso": "Ductería y Aislamiento Térmico" },
+        variants: [
+            { id: "TEA302", name: "Aluminio 2\" Pulgadas x 30 Metros", costoCompra: 1.98461538 },
+            { id: "TEA300", name: "Aluminio 2\" Pulgadas x 45 Metros", costoCompra: 2.98461538 },
+            { id: "TEI005", name: "Aluminizada 75mm x 45M (Landsfoss)", costoCompra: 4.63846154 },
+            { id: "TEA301", name: "Aluminio 3\" Pulgadas x 45 Metros", costoCompra: 5.30769231 }
+        ]
+    },
+    {
+        id: "TEB-PVC-VAR",
+        name: "Cinta PVC para Tubería Split",
+        category: "Refrigeración",
+        model: "Adhesiva / Sin Adhesivo",
+        desc: `<b>Cinta Decorativa de PVC para Tubería</b><br><br>Cinta plástica ancha diseñada para envolver, proteger y embellecer el revestimiento térmico (armalón) de las tuberías de aires acondicionados Split. Disponible en versión lisa (para amarrar) o con pegamento.`,
+        costoCompra: 1.00000000, // Base (TEB320)
+        images: ["productos/TEB320.webp", "productos/TEB321.webp"],
+        specs: { "Material": "PVC", "Uso": "Revestimiento de Tuberías", "Aplicación": "Estética y Protección" },
+        variants: [
+            { id: "TEB320", name: "Cinta PVC Lisa (Sin Adhesivo)", costoCompra: 1.00000000 },
+            { id: "TEB321", name: "Cinta PVC con Adhesivo", costoCompra: 1.65384615 }
+        ]
+    },
+    {
+        id: "TEI008",
+        name: "Teipe Eléctrico Negro (19mm x 10 Metros)",
+        category: "Eléctrico",
+        model: "19mm x 10M",
+        desc: `<b>Cinta Aislante Eléctrica (Teipe)</b><br><br>Rollo de teipe negro de PVC ignífugo, esencial para aislar empalmes y proteger conexiones eléctricas contra la humedad y cortocircuitos.`,
+        costoCompra: 0.66153846,
+        images: ["productos/TEI008.webp"],
+        specs: { "Tipo": "Cinta Aislante", "Medidas": "19mm x 10 Metros", "Color": "Negro" }
+    },
+    {
+        id: "TEF002",
+        name: "Teflón Industrial Profesional (3/4\" x 15 Mts)",
+        category: "Herramientas", // O Consumibles
+        model: "3/4 x 15 Metros",
+        desc: `<b>Cinta de Teflón (PTFE) Profesional</b><br><br>Cinta selladora de roscas de alta densidad (3/4 de pulgada de ancho por 15 metros). Evita fugas de agua y gases en uniones roscadas de válvulas y tuberías.`,
+        costoCompra: 0.66153846,
+        images: ["productos/TEF002.webp"],
+        specs: { "Tipo": "Cinta Selladora (PTFE)", "Medidas": "3/4\" x 15 Metros", "Uso": "Roscas y Uniones" }
+    },
+    {
+        id: "FJA201",
+        name: "Faja para Motor Ventilador (Doble O-ring / Larga)",
+        category: "Motores",
+        model: "Universal Ajustable",
+        desc: `<b>Faja de Sujeción para Motor Ventilador</b><br><br>Banda de sujeción universal tipo araña con aros de goma (O-rings) reforzados. Diseñada para asegurar y centrar los motores universales de aspa en las rejillas de aires de ventana y condensadores.`,
+        costoCompra: 4.63846154,
+        images: ["productos/FJA201.webp"],
+        specs: { "Tipo": "Soporte de Goma", "Uso": "Montaje de Motores", "Formato": "Larga / Doble Aro" }
+    },
+    {
+        id: "ENF-MACHO-VAR",
+        name: "Enchufe Macho de Repuesto (110V / 220V)",
+        category: "Eléctrico",
+        model: "Reemplazo Manual",
+        desc: `<b>Enchufe Macho Desarmable</b><br><br>Clavijas de repuesto para reparar cables de alimentación dañados de equipos y electrodomésticos. Fáciles de instalar atornillando los cables internamente. Disponibles en formatos para 110V y 220V.`,
+        costoCompra: 0.66153846, // Base (ENF002)
+        images: ["productos/ENF-ENCHUFE.webp"],
+        specs: { "Tipo": "Clavija Macho Desarmable", "Instalación": "Atornillable", "Material": "Plástico Rígido/Goma" },
+        variants: [
+            { id: "ENF002", name: "Enchufe Macho Recto 220V", costoCompra: 0.66153846 },
+            { id: "ENF001", name: "Enchufe Macho 110V Polarizado", costoCompra: 1.12307692 },
+            { id: "ENF003", name: "Enchufe Tripolar 220V (Pata e' Gallina)", costoCompra: 1.32307692 }
+        ]
+    },
+    {
+        id: "ADU-VAR",
+        name: "Adaptadores Eléctricos y Multiplicadores",
+        category: "Eléctrico",
+        model: "Accesorios de Toma",
+        desc: `<b>Adaptadores y Multiplicadores de Corriente</b><br><br>Accesorios prácticos para tus enchufes. Convertidores de clavija con toma a tierra o multiplicadores de salidas para expandir la capacidad de tu tomacorriente principal de manera segura.`,
+        costoCompra: 0.43076923, // Base (ADU001)
+        images: ["productos/ADU001.webp", "productos/ADU001-2.webp", "productos/ADU002.webp"],
+        specs: { "Tipo": "Conversor / Ladrón Eléctrico", "Uso": "Adaptación de Enchufes" },
+        variants: [
+            { id: "ADU001", name: "Adaptador Multiplicador 2x15A 125V", costoCompra: 0.43076923 },
+            { id: "ADU002", name: "Adaptador a Tierra (Par) Volteck", costoCompra: 0.80000000 }
+        ]
+    },
     {
         id: "MAN006",
         name: "Juego de Manómetro Digital ISYN R22/R134/R410",
