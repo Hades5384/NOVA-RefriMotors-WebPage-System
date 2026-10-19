@@ -201,14 +201,28 @@ const products = [
     // ============================================================== //
 
     {
-        id: "MDN330",
-        name: "Micro Motor para Nevera F61-10 (Eje 2.7cm)",
-        category: "Neveras / Cavas",
-        model: "F61-10",
-        desc: `<b>Micro Motor Ventilador para Nevera</b><br><br>Motor de ventilación interno de repuesto (modelo F61-10) para difusores de neveras No Frost. Cuenta con un eje de 2.7 centímetros de longitud. Excelente rendimiento y durabilidad.`,
-        costoCompra: 6.76153846,
-        images: ["productos/MDN330.webp"],
-        specs: { "Tipo": "Micro Motor Difusor", "Modelo": "F61-10", "Longitud de Eje": "2.7 cm" }
+        id: "VRL-LATA-VAR",
+        name: "Válvula Dispensadora para Gas en Lata (CH-341)",
+        category: "Herramientas",
+        model: "1/4\" y 5/16\"",
+        desc: `<b>Válvula Dispensadora para Gas en Lata</b><br><br>Válvula de bronce de alta calidad con diseño en "T" para botellas o latas de gas refrigerante desechables. Cuenta con perilla de control de flujo. Disponible con salida estándar de 1/4" (perilla azul) y salida de 5/16" (perilla roja) para sistemas modernos.`,
+        costoCompra: 2.65384615,
+        images: ["productos/VRL001.webp", "productos/VRL002.webp"],
+        specs: { "Tipo": "Válvula para Lata", "Material": "Bronce", "Uso": "Refrigerante Desechable" },
+        variants: [
+            { id: "VRL001", name: "Salida 1/4\" x 1/4\" (Perilla Azul)", costoCompra: 2.65384615 },
+            { id: "VRL002", name: "Salida 1/4\" x 5/16\" (Perilla Roja)", costoCompra: 2.65384615 }
+        ]
+    },
+    {
+        id: "JLC020",
+        name: "Acople de Goma para Licuadora Oster (Genérica / Rosca Fina)",
+        category: "Licuadoras",
+        model: "Rosca Fina (Chino)",
+        desc: `<b>Acople de Goma para Licuadora (Formato Oster)</b><br><br>Acople o pin de arrastre fabricado en goma resistente con rosca interna fina. Diseñado específicamente para modelos de licuadoras tipo Oster de fabricación genérica o asiática.`,
+        costoCompra: 0.99230769,
+        images: ["productos/JLC020.webp"],
+        specs: { "Compatibilidad": "Modelos Genéricos / Chinos (Tipo Oster)", "Material": "Goma", "Tipo de Rosca": "Fina" }
     },
     {
         id: "MLC-OSTER-VAR",
