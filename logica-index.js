@@ -200,7 +200,125 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
-
+    {
+        id: "MDN330",
+        name: "Micro Motor para Nevera F61-10 (Eje 2.7cm)",
+        category: "Neveras / Cavas",
+        model: "F61-10",
+        desc: `<b>Micro Motor Ventilador para Nevera</b><br><br>Motor de ventilación interno de repuesto (modelo F61-10) para difusores de neveras No Frost. Cuenta con un eje de 2.7 centímetros de longitud. Excelente rendimiento y durabilidad.`,
+        costoCompra: 6.76153846,
+        images: ["productos/MDN330.webp"],
+        specs: { "Tipo": "Micro Motor Difusor", "Modelo": "F61-10", "Longitud de Eje": "2.7 cm" }
+    },
+    {
+        id: "MLC-OSTER-VAR",
+        name: "Motor de Repuesto para Licuadora Oster",
+        category: "Licuadoras",
+        model: "Varios Modelos",
+        desc: `<b>Motor de Repuesto para Licuadoras Oster</b><br><br>Dale una nueva vida a tu licuadora Oster con un motor de reemplazo directo. Disponibles en versiones de 600W, alta potencia y modelos de 3 velocidades a 115V. Seleccione el motor adecuado para su equipo.`,
+        costoCompra: 9.20000000, // Base (MLC102)
+        images: ["productos/MLC100.webp"],
+        specs: { "Marca": "Oster", "Voltaje": "115V / 120V", "Frecuencia": "60Hz" },
+        variants: [
+            { id: "MLC102", name: "Motor Oster 3 Velocidades (115V 60Hz)", costoCompra: 9.20000000 },
+            { id: "MLC100", name: "Motor Oster 600W (Modelo Nuevo)", costoCompra: 9.94615385 },
+            { id: "MLC101", name: "Motor Oster Alta Potencia", costoCompra: 13.26153846 }
+        ]
+    },
+    {
+        id: "SWL-OSTER-VAR",
+        name: "Switch (Interruptor) para Licuadora Oster",
+        category: "Licuadoras",
+        model: "3 Velocidades / Reversible",
+        desc: `<b>Switch de Control para Licuadoras Oster</b><br><br>Interruptor de encendido y selección de velocidades para licuadoras Oster clásicas. Disponibles en formato estándar de 3 velocidades y formato reversible.`,
+        costoCompra: 1.20000000,
+        images: ["productos/SWL100.webp", "productos/SWL101.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Interruptor de Palanca / Botón", "Uso": "Control de Motor" },
+        variants: [
+            { id: "SWL100", name: "Switch de 3 Velocidades", costoCompra: 1.20000000 },
+            { id: "SWL101", name: "Switch Reversible", costoCompra: 1.20000000 }
+        ]
+    },
+    {
+        id: "RLC-OSTER-VAR",
+        name: "Rosca Base para Licuadora Oster (Importada)",
+        category: "Licuadoras",
+        model: "3 / 5 / 6 Picos",
+        desc: `<b>Rosca Base Importada para Licuadoras Oster</b><br><br>Soporte inferior de repuesto que ajusta el vaso con la cuchilla. Fabricadas en plástico de alta resistencia al impacto y calor. Asegúrese de seleccionar la cantidad de picos o pestañas que usa su vaso.`,
+        costoCompra: 0.65384615,
+        images: ["productos/RLC100.webp", "productos/RLC103.webp", "productos/RLC113.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Rosca Inferior", "Calidad": "Importada" },
+        variants: [
+            { id: "RLC103", name: "Rosca Oster de 3 Picos", costoCompra: 0.65384615 },
+            { id: "RLC100", name: "Rosca Oster de 5 Picos", costoCompra: 0.65384615 },
+            { id: "RLC113", name: "Rosca Oster de 6 Picos", costoCompra: 0.65384615 }
+        ]
+    },
+    {
+        id: "RLC-OTRAS-VAR",
+        name: "Rosca Base para Licuadora (Black+Decker / Hamilton)",
+        category: "Licuadoras",
+        model: "Varias Marcas",
+        desc: `<b>Rosca Base Inferior para Licuadoras</b><br><br>Repuesto de rosca plástica que sujeta el vaso y la cuchilla. Modelos de boca ancha para licuadoras Black & Decker y roscas estándar para licuadoras Hamilton Beach.`,
+        costoCompra: 0.99230769, // Base (RLC105)
+        images: ["productos/RLC105.webp", "productos/RLC106.webp"],
+        specs: { "Marcas": "Black+Decker / Hamilton", "Tipo": "Rosca Inferior Plástica" },
+        variants: [
+            { id: "RLC105", name: "Rosca Importada Hamilton Beach", costoCompra: 0.99230769 },
+            { id: "RLC106", name: "Rosca Black+Decker Boca Ancha", costoCompra: 1.32307692 }
+        ]
+    },
+    {
+        id: "JLC-ACOPLES-VAR",
+        name: "Acoples de Motor y Cuchilla para Licuadoras",
+        category: "Licuadoras",
+        model: "Varias Marcas",
+        desc: `<b>Acoples y Cuadrantes de Arrastre</b><br><br>Repuestos esenciales para transmitir la fuerza del motor hacia la cuchilla. Disponibles acoples para aspas y motores de licuadoras Samuray, Hamilton y Premier.`,
+        costoCompra: 0.20000000, // Base (JLC004)
+        images: ["productos/JLC004.webp", "productos/JLC006.webp", "productos/JLC015.webp", "productos/JLC022.webp"],
+        specs: { "Tipo": "Acoples (Drive Socket / Pin)", "Uso": "Motor y Cuchilla" },
+        variants: [
+            { id: "JLC004", name: "Acople de Cuchilla Samuray (Plástico)", costoCompra: 0.20000000 },
+            { id: "JLC006", name: "Acople de Motor Samuray (M/Nuevo)", costoCompra: 0.33076923 },
+            { id: "JLC015", name: "Acople de Cuchilla Premier", costoCompra: 0.49230769 },
+            { id: "JLC022", name: "Acople de Cuchilla Hamilton Beach", costoCompra: 0.57692308 }
+        ]
+    },
+    {
+        id: "OSTER-PARTES-VAR",
+        name: "Accesorios y Partes Internas para Licuadora Oster",
+        category: "Licuadoras",
+        model: "Consumibles Oster",
+        desc: `<b>Consumibles y Pequeñas Partes Oster</b><br><br>Mantenimiento preventivo y correctivo para tu licuadora. Incluye empacaduras de goma para evitar fugas en el vaso, juegos de paticas de apoyo anti-deslizantes y el aspa de ventilación interna del motor.`,
+        costoCompra: 0.17692308, // Base (EMP103)
+        images: ["productos/EMP103.webp", "productos/JLC012.webp", "productos/ALO100.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Mantenimiento / Partes" },
+        variants: [
+            { id: "EMP103", name: "Empacadura de Goma Original", costoCompra: 0.17692308 },
+            { id: "JLC012", name: "Juego de 4 Paticas de Goma", costoCompra: 0.46153846 },
+            { id: "ALO100", name: "Aspita de Ventilación del Motor", costoCompra: 0.99230769 }
+        ]
+    },
+    {
+        id: "RLC101",
+        name: "Tapa de Vaso Original Oster de Goma",
+        category: "Licuadoras",
+        model: "Tapa de Goma",
+        desc: `<b>Tapa Cuadrada de Goma para Vaso Oster</b><br><br>Tapa original flexible de goma con orificio central. Ajuste hermético diseñado para el clásico vaso de vidrio o plástico (tipo trébol) de las licuadoras Oster.`,
+        costoCompra: 0.97692308,
+        images: ["productos/RLC101.webp"],
+        specs: { "Marca": "Oster", "Material": "Goma Flexible", "Formato": "Clásico (Trébol)" }
+    },
+    {
+        id: "PBE104",
+        name: "Piñón para Batidora Black+Decker / Oster",
+        category: "Licuadoras", // O línea blanca / batidoras si tienes la categoría
+        model: "Piñón Estriado",
+        desc: `<b>Piñón de Repuesto para Batidora</b><br><br>Piñón interno estriado encargado de transmitir la rotación del motor hacia los batidores. Repuesto compatible con batidoras de mano Black & Decker y ciertos modelos Oster.`,
+        costoCompra: 1.97692308,
+        images: ["productos/PBE104.webp"],
+        specs: { "Tipo": "Piñón de Transmisión", "Compatibilidad": "Black+Decker / Oster", "Formato": "Estriado" }
+    },
     // --- SAMURAY ---
     {
         id: "LIC-SAMURAY-VAR",
