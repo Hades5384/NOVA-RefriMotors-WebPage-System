@@ -1,4 +1,4 @@
-// ==========================================
+﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
 const TASA_BCV = 881.07;
@@ -1217,14 +1217,14 @@ const products = [
         specs: { "Tipo": "Retardador (Delay)", "Ajuste": "3 a 10 Minutos", "Uso": "Protección de Compresores" }
     },
     {
-        id: "TIM004",
-        name: "Reloj Temporizador de Nevera Metálico 6H-21M",
+        id: "TIM006",
+        name: "Reloj Temporizador de Nevera Ajustable Negro (110V-220V)",
         category: "Neveras / Cavas",
-        model: "DS-002 M830",
-        desc: `<b>Reloj Temporizador de Nevera Metálico (6H - 21M)</b><br><br>Temporizador de descongelación (Timer) con carcasa y engranajes mecánicos metálicos para una durabilidad superior. Ciclo de trabajo de 6 horas y 21 minutos de deshielo.`,
-        costoCompra: 4.06153846,
-        images: ["productos/TIM004.webp"],
-        specs: { "Tipo": "Timer Defrost Metálico", "Ciclo": "6 Horas / 21 Minutos", "Uso": "Neveras No Frost" }
+        model: "Ajustable Multivoltaje",
+        desc: `<b>Reloj Temporizador Ajustable para Nevera</b><br><br>Reloj de descongelación (Timer) universal con carcasa negra y ajuste de ciclo. Su capacidad multivoltaje (110V - 220V) lo hace altamente versátil y compatible con la inmensa mayoría de los refrigeradores No Frost del mercado.`,
+        costoCompra: 3.53846154,
+        images: ["productos/TIM006.webp"],
+        specs: { "Tipo": "Temporizador Defrost", "Voltaje": "110-220V", "Color": "Negro" }
     },
     {
         id: "MVE-VARIANTE",
@@ -1441,7 +1441,7 @@ const products = [
         model: "Varias Capacidades",
         desc: `<b>Motor Ventilador Multiuso (Vatiaje)</b><br><br>Motor de extracción y ventilación ideal para difusores y condensadores de cavas cuarto y neveras comerciales. Disponibles en versiones con base y aspa, o reforzados con rolineras. Seleccione la potencia y voltaje requeridos.`,
         costoCompra: 7.00000000, // Costo base (10W 110V C/Base)
-        images: ["productos/MTU-MOTOR_W.webp"],
+        images: ["productos/MTU-MOTOR_W.webp", "productos/MTU001.webp"],
         specs: { "Tipo": "Motor de Vatiaje (W)", "Uso": "Cavas / Neveras", "Conexión": "Universal" },
         variants: [
             { id: "MTU001", name: "10W 110V (C/ Base y Aspa Aluminio)", costoCompra: 7.00000000 },
@@ -4823,8 +4823,8 @@ function findVariantImage(variantId) {
 function updateQuickViewVariantImage() {
     if (!currentViewedProduct) return;
     const mainImg = document.getElementById('qvMainImg');
-    const defaultImg = (currentViewedProduct.images && currentViewedProduct.images.length > 0) 
-        ? currentViewedProduct.images[0] 
+    const defaultImg = (currentViewedProduct.images && currentViewedProduct.images.length > 0)
+        ? currentViewedProduct.images[0]
         : 'productos/NO_PHOTO.webp';
 
     let targetImg = defaultImg;
