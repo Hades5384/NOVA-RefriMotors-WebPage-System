@@ -201,6 +201,140 @@ const products = [
     // ============================================================== //
 
     {
+        id: "IMP-BOMBA-VAR",
+        name: "Impel (Impulsor) para Bomba de Agua",
+        category: "Bombas de Agua", // O Plomería/Motores según tu menú
+        model: "Varias Medidas",
+        desc: `<b>Impel (Impulsor) para Bomba de Agua</b><br><br>Repuestos de impulsor en bronce de alta resistencia para reparar bombas de agua periféricas y centrífugas. Diseñados para restaurar la presión y el flujo original del equipo. Seleccione el modelo, caballaje (HP) o marca (Ej. Pedrollo) correspondiente a su bomba.`,
+        costoCompra: 1.92000126, // Base (IMP010)
+        images: ["productos/IMP-IMPELE.webp"],
+        specs: { "Material": "Bronce", "Tipo": "Impulsor de Bomba", "Uso": "Reparación de Bombeo" },
+        variants: [
+            { id: "IMP010", name: "1/2 HP Estándar", costoCompra: 1.92000126 },
+            { id: "IMP015", name: "1/2 HP (91.5G 60x6.5M)", costoCompra: 3.07000126 },
+            { id: "IMP011", name: "1/2 HP Doble Media Luna (Pedrollo)", costoCompra: 5.07000126 },
+            { id: "IMP014", name: "3/4 HP (QB-70/G Rojo)", costoCompra: 4.12999874 },
+            { id: "IMP013", name: "1 HP (QB-80/G Azul)", costoCompra: 4.04000253 },
+            { id: "IMP012", name: "Estriado 90GR (Pedrollo)", costoCompra: 6.85999747 }
+        ]
+    },
+    {
+        id: "SBA-SELLOS-VAR",
+        name: "Sello Mecánico para Bomba de Agua",
+        category: "Bombas de Agua",
+        model: "Varias Medidas",
+        desc: `<b>Sello Mecánico para Bomba de Agua</b><br><br>Empacadura o sello mecánico de resorte indispensable para evitar fugas de agua entre el motor y el cabezal de la bomba. Disponible en diferentes diámetros (12mm, 14mm) y capacidades (1/2, 5/8, 3/4 y 1 HP).`,
+        costoCompra: 0.99230769, // Base (SBA100)
+        images: ["productos/SBA-SELLO_BOMBA_AGUA.webp"],
+        specs: { "Tipo": "Sello de Resorte", "Uso": "Prevención de Fugas", "Compatibilidad": "Bombas Periféricas/Centrífugas" },
+        variants: [
+            { id: "SBA100", name: "1/2 HP (12mm)", costoCompra: 0.99230769 },
+            { id: "SBA111", name: "5/8 HP (Largo)", costoCompra: 2.00000000 },
+            { id: "SBA112", name: "5/8 HP (Corto)", costoCompra: 1.98461538 },
+            { id: "SBA110", name: "3/4 HP (14mm)", costoCompra: 0.66153846 },
+            { id: "SBA113", name: "3/4 HP (12mm)", costoCompra: 0.66153846 },
+            { id: "SBA101", name: "1 HP Estándar", costoCompra: 0.60000000 }
+        ]
+    },
+    {
+        id: "ASM400",
+        name: "Aspa de Enfriamiento PVC para Bomba de Agua 1/2 HP",
+        category: "Bombas de Agua",
+        model: "1/2 HP PVC",
+        desc: `<b>Aspa de Enfriamiento para Bomba de Agua</b><br><br>Ventilador de PVC para la parte trasera del motor de bombas de agua de 1/2 HP. Vital para disipar el calor y evitar que el equipo se queme por recalentamiento.`,
+        costoCompra: 0.43076923,
+        images: ["productos/ASM400.webp"],
+        specs: { "Material": "PVC", "Capacidad": "1/2 HP", "Uso": "Ventilación de Motor" }
+    },
+    {
+        id: "RTB101",
+        name: "Cuña Metálica para Bomba de Agua",
+        category: "Bombas de Agua",
+        model: "Cuña de Ajuste",
+        desc: `<b>Cuña Metálica para Bomba de Agua</b><br><br>Pequeña pieza metálica de precisión utilizada para trabar y fijar correctamente el impel al eje del motor, evitando deslizamientos.`,
+        costoCompra: 0.36153846,
+        images: ["productos/RTB101.webp"],
+        specs: { "Tipo": "Cuña Metálica", "Uso": "Fijación de Impulsor" }
+    },
+    {
+        id: "RLM100",
+        name: "Reloj Manómetro para Hidroneumático",
+        category: "Bombas de Agua",
+        model: "Presión de Agua",
+        desc: `<b>Reloj Manómetro para Hidroneumático</b><br><br>Instrumento de medición analógico para sistemas hidroneumáticos. Permite monitorear la presión del tanque y calibrar correctamente el encendido y apagado automático de la bomba.`,
+        costoCompra: 3.31538462,
+        images: ["productos/RLM100.webp"],
+        specs: { "Tipo": "Analógico", "Uso": "Sistemas Hidroneumáticos", "Función": "Medición de Presión" }
+    },
+
+    // ==========================================
+    // SECCIÓN: ACCESORIOS Y MISCELÁNEOS
+    // ==========================================
+    {
+        id: "JCB105",
+        name: "Cable Eléctrico para Secadora / Cocina (1.22 Mts)",
+        category: "Eléctrico",
+        model: "3 Polos 40A",
+        desc: `<b>Cable de Alimentación para Secadora y Cocina</b><br><br>Cable de poder de alta resistencia (40 Amperios) preensamblado con enchufe de 3 polos. Longitud de 1.22 metros, ideal para conectar de forma segura secadoras de ropa y cocinas eléctricas 220V.`,
+        costoCompra: 11.27692308,
+        images: ["productos/JCB105.webp"],
+        specs: { "Amperaje": "40A", "Longitud": "1.22 Metros", "Conexión": "3 Polos" }
+    },
+    {
+        id: "HSE001",
+        name: "Hojilla de Repuesto para Cortador de Tubo",
+        category: "Herramientas",
+        model: "Blase CT-126B",
+        desc: `<b>Hojilla para Cortador de Tubo de Cobre</b><br><br>Cuchilla de corte circular de acero endurecido. Repuesto directo para la herramienta cortatubos (Modelo CT-126B). Garantiza cortes limpios y sin rebabas en tuberías de refrigeración.`,
+        costoCompra: 0.33076923,
+        images: ["productos/HSE001.webp"],
+        specs: { "Tipo": "Hojilla Circular", "Compatibilidad": "Cortatubos CT-126B", "Uso": "Corte de Cobre" }
+    },
+    {
+        id: "GBC014",
+        name: "Goma Soporte para Blower Split (Con Rolinera)",
+        category: "Aires Acondicionados",
+        model: "Blower Consola",
+        desc: `<b>Goma de Soporte para Blower (Turbina) Split</b><br><br>Buje de goma antivibración equipado con rolinera metálica interna. Diseñado para sostener y permitir el giro suave de la turbina cilíndrica (blower) dentro de la consola del aire acondicionado.`,
+        costoCompra: 1.16153846,
+        images: ["productos/GBC014.webp"],
+        specs: { "Material": "Goma y Metal", "Característica": "Con Rolinera", "Uso": "Turbina Consola Split" }
+    },
+
+    // ==========================================
+    // SECCIÓN: PEQUEÑOS REPUESTOS DE LICUADORA (OSTER / SAMURAY)
+    // ==========================================
+    {
+        id: "LIC-PEQ-OSTER",
+        name: "Pequeñas Partes y Accesorios (Licuadoras Oster)",
+        category: "Licuadoras",
+        model: "Consumibles Oster",
+        desc: `<b>Accesorios Pequeños Oster</b><br><br>Repuestos menores y estéticos para licuadoras Oster clásicas, incluyendo la rosca intermedia, el platico acerado (arandela inferior) y perillas económicas de control.`,
+        costoCompra: 0.65384615, // Base (RLC114)
+        images: ["productos/RLC114.webp", "productos/PLO100.webp", "productos/JLC019.webp"],
+        specs: { "Marca": "Oster", "Tipo": "Partes Menores" },
+        variants: [
+            { id: "RLC114", name: "Rosca Intermedia (5 Picos)", costoCompra: 0.65384615 },
+            { id: "PLO100", name: "Perilla Económica de Encendido", costoCompra: 0.23846154 },
+            { id: "JLC019", name: "Platico Acerado (Separador)", costoCompra: 0.20000000 }
+        ]
+    },
+    {
+        id: "LIC-PEQ-SAMURAY",
+        name: "Acoples y Empacaduras (Licuadoras Samuray)",
+        category: "Licuadoras",
+        model: "Partes Samuray",
+        desc: `<b>Repuestos Internos Samuray</b><br><br>Piezas esenciales para el funcionamiento sin fugas de tu licuadora Samuray. Incluye acoples de motor (estándar y modelo nuevo) y empacaduras originales para sellar el vaso.`,
+        costoCompra: 1.65384615, // Base (JLC021)
+        images: ["productos/JLC021.webp", "productos/JLC005.webp", "productos/EMP101.webp"],
+        specs: { "Marca": "Samuray", "Tipo": "Acoples y Sellos" },
+        variants: [
+            { id: "JLC021", name: "Acople de Motor Pren Line T", costoCompra: 1.65384615 },
+            { id: "JLC005", name: "Acople de Motor (Modelo Nuevo)", costoCompra: 0.20000000 },
+            { id: "EMP101", name: "Empacadura Original Samuray", costoCompra: 0.13076923 }
+        ]
+    },
+    {
         id: "VRL-LATA-VAR",
         name: "Válvula Dispensadora para Gas en Lata (CH-341)",
         category: "Herramientas",
