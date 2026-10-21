@@ -1,7 +1,7 @@
 ﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 881.07;
+const TASA_BCV = 883.40;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -200,6 +200,134 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+    // --- RECIBIDORES DE LÍQUIDO ---
+    {
+        id: "RCB-LIQUIDO-VAR",
+        name: "Recibidor de Líquido para Refrigeración",
+        category: "Refrigeración",
+        model: "Varias Medidas y HP",
+        desc: `<b>Tanque Recibidor de Líquido</b><br><br>Depósito de alta presión diseñado para almacenar el gas refrigerante en estado líquido a la salida del condensador. Garantiza un flujo constante de líquido hacia la válvula de expansión, estabilizando el sistema ante fluctuaciones de carga térmica.`,
+        costoCompra: 13.25384615, // Base (RCB207)
+        images: ["productos/RCB201.webp"],
+        specs: { "Tipo": "Tanque Almacenador de Líquido", "Uso": "Sistemas de Refrigeración Comercial/Industrial" },
+        variants: [
+            { id: "RCB207", name: "3/8\" x 3/8\" (0.5 HP)", costoCompra: 13.25384615 },
+            { id: "RCB200", name: "3/8\" x 3/8\" (0.5 HP Alta Capacidad)", costoCompra: 16.56923077 },
+            { id: "RCB201", name: "3/8\" x 3/8\" (1 HP)", costoCompra: 18.23846154 },
+            { id: "RCB205", name: "1/2\" x 3/8\" (2 HP - 3.2L)", costoCompra: 18.56153846 },
+            { id: "RCB204", name: "1/2\" x 1/2\" (3 HP - 4L)", costoCompra: 18.56153846 },
+            { id: "RCB202", name: "1/2\" x 1/2\" (5 HP - 5L)", costoCompra: 19.88461538 },
+            { id: "RCB211", name: "1/2\" x 1/2\" (5 HP - 6.5L)", costoCompra: 19.88461538 },
+            { id: "RCB203", name: "1/2\" x 1/2\" (8 HP - 7L)", costoCompra: 23.20000000 },
+            { id: "RCB209", name: "1/2\" x 1/2\" (6 Litros - V)", costoCompra: 31.82307692 },
+            { id: "RCB208", name: "1/2\" x 1/2\" (8 Litros - V)", costoCompra: 33.14615385 },
+            { id: "RCB212", name: "3/4\" x 5/8\" (12 HP - 12L)", costoCompra: 37.30769231 },
+            { id: "RCB210", name: "5/8\" x 5/8\" (6 Litros - V)", costoCompra: 43.10000000 }
+        ]
+    },
+    {
+        id: "MVA-DOBLE-VAR",
+        name: "Motor Ventilador Doble Eje (Aire de Ventana)",
+        category: "Motores",
+        model: "LG / Samsung / YDK",
+        desc: `<b>Motor de Ventilación Doble Eje</b><br><br>Motores eléctricos de doble salida de eje diseñados específicamente para aires acondicionados de ventana (12K BTU en adelante). Encargados de mover simultáneamente el aspa condensadora y la turbina evaporadora.`,
+        costoCompra: 33.15384615, // Base (MVA202 / 203)
+        images: ["productos/MVA300.webp"], // Se usa la genérica de motor
+        specs: { "Tipo": "Doble Eje", "Uso": "Aire de Ventana", "Capacidad": "12K BTU / 40W-60W" },
+        variants: [
+            { id: "MVA203", name: "Genérico YDK-40-6 (40W 110V)", costoCompra: 33.15384615 },
+            { id: "MVA202", name: "Genérico YDK-60-6 (60W 220V)", costoCompra: 33.15384615 },
+            { id: "MVA101", name: "Para Samsung 12K BTU (110V)", costoCompra: 39.91538462 },
+            { id: "MVA100", name: "Para Samsung 12K BTU (220V)", costoCompra: 39.78461538 },
+            { id: "MVA201", name: "Para LG 12K BTU (110V)", costoCompra: 46.41538462 },
+            { id: "MVA200", name: "Para LG 12K BTU (220V)", costoCompra: 46.41538462 }
+        ]
+    },
+    {
+        id: "ORI-DANFOSS-VAR",
+        name: "Orificio para Válvula de Expansión Danfoss",
+        category: "Refrigeración",
+        model: "Varias Medidas (#0 al #6)",
+        desc: `<b>Orificio Intercambiable para Válvulas Danfoss</b><br><br>Cartuchos de orificio de repuesto para válvulas de expansión termostática tipo Danfoss. Permiten ajustar la capacidad frigorífica de la válvula según el tamaño del sistema. Seleccione el número de orificio adecuado para su equipo.`,
+        costoCompra: 13.25384615, // Base (ORI000)
+        images: ["productos/ORIFICIO.webp"],
+        specs: { "Marca Compatible": "Danfoss", "Tipo": "Orificio de Válvula", "Uso": "Expansión Termostática" },
+        variants: [
+            { id: "ORI000", name: "Orificio #0 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI001", name: "Orificio #1 Danfoss", costoCompra: 13.26153846 },
+            { id: "ORI002", name: "Orificio #2 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI003", name: "Orificio #3 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI004", name: "Orificio #4 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI005", name: "Orificio #5 Danfoss", costoCompra: 13.26153846 },
+            { id: "ORI006", name: "Orificio #6 Danfoss", costoCompra: 13.25384615 }
+        ]
+    },
+    {
+        id: "REL200",
+        name: "Relay de Motor para Nevera Mabe HR-944F",
+        category: "Protectores",
+        model: "HR-944F",
+        desc: `<b>Relay de Arranque para Nevera Mabe</b><br><br>Relé de estado sólido (PTC) transparente de repuesto para compresores de neveras Mabe. Permite el arranque suave y seguro del motor.`,
+        costoCompra: 3.31538462,
+        images: ["productos/REL200.webp"],
+        specs: { "Marca Compatible": "Mabe", "Modelo": "HR-944F", "Tipo": "Relay de Arranque" }
+    },
+    {
+        id: "BMB111",
+        name: "Bomba de Vacío 4.3 CFM 2 Etapas Steinmann",
+        category: "Herramientas",
+        model: "4.3 CFM (2 Etapas)",
+        desc: `<b>Bomba de Vacío Profesional Steinmann (2 Etapas)</b><br><br>Herramienta indispensable para la deshidratación de sistemas de refrigeración. Al ser de 2 etapas y contar con 4.3 CFM de capacidad, garantiza un vacío profundo y rápido, eliminando toda la humedad de las tuberías antes de la carga de gas.`,
+        costoCompra: 145.88859416,
+        images: ["productos/BMB111.webp"],
+        specs: { "Marca": "Steinmann", "Capacidad": "4.3 CFM", "Sistema": "Doble Etapa" }
+    },
+    {
+        id: "MAN008",
+        name: "Manómetro Digital (Lectura de 92 Tipos de Refrigerante)",
+        category: "Herramientas",
+        model: "Digital Multigas",
+        desc: `<b>Manómetro Digital Profesional Multigas</b><br><br>Analizador de refrigeración digital de última tecnología. Cuenta con una pantalla retroiluminada y una base de datos interna capaz de medir con precisión las presiones y temperaturas de saturación de hasta 92 tipos de gases refrigerantes distintos.`,
+        costoCompra: 56.36153846,
+        images: ["productos/MAN008.webp"],
+        specs: { "Tipo": "Digital de Precisión", "Gases Compatibles": "92 Tipos", "Uso": "Diagnóstico y Carga" }
+    },
+    {
+        id: "ACM-SUCCION-VAR",
+        name: "Acumulador de Succión para Compresor",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Acumulador de Succión (Protector de Compresor)</b><br><br>Cilindro de protección instalado en la línea de succión. Su función es evitar que el gas refrigerante en estado líquido retorne directamente al compresor, previniendo daños catastróficos en las válvulas y golpes de líquido.`,
+        costoCompra: 16.56923077, // Base (ACM100)
+        images: ["productos/ACM101.webp"],
+        specs: { "Tipo": "Acumulador de Succión", "Uso": "Protección contra Retorno de Líquido" },
+        variants: [
+            { id: "ACM100", name: "Medida: 1/2\" (Landsfoss)", costoCompra: 16.56923077 },
+            { id: "ACM101", name: "Medida: 5/8\" (Landsfoss)", costoCompra: 18.30000000 },
+            { id: "ACM102", name: "Medida: 3/4\" (Landsfoss)", costoCompra: 20.34615385 },
+            { id: "ACM104", name: "Medida: 7/8\" (Landsfoss)", costoCompra: 22.24615385 },
+            { id: "ACM103", name: "Medida: 7/8\" (Blue Refrigeration)", costoCompra: 26.52307692 },
+            { id: "ACM105", name: "Medida: 1-1/8\" (Landsfoss)", costoCompra: 31.56923077 }
+        ]
+    },
+    {
+        id: "SPA-ACEITE-VAR",
+        name: "Separador de Aceite Sellado (Landsfoss)",
+        category: "Refrigeración",
+        model: "Varias Medidas",
+        desc: `<b>Separador de Aceite Sellado Landsfoss</b><br><br>Componente vital instalado en la línea de descarga del compresor. Separa el aceite lubricante del gas refrigerante caliente y lo retorna al cárter, asegurando que el compresor nunca trabaje en seco y manteniendo limpio el evaporador.`,
+        costoCompra: 24.82307692, // Base (SPA006)
+        images: ["productos/SPA005.webp"],
+        specs: { "Marca": "Landsfoss", "Tipo": "Sellado", "Uso": "Retorno de Aceite" },
+        variants: [
+            { id: "SPA006", name: "Medida: 3/8\"", costoCompra: 24.82307692 },
+            { id: "SPA003", name: "Medida: 1/2\"", costoCompra: 23.20000000 },
+            { id: "SPA001", name: "Medida: 5/8\"", costoCompra: 29.83076923 },
+            { id: "SPA005", name: "Medida: 3/4\"", costoCompra: 28.06153846 },
+            { id: "SPA004", name: "Medida: 7/8\"", costoCompra: 46.60769231 },
+            { id: "SPA002", name: "Medida: 1-1/8\"", costoCompra: 39.77692308 }
+        ]
+    },
     {
         id: "IMP-BOMBA-VAR",
         name: "Impel (Impulsor) para Bomba de Agua",
