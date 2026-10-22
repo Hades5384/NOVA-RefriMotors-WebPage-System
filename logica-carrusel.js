@@ -44,6 +44,10 @@ function showBrand(brandName, btnElement) {
     lazyImages.forEach(img => {
         const dataSrc = img.getAttribute('data-src');
         if (dataSrc) {
+            img.onerror = function () {
+                this.onerror = null;
+                this.src = 'productos/NO_PHOTO.webp';
+            };
             img.src = dataSrc;
             img.removeAttribute('data-src');
         }
@@ -273,6 +277,16 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.key === 'ArrowLeft') {
             track.scrollBy({ left: -340, behavior: 'smooth' });
             initAutoPlayForCard(activeCard);
+        }
+    });
+
+    // Garantizar que todas las imágenes del carrusel manejen errores suavemente
+    document.querySelectorAll('.carousel-slide img').forEach(img => {
+        if (!img.getAttribute('onerror')) {
+            img.onerror = function () {
+                this.onerror = null;
+                this.src = 'productos/NO_PHOTO.webp';
+            };
         }
     });
 

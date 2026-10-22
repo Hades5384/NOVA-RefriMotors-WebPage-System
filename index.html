@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,12 @@
     <!-- Fuente moderna: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="estilos-index.css">
     <link rel="icon" type="image/x-icon" href="nova_favicon.png">
 </head>
+
 <body>
     <!-- BARRA DE ANUNCIO SUPERIOR -->
     <div class="top-announcement-bar">
@@ -22,13 +25,16 @@
     <header>
         <div class="logo-container">
             <a href="carrusel.html" title="Ver Equipos Destacados">
-                <img src="nova-logo-color.png" alt="Logo Nova RefriMotors" style="transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="nova-logo-color.png" alt="Logo Nova RefriMotors"
+                    style="transition: transform 0.3s; cursor: pointer;"
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </a>
         </div>
-        
+
         <div class="search-container">
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar repuestos, código o modelo..." onkeyup="resetPaginationAndFilter()">
+                <input type="text" id="searchInput" placeholder="Buscar repuestos, código o modelo..."
+                    onkeyup="resetPaginationAndFilter()">
             </div>
             <!-- WIDGET TASA BCV -->
             <div class="bcv-widget">
@@ -45,6 +51,7 @@
         <button class="cat-btn" onclick="setCategory('Neveras / Cavas', this)">Neveras / Cavas</button>
         <button class="cat-btn" onclick="setCategory('Refrigeración', this)">Refrigeración</button>
         <button class="cat-btn" onclick="setCategory('Motores', this)">Motores</button>
+        <button class="cat-btn" onclick="setCategory('Bombas de Agua', this)">Bombas de Agua</button>
         <button class="cat-btn" onclick="setCategory('Protectores', this)">Protectores</button>
         <button class="cat-btn" onclick="setCategory('Eléctrico', this)">Eléctrico</button>
         <button class="cat-btn" onclick="setCategory('Licuadoras', this)">Licuadoras</button>
@@ -68,30 +75,35 @@
     <div class="quick-view-overlay" id="quickViewModal" onclick="closeQuickView(event)">
         <div class="quick-view-box" onclick="event.stopPropagation()">
             <span class="close-qv" onclick="closeQuickView(event)">✖</span>
-            
+
             <div class="qv-gallery">
-                <img id="qvMainImg" class="qv-main-img" src="" alt="Producto" onclick="openZoom()" title="Haz clic para ampliar">
+                <img id="qvMainImg" class="qv-main-img" src="" alt="Producto" onclick="openZoom()"
+                    title="Haz clic para ampliar">
                 <div class="qv-thumbnails" id="qvThumbnails"></div>
             </div>
-            
+
             <div class="qv-info">
                 <div class="qv-category" id="qvCategory">Categoría</div>
                 <h2 class="qv-title" id="qvTitle">Nombre</h2>
                 <div class="qv-code" id="qvCode">CÓDIGO: XXXX</div>
-                
+
                 <!-- SELECTOR DE VARIANTES (MEDIDAS) OCULTO POR DEFECTO -->
-                <div id="qvVariantContainer" style="display: none; margin-bottom: 20px; padding-top: 10px; border-top: 1px solid var(--border-light);">
-                    <label for="qvVariantSelect" style="font-size: 11px; font-weight: 800; color: var(--text-light); margin-bottom: 8px; display: block; text-transform: uppercase;">Selecciona una medida:</label>
-                    <select id="qvVariantSelect" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-light); border-radius: 8px; outline: none; font-size: 13px; font-family: 'Inter', sans-serif; background: #f8f9fa; cursor: pointer; transition: 0.3s;"></select>
+                <div id="qvVariantContainer"
+                    style="display: none; margin-bottom: 20px; padding-top: 10px; border-top: 1px solid var(--border-light);">
+                    <label for="qvVariantSelect"
+                        style="font-size: 11px; font-weight: 800; color: var(--text-light); margin-bottom: 8px; display: block; text-transform: uppercase;">Selecciona
+                        una medida:</label>
+                    <select id="qvVariantSelect"
+                        style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-light); border-radius: 8px; outline: none; font-size: 13px; font-family: 'Inter', sans-serif; background: #f8f9fa; cursor: pointer; transition: 0.3s;"></select>
                 </div>
 
                 <div class="qv-desc-container">
                     <p class="qv-desc" id="qvDesc">Descripción...</p>
                     <button class="read-more-btn" id="qvReadMoreBtn" onclick="toggleDescription()">Leer más</button>
                 </div>
-                
+
                 <table class="qv-specs" id="qvSpecsTable"></table>
-                
+
                 <div class="qv-price-box">
                     <div class="price-public-usd" id="qvPrice">Precio: $0.00</div>
                     <div class="price-public-bs" id="qvPriceVes">Ref: Bs. 0.00</div>
@@ -121,18 +133,44 @@
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
             <div class="customer-form">
-                <label for="customerName">Datos del Cliente:</label>
-                <input type="text" id="customerName" placeholder="Ingresa tu Nombre y Apellido" required>
-                <label for="customerPhone">Número de WhatsApp:</label>
-                <input type="tel" id="customerPhone" placeholder="Ej: 0414-1234567" required>
+                <label for="customerName">Nombre del Cliente:</label>
+                <input type="text" id="customerName" placeholder="Ingresa Nombre del Cliente" required>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="customerRif">RIF / Cédula:</label>
+                        <input type="text" id="customerRif" placeholder="V-12345678 / J-123456789"
+                            oninput="this.value = this.value.replace(/[^vjgeVJGE0-9-]/g, '')" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">WhatsApp / Teléfono:</label>
+                        <input type="tel" id="customerPhone" placeholder="0414-1234567"
+                            oninput="this.value = this.value.replace(/[^0-9+\s-]/g, '')" required>
+                    </div>
+                </div>
+
+                <label for="paymentMethod">Método de Pago:</label>
+                <select id="paymentMethod" class="customer-select">
+                    <option value="EFECTIVO_USD">Efectivo USD</option>
+                    <option value="EFECTIVO_BS">Efectivo Bs</option>
+                    <option value="DEBITO">Débito</option>
+                    <option value="TRANSFERENCIA">Transferencia</option>
+                    <option value="BIOPAGO">Biopago</option>
+                    <option value="OTRAS FORMAS DE PAGO">Otras formas de pago (Binance/Zelle)</option>
+                </select>
             </div>
             <div class="cart-total">
-                <div style="font-size: 14px; color: var(--text-light);">Total: <span id="cart-total-public">$0.00</span></div>
-                <div style="font-size: 18px; color: var(--nova-blue); font-weight: 900;">Descuento NovaClientes: <span id="cart-total-nova">$0.00</span></div>
+                <div style="font-size: 13px; color: var(--text-light);">Total: <span id="cart-total-public">$0.00</span>
+                </div>
+                <div style="font-size: 16px; color: var(--nova-blue); font-weight: 900;">Descuento NovaClientes: <span
+                        id="cart-total-nova">$0.00</span></div>
             </div>
-            <button class="whatsapp-btn" onclick="sendWhatsApp()">
+            <button class="whatsapp-btn" onclick="sendWhatsApp()" style="margin-bottom: 8px;">
                 <img src="whatsapp-icono.png" alt="Icono WhatsApp">
                 Enviar Pedido
+            </button>
+            <button class="invoice-preview-btn" onclick="previewInvoice()">
+                👁️ Vista Previa de la Factura
             </button>
         </div>
     </div>
@@ -141,8 +179,10 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
-                <img src="nova_footer2.png" alt="Logo NOVA RefriMotors" style="max-height: 71px; width: auto; margin-bottom: 15px; filter: brightness(0) invert(1);">
-                <p>Tu aliado estratégico en repuestos para sistemas de refrigeración y aires acondicionados comerciales e industriales en Cabimas.</p>
+                <img src="nova_footer2.png" alt="Logo NOVA RefriMotors"
+                    style="max-height: 71px; width: auto; margin-bottom: 15px; filter: brightness(0) invert(1);">
+                <p>Tu aliado estratégico en repuestos para sistemas de refrigeración y aires acondicionados comerciales
+                    e industriales en Cabimas.</p>
             </div>
             <div class="footer-col">
                 <h3>Contacto Directo</h3>
@@ -167,7 +207,98 @@
         </div>
     </footer>
 
-    <!-- LÓGICA DE PROGRAMACIÓN -->
+    <!-- ==========================================
+         PLANTILLA DE FACTURA DIGITAL (OCULTA)
+    =========================================== -->
+    <div id="invoice-wrapper" style="position: absolute; left: -9999px; top: -9999px;">
+        <div id="invoice-container" class="invoice-container">
+            <div class="invoice-header">
+                <img src="nova-factura.png" alt="Nova Factura"
+                    style="max-width: 100%; height: auto; display: block; margin: 0 auto 10px auto;">
+            </div>
+            <div class="invoice-client-info">
+                <div>NOMBRE: <span id="inv-nombre"></span></div>
+                <div>RIF: <span id="inv-rif"></span></div>
+                <div>TELÉFONO: <span id="inv-telefono"></span></div>
+            </div>
+            <div class="invoice-meta">
+                <div>FECHA: <span id="inv-fecha"></span> &nbsp;&nbsp;&nbsp;HORA: <span id="inv-hora"></span></div>
+            </div>
+            <div class="invoice-divider"></div>
+            <div class="invoice-items" id="inv-items">
+                <!-- Items se inyectan acá -->
+            </div>
+            <div class="invoice-divider"></div>
+            <div class="invoice-totals" id="inv-totals-container">
+                <!-- Totals and dynamic payment methods injected here -->
+            </div>
+            <div class="invoice-footer">
+                <div class="invoice-notes">
+                    *** CONSERVE SU RECIBO PARA CUALQUIER RECLAMO ***<br>
+                    **** LAS PIEZAS ELECTRICAS NO TIENEN GARANTIA ****
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL DE AVISOS Y ALERTAS ATRACTIVAS
+    =========================================== -->
+    <div class="nova-alert-overlay" id="novaAlertModal" role="dialog" aria-modal="true" aria-hidden="true"
+        onclick="closeNovaAlert(event)">
+        <div class="nova-alert-card" onclick="event.stopPropagation()">
+            <div class="nova-alert-icon warning" id="novaAlertIcon"></div>
+            <h3 class="nova-alert-title" id="novaAlertTitle">Aviso</h3>
+            <p class="nova-alert-message" id="novaAlertMessage">Mensaje informativo...</p>
+            <div class="nova-alert-actions">
+                <button class="nova-alert-btn" id="novaAlertConfirmBtn" onclick="closeNovaAlert()">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL DE VISTA PREVIA DE FACTURA DIGITAL
+    =========================================== -->
+    <div class="nova-preview-overlay" id="invoicePreviewModal" role="dialog" aria-modal="true" aria-hidden="true"
+        onclick="closeInvoicePreview(event)">
+        <div class="nova-preview-card" onclick="event.stopPropagation()">
+            <div class="nova-preview-header">
+                <div class="nova-preview-title-group">
+                    <span class="nova-preview-badge">TICKET DIGITAL</span>
+                    <h3 class="nova-preview-title">Vista Previa de la Factura</h3>
+                </div>
+                <button class="nova-preview-close" onclick="closeInvoicePreview()"
+                    aria-label="Cerrar vista previa">✕</button>
+            </div>
+
+            <div id="invoicePreviewNotice" class="nova-preview-tip">
+                💡 <strong>Vista previa lista:</strong> Revisa el detalle o usa los botones inferiores para copiar o
+                descargar la factura.
+            </div>
+
+            <div class="nova-preview-body">
+                <div class="nova-preview-img-box">
+                    <img id="invoicePreviewImg" class="nova-preview-img" src="" alt="Factura Nova RefriMotors">
+                </div>
+            </div>
+
+            <div class="nova-preview-footer">
+                <button class="nova-preview-btn nova-preview-btn-copy" id="btnCopyFromPreview"
+                    onclick="copyInvoiceFromPreview()">
+                    📋 Copiar Imagen
+                </button>
+                <button class="nova-preview-btn nova-preview-btn-download" onclick="downloadInvoiceFromPreview()">
+                    📥 Descargar
+                </button>
+                <button class="nova-preview-btn nova-preview-btn-close" onclick="closeInvoicePreview()">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LÓGICA DE PROGRAMACIÓN (incluye generador de factura nativo Canvas 2D) -->
     <script src="logica-index.js"></script>
 </body>
+
 </html>
