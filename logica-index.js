@@ -200,7 +200,99 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+    {
+        id: "AGT-LAVADORA-VAR",
+        name: "Agitador (Plato / Disco) para Lavadora",
+        category: "Lavadoras",
+        model: "Múltiples Marcas",
+        desc: `<b>Agitadores y Platos para Lavadoras</b><br><br>Amplia variedad de agitadores, platos y discos de lavado (pulsadores) de reemplazo. Restaura la fuerza de lavado y el movimiento del agua en tu lavadora. Disponibles para modelos asiáticos y americanos (Samsung, LG, Electrolux, Mabe, Haier, Haceb, Whirlpool). <i>Asegúrese de verificar la cantidad de estrías (dientes) y el diámetro de su pieza original.</i>`,
+        costoCompra: 5.00000000, // Base (AGT002)
+        images: [
+            "productos/AGT001.webp", "productos/AGT002.webp", "productos/AGT005.webp",
+            "productos/AGT010.webp", "productos/AGT014.webp", "productos/AGT015.webp",
+            "productos/AGT016.webp", "productos/AGT018.webp", "productos/AGT020.webp"
+        ],
+        specs: { "Tipo": "Agitador / Plato de Lavado", "Compatibilidad": "Multimarca", "Uso": "Línea Blanca" },
+        variants: [
+            { id: "AGT002", name: "Asiático Regina (30cm / Eje Cuadrado)", costoCompra: 5.00000000 },
+            { id: "AGT018", name: "Mabe 10 Dientes (37.5cm / Azul 3 Rodillos)", costoCompra: 6.54000253 },
+            { id: "AGT015", name: "Haier/Kalley 11 Dientes (33cm)", costoCompra: 6.79000253 },
+            { id: "AGT005", name: "Haier 11 Dientes (35cm / Mod 00302)", costoCompra: 7.25384615 },
+            { id: "AGT016", name: "Electrolux Asiático 11 Dientes (38cm)", costoCompra: 7.40000000 },
+            { id: "AGT001", name: "Electrolux Asiático 11 Dientes (35cm / Gris)", costoCompra: 8.72999874 },
+            { id: "AGT010", name: "LG Asiático 11 Dientes (40cm / 3 Discos)", costoCompra: 10.94000253 },
+            { id: "AGT014", name: "Samsung M/Nuevo 11 Dientes (43cm)", costoCompra: 11.50000000 },
+            { id: "AGT020", name: "Haceb/Whirlpool 11 Dientes (4 Discos)", costoCompra: 15.52000126 }
+        ]
+    },
 
+    // --- MANGUERAS PARA LAVADORA ---
+    {
+        id: "MPL-MANGUERA-VAR",
+        name: "Manguera de Goma para Lavadora (Tina y Desagüe)",
+        category: "Lavadoras",
+        model: "Varias Medidas",
+        desc: `<b>Mangueras de Desagüe y Tina para Lavadoras</b><br><br>Mangueras de goma corrugada y estriada de alta resistencia para evacuación de agua en lavadoras. Incluye mangueras universales de 3 medidas, mangueras de codo para desagüe y reemplazos específicos de tina a bomba para modelos Mabe / General Electric.`,
+        costoCompra: 1.92000126, // Base (MPL025)
+        images: ["productos/MPL005.webp", "productos/MPL009.webp", "productos/MPL009-2.webp", "productos/MPL024.webp"],
+        specs: { "Material": "Goma Resistente", "Uso": "Desagüe y Conexión de Tina", "Compatibilidad": "Universal / Mabe" },
+        variants: [
+            { id: "MPL025", name: "Manguera Tina-Bomba (Mabe/GE)", costoCompra: 1.92000126 },
+            { id: "MPL005", name: "Manguera Desagüe con Codo P-06", costoCompra: 2.55000000 },
+            { id: "MPL009", name: "Manguera Estriada Negra (3 Medidas)", costoCompra: 2.55000000 }
+        ]
+    },
+
+    // --- MANGUERAS PARA AIRE ACONDICIONADO SPLIT ---
+    {
+        id: "JMG-MANGUERA-SPLIT-VAR",
+        name: "Manguera de Desagüe para Aire Acondicionado Split",
+        category: "Aires Acondicionados",
+        model: "Interna / Extensión",
+        desc: `<b>Mangueras de Desagüe para Consolas Split</b><br><br>Tuberías flexibles de goma diseñadas para drenar la condensación de las consolas de aire acondicionado Split. Disponibles para la unidad interna (con conector tipo original) y mangueras de extensión externa en diferentes longitudes.`,
+        costoCompra: 1.32307692, // Base (JMG350/356)
+        images: ["productos/JMG011.webp", "productos/JMG350.webp", "productos/JMG353.webp", "productos/JMG356.webp"],
+        specs: { "Tipo": "Drenaje / Desagüe", "Uso": "Aire Acondicionado Split", "Material": "Plástico / Goma" },
+        variants: [
+            { id: "JMG356", name: "Manguera de Goma Negra (3/8\")", costoCompra: 1.32307692 },
+            { id: "JMG350", name: "Manguera Extensión (3/8\" - 1.2M a 2M)", costoCompra: 1.32307692 },
+            { id: "JMG353", name: "Manguera Interna Tipo Original (60 cm)", costoCompra: 1.66153846 },
+            { id: "JMG011", name: "Manguera Interna Tipo Original (1.2 Metros)", costoCompra: 2.32307692 }
+        ]
+    },
+
+    // --- FILTROS DE AIRE ---
+    {
+        id: "FIL-AIRES-VAR",
+        name: "Filtro de Polvo para Aire Acondicionado (Ventana / Split)",
+        category: "Aires Acondicionados",
+        model: "Malla Lavable",
+        desc: `<b>Filtros de Malla para Aire Acondicionado</b><br><br>Filtros atrapa-polvo de repuesto. Esenciales para mantener limpios los serpentines evaporadores, mejorando el flujo de aire y la eficiencia del equipo. Opciones genéricas para aires de ventana y repuestos exactos para consolas Split.`,
+        costoCompra: 0.66153846, // Base (FIL400)
+        images: ["productos/FIL400.webp", "productos/FIL402.webp", "productos/FIL501.webp"],
+        specs: { "Tipo": "Malla Lavable", "Uso": "Filtración de Polvo", "Equipos": "Ventana y Split" },
+        variants: [
+            { id: "FIL400", name: "Filtro Sencillo Ventana (15\" x 24\")", costoCompra: 0.66153846 },
+            { id: "FIL402", name: "Filtro Sencillo Ventana (40 x 60 cm)", costoCompra: 1.49230769 },
+            { id: "FIL501", name: "Filtro para Split Haier 18K BTU", costoCompra: 3.31538462 }
+        ]
+    },
+
+    // --- VASOS DE LICUADORA ADICIONALES ---
+    {
+        id: "VLC-VASOS-NUEVOS-VAR",
+        name: "Vaso de Repuesto (Oster Clásico / Premier Completo)",
+        category: "Licuadoras",
+        model: "Premier / Oster",
+        desc: `<b>Vasos de Repuesto para Licuadoras</b><br><br>Vasos listos para instalar. Disponibles en versión de plástico original para licuadoras Premier (incluye cuchilla y base ensamblada) y el clásico vaso de vidrio tipo trébol compatible con licuadoras Oster.`,
+        costoCompra: 3.31538462, // Base (VLC001)
+        images: ["productos/VLC001.webp", "productos/VLC018.webp"],
+        specs: { "Tipo": "Vaso Completo / Solo Vaso", "Material": "Vidrio / Plástico" },
+        variants: [
+            { id: "VLC001", name: "Vaso de Vidrio Oster Clásico (ISYN)", costoCompra: 3.31538462 },
+            { id: "VLC018", name: "Vaso Plástico Premier (Completo Original)", costoCompra: 5.30000000 }
+        ]
+    },
     {
         id: "MOI-EMERSON-1075-VAR",
         name: "Motor Ventilador Condensador Emerson (1075 RPM)",
