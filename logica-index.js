@@ -200,6 +200,81 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+    // ==========================================
+    // SECCIÓN: VENTILACIÓN INDUSTRIAL Y MICRO MOTORES AXIALES
+    // ==========================================
+
+    // --- MICRO MOTORES AXIALES (COOLERS) ---
+    {
+        id: "MVA-MICRO-VAR",
+        name: "Micro Motor Ventilador Axial (Cooler / Extractor)",
+        category: "Motores",
+        model: "Varias Medidas",
+        desc: `<b>Micro Motores Axiales y Coolers</b><br><br>Ventiladores compactos de alta eficiencia ideales para la extracción de aire, enfriamiento de tableros eléctricos, cavas pequeñas y equipos electrónicos. Disponibles en versiones de corriente alterna (110V / 220V) y corriente directa (12V DC).`,
+        costoCompra: 7.13076923, // Base (MVA307/308)
+        images: ["productos/MVA302.webp"], // Puedes asignar una imagen genérica para los coolers
+        specs: { "Tipo": "Micro Axial", "Uso": "Extracción y Enfriamiento", "Voltajes": "110V / 220V / 12VDC" },
+        variants: [
+            // Corriente Alterna (AC)
+            { id: "MVA306", name: "110V 4\" (2800 RPM)", costoCompra: 8.00000000 },
+            { id: "MVA307", name: "220V 4\" (2800 RPM)", costoCompra: 7.13076923 },
+            { id: "MVA304", name: "110V 5\" Pulgadas", costoCompra: 10.00000000 },
+            { id: "MVA305", name: "220V 5\" Pulgadas", costoCompra: 9.50000000 },
+            { id: "MVA302", name: "110V 60Hz (0.17A)", costoCompra: 9.92307692 },
+            { id: "MVA311", name: "110V (0.23 / 0.14A)", costoCompra: 10.96923077 },
+            // Corriente Directa (DC)
+            { id: "MVA308", name: "12V DC (40x40x28mm)", costoCompra: 7.13076923 },
+            { id: "MVA309", name: "12V DC (60x60x25mm)", costoCompra: 7.13076923 },
+            { id: "MVA303", name: "13.6V DC (92x92x38mm)", costoCompra: 10.96923077 },
+            { id: "MVA310", name: "12V DC 2.7A (6200 RPM)", costoCompra: 14.26923077 }
+        ]
+    },
+
+    // --- MOTORES DE SUCCIÓN AXIAL (STEINMANN Y DEGAR) ---
+    {
+        id: "MVA-SUCCION-MARCA-VAR",
+        name: "Motor Ventilador de Succión Axial (Steinmann / Degar)",
+        category: "Motores",
+        model: "220V (Alta Capacidad)",
+        desc: `<b>Motores de Succión Axial (Marcas Premium)</b><br><br>Extractores industriales de gran diámetro diseñados para mover altos volúmenes de aire en condensadoras y unidades de refrigeración comercial. Equipos robustos a 220V, disponibles en marcas reconocidas como Steinmann y Degar.`,
+        costoCompra: 43.10000000, // Base (MVA362)
+        images: ["productos/MVA362.webp", "productos/MVA363.webp", "productos/MVA364.webp"],
+        specs: { "Tipo": "Succión Axial Industrial", "Voltaje": "220V", "Marcas": "Steinmann / Degar" },
+        variants: [
+            { id: "MVA362", name: "10\" Pulgadas (Steinmann 220V)", costoCompra: 43.10000000 },
+            { id: "MVA358", name: "10\" Pulgadas (Degar 220V)", costoCompra: 46.41538462 },
+            { id: "MVA363", name: "12\" Pulgadas (Steinmann 220V)", costoCompra: 49.73846154 },
+            { id: "MVA360", name: "14\" Pulgadas (Degar 220V)", costoCompra: 62.99230769 },
+            { id: "MVA364", name: "18\" Pulgadas (Steinmann 220V)", costoCompra: 76.26153846 }
+        ]
+    },
+
+    // --- MOTORES DE SUCCIÓN AXIAL (GENÉRICOS) ---
+    {
+        id: "MVA-SUCCION-GEN-VAR",
+        name: "Motor Ventilador de Succión Axial (Genérico)",
+        category: "Motores",
+        model: "110V / 220V",
+        desc: `<b>Motores de Succión Axial Industriales</b><br><br>Extractores de gran capacidad para refrigeración y ventilación industrial. Amplia gama de medidas, desde compactos de 8" hasta robustos equipos de 24", ideales para cubrir cualquier demanda de flujo de aire en condensadores.`,
+        costoCompra: 33.15384615, // Base (MVA359)
+        images: ["productos/MVA362.webp"], // Se usa la imagen del axial como referencia visual
+        specs: { "Tipo": "Succión Axial", "Rango de Medidas": "8\" a 24\"", "Uso": "Refrigeración Industrial" },
+        variants: [
+            // Modelos 220V
+            { id: "MVA054", name: "8\" Pulgadas (220V 1HP)", costoCompra: 43.09230769 },
+            { id: "MVA359", name: "10\" Pulgadas (220V 1HP)", costoCompra: 33.15384615 },
+            { id: "MVA351", name: "12\" Pulgadas (220V 1HP)", costoCompra: 39.78461538 },
+            { id: "MVA352", name: "14\" Pulgadas (220V 1HP)", costoCompra: 53.04615385 },
+            { id: "MVA353", name: "16\" Pulgadas (220V 1HP)", costoCompra: 62.99734748 },
+            { id: "MVA350", name: "18\" Pulgadas (220V 1HP)", costoCompra: 69.62307692 },
+            { id: "MVA354", name: "20\" Pulgadas (220V 1HP)", costoCompra: 86.20769231 },
+            { id: "MVA361", name: "24\" Pulgadas (220V 1HP)", costoCompra: 129.30000000 },
+            // Modelos 110V
+            { id: "MVA356", name: "10\" Pulgadas (110V 1HP)", costoCompra: 53.05039788 },
+            { id: "MVA355", name: "14\" Pulgadas (110V 1HP)", costoCompra: 62.99230769 },
+            { id: "MVA357", name: "22\" Pulgadas (110V 1HP)", costoCompra: 99.46153846 }
+        ]
+    },
     {
         id: "AGT-LAVADORA-VAR",
         name: "Agitador (Plato / Disco) para Lavadora",
@@ -4965,24 +5040,6 @@ const products = [
         desc: `<b>Corta Tubo Mediano Steinmann 3/16 a 7/8</b><br><br>Cortador de tubos compacto, excelente para trabajos en espacios reducidos.`,
         costoCompra: 11.530769, images: ["productos/CTB011.webp"],
         specs: { "Marca": "Steinmann", "Capacidad": "3/16 a 7/8 Pulgadas", "Uso": "Refrigeración" }
-    },
-    {
-        id: "MVA362", name: "Motor Ventilador Succión 10\" Axial 220V Steinmann", category: "Motores", model: "10 Pulgadas",
-        desc: `<b>Motor Ventilador de Succión 10" Axial 220V Steinmann</b><br><br>Motor axial de alta eficiencia para condensadores y evaporadores comerciales.`,
-        costoCompra: 43.100000, images: ["productos/MVA362.webp"],
-        specs: { "Marca": "Steinmann", "Tipo": "Axial Succión", "Tamaño": "10 Pulgadas", "Voltaje": "220V" }
-    },
-    {
-        id: "MVA363", name: "Motor Ventilador Succión 12\" Axial 220V Steinmann", category: "Motores", model: "12 Pulgadas",
-        desc: `<b>Motor Ventilador de Succión 12" Axial 220V Steinmann</b><br><br>Motor extractor axial para refrigeración industrial, diseño robusto y aspas balanceadas.`,
-        costoCompra: 49.738461, images: ["productos/MVA363.webp"],
-        specs: { "Marca": "Steinmann", "Tipo": "Axial Succión", "Tamaño": "12 Pulgadas", "Voltaje": "220V" }
-    },
-    {
-        id: "MVA364", name: "Motor Ventilador Succión 18\" Axial 220V Steinmann", category: "Motores", model: "18 Pulgadas",
-        desc: `<b>Motor Ventilador de Succión 18" Axial 220V Steinmann</b><br><br>Motor de succión de gran caudal para cavas cuarto y condensadores de alto tonelaje.`,
-        costoCompra: 76.261538, images: ["productos/MVA364.webp"],
-        specs: { "Marca": "Steinmann", "Tipo": "Axial Succión", "Tamaño": "18 Pulgadas", "Voltaje": "220V" }
     },
     {
         id: "BMB109", name: "Bomba de Vacío 1/4 HP 3CFM Steinmann", category: "Herramientas", model: "1/4 HP - 3 CFM",
