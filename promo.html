@@ -1,0 +1,2970 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA RefriMotors | Comercial Tutorial Motion Graphics Oficial</title>
+    <!-- Fuentes Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="nova_favicon.png">
+
+    <style>
+        :root {
+            --nova-blue: #00458a;
+            --nova-red: #c00000;
+            --nova-dark: #002d62;
+            --nova-cyan: #00d2ff;
+            --bg-color: #f0f4f8;
+            --white: #ffffff;
+            --text-dark: #1a202c;
+            --text-light: #718096;
+            --border-light: #e2e8f0;
+            --wa-green: #25D366;
+            --wa-dark-green: #075E54;
+            --wa-teal: #128C7E;
+            --wa-incoming-bg: #ffffff;
+            --wa-outgoing-bg: #d9fdd3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background-color: #050b14;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* FONDO CANVAS DE PARTICULAS Y NIEBLA DE FRÍO */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* BARRA SUPERIOR DE CONTROL (ESTUDIO DE GRABACIÓN) */
+        .studio-bar {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2000;
+            background: rgba(11, 19, 43, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 69, 138, 0.35);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .studio-bar.auto-hide {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -25px);
+        }
+
+        .studio-bar:hover,
+        .studio-bar.force-show {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transform: translate(-50%, 0) !important;
+        }
+
+        .studio-title {
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: var(--nova-cyan);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .studio-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #ef4444;
+            animation: recBlink 1.2s infinite;
+        }
+
+        @keyframes recBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.85); }
+        }
+
+        .format-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 3px;
+        }
+
+        .format-btn {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .format-btn.active {
+            background: var(--nova-blue);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 69, 138, 0.4);
+        }
+
+        .ctrl-btn {
+            background: linear-gradient(135deg, #0284c7, var(--nova-blue));
+            border: none;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+        }
+
+        .ctrl-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.15);
+        }
+
+        .audio-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 7px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .audio-toggle.active-btn {
+            background: rgba(0, 210, 255, 0.18);
+            border-color: var(--nova-cyan);
+            color: #ffffff;
+        }
+
+        .audio-toggle.muted {
+            opacity: 0.55;
+            color: #94a3b8;
+        }
+
+        /* CONTENEDOR PRINCIPAL DEL ESCENARIO (STAGE) */
+        .motion-stage-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1600px;
+        }
+
+        /* PANTALLA MOCKUP ADAPTABLE */
+        .motion-screen {
+            position: relative;
+            background: var(--bg-color);
+            color: var(--text-dark);
+            box-shadow: 0 35px 90px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 60px rgba(0, 69, 138, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), height 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.3s ease;
+        }
+
+        /* MODO 9:16 (Móvil / Reels / TikTok / Estados de WhatsApp) */
+        .motion-screen.ratio-9-16 {
+            width: 412px;
+            height: 732px;
+            max-height: 94vh;
+            border-radius: 42px;
+            border: 4px solid #1e293b;
+        }
+
+        /* MODO 16:9 (PC Panorámico / YouTube) */
+        .motion-screen.ratio-16-9 {
+            width: 1060px;
+            height: 596px;
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 24px;
+            border: 2px solid #1e293b;
+        }
+
+        /* CAPAS DE ESCENAS */
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.96);
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .scene.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+
+        /* ==========================================================
+           ESCENA 1: INTRO DE ALTO IMPACTO (HOOK MOTION)
+           ========================================================== */
+        .scene-intro {
+            background: radial-gradient(circle at center, #0a2540 0%, #030812 100%);
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .hook-logo-wrap {
+            position: relative;
+            margin-bottom: 24px;
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hook-logo-aura {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: pulseAura 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseAura {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 0.95; }
+        }
+
+        .hook-logo {
+            position: relative;
+            max-height: 90px;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+        }
+
+        .hook-badge {
+            background: rgba(0, 210, 255, 0.12);
+            border: 1px solid var(--nova-cyan);
+            color: var(--nova-cyan);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+        }
+
+        .hook-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 40%, var(--nova-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ratio-9-16 .hook-title {
+            font-size: 26px;
+        }
+
+        .hook-subtitle {
+            font-size: 14.5px;
+            color: #cbd5e1;
+            max-width: 480px;
+            line-height: 1.55;
+            margin-bottom: 24px;
+        }
+
+        .hook-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hook-chip {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #f1f5f9;
+            backdrop-filter: blur(8px);
+        }
+
+        /* ==========================================================
+           ESCENA 2: WEB EXACTA (RÉPLICA 100% IDÉNTICA)
+           ========================================================== */
+        .scene-web {
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            overflow-y: hidden;
+            position: absolute;
+            inset: 0;
+        }
+
+        /* TOP ANNOUNCEMENT BAR */
+        .web-announcement {
+            background: linear-gradient(90deg, var(--nova-dark), var(--nova-blue));
+            color: var(--white);
+            padding: 8px 16px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .web-announcement a {
+            color: var(--nova-cyan);
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        /* HEADER REAL */
+        .web-header {
+            background: var(--white);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-light);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .web-logo-box img {
+            max-height: 40px;
+            display: block;
+        }
+
+        .web-search-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+            max-width: 550px;
+            gap: 12px;
+            position: relative;
+        }
+
+        .web-search-bar {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .web-search-input {
+            width: 100%;
+            padding: 9px 18px 9px 38px;
+            border: 1.5px solid var(--border-light);
+            border-radius: 25px;
+            outline: none;
+            background-color: #f4f7f6;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 14px center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .web-search-input.typing-active {
+            border-color: var(--nova-cyan);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25), 0 4px 15px rgba(0, 69, 138, 0.12);
+        }
+
+        /* AUTOCOMPLETE DROPDOWN INTELIGENTE */
+        .web-search-autocomplete {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid var(--nova-cyan);
+            border-radius: 14px;
+            box-shadow: 0 18px 35px rgba(0, 45, 98, 0.22);
+            z-index: 500;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .web-search-autocomplete.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .auto-header {
+            padding: 8px 14px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .auto-item {
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .auto-item:last-child {
+            border-bottom: none;
+        }
+
+        .auto-item.selected,
+        .auto-item:hover {
+            background: #eff6ff;
+        }
+
+        .auto-item-thumb {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid var(--border-light);
+            object-fit: contain;
+            padding: 2px;
+        }
+
+        .auto-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .auto-item-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .auto-item-title mark {
+            background: #fef08a;
+            color: #854d0e;
+            padding: 1px 3px;
+            border-radius: 3px;
+            font-weight: 800;
+        }
+
+        .auto-item-meta {
+            font-size: 10.5px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .auto-item-price {
+            font-size: 13px;
+            font-weight: 900;
+            color: var(--nova-blue);
+        }
+
+        .auto-badge-exact {
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 9.5px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .web-bcv-widget {
+            background: #e8f0fe;
+            border: 1px solid var(--nova-blue);
+            color: var(--nova-blue);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 10.5px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
+        }
+
+        .web-bcv-widget span {
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .web-cart-btn {
+            background-color: var(--white);
+            color: var(--nova-blue);
+            border: 2px solid var(--nova-blue);
+            padding: 7px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 12.5px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .web-cart-btn.cart-bump {
+            background-color: var(--nova-blue);
+            color: var(--white);
+            transform: scale(1.15);
+            box-shadow: 0 0 20px rgba(0, 69, 138, 0.5);
+        }
+
+        /* CATEGORÍAS */
+        .web-category-menu {
+            display: flex;
+            gap: 8px;
+            padding: 12px 5%;
+            overflow-x: auto;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--white);
+            scrollbar-width: none;
+            flex-shrink: 0;
+        }
+
+        .web-category-menu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .web-cat-btn {
+            padding: 5px 13px;
+            border: 1px solid var(--border-light);
+            background: var(--white);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .web-cat-btn.active {
+            background: var(--nova-blue);
+            color: var(--white);
+            border-color: var(--nova-blue);
+            box-shadow: 0 2px 8px rgba(0, 69, 138, 0.25);
+        }
+
+        /* GRID DE PRODUCTOS REALES */
+        .web-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            padding: 20px 5%;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .web-product-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s ease;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .web-product-card.focused {
+            border-color: var(--nova-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 69, 138, 0.2), 0 0 0 2.5px var(--nova-cyan);
+        }
+
+        .card-match-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #0284c7, var(--nova-blue));
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+            display: none;
+            animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .web-product-card.focused .card-match-badge {
+            display: block;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.6); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .web-product-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .web-product-code {
+            font-size: 9.5px;
+            font-weight: 800;
+            color: var(--nova-blue);
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .web-product-title {
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.25;
+            color: var(--text-dark);
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .web-price-container {
+            margin-top: auto;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .web-price-public-usd {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--text-dark);
+        }
+
+        .web-price-public-bs {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        /* CUADRO AZUL INFORMATIVO DE NOVACLIENTES (ORIGINAL DE LA WEB) */
+        .web-price-nova-badge {
+            background-color: #e8f0fe;
+            color: var(--nova-blue);
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px dashed var(--nova-blue);
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .web-price-nova-badge span {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .web-add-btn {
+            background-color: var(--nova-red);
+            color: var(--white);
+            border: none;
+            padding: 9px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.25s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .web-add-btn.clicked {
+            background-color: #a00000;
+            transform: scale(0.96);
+        }
+
+        /* MODAL VISTA RÁPIDA EXACTO */
+        .web-quick-view-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(11, 19, 43, 0.82);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 300;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            padding: 16px;
+        }
+
+        .web-quick-view-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .web-quick-view-box {
+            background: var(--white);
+            width: 92%;
+            max-width: 680px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(20px);
+            transition: 0.3s;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .web-quick-view-overlay.active .web-quick-view-box {
+            transform: translateY(0);
+        }
+
+        .web-qv-gallery {
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            border-right: 1px solid var(--border-light);
+        }
+
+        .web-qv-main-img {
+            max-width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.08));
+        }
+
+        .web-qv-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .web-qv-category {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--nova-blue);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .web-qv-title {
+            font-size: 17px;
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .web-qv-code {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .web-qv-desc {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #4a5568;
+            margin-bottom: 14px;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* MODAL DEL CARRITO REAL (DRAWER LATERAL) */
+        .web-cart-modal {
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 370px;
+            max-width: 100%;
+            height: 100%;
+            background: var(--white);
+            box-shadow: -8px 0 30px rgba(0,0,0,0.18);
+            transition: right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 400;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .web-cart-modal.active {
+            right: 0;
+        }
+
+        .web-cart-header {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        .web-cart-header h2 {
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .web-cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 14px 16px;
+            background-color: #f8f9fa;
+        }
+
+        .web-cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .web-cart-item img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            padding: 3px;
+            background: #ffffff;
+        }
+
+        .web-cart-footer {
+            padding: 16px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .web-customer-form {
+            position: relative;
+        }
+
+        .form-field-wrap {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .form-field-wrap label {
+            font-size: 10.5px;
+            color: var(--text-light);
+            font-weight: 800;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .field-valid-badge {
+            color: #16a34a;
+            font-size: 10.5px;
+            font-weight: 800;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .field-valid-badge.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .web-customer-form input {
+            width: 100%;
+            height: 38px;
+            padding: 0 12px;
+            border: 1.5px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            background: #f8fafc;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .web-customer-form input.field-focused {
+            border-color: var(--nova-cyan);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25);
+        }
+
+        .web-customer-form input.field-success {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        /* TOTAL DEL CARRITO LIMPIO (SIN CUPONES - COMO EN LA WEB ORIGINAL) */
+        .web-cart-total {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            margin-bottom: 12px;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .web-cart-total.highlight-bump {
+            background: #e8f0fe;
+            border-color: var(--nova-blue);
+            transform: scale(1.02);
+        }
+
+        .web-whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+
+        .web-whatsapp-btn.pulse-ready {
+            animation: pulseBtn 1s infinite alternate;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+            100% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7); }
+        }
+
+        /* REGLAS RESPONSIVAS PARA 9:16 (MÓVIL EXACTO) */
+        .ratio-9-16 .web-announcement {
+            flex-direction: column;
+            gap: 3px;
+            padding: 6px;
+            font-size: 10px;
+        }
+
+        .ratio-9-16 .web-header {
+            flex-wrap: wrap;
+            padding: 10px 14px;
+            gap: 8px;
+        }
+
+        .ratio-9-16 .web-logo-box img {
+            max-height: 32px;
+        }
+
+        .ratio-9-16 .web-cart-btn {
+            padding: 6px 12px;
+            font-size: 11.5px;
+        }
+
+        .ratio-9-16 .web-search-container {
+            width: 100%;
+            margin: 0;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .ratio-9-16 .web-bcv-widget {
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            font-size: 11.5px;
+        }
+
+        .ratio-9-16 .web-products-grid {
+            grid-template-columns: 1fr;
+            padding: 14px;
+            gap: 14px;
+        }
+
+        .ratio-9-16 .web-quick-view-box {
+            grid-template-columns: 1fr;
+            max-height: 90vh;
+        }
+
+        .ratio-9-16 .web-qv-gallery {
+            padding: 14px;
+        }
+
+        .ratio-9-16 .web-qv-main-img {
+            height: 140px;
+        }
+
+        .ratio-9-16 .web-qv-info {
+            padding: 16px;
+        }
+
+        .ratio-9-16 .web-cart-modal {
+            width: 100%;
+        }
+
+        /* ==========================================================
+           ESCENA 3: CHAT DE WHATSAPP CONCRECIÓN DE COMPRA
+           ========================================================== */
+        .scene-whatsapp {
+            background-color: #efeae2;
+            background-image: radial-gradient(#d5cebe 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wa-header {
+            background-color: var(--wa-dark-green);
+            color: #ffffff;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .wa-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wa-back-arrow {
+            font-size: 18px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .wa-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            object-fit: contain;
+        }
+
+        .wa-profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wa-profile-name {
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .wa-profile-badge {
+            width: 13px;
+            height: 13px;
+            background: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8.5px;
+            font-weight: 900;
+        }
+
+        .wa-profile-status {
+            font-size: 11px;
+            color: #d1fae5;
+        }
+
+        .wa-header-icons {
+            display: flex;
+            gap: 14px;
+            font-size: 17px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .wa-chat-body {
+            flex: 1;
+            padding: 14px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .wa-security-tag {
+            align-self: center;
+            background: #ffeecd;
+            color: #54656f;
+            font-size: 10.5px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .wa-bubble {
+            max-width: 82%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 12.5px;
+            line-height: 1.45;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+            opacity: 0;
+            transform: translateY(12px) scale(0.96);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #111b21;
+        }
+
+        .wa-bubble.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .wa-bubble.outgoing {
+            align-self: flex-end;
+            background-color: var(--wa-outgoing-bg);
+            border-top-right-radius: 2px;
+        }
+
+        .wa-bubble.incoming {
+            align-self: flex-start;
+            background-color: var(--wa-incoming-bg);
+            border-top-left-radius: 2px;
+        }
+
+        .wa-time {
+            font-size: 9.5px;
+            color: #667781;
+            text-align: right;
+            margin-top: 3px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wa-double-tick {
+            color: #53bdeb;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .wa-typing-bubble {
+            align-self: flex-start;
+            background-color: var(--wa-incoming-bg);
+            padding: 8px 14px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .wa-typing-bubble.active {
+            opacity: 1;
+        }
+
+        .wa-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #8696a0;
+            border-radius: 50%;
+            animation: waDot 1.4s infinite ease-in-out both;
+        }
+
+        .wa-dot:nth-child(1) { animation-delay: -0.32s; }
+        .wa-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes waDot {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .wa-stamp-concretado {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.6) rotate(-8deg);
+            background: linear-gradient(135deg, #059669, #047857);
+            color: #ffffff;
+            border: 3px solid #ffffff;
+            border-radius: 18px;
+            padding: 16px 26px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(5, 150, 105, 0.5), 0 0 0 8px rgba(255, 255, 255, 0.25);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .wa-stamp-concretado.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) rotate(-4deg);
+        }
+
+        .wa-input-bar {
+            background-color: #f0f2f5;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wa-fake-input {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 8px 14px;
+            font-size: 12.5px;
+            color: #667781;
+        }
+
+        .wa-mic-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--wa-teal);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* ==========================================================
+           ESCENA 4: CALL TO ACTION FINAL
+           ========================================================== */
+        .scene-cta {
+            background: #050b14;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 24px;
+            text-align: center;
+        }
+
+        .cta-logo {
+            max-height: 90px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 8px 25px rgba(0, 69, 138, 0.6));
+        }
+
+        .cta-headline {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--nova-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ratio-9-16 .cta-headline {
+            font-size: 26px;
+        }
+
+        .cta-desc {
+            font-size: 13.5px;
+            color: #cbd5e1;
+            max-width: 440px;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+
+        .cta-whatsapp-pill {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            margin-bottom: 16px;
+            animation: pulseCTA 2s infinite;
+        }
+
+        @keyframes pulseCTA {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); box-shadow: 0 14px 32px rgba(37, 211, 102, 0.6); }
+        }
+
+        .cta-address {
+            font-size: 12.5px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* FLYING PARTICLE */
+        .fly-particle {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--nova-cyan);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 25px var(--nova-cyan);
+            z-index: 999;
+            pointer-events: none;
+            display: none;
+            transform: translate(-50%, -50%);
+        }
+
+        /* CURSOR VIRTUAL */
+        #virtualCursor {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 9999;
+            pointer-events: none;
+            transform: translate(0, 0);
+            transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+            display: none;
+        }
+
+        #virtualCursor svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cursor-click-wave {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--nova-cyan);
+            animation: clickWave 0.4s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes clickWave {
+            0% { transform: scale(0.3); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* LEYENDA FLOTANTE PARA REDES (SUBTÍTULOS ANIMADOS) */
+        .caption-card {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%) translateY(35px);
+            background: rgba(11, 19, 43, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 210, 255, 0.45);
+            border-radius: 50px;
+            padding: 10px 24px;
+            color: #ffffff;
+            font-size: 13.5px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 69, 138, 0.4);
+            z-index: 500;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .caption-card.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .caption-card .caption-icon {
+            font-size: 19px;
+        }
+
+        .caption-card .caption-text {
+            color: #f1f5f9;
+        }
+
+        /* PROGRESS BAR INFERIOR */
+        .timeline-bar-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.12);
+            z-index: 600;
+        }
+
+        .timeline-bar-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--nova-blue), var(--nova-cyan));
+            box-shadow: 0 0 10px var(--nova-cyan);
+            transition: width 0.1s linear;
+        }
+
+        /* OVERLAY DE CUENTA REGRESIVA (3, 2, 1... ¡ACCIÓN!) */
+        .countdown-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 11, 20, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .countdown-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .countdown-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--nova-cyan);
+            text-shadow: 0 0 45px rgba(0, 210, 255, 0.85);
+            animation: countPop 0.8s ease-out;
+        }
+
+        @keyframes countPop {
+            0% { transform: scale(0.4); opacity: 0; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .countdown-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FONDO CANVAS DE PARTICULAS Y NIEBLA DE FRÍO -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- AUDIO EXTERNO OPCIONAL SUBIDO POR EL USUARIO -->
+    <audio id="customUserAudio" preload="auto"></audio>
+    <input type="file" id="customAudioInput" accept="audio/*" style="display:none;" onchange="handleCustomAudioFile(event)">
+
+    <!-- BARRA FLOTANTE DE CONTROL Y GRABACIÓN (ESTUDIO) -->
+    <header class="studio-bar" id="studioBar">
+        <div class="studio-title">Motion Studio</div>
+
+        <!-- SELECTOR DE FORMATO -->
+        <div class="format-switch">
+            <button class="format-btn active" id="btn916" onclick="setRatio('9-16')">📱 9:16 Móvil</button>
+            <button class="format-btn" id="btn169" onclick="setRatio('16-9')">💻 16:9 PC</button>
+        </div>
+
+        <!-- AUDIO TOGGLE -->
+        <button class="audio-toggle" id="audioToggleBtn" onclick="toggleAudio()">
+            🔊 Efectos ON
+        </button>
+
+        <!-- MÚSICA BACKGROUND TUTORIAL TOGGLE -->
+        <button class="audio-toggle active-btn" id="musicToggleBtn" onclick="toggleMusic()">
+            🎵 Música Tutorial
+        </button>
+
+        <!-- CARGAR AUDIO EXTERNO MP3 -->
+        <button class="audio-toggle" id="loadCustomBtn" onclick="document.getElementById('customAudioInput').click()">
+            📂 Cargar MP3
+        </button>
+
+        <!-- BOTÓN PANTALLA COMPLETA -->
+        <button class="audio-toggle" onclick="toggleFullscreen()">
+            ⛶ Pantalla Completa
+        </button>
+
+        <!-- BOTÓN INICIAR ANIMACIÓN -->
+        <button class="ctrl-btn" id="btnPlayPromo" onclick="startCountdownAndPlay()">
+            ▶ Iniciar / Grabar
+        </button>
+    </header>
+
+    <!-- ESCENARIO PRINCIPAL -->
+    <main class="motion-stage-wrapper">
+        <div class="motion-screen ratio-9-16" id="motionScreen">
+
+            <!-- BARRA DE PROGRESO DE LA ANIMACIÓN -->
+            <div class="timeline-bar-wrapper">
+                <div class="timeline-bar-progress" id="timelineProgress"></div>
+            </div>
+
+            <!-- CURSOR VIRTUAL -->
+            <div id="virtualCursor">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 3L11.5 21L14.5 13.5L22 10.5L4 3Z" fill="#00d2ff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <!-- PARTÍCULA DE VUELO AL CARRITO -->
+            <div class="fly-particle" id="flyParticle"></div>
+
+            <!-- LEYENDA FLOTANTE EXPLICATIVA PARA REDES -->
+            <div class="caption-card" id="captionCard">
+                <span class="caption-icon" id="captionIcon">❄️</span>
+                <span class="caption-text" id="captionText">Mensaje del tutorial...</span>
+            </div>
+
+            <!-- CUENTA REGRESIVA 3, 2, 1... -->
+            <div class="countdown-overlay" id="countdownOverlay">
+                <div class="countdown-number" id="countdownNumber">3</div>
+                <div class="countdown-label">¡Iniciando video tutorial para grabar!</div>
+            </div>
+
+            <!-- ==========================================
+                 ESCENA 1: EL GANCHO / INTRO MOTIONAL
+            =========================================== -->
+            <section class="scene scene-intro active" id="scene1">
+                <div class="hook-logo-wrap">
+                    <div class="hook-logo-aura"></div>
+                    <img src="nova-logo-color.png" alt="Logo Nova RefriMotors" class="hook-logo">
+                </div>
+                <span class="hook-badge">⚡ TUTORIAL CATÁLOGO DIGITAL</span>
+                <h1 class="hook-title">¿Buscas herramientas y repuestos?</h1>
+                <p class="hook-subtitle">
+                    ¡Aprende cómo cotizar y hacer tu pedido en segundos en la web de <strong>NOVA RefriMotors</strong>!
+                </p>
+                <div class="hook-chips">
+                    <div class="hook-chip">🧰 Bombas & Herramientas</div>
+                    <div class="hook-chip">❄️ Aires & Refrigeración</div>
+                    <div class="hook-chip">💵 Tasa BCV Oficial</div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 ESCENA 2: WEB EXACTA (RÉPLICA 100% IDÉNTICA)
+            =========================================== -->
+            <section class="scene scene-web" id="scene2">
+                <!-- TOP BARRA ANUNCIO -->
+                <div class="web-announcement">
+                    <span>🎉 <b>¡Promoción!</b> Por tu primera compra grande obtén el delivery gratis en Cabimas.</span>
+                    <a href="#">¡Consulta al WhatsApp!</a>
+                </div>
+
+                <!-- ENCABEZADO REAL -->
+                <header class="web-header">
+                    <div class="web-logo-box">
+                        <img src="nova-logo-color.png" alt="Logo Nova RefriMotors">
+                    </div>
+
+                    <div class="web-search-container">
+                        <div class="web-search-bar">
+                            <input type="text" class="web-search-input" id="webSearchInput" placeholder="Buscar repuestos, código o modelo...">
+                            
+                            <!-- DROPDOWN INTELIGENTE DE AUTOCOMPLETADO Y FILTRADO -->
+                            <div class="web-search-autocomplete" id="webSearchAutocomplete">
+                                <div class="auto-header">
+                                    <span>Sugerencias Inteligentes</span>
+                                    <span style="color:#0284c7;">⚡ Tiempo real</span>
+                                </div>
+                                <div class="auto-item selected" id="autoItem1">
+                                    <img src="productos/BMB109.webp" class="auto-item-thumb" alt="Bomba de Vacío">
+                                    <div class="auto-item-info">
+                                        <div class="auto-item-title"><mark>Bomba</mark> de <mark>Vacío</mark> 1/4 HP 3CFM Steinmann</div>
+                                        <div class="auto-item-meta">
+                                            <span>Cód: BMB109</span>
+                                            <span class="auto-badge-exact">Coincidencia Exacta ⭐</span>
+                                        </div>
+                                    </div>
+                                    <div class="auto-item-price">$148.50</div>
+                                </div>
+                                <div class="auto-item" id="autoItem2">
+                                    <img src="productos/BMB110.webp" class="auto-item-thumb" alt="Bomba Inalámbrica">
+                                    <div class="auto-item-info">
+                                        <div class="auto-item-title"><mark>Bomba</mark> de <mark>Vacío</mark> Inalámbrica 18V Steinmann</div>
+                                        <div class="auto-item-meta">
+                                            <span>Cód: BMB110</span>
+                                            <span>Herramientas</span>
+                                        </div>
+                                    </div>
+                                    <div class="auto-item-price">$165.00</div>
+                                </div>
+                                <div class="auto-item" id="autoItem3">
+                                    <img src="productos/BMB100.webp" class="auto-item-thumb" alt="Bomba de Agua">
+                                    <div class="auto-item-info">
+                                        <div class="auto-item-title"><mark>Bomba</mark> de Agua Periférica 1/2 HP INGCO</div>
+                                        <div class="auto-item-meta">
+                                            <span>Cód: BMB100</span>
+                                            <span>Plomería</span>
+                                        </div>
+                                    </div>
+                                    <div class="auto-item-price">$32.00</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="web-bcv-widget">
+                            Tasa BCV del Día: <span id="webBcvDisplay">Bs. 887.30</span>
+                        </div>
+                    </div>
+
+                    <button class="web-cart-btn" id="webCartBtn">
+                        🛒 Mi Pedido (<span id="webCartCount">0</span>)
+                    </button>
+                </header>
+
+                <!-- CATEGORÍAS REALES -->
+                <nav class="web-category-menu">
+                    <button class="web-cat-btn active" id="catBtnTodos">Todos</button>
+                    <button class="web-cat-btn" id="catBtnHerramientas">Herramientas</button>
+                    <button class="web-cat-btn" id="catBtnRefrig">Refrigeración</button>
+                    <button class="web-cat-btn">Aires Acondicionados</button>
+                    <button class="web-cat-btn">Motores</button>
+                    <button class="web-cat-btn">Capacitores</button>
+                </nav>
+
+                <!-- GRID DE PRODUCTOS REALES -->
+                <main class="web-products-grid" id="webProductsGrid">
+                    <!-- Producto Destacado: Bomba de Vacío 1/4 HP Steinmann (BMB109) -->
+                    <div class="web-product-card" id="cardBombaVacio">
+                        <span class="card-match-badge">⭐ ¡Resultado Top!</span>
+                        <div class="web-product-code">BMB109</div>
+                        <img src="productos/BMB109.webp" alt="Bomba de Vacío Steinmann">
+                        <div class="web-product-title">Bomba de Vacío 1/4 HP 3CFM Steinmann</div>
+                        <div class="web-price-container">
+                            <div class="web-price-public-usd">$148.50</div>
+                            <div class="web-price-public-bs">Bs. 131,764.05</div>
+                            <!-- CUADRO AZUL INFORMATIVO TAL COMO EN LA WEB ORIGINAL -->
+                            <div class="web-price-nova-badge">
+                                Descuento NovaClientes: <span>$129.99</span>
+                            </div>
+                        </div>
+                        <button class="web-add-btn" id="addBtnBomba">+ Agregar al Pedido</button>
+                    </div>
+
+                    <!-- Producto 2: Manómetro Digital ISYN -->
+                    <div class="web-product-card" id="cardManometro">
+                        <div class="web-product-code">MAN006</div>
+                        <img src="productos/MAN006.webp" alt="Manómetro Digital ISYN">
+                        <div class="web-product-title">Juego de Manómetro Digital ISYN R22/R134/R410</div>
+                        <div class="web-price-container">
+                            <div class="web-price-public-usd">$142.00</div>
+                            <div class="web-price-public-bs">Bs. 125,996.60</div>
+                            <div class="web-price-nova-badge">
+                                Descuento NovaClientes: <span>$125.00</span>
+                            </div>
+                        </div>
+                        <button class="web-add-btn">+ Agregar al Pedido</button>
+                    </div>
+
+                    <!-- Producto 3: Recarga Gas R134a -->
+                    <div class="web-product-card" id="cardGasR134a">
+                        <div class="web-product-code">GAS002</div>
+                        <img src="productos/GAS002.webp" alt="Recarga Gas R134a">
+                        <div class="web-product-title">Recarga de Gas Refrigerante R134a (Por Kilo)</div>
+                        <div class="web-price-container">
+                            <div class="web-price-public-usd">$17.24</div>
+                            <div class="web-price-public-bs">Bs. 15,297.05</div>
+                            <div class="web-price-nova-badge">
+                                Descuento NovaClientes: <span>$14.59</span>
+                            </div>
+                        </div>
+                        <button class="web-add-btn">+ Agregar al Pedido</button>
+                    </div>
+
+                    <!-- Producto 4: Capacímetro Zenic -->
+                    <div class="web-product-card" id="cardCapacimetro">
+                        <div class="web-product-code">CAP250</div>
+                        <img src="productos/CAP250.webp" alt="Capacímetro Zenic">
+                        <div class="web-product-title">Capacímetro Digital Profesional Zenic 2.8V</div>
+                        <div class="web-price-container">
+                            <div class="web-price-public-usd">$28.00</div>
+                            <div class="web-price-public-bs">Bs. 24,844.40</div>
+                            <div class="web-price-nova-badge">
+                                Descuento NovaClientes: <span>$23.50</span>
+                            </div>
+                        </div>
+                        <button class="web-add-btn">+ Agregar al Pedido</button>
+                    </div>
+                </main>
+
+                <!-- MODAL DE VISTA RÁPIDA REAL -->
+                <div class="web-quick-view-overlay" id="webQvModal">
+                    <div class="web-quick-view-box">
+                        <div class="web-qv-gallery">
+                            <img src="productos/BMB109.webp" alt="Bomba de Vacío Steinmann" class="web-qv-main-img">
+                        </div>
+                        <div class="web-qv-info">
+                            <span class="web-qv-category">HERRAMIENTAS &bull; REFRIGERACIÓN</span>
+                            <h2 class="web-qv-title">Bomba de Vacío 1/4 HP 3CFM Steinmann</h2>
+                            <div class="web-qv-code">CÓDIGO: BMB109 &bull; MODELO: 1/4 HP - 3 CFM</div>
+                            <div class="web-qv-desc">
+                                Bomba de vacío de una etapa de alto rendimiento. Diseñada para deshidratación y extracción total de humedad en sistemas de refrigeración y climatización. Incluye aceite lubricante.
+                            </div>
+                            <div class="web-price-nova-badge" style="margin-bottom:14px;">
+                                Descuento NovaClientes: <span>$129.99</span>
+                            </div>
+                            <button class="web-add-btn" id="qvAddBtn">+ Agregar al Pedido</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL DEL CARRITO REAL (DRAWER) -->
+                <div class="web-cart-modal" id="webCartModal">
+                    <div class="web-cart-header">
+                        <h2>Carrito de Compras</h2>
+                        <span style="font-size:20px; font-weight:bold; color:var(--text-light); cursor:pointer;">✖</span>
+                    </div>
+
+                    <div class="web-cart-items">
+                        <div class="web-cart-item">
+                            <img src="productos/BMB109.webp" alt="Bomba de Vacío Steinmann">
+                            <div style="flex:1;">
+                                <div style="font-size:10px; font-weight:800; color:var(--nova-blue);">BMB109</div>
+                                <div style="font-size:12.5px; font-weight:700; color:var(--text-dark);">1x Bomba de Vacío 1/4 HP Steinmann</div>
+                                <div style="font-size:13px; font-weight:900; color:var(--nova-blue); margin-top:2px;">$148.50 (Bs. 131,764.05)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="web-cart-footer">
+                        <div class="web-customer-form">
+                            <div class="form-field-wrap">
+                                <label for="webCustomerName">
+                                    <span>Nombre del Cliente:</span>
+                                    <span class="field-valid-badge" id="nameValidBadge">✓ Verificado</span>
+                                </label>
+                                <input type="text" id="webCustomerName" placeholder="Ingresa tu nombre y apellido" readonly>
+                            </div>
+
+                            <div class="form-field-wrap">
+                                <label for="webCustomerPhone">
+                                    <span>WhatsApp / Teléfono:</span>
+                                    <span class="field-valid-badge" id="phoneValidBadge">✓ WhatsApp Válido</span>
+                                </label>
+                                <input type="tel" id="webCustomerPhone" placeholder="0414-1234567" readonly>
+                            </div>
+                        </div>
+
+                        <!-- TOTAL DEL CARRITO REAL: MUESTRA EL SUBTOTAL SIN CUPONES EN LA WEB -->
+                        <div class="web-cart-total" id="cartTotalBox">
+                            <div style="font-size:11.5px; color:var(--text-light); margin-bottom:2px;">Subtotal del Pedido:</div>
+                            <div style="font-size:16.5px; color:var(--nova-blue); font-weight:900;">$148.50 (Bs. 131,764.05)</div>
+                            <div style="font-size:9.5px; color:#64748b; margin-top:3px;">* Precios y descuentos NovaClientes se confirman por WhatsApp</div>
+                        </div>
+
+                        <button class="web-whatsapp-btn" id="webSendWhatsAppBtn">
+                            <img src="whatsapp-icono.png" style="width:18px; height:18px;" alt="WhatsApp">
+                            Enviar Pedido por WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 ESCENA 3: CHAT DE WHATSAPP (CONCRECIÓN Y DESCUENTO NOVACLIENTES)
+            =========================================== -->
+            <section class="scene scene-whatsapp" id="scene3">
+                <!-- CABECERA WHATSAPP -->
+                <div class="wa-header">
+                    <div class="wa-profile">
+                        <span class="wa-back-arrow">←</span>
+                        <img src="nova-logo-color.png" alt="Logo Nova" class="wa-avatar">
+                        <div class="wa-profile-info">
+                            <div class="wa-profile-name">
+                                NOVA RefriMotors <span class="wa-profile-badge">✓</span>
+                            </div>
+                            <div class="wa-profile-status" id="waStatusText">en línea</div>
+                        </div>
+                    </div>
+                    <div class="wa-header-icons">
+                        <span>📹</span>
+                        <span>📞</span>
+                        <span>⋮</span>
+                    </div>
+                </div>
+
+                <!-- CUERPO DE MENSAJES -->
+                <div class="wa-chat-body" id="waChatBody">
+                    <div class="wa-security-tag">
+                        🔒 Los mensajes están cifrados de extremo a extremo.
+                    </div>
+
+                    <!-- Mensaje 1 (Cliente enviando desde la web solicitando precio NovaClientes) -->
+                    <div class="wa-bubble outgoing" id="waMsg1">
+                        Hola equipo de *NOVA RefriMotors*. Mi nombre es *Carlos Mendoza* (Tlf: 0414-1234567) y quisiera consultar la disponibilidad de este producto y si me aplica el precio *NovaClientes*:<br><br>
+                        • Código: *BMB109* - Bomba de Vacío 1/4 HP 3CFM Steinmann (Cantidad: 1)<br>
+                        • Ref. Web: $148.50 (Bs. 131,764.05)
+                        <div class="wa-time">11:15 a.m. <span class="wa-double-tick">✓✓</span></div>
+                    </div>
+
+                    <!-- Indicador de escribiendo -->
+                    <div class="wa-typing-bubble" id="waTypingIndicator">
+                        <div class="wa-dot"></div>
+                        <div class="wa-dot"></div>
+                        <div class="wa-dot"></div>
+                    </div>
+
+                    <!-- Mensaje 2 (Respuesta del vendedor NOVA aplicando el descuento NovaClientes por chat) -->
+                    <div class="wa-bubble incoming" id="waMsg2">
+                        ¡Hola Carlos! 👋 Un gusto atenderte en NOVA RefriMotors.<br><br>
+                        Sí, tenemos disponibilidad inmediata en tienda. Y por ser cliente registrado, <strong>¡te confirmamos tu precio especial NovaClientes!</strong> 🎉<br><br>
+                        De $148.50 te queda en solo <strong>$129.99</strong> (o <strong>Bs. 115,339.93</strong> a tasa oficial BCV del día).<br><br>
+                        ¿Deseas despacho con delivery a tu taller en Cabimas o prefieres retirar en tienda? 🚚❄️
+                        <div class="wa-time">11:16 a.m.</div>
+                    </div>
+
+                    <!-- Mensaje 3 (Cliente confirmando) -->
+                    <div class="wa-bubble outgoing" id="waMsg3">
+                        ¡Excelente amigo, muchas gracias! Por favor con delivery a mi taller en Carretera H. Ya les hago la transferencia por Pago Móvil 👍
+                        <div class="wa-time">11:16 a.m. <span class="wa-double-tick">✓✓</span></div>
+                    </div>
+
+                    <!-- Mensaje 4 (Vendedor concretando la venta) -->
+                    <div class="wa-bubble incoming" id="waMsg4">
+                        ¡Confirmado el Pago Móvil por Bs. 115,339.93! ✅ Tu Bomba de Vacío va saliendo con nuestro motorizado y su factura con garantía. ¡Gracias por confiar en NOVA RefriMotors! ❄️🚀
+                        <div class="wa-time">11:17 a.m.</div>
+                    </div>
+                </div>
+
+                <!-- STAMP ANIMADO DE COMPRA CONCRETADA -->
+                <div class="wa-stamp-concretado" id="waStamp">
+                    🎉 ¡VENTA CONCRETADA EN MINUTOS!<br>
+                    <span style="font-size:12px; font-weight:600; color:#c7eed8;">Atención rápida y descuento confirmado por WhatsApp</span>
+                </div>
+
+                <!-- BARRA INFERIOR DE WHATSAPP -->
+                <div class="wa-input-bar">
+                    <span style="font-size:20px; color:#54656f;">😊</span>
+                    <div class="wa-fake-input">Mensaje</div>
+                    <span style="font-size:18px; color:#54656f;">📎</span>
+                    <div class="wa-mic-btn">🎤</div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 ESCENA 4: CALL TO ACTION FINAL / OUTRO
+            =========================================== -->
+            <section class="scene scene-cta" id="scene4">
+                <img src="nova-logo-color.png" alt="Logo Nova" class="cta-logo">
+                <h2 class="cta-headline">¡Cotiza y Compra Fácil!</h2>
+                <p class="cta-desc">
+                    Tu tienda aliada en repuestos, compresores y herramientas de refrigeración comercial y automotriz en Cabimas.
+                </p>
+                <div class="cta-whatsapp-pill">
+                    <img src="whatsapp-icono.png" style="width:22px; height:22px;" alt="WhatsApp">
+                    <span>+58 424-6192394</span>
+                </div>
+                <div class="cta-address">
+                    📍 Cabimas, Estado Zulia &bull; Envíos locales seguros
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ==========================================================
+         LÓGICA DEL MOTOR DE MOTION GRAPHICS Y SONIDO TUTORIAL
+         ========================================================== -->
+    <script>
+        // ----------------------------------------------------------
+        // 1. SINTETIZADOR DE AUDIO DIGITAL (Web Audio API)
+        // ----------------------------------------------------------
+        let audioCtx = null;
+        let isAudioMuted = false;
+        let isMusicEnabled = true;
+        let tutorialMusicInterval = null;
+        let customAudioActive = false;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        const Sound = {
+            // Sonido de tecla mecánica táctil
+            type(freqOffset = 0) {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    const baseFreq = 420 + Math.random() * 80 + freqOffset;
+                    osc.frequency.setValueAtTime(baseFreq, now);
+                    osc.frequency.exponentialRampToValueAtTime(180, now + 0.04);
+                    
+                    gain.gain.setValueAtTime(0.06, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                    
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.04);
+
+                    const bufferSize = ctx.sampleRate * 0.015;
+                    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                    const noise = ctx.createBufferSource();
+                    noise.buffer = buffer;
+                    const noiseFilter = ctx.createBiquadFilter();
+                    noiseFilter.type = 'highpass';
+                    noiseFilter.frequency.setValueAtTime(1600, now);
+                    const noiseGain = ctx.createGain();
+                    noiseGain.gain.setValueAtTime(0.02, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
+                    
+                    noise.connect(noiseFilter);
+                    noiseFilter.connect(noiseGain);
+                    noiseGain.connect(ctx.destination);
+                    noise.start(now);
+                } catch (e) { }
+            },
+
+            // Clic de ratón
+            click() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, now);
+                    osc.frequency.exponentialRampToValueAtTime(160, now + 0.07);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.07);
+                } catch (e) { }
+            },
+
+            // Transición limpia de escena
+            whoosh() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const bufferSize = ctx.sampleRate * 0.32;
+                    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                    const noise = ctx.createBufferSource();
+                    noise.buffer = buffer;
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(240, now);
+                    filter.frequency.exponentialRampToValueAtTime(1500, now + 0.14);
+                    filter.frequency.exponentialRampToValueAtTime(180, now + 0.32);
+                    filter.Q.setValueAtTime(2.8, now);
+
+                    const gain = ctx.createGain();
+                    gain.gain.setValueAtTime(0.01, now);
+                    gain.gain.linearRampToValueAtTime(0.2, now + 0.14);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+
+                    noise.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(ctx.destination);
+                    noise.start(now);
+                } catch (e) { }
+            },
+
+            // Pop sutil
+            pop() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(480, now);
+                    osc.frequency.exponentialRampToValueAtTime(1100, now + 0.1);
+                    gain.gain.setValueAtTime(0.16, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                } catch (e) { }
+            },
+
+            // Shimmer futurista en el buscador
+            searchShimmer() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const notes = [659.25, 880, 1174.66];
+                    notes.forEach((freq, i) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + i * 0.04);
+                        gain.gain.setValueAtTime(0.06, now + i * 0.04);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.04 + 0.15);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + i * 0.04);
+                        osc.stop(now + i * 0.04 + 0.15);
+                    });
+                } catch (e) { }
+            },
+
+            // Ding de verificación en formulario
+            validPing() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc1 = ctx.createOscillator();
+                    const gain1 = ctx.createGain();
+                    osc1.type = 'triangle';
+                    osc1.frequency.setValueAtTime(880, now);
+                    gain1.gain.setValueAtTime(0.12, now);
+                    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                    osc1.connect(gain1);
+                    gain1.connect(ctx.destination);
+                    osc1.start(now);
+                    osc1.stop(now + 0.25);
+
+                    const osc2 = ctx.createOscillator();
+                    const gain2 = ctx.createGain();
+                    osc2.type = 'sine';
+                    osc2.frequency.setValueAtTime(1760, now + 0.04);
+                    gain2.gain.setValueAtTime(0.1, now + 0.04);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.04 + 0.3);
+                    osc2.connect(gain2);
+                    gain2.connect(ctx.destination);
+                    osc2.start(now + 0.04);
+                    osc2.stop(now + 0.04 + 0.3);
+                } catch (e) { }
+            },
+
+            // Resumen de pedido / total
+            cashRegister() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc1 = ctx.createOscillator();
+                    const gain1 = ctx.createGain();
+                    osc1.type = 'sine';
+                    osc1.frequency.setValueAtTime(1567.98, now);
+                    gain1.gain.setValueAtTime(0.13, now);
+                    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+                    osc1.connect(gain1);
+                    gain1.connect(ctx.destination);
+                    osc1.start(now);
+                    osc1.stop(now + 0.45);
+
+                    const osc2 = ctx.createOscillator();
+                    const gain2 = ctx.createGain();
+                    osc2.type = 'sine';
+                    osc2.frequency.setValueAtTime(2093.00, now + 0.06);
+                    gain2.gain.setValueAtTime(0.15, now + 0.06);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.06 + 0.6);
+                    osc2.connect(gain2);
+                    gain2.connect(ctx.destination);
+                    osc2.start(now + 0.06);
+                    osc2.stop(now + 0.06 + 0.6);
+                } catch (e) { }
+            },
+
+            // WhatsApp Message Sent (pop clásico)
+            waSend() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(560, now);
+                    osc.frequency.exponentialRampToValueAtTime(840, now + 0.08);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } catch (e) { }
+            },
+
+            // WhatsApp Incoming Message (Ding doble campana oficial)
+            waReceive() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const osc1 = ctx.createOscillator();
+                    const gain1 = ctx.createGain();
+                    osc1.type = 'sine';
+                    osc1.frequency.setValueAtTime(987.77, now);
+                    gain1.gain.setValueAtTime(0.15, now);
+                    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+                    osc1.connect(gain1);
+                    gain1.connect(ctx.destination);
+                    osc1.start(now);
+                    osc1.stop(now + 0.22);
+
+                    const osc2 = ctx.createOscillator();
+                    const gain2 = ctx.createGain();
+                    osc2.type = 'sine';
+                    osc2.frequency.setValueAtTime(1318.51, now + 0.08);
+                    gain2.gain.setValueAtTime(0.18, now + 0.08);
+                    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                    osc2.connect(gain2);
+                    gain2.connect(ctx.destination);
+                    osc2.start(now + 0.08);
+                    osc2.stop(now + 0.08 + 0.4);
+                } catch (e) { }
+            },
+
+            // Fanfarria triunfal al concretar la venta
+            success() {
+                if (isAudioMuted) return;
+                try {
+                    const ctx = getAudioContext();
+                    const now = ctx.currentTime;
+                    const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51];
+                    notes.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.065);
+                        gain.gain.setValueAtTime(0, now + idx * 0.065);
+                        gain.gain.linearRampToValueAtTime(0.14, now + idx * 0.065 + 0.02);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.065 + 0.75);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + idx * 0.065);
+                        osc.stop(now + idx * 0.065 + 0.75);
+                    });
+                } catch (e) { }
+            },
+
+            // ====================================================================
+            // 2. MÚSICA ESTILO TUTORIAL / EXPLAINER PRODUCT SHOWCASE (BPM: 114)
+            // Diseñada específicamente para combinar con tutoriales y catálogos:
+            // Acordes cálidos de Rhodes/Piano, destellos de Marimba y ritmo acústico.
+            // ====================================================================
+            startTutorialMusic() {
+                // Si el usuario cargó un MP3 propio, usamos ese
+                if (customAudioActive) {
+                    const audio = document.getElementById('customUserAudio');
+                    if (audio) {
+                        audio.currentTime = 0;
+                        audio.volume = 0.35;
+                        audio.play().catch(() => {});
+                    }
+                    return;
+                }
+
+                if (!isMusicEnabled || tutorialMusicInterval) return;
+                try {
+                    const ctx = getAudioContext();
+                    let step = 0; // 16 pasos por ciclo (4 compases de 4 tiempos a 16avos)
+                    
+                    // Progresión armónica de tutorial: Cmaj9 -> G6/9 -> Am7 -> Fmaj7
+                    const chords = [
+                        // Compás 1: Cmaj9 (C3 bass, E4, G4, B4, D5)
+                        { root: 130.81, notes: [329.63, 392.00, 493.88, 587.33] },
+                        // Compás 2: G6/9 (G2 bass, D4, E4, G4, B4)
+                        { root: 98.00,  notes: [293.66, 329.63, 392.00, 493.88] },
+                        // Compás 3: Am7 (A2 bass, C4, E4, G4, B4)
+                        { root: 110.00, notes: [261.63, 329.63, 392.00, 493.88] },
+                        // Compás 4: Fmaj7 (F2 bass, C4, E4, A4, C5)
+                        { root: 87.31,  notes: [261.63, 329.63, 440.00, 523.25] }
+                    ];
+
+                    // Melodía tipo Marimba / Tutorial Sparkle
+                    const melodyMotif = [
+                        // C
+                        { step: 0, freq: 523.25 }, { step: 3, freq: 659.25 }, { step: 6, freq: 783.99 }, { step: 10, freq: 587.33 },
+                        // G
+                        { step: 16, freq: 392.00 }, { step: 19, freq: 493.88 }, { step: 22, freq: 587.33 }, { step: 26, freq: 659.25 },
+                        // Am
+                        { step: 32, freq: 440.00 }, { step: 35, freq: 523.25 }, { step: 38, freq: 659.25 }, { step: 42, freq: 783.99 },
+                        // F
+                        { step: 48, freq: 698.46 }, { step: 51, freq: 659.25 }, { step: 54, freq: 587.33 }, { step: 58, freq: 523.25 }
+                    ];
+
+                    // Intervalo a ~114 BPM (cada 16avo dura ~131ms)
+                    tutorialMusicInterval = setInterval(() => {
+                        if (!isMusicEnabled || isAudioMuted) return;
+                        const now = ctx.currentTime;
+                        const barIndex = Math.floor((step % 64) / 16);
+                        const subStep = step % 16;
+                        const curChord = chords[barIndex];
+
+                        // A. BAJO ACÚSTICO SUAVE (en tiempos 0 y 8 con rebote sincopado en 10)
+                        if (subStep === 0 || subStep === 8 || subStep === 10) {
+                            const bassOsc = ctx.createOscillator();
+                            const bassGain = ctx.createGain();
+                            bassOsc.type = 'sine';
+                            const bassFreq = (subStep === 10) ? curChord.root * 1.5 : curChord.root;
+                            bassOsc.frequency.setValueAtTime(bassFreq * 1.05, now);
+                            bassOsc.frequency.exponentialRampToValueAtTime(bassFreq, now + 0.05);
+                            bassGain.gain.setValueAtTime(0.045, now);
+                            bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+                            bassOsc.connect(bassGain);
+                            bassGain.connect(ctx.destination);
+                            bassOsc.start(now);
+                            bassOsc.stop(now + 0.28);
+                        }
+
+                        // B. ACORDES RHODES / PIANO ELÉCTRICO CÁLIDO (sincopados en pasos 0, 4, 7, 12)
+                        if (subStep === 0 || subStep === 4 || subStep === 7 || subStep === 12) {
+                            curChord.notes.forEach((freq, idx) => {
+                                const chordOsc = ctx.createOscillator();
+                                const chordFilter = ctx.createBiquadFilter();
+                                const chordGain = ctx.createGain();
+                                chordOsc.type = 'triangle';
+                                chordOsc.frequency.setValueAtTime(freq, now);
+                                
+                                chordFilter.type = 'lowpass';
+                                chordFilter.frequency.setValueAtTime(1800, now);
+
+                                const chordVol = (subStep === 0) ? 0.016 : 0.011;
+                                chordGain.gain.setValueAtTime(chordVol, now);
+                                chordGain.gain.exponentialRampToValueAtTime(0.0005, now + 0.32);
+
+                                chordOsc.connect(chordFilter);
+                                chordFilter.connect(chordGain);
+                                chordGain.connect(ctx.destination);
+                                chordOsc.start(now);
+                                chordOsc.stop(now + 0.32);
+                            });
+                        }
+
+                        // C. MELODÍA MARIMBA TUTORIAL (amigable, alegre y motivadora)
+                        const melNote = melodyMotif.find(m => m.step === (step % 64));
+                        if (melNote) {
+                            const marimbaOsc = ctx.createOscillator();
+                            const marimbaGain = ctx.createGain();
+                            marimbaOsc.type = 'sine';
+                            marimbaOsc.frequency.setValueAtTime(melNote.freq, now);
+                            marimbaGain.gain.setValueAtTime(0.022, now);
+                            marimbaGain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+                            marimbaOsc.connect(marimbaGain);
+                            marimbaGain.connect(ctx.destination);
+                            marimbaOsc.start(now);
+                            marimbaOsc.stop(now + 0.22);
+                        }
+
+                        // D. PERCUSIÓN ACÚSTICA: SHAKER (en cada tiempo) & RIMSHOT SUAVE (en 4 y 12)
+                        // Shaker suave
+                        const shakerBuf = ctx.createBuffer(1, ctx.sampleRate * 0.018, ctx.sampleRate);
+                        const sData = shakerBuf.getChannelData(0);
+                        for (let i = 0; i < sData.length; i++) sData[i] = Math.random() * 2 - 1;
+                        const shakerSrc = ctx.createBufferSource();
+                        shakerSrc.buffer = shakerBuf;
+                        const shakerFilter = ctx.createBiquadFilter();
+                        shakerFilter.type = 'highpass';
+                        shakerFilter.frequency.setValueAtTime(6500, now);
+                        const shakerGain = ctx.createGain();
+                        const sVol = (subStep % 2 === 1) ? 0.012 : 0.006;
+                        shakerGain.gain.setValueAtTime(sVol, now);
+                        shakerGain.gain.exponentialRampToValueAtTime(0.0005, now + 0.018);
+                        shakerSrc.connect(shakerFilter);
+                        shakerFilter.connect(shakerGain);
+                        shakerGain.connect(ctx.destination);
+                        shakerSrc.start(now);
+
+                        // Rimshot acústico suave en pasos 4 y 12 (beat 2 y 4)
+                        if (subStep === 4 || subStep === 12) {
+                            const rimOsc = ctx.createOscillator();
+                            const rimGain = ctx.createGain();
+                            rimOsc.type = 'triangle';
+                            rimOsc.frequency.setValueAtTime(820, now);
+                            rimOsc.frequency.exponentialRampToValueAtTime(140, now + 0.035);
+                            rimGain.gain.setValueAtTime(0.025, now);
+                            rimGain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+                            rimOsc.connect(rimGain);
+                            rimGain.connect(ctx.destination);
+                            rimOsc.start(now);
+                            rimOsc.stop(now + 0.035);
+                        }
+
+                        step = (step + 1) % 64;
+                    }, 131); // ~114 BPM
+                } catch (e) { }
+            },
+
+            stopTutorialMusic() {
+                if (tutorialMusicInterval) {
+                    clearInterval(tutorialMusicInterval);
+                    tutorialMusicInterval = null;
+                }
+                const audio = document.getElementById('customUserAudio');
+                if (audio) {
+                    audio.pause();
+                }
+            }
+        };
+
+        function toggleAudio() {
+            isAudioMuted = !isAudioMuted;
+            const btn = document.getElementById('audioToggleBtn');
+            if (isAudioMuted) {
+                btn.innerHTML = '🔇 Efectos OFF';
+                btn.classList.add('muted');
+            } else {
+                btn.innerHTML = '🔊 Efectos ON';
+                btn.classList.remove('muted');
+                getAudioContext();
+                Sound.click();
+            }
+        }
+
+        function toggleMusic() {
+            isMusicEnabled = !isMusicEnabled;
+            const btn = document.getElementById('musicToggleBtn');
+            if (isMusicEnabled) {
+                btn.innerHTML = '🎵 Música Tutorial';
+                btn.classList.add('active-btn');
+                btn.classList.remove('muted');
+                getAudioContext();
+                Sound.startTutorialMusic();
+            } else {
+                btn.innerHTML = '🎵 Música OFF';
+                btn.classList.remove('active-btn');
+                btn.classList.add('muted');
+                Sound.stopTutorialMusic();
+            }
+        }
+
+        function handleCustomAudioFile(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const audio = document.getElementById('customUserAudio');
+                audio.src = url;
+                customAudioActive = true;
+                const loadBtn = document.getElementById('loadCustomBtn');
+                loadBtn.innerHTML = `🎵 MP3: ${file.name.substring(0, 10)}...`;
+                loadBtn.classList.add('active-btn');
+                const musicBtn = document.getElementById('musicToggleBtn');
+                musicBtn.innerHTML = '🎵 Música MP3';
+                musicBtn.classList.add('active-btn');
+                isMusicEnabled = true;
+                Sound.click();
+            }
+        }
+
+        // ----------------------------------------------------------
+        // 3. FONDO DINÁMICO DE MALLA Y PARTICULAS (CANVAS 2D)
+        // ----------------------------------------------------------
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.2 + 0.8;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * -0.7 - 0.2;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.y < 0) {
+                    this.y = canvas.height;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(0, 210, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 40; i++) particles.push(new Particle());
+
+        function animateBg() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const grad = ctx.createRadialGradient(
+                canvas.width / 2, canvas.height / 2, 50,
+                canvas.width / 2, canvas.height / 2, canvas.width * 0.7
+            );
+            grad.addColorStop(0, '#0a1628');
+            grad.addColorStop(1, '#050b14');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateBg);
+        }
+        animateBg();
+
+        // ----------------------------------------------------------
+        // 4. CAMBIO DE ASPECTO (9:16 vs 16:9)
+        // ----------------------------------------------------------
+        function setRatio(ratio) {
+            const screen = document.getElementById('motionScreen');
+            const btn916 = document.getElementById('btn916');
+            const btn169 = document.getElementById('btn169');
+
+            if (ratio === '9-16') {
+                screen.className = 'motion-screen ratio-9-16';
+                btn916.classList.add('active');
+                btn169.classList.remove('active');
+            } else {
+                screen.className = 'motion-screen ratio-16-9';
+                btn169.classList.add('active');
+                btn916.classList.remove('active');
+            }
+            Sound.click();
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                document.exitFullscreen().catch(() => {});
+            }
+        }
+
+        // ----------------------------------------------------------
+        // 5. CONTROLADOR DE CURSOR VIRTUAL Y SUBTÍTULOS
+        // ----------------------------------------------------------
+        const cursor = document.getElementById('virtualCursor');
+        const caption = document.getElementById('captionCard');
+        const captionIcon = document.getElementById('captionIcon');
+        const captionText = document.getElementById('captionText');
+
+        function showCaption(icon, text) {
+            captionIcon.innerText = icon;
+            captionText.innerHTML = text;
+            caption.classList.add('show');
+        }
+
+        function hideCaption() {
+            caption.classList.remove('show');
+        }
+
+        function moveCursorTo(elementOrCoords, duration = 450) {
+            return new Promise((resolve) => {
+                cursor.style.display = 'block';
+                let targetX = 0, targetY = 0;
+
+                if (typeof elementOrCoords === 'object' && elementOrCoords.nodeType) {
+                    const screenRect = document.getElementById('motionScreen').getBoundingClientRect();
+                    const rect = elementOrCoords.getBoundingClientRect();
+                    targetX = rect.left - screenRect.left + rect.width / 2;
+                    targetY = rect.top - screenRect.top + rect.height / 2;
+                } else if (elementOrCoords && elementOrCoords.x !== undefined) {
+                    targetX = elementOrCoords.x;
+                    targetY = elementOrCoords.y;
+                }
+
+                cursor.style.transition = `transform ${duration}ms cubic-bezier(0.2, 0.8, 0.2, 1)`;
+                cursor.style.transform = `translate(${targetX}px, ${targetY}px)`;
+                setTimeout(resolve, duration);
+            });
+        }
+
+        function clickCursor() {
+            Sound.click();
+            const wave = document.createElement('div');
+            wave.className = 'cursor-click-wave';
+            cursor.appendChild(wave);
+            setTimeout(() => wave.remove(), 450);
+        }
+
+        const wait = (ms) => new Promise(res => setTimeout(res, ms));
+
+        // ----------------------------------------------------------
+        // 6. SECUENCIA CINEMÁTICA Y TUTORIAL COMPLETO (~48 SEGUNDOS)
+        // ----------------------------------------------------------
+        let isPlaying = false;
+
+        async function startCountdownAndPlay() {
+            if (isPlaying) return;
+            isPlaying = true;
+
+            const studioBar = document.getElementById('studioBar');
+            studioBar.classList.add('auto-hide');
+
+            const countdownOverlay = document.getElementById('countdownOverlay');
+            const countdownNumber = document.getElementById('countdownNumber');
+
+            countdownOverlay.classList.add('active');
+
+            for (let i = 3; i >= 1; i--) {
+                countdownNumber.innerText = i;
+                Sound.type(40);
+                await wait(800);
+            }
+
+            countdownNumber.innerText = '¡ACCIÓN!';
+            Sound.whoosh();
+            if (isMusicEnabled) Sound.startTutorialMusic();
+            await wait(650);
+            countdownOverlay.classList.remove('active');
+
+            await runFullCommercialSequence();
+
+            studioBar.classList.remove('auto-hide');
+            isPlaying = false;
+        }
+
+        async function runFullCommercialSequence() {
+            const screen = document.getElementById('motionScreen');
+            const scene1 = document.getElementById('scene1');
+            const scene2 = document.getElementById('scene2');
+            const scene3 = document.getElementById('scene3');
+            const scene4 = document.getElementById('scene4');
+            const progressBar = document.getElementById('timelineProgress');
+
+            // Reset inicial
+            progressBar.style.width = '0%';
+            scene1.className = 'scene scene-intro active';
+            scene2.className = 'scene scene-web';
+            scene3.className = 'scene scene-whatsapp';
+            scene4.className = 'scene scene-cta';
+            hideCaption();
+            cursor.style.display = 'none';
+
+            // Reset elementos web
+            const searchInput = document.getElementById('webSearchInput');
+            const autocompleteBox = document.getElementById('webSearchAutocomplete');
+            searchInput.value = '';
+            autocompleteBox.classList.remove('active');
+            document.getElementById('webCartCount').innerText = '0';
+            document.getElementById('webQvModal').classList.remove('active');
+            document.getElementById('webCartModal').classList.remove('active');
+            document.getElementById('cardBombaVacio').classList.remove('focused');
+            
+            const nameInput = document.getElementById('webCustomerName');
+            const phoneInput = document.getElementById('webCustomerPhone');
+            const nameBadge = document.getElementById('nameValidBadge');
+            const phoneBadge = document.getElementById('phoneValidBadge');
+            const sendBtn = document.getElementById('webSendWhatsAppBtn');
+            const cartTotalBox = document.getElementById('cartTotalBox');
+
+            nameInput.value = '';
+            phoneInput.value = '';
+            nameInput.className = '';
+            phoneInput.className = '';
+            nameBadge.classList.remove('show');
+            phoneBadge.classList.remove('show');
+            sendBtn.classList.remove('pulse-ready');
+            cartTotalBox.classList.remove('highlight-bump');
+
+            // Reset WhatsApp
+            document.getElementById('waMsg1').classList.remove('show');
+            document.getElementById('waMsg2').classList.remove('show');
+            document.getElementById('waMsg3').classList.remove('show');
+            document.getElementById('waMsg4').classList.remove('show');
+            document.getElementById('waTypingIndicator').classList.remove('active');
+            document.getElementById('waStamp').classList.remove('show');
+            document.getElementById('waStatusText').innerText = 'en línea';
+
+            // ==========================================
+            // FASE 1: EL GANCHO (0s - 5.5s)
+            // ==========================================
+            progressBar.style.width = '10%';
+            Sound.whoosh();
+            showCaption('🧰', '¿Buscas herramientas y repuestos en <strong>Cabimas</strong>?');
+            await wait(4200);
+
+            // ==========================================
+            // FASE 2: ENTRADA AL CATÁLOGO WEB REAL (5.5s - 16s)
+            // ==========================================
+            progressBar.style.width = '25%';
+            Sound.whoosh();
+            scene1.classList.remove('active');
+            scene2.classList.add('active');
+
+            showCaption('🌐', '¡Aprende cómo usar el catálogo online de <strong>NOVA RefriMotors</strong>!');
+            await wait(2200);
+
+            // El cursor explora la categoría "Herramientas"
+            showCaption('📂', 'Navega por categorías o usa el buscador inteligente');
+            const catHerramientas = document.getElementById('catBtnHerramientas');
+            await moveCursorTo(catHerramientas, 650);
+            clickCursor();
+            document.getElementById('catBtnTodos').classList.remove('active');
+            catHerramientas.classList.add('active');
+            await wait(1400);
+
+            // El cursor sube a la barra de búsqueda
+            showCaption('🔍', 'Buscador inteligente con <strong>autocompletado en vivo</strong>');
+            await moveCursorTo(searchInput, 600);
+            clickCursor();
+            searchInput.classList.add('typing-active');
+
+            // Mecanografiado letra por letra con sonidos táctiles de teclado
+            const query = "bomba vacio";
+            for (let i = 0; i < query.length; i++) {
+                searchInput.value += query[i];
+                Sound.type((i % 3) * 30);
+                
+                // Al llegar a la 5ta letra, abre el dropdown inteligente
+                if (i === 4) {
+                    autocompleteBox.classList.add('active');
+                    Sound.searchShimmer();
+                }
+                await wait(130);
+            }
+            await wait(800);
+
+            // Cursor baja a seleccionar la sugerencia exacta en el dropdown
+            showCaption('⚡', '¡Coincidencia instantánea con precios y fotos!');
+            const autoItem1 = document.getElementById('autoItem1');
+            await moveCursorTo(autoItem1, 550);
+            clickCursor();
+            Sound.pop();
+            searchInput.value = "Bomba de Vacío 1/4 HP Steinmann";
+            autocompleteBox.classList.remove('active');
+            searchInput.classList.remove('typing-active');
+            await wait(800);
+
+            // ==========================================
+            // FASE 3: PRODUCTO DESTACADO Y FICHA TÉCNICA (16s - 24s)
+            // ==========================================
+            progressBar.style.width = '45%';
+            showCaption('💵', 'Precios oficiales a <strong>Tasa BCV del Día</strong>');
+            const cardBomba = document.getElementById('cardBombaVacio');
+            cardBomba.classList.add('focused');
+            await moveCursorTo(cardBomba, 600);
+            clickCursor();
+            await wait(900);
+
+            // Abre modal de Vista Rápida
+            showCaption('🔎', 'Ficha técnica detallada, especificaciones y garantía');
+            const qvModal = document.getElementById('webQvModal');
+            qvModal.classList.add('active');
+            Sound.whoosh();
+            await wait(2400);
+
+            // Clic en agregar al pedido
+            const qvAddBtn = document.getElementById('qvAddBtn');
+            await moveCursorTo(qvAddBtn, 500);
+            clickCursor();
+            qvModal.classList.remove('active');
+
+            // ==========================================
+            // FASE 4: PARTÍCULA Y FORMULARIO (24s - 33s)
+            // ==========================================
+            progressBar.style.width = '60%';
+            Sound.pop();
+
+            // Animación de partícula volando al botón del carrito
+            const flyParticle = document.getElementById('flyParticle');
+            const cartBtn = document.getElementById('webCartBtn');
+            const cardRect = cardBomba.getBoundingClientRect();
+            const cartRect = cartBtn.getBoundingClientRect();
+            const screenRect = screen.getBoundingClientRect();
+
+            flyParticle.style.display = 'block';
+            flyParticle.style.left = `${cardRect.left - screenRect.left + 50}px`;
+            flyParticle.style.top = `${cardRect.top - screenRect.top + 50}px`;
+
+            await wait(40);
+            flyParticle.style.transition = 'all 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
+            flyParticle.style.left = `${cartRect.left - screenRect.left + 25}px`;
+            flyParticle.style.top = `${cartRect.top - screenRect.top + 20}px`;
+            flyParticle.style.transform = 'translate(-50%, -50%) scale(0.3)';
+
+            await wait(680);
+            flyParticle.style.display = 'none';
+            flyParticle.style.transform = 'translate(-50%, -50%) scale(1)';
+
+            cartBtn.classList.add('cart-bump');
+            document.getElementById('webCartCount').innerText = '1';
+            Sound.pop();
+            await wait(400);
+            cartBtn.classList.remove('cart-bump');
+
+            // Desplegar carrito (Muestra subtotal estándar de la web)
+            showCaption('🛒', 'Revisa tu pedido y completa tus datos de contacto');
+            const cartModal = document.getElementById('webCartModal');
+            cartModal.classList.add('active');
+            Sound.whoosh();
+            await wait(1200);
+
+            // Campo 1: Nombre del cliente
+            await moveCursorTo(nameInput, 500);
+            clickCursor();
+            nameInput.classList.add('field-focused');
+
+            const clientName = "Carlos Mendoza";
+            for (let k = 0; k < clientName.length; k++) {
+                nameInput.value += clientName[k];
+                Sound.type((k % 4) * 25);
+                await wait(85);
+            }
+            nameInput.classList.remove('field-focused');
+            nameInput.classList.add('field-success');
+            nameBadge.classList.add('show');
+            Sound.validPing();
+            await wait(600);
+
+            // Campo 2: Teléfono WhatsApp
+            await moveCursorTo(phoneInput, 450);
+            clickCursor();
+            phoneInput.classList.add('field-focused');
+
+            const clientPhone = "0414-1234567";
+            for (let k = 0; k < clientPhone.length; k++) {
+                phoneInput.value += clientPhone[k];
+                Sound.type((k % 2) * 40);
+                await wait(80);
+            }
+            phoneInput.classList.remove('field-focused');
+            phoneInput.classList.add('field-success');
+            phoneBadge.classList.add('show');
+            Sound.validPing();
+            await wait(600);
+
+            // Total del carrito
+            cartTotalBox.classList.add('highlight-bump');
+            Sound.cashRegister();
+            await wait(700);
+
+            // Enviar a WhatsApp
+            showCaption('📲', 'Envía tu lista directo a nuestro <strong>WhatsApp oficial</strong>');
+            sendBtn.classList.add('pulse-ready');
+            await moveCursorTo(sendBtn, 500);
+            clickCursor();
+            Sound.waSend();
+            await wait(1200);
+
+            cartModal.classList.remove('active');
+
+            // ==========================================
+            // FASE 5: CHAT DE WHATSAPP (NOVACLIENTES CONFIRMADO EN CHAT)
+            // ==========================================
+            progressBar.style.width = '80%';
+            Sound.whoosh();
+            scene2.classList.remove('active');
+            scene3.classList.add('active');
+            cursor.style.display = 'none';
+
+            // Mensaje 1: Llega el pedido generado por la web consultando NovaClientes
+            showCaption('💬', '¡El pedido llega al WhatsApp y el descuento <strong>NovaClientes</strong> se coordina en el chat!');
+            const msg1 = document.getElementById('waMsg1');
+            msg1.classList.add('show');
+            Sound.waSend();
+            await wait(2400);
+
+            // Vendedor escribiendo...
+            document.getElementById('waStatusText').innerText = 'escribiendo...';
+            const typingIndicator = document.getElementById('waTypingIndicator');
+            typingIndicator.classList.add('active');
+            await wait(2200);
+            typingIndicator.classList.remove('active');
+            document.getElementById('waStatusText').innerText = 'en línea';
+
+            // Mensaje 2: Respuesta del vendedor NOVA aplicando el precio especial
+            showCaption('⚡', 'El vendedor valida tu membresía y aplica el <strong>precio especial</strong>');
+            const msg2 = document.getElementById('waMsg2');
+            msg2.classList.add('show');
+            Sound.waReceive();
+            await wait(3600);
+
+            // Mensaje 3: Cliente pide delivery y confirma Pago Móvil
+            showCaption('🛵', 'Coordinamos delivery seguro a tu taller en Cabimas');
+            const msg3 = document.getElementById('waMsg3');
+            msg3.classList.add('show');
+            Sound.waSend();
+            await wait(2400);
+
+            // Mensaje 4: Vendedor confirma despacho
+            showCaption('🤝', 'Pago verificado y motorizado en camino');
+            const msg4 = document.getElementById('waMsg4');
+            msg4.classList.add('show');
+            Sound.waReceive();
+            await wait(1800);
+
+            // Stamp de COMPRA CONCRETADA
+            const stamp = document.getElementById('waStamp');
+            stamp.classList.add('show');
+            Sound.success();
+            await wait(3800);
+
+            // ==========================================
+            // FASE 6: CALL TO ACTION FINAL (45s - 50s)
+            // ==========================================
+            progressBar.style.width = '100%';
+            Sound.whoosh();
+            scene3.classList.remove('active');
+            scene4.classList.add('active');
+
+            showCaption('🚀', '¡Visita ya nuestra web y haz tu pedido en segundos!');
+            await wait(4800);
+
+            hideCaption();
+            showCaption('✨', 'Fin de la demostración. ¡Presiona <strong>▶ Iniciar / Grabar</strong> para repetir!');
+        }
+
+        // Mostrar la barra superior si el usuario acerca el ratón al borde
+        document.addEventListener('mousemove', (e) => {
+            const bar = document.getElementById('studioBar');
+            if (e.clientY < 75) {
+                bar.classList.add('force-show');
+            } else {
+                bar.classList.remove('force-show');
+            }
+        });
+    </script>
+</body>
+
+</html>
