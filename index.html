@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/quickview.css">
     <link rel="stylesheet" href="css/carrito.css">
-    <link rel="stylesheet" href="css/factura.css">
     <link rel="stylesheet" href="css/alertas.css">
     <link rel="icon" type="image/x-icon" href="assets/nova_favicon.png">
 </head>
@@ -139,49 +138,23 @@
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
             <div class="customer-form">
-                <label for="customerName">Nombre del Cliente:</label>
-                <input type="text" id="customerName" placeholder="Ingresa Nombre del Cliente" required>
+                <label for="customerName">Tu Nombre:</label>
+                <input type="text" id="customerName" placeholder="Ingresa tu Nombre y Apellido" required>
 
-                <div class="form-row-2">
-                    <div class="form-group">
-                        <label for="customerRif">RIF / Cédula:</label>
-                        <input type="text" id="customerRif" placeholder="V-12345678 / J-123456789"
-                            oninput="this.value = this.value.replace(/[^vjgeVJGE0-9-]/g, '')" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="customerPhone">WhatsApp / Teléfono:</label>
-                        <input type="tel" id="customerPhone" placeholder="0414-1234567"
-                            oninput="this.value = this.value.replace(/[^0-9+\s-]/g, '')" required>
-                    </div>
-                </div>
-
-                <label for="paymentMethod">Método de Pago:</label>
-                <select id="paymentMethod" class="customer-select">
-                    <option value="EFECTIVO_USD">Efectivo USD</option>
-                    <option value="EFECTIVO_BS">Efectivo Bs</option>
-                    <option value="DEBITO">Débito</option>
-                    <option value="TRANSFERENCIA">Transferencia</option>
-                    <option value="BIOPAGO">Biopago</option>
-                    <option value="OTRAS FORMAS DE PAGO">Otras formas de pago (Binance/Zelle)</option>
-                </select>
+                <label for="customerPhone">WhatsApp / TelÃ©fono de Contacto:</label>
+                <input type="tel" id="customerPhone" placeholder="0414-1234567"
+                    oninput="this.value = this.value.replace(/[^0-9+\s-]/g, '')" required>
             </div>
             <div class="cart-total">
-                <div style="font-size: 13px; color: var(--text-light);">Total: <span id="cart-total-public">$0.00</span>
-                </div>
-                <div style="font-size: 16px; color: var(--nova-blue); font-weight: 900;">Descuento NovaClientes: <span
-                        id="cart-total-nova">$0.00</span></div>
+                <div style="font-size: 13px; color: var(--text-light);">Total Estimado: <span id="cart-total-public">$0.00</span></div>
+                <div style="font-size: 16px; color: var(--nova-blue); font-weight: 900;">Precio Especial Clientes: <span id="cart-total-nova">$0.00</span></div>
             </div>
-            <button class="whatsapp-btn" onclick="sendWhatsApp()" style="margin-bottom: 8px;">
+            <button class="whatsapp-btn" onclick="sendWhatsApp()">
                 <img src="assets/whatsapp-icono.png" alt="Icono WhatsApp">
-                Enviar Pedido
-            </button>
-            <button class="invoice-preview-btn" onclick="previewInvoice()">
-                👁️ Vista Previa de la Factura
+                Consultar Disponibilidad por WhatsApp
             </button>
         </div>
     </div>
-
-    <!-- PIE DE PÁGINA PROFESIONAL -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
@@ -212,25 +185,6 @@
             <p>Precios sujetos a cambio según tasa BCV del día.</p>
         </div>
     </footer>
-            <div class="invoice-meta">
-                <div>FECHA: <span id="inv-fecha"></span> &nbsp;&nbsp;&nbsp;HORA: <span id="inv-hora"></span></div>
-            </div>
-            <div class="invoice-divider"></div>
-            <div class="invoice-items" id="inv-items">
-                <!-- Items se inyectan acá -->
-            </div>
-            <div class="invoice-divider"></div>
-            <div class="invoice-totals" id="inv-totals-container">
-                <!-- Totals and dynamic payment methods injected here -->
-            </div>
-            <div class="invoice-footer">
-                <div class="invoice-notes">
-                    *** CONSERVE SU RECIBO PARA CUALQUIER RECLAMO ***<br>
-                    **** LAS PIEZAS ELECTRICAS NO TIENEN GARANTIA ****
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- ==========================================
          MODAL DE AVISOS Y ALERTAS ATRACTIVAS
@@ -247,53 +201,10 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         MODAL DE VISTA PREVIA DE FACTURA DIGITAL
-    =========================================== -->
-    <div class="nova-preview-overlay" id="invoicePreviewModal" role="dialog" aria-modal="true" aria-hidden="true"
-        onclick="closeInvoicePreview(event)">
-        <div class="nova-preview-card" onclick="event.stopPropagation()">
-            <div class="nova-preview-header">
-                <div class="nova-preview-title-group">
-                    <span class="nova-preview-badge">TICKET DIGITAL</span>
-                    <h3 class="nova-preview-title">Vista Previa de la Factura</h3>
-                </div>
-                <button class="nova-preview-close" onclick="closeInvoicePreview()"
-                    aria-label="Cerrar vista previa">✕</button>
-            </div>
-
-            <div id="invoicePreviewNotice" class="nova-preview-tip">
-                💡 <strong>Vista previa lista:</strong> Revisa el detalle o usa los botones inferiores para copiar o
-                descargar la factura.
-            </div>
-
-            <div class="nova-preview-body">
-                <div class="nova-preview-img-box">
-                    <img id="invoicePreviewImg" class="nova-preview-img" src="" alt="Factura Nova RefriMotors">
-                </div>
-            </div>
-
-            <div class="nova-preview-footer">
-                <button class="nova-preview-btn nova-preview-btn-copy" id="btnCopyFromPreview"
-                    onclick="copyInvoiceFromPreview()">
-                    📋 Copiar Imagen
-                </button>
-                <button class="nova-preview-btn nova-preview-btn-download" onclick="downloadInvoiceFromPreview()">
-                    📥 Descargar
-                </button>
-                <button class="nova-preview-btn nova-preview-btn-close" onclick="closeInvoicePreview()">
-                    Cerrar
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- BASE DE DATOS CENTRALIZADA DE PRODUCTOS -->
     <script src="js/productos.js"></script>
-    <!-- LÃ“GICA DE PROGRAMACIÃ“N Y ESTADO DE APLICACIÃ“N -->
+    <!-- LOGICA DE PROGRAMACION Y CONSULTA DE PRECIOS PARA CLIENTES -->
     <script src="js/logica-index.js"></script>
-    <!-- GENERADOR DE FACTURAS EN CANVAS 2D Y SISTEMA DE ALERTAS NOVA -->
-    <script src="js/factura-canvas.js"></script>
 </body>
 
 </html>

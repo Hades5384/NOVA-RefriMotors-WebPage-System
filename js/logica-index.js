@@ -460,11 +460,75 @@ function toggleCart() {
 }
 
 // ==========================================
-// NOTA ARQUITECTONICA:
-// El motor de Facturacion en Canvas 2D, Vista Previa,
-// Copiado/Descarga y Sistema de Alertas Nova se encuentran
-// modularizados en: factura-canvas.js
+// SISTEMA DE ALERTAS Y AVISOS NOVA
 // ==========================================
+let _novaAlertCallback = null;
+
+function showNovaAlert({ title, message, type = 'info', confirmText = 'Entendido', onConfirm = null }) {
+    _novaAlertCallback = onConfirm;
+    const modal = document.getElementById('novaAlertModal');
+    const titleEl = document.getElementById('novaAlertTitle');
+    const msgEl = document.getElementById('novaAlertMessage');
+    const iconEl = document.getElementById('novaAlertIcon');
+    const btnEl = document.getElementById('novaAlertConfirmBtn');
+
+    if (!modal) {
+        alert(message);
+        if (onConfirm) onConfirm();
+        return;
+    }
+
+    if (titleEl) titleEl.innerText = title;
+    if (msgEl) msgEl.innerText = message;
+    if (btnEl) btnEl.innerText = confirmText;
+
+    if (iconEl) {
+        iconEl.className = 'nova-alert-icon ' + type;
+        if (type === 'warning') {
+            iconEl.innerHTML = `
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>`;
+        } else if (type === 'success') {
+            iconEl.innerHTML = `
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>`;
+        } else if (type === 'error') {
+            iconEl.innerHTML = `
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>`;
+        } else {
+            iconEl.innerHTML = `
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>`;
+        }
+    }
+
+    modal.classList.add('active');
+    if (btnEl) btnEl.focus();
+}
+
+function closeNovaAlert(event) {
+    if (event && event.target !== event.currentTarget && !event.target.classList.contains('nova-alert-btn')) {
+        return;
+    }
+    const modal = document.getElementById('novaAlertModal');
+    if (modal) modal.classList.remove('active');
+    if (_novaAlertCallback) {
+        const cb = _novaAlertCallback;
+        _novaAlertCallback = null;
+        try { cb(); } catch (err) { console.error(err); }
+    }
+}
 
 // ==========================================
 // ENVÍO DE PEDIDO POR WHATSAPP
@@ -518,12 +582,7 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const alertModal = document.getElementById('novaAlertModal');
         if (alertModal && alertModal.classList.contains('active')) {
-            if (typeof closeNovaAlert === 'function') closeNovaAlert();
-            return;
-        }
-        const previewModal = document.getElementById('invoicePreviewModal');
-        if (previewModal && previewModal.classList.contains('active')) {
-            if (typeof closeInvoicePreview === 'function') closeInvoicePreview();
+            closeNovaAlert();
             return;
         }
         const qvModal = document.getElementById('quickViewModal');
