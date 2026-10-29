@@ -1,0 +1,155 @@
+﻿/**
+ * ==============================================================================
+ * NOVA REFRIMOTORS - SISTEMA DE ALERTAS Y AVISOS MODALES
+ * Archivo: css/alertas.css
+ * ==============================================================================
+ * Contiene overlay modal, tarjeta de aviso, iconos vectoriales animados
+ * por estado (warning, success, error, info), tipografia y boton interactivo.
+ * ==============================================================================
+ */
+
+/* ==========================================
+   MODAL DE ALERTAS NOVA
+========================================== */
+.nova-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(11, 19, 43, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 20px;
+}
+.nova-alert-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nova-alert-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    padding: 32px 28px 28px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 25px 60px -15px rgba(0, 45, 98, 0.35), 0 0 0 1px rgba(226, 232, 240, 0.8);
+    transform: scale(0.92) translateY(12px);
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.nova-alert-overlay.active .nova-alert-card {
+    transform: scale(1) translateY(0);
+}
+
+/* ==========================================
+   ICONOS VECTORIALES ANIMADOS
+========================================== */
+.nova-alert-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: novaAlertBounce 0.4s ease forwards;
+}
+
+@keyframes novaAlertBounce {
+    0% { transform: scale(0.7); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.nova-alert-icon.warning {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    color: #d97706;
+    border: 2px solid #fcd34d;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+}
+
+.nova-alert-icon.success {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    color: #059669;
+    border: 2px solid #6ee7b7;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+}
+
+.nova-alert-icon.error {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    color: #dc2626;
+    border: 2px solid #fca5a5;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25);
+}
+
+.nova-alert-icon.info {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: var(--nova-blue);
+    border: 2px solid #93c5fd;
+    box-shadow: 0 8px 24px rgba(0, 69, 138, 0.25);
+}
+
+/* ==========================================
+   TEXTOS Y BOTONES DE ALERTA
+========================================== */
+.nova-alert-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 10px;
+    letter-spacing: -0.4px;
+}
+
+.nova-alert-message {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #64748b;
+    margin-bottom: 24px;
+    padding: 0 6px;
+}
+
+.nova-alert-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.nova-alert-btn {
+    width: 100%;
+    padding: 13px 24px;
+    background: linear-gradient(135deg, var(--nova-blue), #0056b3);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 14.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 69, 138, 0.3);
+}
+.nova-alert-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 69, 138, 0.45);
+    filter: brightness(1.05);
+}
+.nova-alert-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   RESPONSIVE ALERTAS (MOVIL PEQUENO)
+========================================== */
+@media (max-width: 480px) {
+    .nova-alert-card {
+        padding: 24px 20px 20px;
+        border-radius: 20px;
+    }
+}

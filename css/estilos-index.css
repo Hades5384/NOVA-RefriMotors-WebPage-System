@@ -1,0 +1,16 @@
+﻿/**
+ * ==============================================================================
+ * NOVA REFRIMOTORS - INDICE MAESTRO DE ESTILOS CSS
+ * Archivo: css/estilos-index.css
+ * ==============================================================================
+ * Orquesta y agrega las 6 hojas de estilo tematicas de la aplicacion.
+ * Permite retrocompatibilidad total con cualquier enlace previo al bundle CSS.
+ * ==============================================================================
+ */
+
+@import url('base.css');
+@import url('catalogo.css');
+@import url('quickview.css');
+@import url('carrito.css');
+@import url('factura.css');
+@import url('alertas.css');
