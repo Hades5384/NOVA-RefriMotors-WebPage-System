@@ -144,6 +144,9 @@ header {
     font-size: 13px; 
     transition: 0.3s; 
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 .cart-btn:hover { 
     background-color: var(--nova-blue); 
@@ -188,6 +191,17 @@ header {
 
 .footer-col ul li { 
     margin-bottom: 8px; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.footer-col ul li svg {
+    flex-shrink: 0;
+    color: var(--nova-blue);
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
+.site-footer .footer-col ul li svg {
+    color: #63b3ed;
 }
 
 .footer-bottom { 

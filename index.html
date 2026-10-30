@@ -22,7 +22,7 @@
 <body>
     <!-- BARRA DE ANUNCIO SUPERIOR -->
     <div class="top-announcement-bar">
-        <span>🎉 <b>¡Promoción!</b> Por tu primera compra grande obtén el delivery gratis.</span>
+        <span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg><b>¡Promoción!</b> Por tu primera compra grande obtén el delivery gratis.</span>
         <a href="https://wa.me/584246192394" target="_blank">¡Consulta al WhatsApp!</a>
     </div>
 
@@ -46,7 +46,7 @@
                 Tasa BCV del Día: <span id="bcv-display">Bs. 771.00</span>
             </div>
         </div>
-        <button class="cart-btn" onclick="toggleCart()">🛒 Mi Pedido (<span id="cart-count">0</span>)</button>
+        <button class="cart-btn" onclick="toggleCart()"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span>Mi Pedido (<span id="cart-count">0</span>)</span></button>
     </header>
 
     <!-- CATEGORÍAS -->
@@ -79,7 +79,7 @@
     =========================================== -->
     <div class="quick-view-overlay" id="quickViewModal" onclick="closeQuickView(event)">
         <div class="quick-view-box" onclick="event.stopPropagation()">
-            <span class="close-qv" onclick="closeQuickView(event)">✖</span>
+            <span class="close-qv" onclick="closeQuickView(event)" title="Cerrar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
 
             <div class="qv-gallery">
                 <img id="qvMainImg" class="qv-main-img" src="" alt="Producto" onclick="openZoom()"
@@ -123,7 +123,7 @@
 
     <!-- MODAL PARA ZOOM DE IMAGEN -->
     <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom(event)">
-        <span class="close-zoom" onclick="closeZoom(event)">✖</span>
+        <span class="close-zoom" onclick="closeZoom(event)" title="Cerrar"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
         <img class="zoom-img" id="zoomImg" src="" alt="Imagen Expandida" onclick="event.stopPropagation()">
     </div>
 
@@ -133,7 +133,7 @@
     <div class="cart-modal" id="cartModal">
         <div class="cart-header">
             <h2>Carrito de Compras</h2>
-            <div class="close-btn" style="cursor:pointer;" onclick="toggleCart()">✖</div>
+            <div class="close-btn" style="cursor:pointer;" onclick="toggleCart()" title="Cerrar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
         </div>
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
@@ -166,17 +166,17 @@
             <div class="footer-col">
                 <h3>Contacto Directo</h3>
                 <ul>
-                    <li>📞 +58 424-6192394</li>
-                    <li>💬 Soporte por WhatsApp</li>
-                    <li>📍 Cabimas, Estado Zulia, Venezuela</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+58 424-6192394</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> Soporte por WhatsApp</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Cabimas, Estado Zulia, Venezuela</li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Información de Utilidad</h3>
                 <ul>
-                    <li>⏰ Lun - Sáb: 8:00 AM - 5:00 PM</li>
-                    <li>🚚 Envíos locales seguros</li>
-                    <li>🛡️ Garantía directa en equipos de refrigeración</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Lun - SÃ¡b: 8:00 AM - 5:00 PM</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> EnvÃ­os locales seguros</li>
+                    <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> GarantÃ­a directa en equipos de refrigeraciÃ³n</li>
                 </ul>
             </div>
         </div>
