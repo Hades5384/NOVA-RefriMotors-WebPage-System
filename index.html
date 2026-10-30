@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -79,7 +79,7 @@
     =========================================== -->
     <div class="quick-view-overlay" id="quickViewModal" onclick="closeQuickView(event)">
         <div class="quick-view-box" onclick="event.stopPropagation()">
-            <span class="close-qv" onclick="closeQuickView(event)" title="Cerrar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+            <span class="close-qv" onclick="event.stopPropagation(); closeQuickView();" title="Cerrar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
 
             <div class="qv-gallery">
                 <img id="qvMainImg" class="qv-main-img" src="" alt="Producto" onclick="openZoom()"
@@ -123,7 +123,7 @@
 
     <!-- MODAL PARA ZOOM DE IMAGEN -->
     <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom(event)">
-        <span class="close-zoom" onclick="closeZoom(event)" title="Cerrar"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+        <span class="close-zoom" onclick="event.stopPropagation(); closeZoom();" title="Cerrar"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
         <img class="zoom-img" id="zoomImg" src="" alt="Imagen Expandida" onclick="event.stopPropagation()">
     </div>
 

@@ -1,4 +1,4 @@
-﻿// ==========================================
+// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
 const TASA_BCV = 887.30;
@@ -263,7 +263,7 @@ function openZoom() {
 }
 
 function closeZoom(event) {
-    if (!event || event.target.id === 'zoomOverlay' || event.target.classList.contains('close-zoom')) {
+    if (!event || event.target.id === 'zoomOverlay' || (event.target.closest && event.target.closest('.close-zoom'))) {
         document.getElementById('zoomOverlay').classList.remove('active');
     }
 }
@@ -363,7 +363,7 @@ function changeMainImage(url, thumbElement) {
 }
 
 function closeQuickView(event) {
-    if (!event || event.target.id === 'quickViewModal' || event.target.classList.contains('close-qv')) {
+    if (!event || event.target.id === 'quickViewModal' || (event.target.closest && event.target.closest('.close-qv'))) {
         document.getElementById('quickViewModal').classList.remove('active');
         removeProductFromHash();
     }

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * NOVA REFRIMOTORS - MODAL DE VISTA RAPIDA (QUICKVIEW) Y ZOOM
  * Archivo: css/quickview.css
@@ -61,6 +61,12 @@
     color: var(--text-light); 
     z-index: 10; 
     transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-qv svg {
+    pointer-events: none;
 }
 .close-qv:hover { 
     color: var(--nova-red); 
@@ -278,6 +284,12 @@
     font-weight: bold; 
     z-index: 510; 
     transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-zoom svg {
+    pointer-events: none;
 }
 .close-zoom:hover { 
     color: var(--nova-red); 
