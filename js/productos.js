@@ -193,6 +193,111 @@ const products = [
     // ============================================================== //
 
     {
+        id: "TRA-LAVADORA-VAR",
+        name: "Transmisión Metálica para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Marcas",
+        desc: `<b>Caja de Transmisión Metálica para Lavadoras</b><br><br>El corazón mecánico de tu equipo. Transmisiones completas y ensambladas para lavadoras automáticas de carga superior. Contamos con modelos compatibles para LG, Samsung, Haier, Daewoo y Electrolux. Verifique el número de dientes (estrías), el tipo de eje (cuadrado) y la configuración de piñones de su transmisión original.`,
+        costoCompra: 27.17999874, // Base (TRA311)
+        images: ["productos/TRA302.webp", "productos/TRA300.webp", "productos/TRA308.webp", "productos/TRA311.webp", "productos/TRA312.webp"],
+        specs: { "Material": "Metal", "Tipo": "Transmisión Completa", "Uso": "Lavadoras Automáticas" },
+        variants: [
+            { id: "TRA311", name: "Samsung (GBW-10431C)", costoCompra: 27.17999874 },
+            { id: "TRA309", name: "LG / Electrolux (Eje 1)", costoCompra: 27.95000000 },
+            { id: "TRA308", name: "LG 15 KG (Grande Cam)", costoCompra: 30.50000000 },
+            { id: "TRA306", name: "Daewoo 10-13 KG (GM-3)", costoCompra: 31.15000000 },
+            { id: "TRA303", name: "Samsung 11 Dientes (GBW-104)", costoCompra: 31.15000000 },
+            { id: "TRA307", name: "Samsung (Eje Cuadrado)", costoCompra: 32.97999874 },
+            { id: "TRA310", name: "Genérica 11 Dientes (Puente Dorada)", costoCompra: 33.42999874 },
+            { id: "TRA301", name: "LG 11 Dientes (Un Piñón)", costoCompra: 33.45999747 },
+            { id: "TRA302", name: "LG 11 Dientes (Un Piñón GBW)", costoCompra: 33.45999747 },
+            { id: "TRA304", name: "Haier (Con Puente Pequeño)", costoCompra: 35.00000000 },
+            { id: "TRA305", name: "Haier (Con Puente Grande)", costoCompra: 35.00000000 },
+            { id: "TRA300", name: "Genérica (Con Puente Plateado)", costoCompra: 35.20999747 },
+            { id: "TRA312", name: "Haier 0030 (11 Dientes Lavado)", costoCompra: 52.00000000 }
+        ]
+    },
+
+    // --- CHUMACERAS / CAJAS DE ENGRANAJE ---
+    {
+        id: "CMC-LAVADORA-VAR",
+        name: "Chumacera (Caja de Engranaje) para Lavadora",
+        category: "Lavadoras",
+        model: "Doble Tina / Semiautomáticas",
+        desc: `<b>Chumacera / Caja de Transmisión Pequeña</b><br><br>Soportes de transmisión y engranajes para lavadoras de doble tina o semiautomáticas. Disponibles para marcas como Daka, Mabe, Samsung y Regina. Revise la longitud del eje y la forma de la base (plana o de 4 tornillos).`,
+        costoCompra: 1.40000000, // Base (CMC205)
+        images: ["productos/CMC200.webp", "productos/CMC205.webp", "productos/CMC207.webp"],
+        specs: { "Tipo": "Chumacera (Caja Reductora)", "Uso": "Lavadoras Doble Tina" },
+        variants: [
+            { id: "CMC205", name: "Daka (Eje Corto #6 Rev)", costoCompra: 1.40000000 },
+            { id: "CMC207", name: "Pequeña 4 Tornillos (Eje Cuadrado)", costoCompra: 1.59000253 },
+            { id: "CMC204", name: "Plana Grande 13cm (Eje Cuadrado Largo)", costoCompra: 2.10000000 },
+            { id: "CMC202", name: "Plana 12cm (Eje Cuadrado #8 C/Polea)", costoCompra: 2.49000253 },
+            { id: "CMC206", name: "Samsung / Regina 10D (#7 C/Polea)", costoCompra: 2.55000000 },
+            { id: "CMC203", name: "Plana Grande 13cm (Eje Cuadrado Corto)", costoCompra: 2.65000000 },
+            { id: "CMC200", name: "Daka (Eje Largo YX-167 Cuadrado)", costoCompra: 2.72000126 },
+            { id: "CMC201", name: "Mabe Asiática 11D (Estriado Sem)", costoCompra: 2.72000126 }
+        ]
+    },
+
+    // --- ACCESORIOS DE MANTENIMIENTO ---
+    {
+        id: "FRM-SPLIT-VAR",
+        name: "Funda Impermeable para Lavado de Aire Split",
+        category: "Herramientas", // O limpieza/mantenimiento
+        model: "Cubierta de Lavado",
+        desc: `<b>Funda Recolectora de Agua para Mantenimiento</b><br><br>Cubierta impermeable diseñada para el lavado profundo de consolas de aire acondicionado Split en interiores. Evita derrames y salpicaduras en las paredes y pisos del cliente durante el uso del hidrojet.`,
+        costoCompra: 6.30000000, // Base (FRM302)
+        images: ["productos/FRM302.webp", "productos/FRM301.webp"],
+        specs: { "Material": "Plástico Impermeable", "Uso": "Mantenimiento Preventivo", "Aplicación": "Evaporadores Split" },
+        variants: [
+            { id: "FRM302", name: "Para Consolas de 9K a 18K BTU", costoCompra: 6.30000000 },
+            { id: "FRM301", name: "Para Consolas de 18K a 36K BTU", costoCompra: 9.93846154 }
+        ]
+    },
+    {
+        id: "EMP900",
+        name: "Protector / Burlete de Puerta Antiroedor",
+        category: "Químicos", // O Ferretería/Hogar
+        model: "Burlete Inferior",
+        desc: `<b>Burlete Protector para Puertas</b><br><br>Goma selladora para la parte inferior de las puertas. Evita el escape de aire acondicionado de la habitación, bloquea la entrada de polvo, insectos y funciona como barrera antiroedores.`,
+        costoCompra: 2.09230769,
+        images: ["productos/EMP900.webp"],
+        specs: { "Tipo": "Burlete Sellador", "Uso": "Bajo Puertas", "Beneficio": "Aislamiento y Protección" }
+    },
+    {
+        id: "JMG357",
+        name: "Manguera de Desagüe Alta Calidad para Aire Split (8 Mts)",
+        category: "Aires Acondicionados",
+        model: "8 Metros",
+        desc: `<b>Rollo de Manguera de Desagüe (Alta Calidad)</b><br><br>Rollo de 8 metros de manguera corrugada premium para drenaje de aires acondicionados. Mayor resistencia a la intemperie y a los dobleces que las mangueras estándar.`,
+        costoCompra: 3.97692308,
+        images: ["productos/JMG357.webp"],
+        specs: { "Longitud": "8 Metros", "Calidad": "Premium", "Uso": "Drenaje de Condensación" }
+    },
+
+    // --- ACCESORIOS DE LAVADORA INDIVIDUALES ---
+    {
+        id: "ARO002",
+        name: "Aro de Tina de Secado para Lavadora (HWBR-DW-2001-P)",
+        category: "Lavadoras",
+        model: "Aro Superior",
+        desc: `<b>Aro de Contención para Tina de Secado (Centrífuga)</b><br><br>Anillo plástico superior de repuesto para la tina de exprimido o centrifugado en lavadoras de doble tina. Evita que la ropa se salga de la cesta durante el giro a alta velocidad.`,
+        costoCompra: 3.62999874,
+        images: ["productos/ARO002.webp"],
+        specs: { "Uso": "Tina Centrífuga", "Tipo de Lavadora": "Doble Tina", "Modelo": "HWBR-DW-2001-P" }
+    },
+    {
+        id: "AGT019",
+        name: "Agitador para Lavadora Whirlpool / Haceb",
+        category: "Lavadoras",
+        model: "Agitador de Columna",
+        desc: `<b>Agitador de Columna para Whirlpool / Haceb</b><br><br>Repuesto de agitador central tipo poste o columna, característico de las lavadoras de carga superior americanas. Asegura un movimiento enérgico y profundo de las prendas.`,
+        costoCompra: 11.44000253,
+        images: ["productos/AGT019.webp"],
+        specs: { "Tipo": "Agitador de Poste", "Compatibilidad": "Whirlpool / Haceb", "Uso": "Lavadora Carga Superior" }
+    },
+    {
         id: "PDV-DIGITAL-VAR",
         name: "Protector de Voltaje Digital (Degar)",
         category: "Protectores",
