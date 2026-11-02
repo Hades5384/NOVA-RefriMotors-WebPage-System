@@ -193,6 +193,134 @@ const products = [
     // ============================================================== //
 
     {
+        id: "BML-COMPLETA-VAR",
+        name: "Bomba de Drenaje / Desagüe para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Marcas",
+        desc: `<b>Bomba de Drenaje Completa para Lavadoras</b><br><br>Bombas de agua de repuesto para evacuación durante el ciclo de centrifugado. Equipos completos listos para instalar. Amplia compatibilidad con marcas líderes como Whirlpool, LG, Frigidaire, Amana y Haier. Seleccione el modelo según la forma de las boquillas y anclajes de su bomba original.`,
+        costoCompra: 6.34000253,
+        images: ["productos/BML115.webp", "productos/BML116.webp", "productos/BML118.webp"],
+        specs: { "Tipo": "Bomba Completa", "Uso": "Desagüe de Tina", "Voltaje": "110V/115V" },
+        variants: [
+            { id: "BML112", name: "Whirlpool (2 Bocas Planas)", costoCompra: 6.34000253 },
+            { id: "BML100", name: "Asiática Gris Daka 35W (ISYN)", costoCompra: 7.00000000 },
+            { id: "BML101", name: "Asiática Gris Daka 45W (ISYN)", costoCompra: 7.30000000 },
+            { id: "BML122", name: "Frigidaire / Electrolux (2 Bocas)", costoCompra: 7.99000253 },
+            { id: "BML118", name: "Genérica Blanca (C/Filtro 4 Picos)", costoCompra: 8.12999874 },
+            { id: "BML115", name: "Para LG (C/Filtro)", costoCompra: 8.15000000 },
+            { id: "BML120", name: "Whirlpool (2 Bocas Gruesas Reemplazo)", costoCompra: 8.24000253 },
+            { id: "BML121", name: "Asiática de Tornillos (85W/115V/60Hz)", costoCompra: 10.57000126 },
+            { id: "BML102", name: "Amazonas 11/13KG 85W (ISYN)", costoCompra: 10.60999747 },
+            { id: "BML116", name: "Frigidaire / Electrolux (ISYN)", costoCompra: 13.92999874 },
+            { id: "BML117", name: "Whirlpool Eléctrica (W1)", costoCompra: 14.50000000 },
+            { id: "BML113", name: "Haier 80W (GWT750A)", costoCompra: 14.62000126 },
+            { id: "BML109", name: "Amana / Maytag (27001233)", costoCompra: 15.00000000 },
+            { id: "BML119", name: "Frigidaire (Original 1)", costoCompra: 16.00000000 },
+            { id: "BML103", name: "Whirlpool (2 Bocas Planas Original)", costoCompra: 17.07000126 },
+            { id: "BML104", name: "Whirlpool (2 Bocas Gruesas Original)", costoCompra: 19.52999874 }
+        ]
+    },
+
+    // --- CUERPOS DE BOMBA (SOLO MOTOR) ---
+    {
+        id: "BML-CUERPO-VAR",
+        name: "Cuerpo de Bomba de Agua (Solo Motor Eléctrico)",
+        category: "Lavadoras",
+        model: "ISYN / Haier / Electrolux",
+        desc: `<b>Cuerpo de Bomba Eléctrica (Sin Filtro)</b><br><br>Repuesto que incluye únicamente el motor magnético y el aspa impulsora de la bomba. Ideal para reparaciones económicas cuando la carcasa plástica y el filtro original de la lavadora se encuentran en perfecto estado.`,
+        costoCompra: 4.95000000,
+        images: ["productos/BML105.webp", "productos/BML108.webp", "productos/BML110.webp", "productos/BML114.webp"],
+        specs: { "Tipo": "Solo Motor (Cuerpo)", "Uso": "Reemplazo de Motor de Drenaje", "Voltaje": "110V/115V" },
+        variants: [
+            { id: "BML107", name: "ISYN 35W (Con Tornillo)", costoCompra: 4.95000000 },
+            { id: "BML111", name: "ISYN 45W (2118-45)", costoCompra: 5.22000126 },
+            { id: "BML114", name: "ISYN 35W (A Presión)", costoCompra: 5.49000253 },
+            { id: "BML106", name: "Haier 35W/40W (A Presión)", costoCompra: 6.17000126 },
+            { id: "BML110", name: "Electrolux 33W (Original)", costoCompra: 7.25000000 },
+            { id: "BML105", name: "ISYN 80W/85W (HWDP-09)", costoCompra: 9.57000126 },
+            { id: "BML108", name: "ISYN 65W (HWDP-09-65)", costoCompra: 9.84000253 }
+        ]
+    },
+
+    // --- REPUESTOS MENORES (AMAZONAS / DAKA) ---
+    {
+        id: "LAV-AMAZONAS-VAR",
+        name: "Repuestos Menores para Lavadora Amazonas / Daka",
+        category: "Lavadoras",
+        model: "Piezas de Control y Mecanismo",
+        desc: `<b>Consumibles y Mecanismos (Amazonas / Daka)</b><br><br>Pequeñas partes de repuesto para lavadoras de doble tina. Incluye switches selectores de desagüe, cajas de piñones plásticos y juegos de engranajes internos para el sistema de transmisión.`,
+        costoCompra: 0.87000126,
+        images: ["productos/SWL258.webp", "productos/PPL002.webp", "productos/CTA200.webp"],
+        specs: { "Uso": "Lavadoras Doble Tina", "Compatibilidad": "Amazonas / Daka" },
+        variants: [
+            { id: "PPL002", name: "Juego de Piñones Plásticos (4 Piezas)", costoCompra: 0.87000126 },
+            { id: "SWL258", name: "Switch Selector de Desagüe (3 Terminales)", costoCompra: 1.22999874 },
+            { id: "CTA200", name: "Caja Plástica Transmisión (Con Piñón)", costoCompra: 3.67999874 }
+        ]
+    },
+
+    // ==========================================
+    // SECCIÓN: ACOPLES PARA AGITADOR DE LAVADORA
+    // ==========================================
+
+    // --- ACOPLES METÁLICOS (SAMSUNG) ---
+    {
+        id: "ACP-METAL-SAMSUNG-VAR",
+        name: "Acople Metálico para Agitador (Lavadora Samsung)",
+        category: "Lavadoras",
+        model: "Bujes 10mm y 12mm",
+        desc: `<b>Acople Metálico de Agitador para Lavadoras Samsung</b><br><br>Acoples de aluminio fundido de alta resistencia para conectar la transmisión con el agitador. Disponibles en diferentes tamaños (pequeño, mediano, grande) y diámetros de buje central (10mm y 12mm). Asegúrese de medir su acople dañado antes de elegir.`,
+        costoCompra: 1.20000000,
+        images: ["productos/ACP004.webp", "productos/ACP008.webp", "productos/ACP009.webp", "productos/ACP013.webp"],
+        specs: { "Material": "Metal / Aluminio", "Marca Compatible": "Samsung", "Instalación": "Base de Agitador" },
+        variants: [
+            { id: "ACP007", name: "Pequeño (Buje 10mm)", costoCompra: 1.20000000 },
+            { id: "ACP008", name: "Grande (Buje 10mm)", costoCompra: 1.32000126 },
+            { id: "ACP013", name: "Mediano (Buje 12mm)", costoCompra: 1.52999874 },
+            { id: "ACP004", name: "Grande (Buje 12mm)", costoCompra: 1.60000000 },
+            { id: "ACP009", name: "Original Mod. DC97-03660A", costoCompra: 1.80000000 },
+            { id: "ACP005", name: "Mediano (Buje 10mm)", costoCompra: 2.14000253 }
+        ]
+    },
+
+    // --- ACOPLES PLÁSTICOS (LG Y ASIÁTICAS) ---
+    {
+        id: "ACP-ASIATICO-VAR",
+        name: "Acople Plástico para Agitador (LG y Asiáticas)",
+        category: "Lavadoras",
+        model: "Varias Medidas de Estrías",
+        desc: `<b>Acoples Plásticos Estriados (Lavadoras Asiáticas)</b><br><br>Bujes plásticos de arrastre para agitadores de lavadoras asiáticas y LG. Clasificados por el número de estrías o dientes (D) internos (para el eje de transmisión) y externos (para incrustar en el agitador), así como versiones de centro cuadrado.`,
+        costoCompra: 0.67000126,
+        images: [],
+        specs: { "Tipo": "Plástico Estriado", "Compatibilidad": "LG / Marcas Asiáticas", "Uso": "Conexión de Agitador" },
+        variants: [
+            { id: "ACP003", name: "Cuadrado Interno / 12D Externo", costoCompra: 0.67000126 },
+            { id: "ACP015", name: "LG Pequeño (11D Int / 12D Ext)", costoCompra: 0.75999747 },
+            { id: "ACP001", name: "Negro (10D Int / 12D Ext)", costoCompra: 0.77000126 },
+            { id: "ACP014", name: "LG Importado (11D Int / 15D Ext)", costoCompra: 0.87999874 },
+            { id: "ACP011", name: "Asiática Estándar (Cuadrado Interno)", costoCompra: 0.90000000 },
+            { id: "ACP002", name: "Negro (11D Int / 13D Ext)", costoCompra: 0.90999747 }
+        ]
+    },
+
+    // --- ACOPLES PARA LAVADORAS AMERICANAS ---
+    {
+        id: "ACP-AMERICANO-VAR",
+        name: "Acople para Agitador (Whirlpool / Mabe / Frigidaire)",
+        category: "Lavadoras",
+        model: "Varias Marcas Americanas",
+        desc: `<b>Acoples de Agitador (Línea Blanca Americana)</b><br><br>Piezas de acople o cuadrantes específicos para el agitador de lavadoras de carga superior americanas (Whirlpool, Mabe, Frigidaire y Amazonas). Incluye repuestos originales (FSP) y alternativos de alta resistencia.`,
+        costoCompra: 1.92999874,
+        images: [],
+        specs: { "Compatibilidad": "Whirlpool / Mabe / Frigidaire", "Uso": "Agitador de Columna" },
+        variants: [
+            { id: "ACP006", name: "Frigidaire (Estriado)", costoCompra: 1.92999874 },
+            { id: "ACP010", name: "Whirlpool FSP Original (285753A)", costoCompra: 1.97999874 },
+            { id: "ACP100", name: "Mabe Híbrido Nacional", costoCompra: 2.00000000 },
+            { id: "ACP012", name: "Amazonas / Híbrida (Mexicano)", costoCompra: 3.40000000 }
+        ]
+    },
+    {
         id: "TRA-PLASTICA-VAR",
         name: "Transmisión Plástica de Lavadora (Semiautomática)",
         category: "Lavadoras",
