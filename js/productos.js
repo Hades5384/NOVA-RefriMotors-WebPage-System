@@ -193,6 +193,72 @@ const products = [
     // ============================================================== //
 
     {
+        id: "TRA-PLASTICA-VAR",
+        name: "Transmisión Plástica de Lavadora (Semiautomática)",
+        category: "Lavadoras",
+        model: "Varias Marcas Asiáticas",
+        desc: `<b>Caja de Transmisión Plástica (Semiautomática)</b><br><br>Repuestos de transmisión para lavadoras asiáticas de doble tina. Carcasa fabricada en plástico de alta resistencia. Disponibles para múltiples configuraciones de eje (cuadrado, estriado), número de dientes (10 o 11) y tamaños de polea (grande/pequeña). Ideal para marcas como Daka, Haier, Mabe, Electrolux y Daewoo.`,
+        costoCompra: 3.10000000, // Base (TRA202/203/208/209)
+        images: [
+            "productos/TRA201.webp", "productos/TRA203.webp", "productos/TRA204.webp",
+            "productos/TRA205.webp", "productos/TRA206.webp", "productos/TRA208.webp",
+            "productos/TRA210.webp", "productos/TRA213.webp", "productos/TRA215.webp",
+            "productos/TRA216.webp", "productos/TRA219.webp", "productos/TRA220.webp",
+            "productos/TRA221.webp", "productos/TRA222.webp"
+        ],
+        specs: { "Tipo": "Transmisión Plástica", "Uso": "Lavadoras de Doble Tina", "Compatibilidad": "Marcas Asiáticas" },
+        variants: [
+            { id: "TRA208", name: "11 Dientes Eje Corto (Polea Pequeña)", costoCompra: 3.10000000 },
+            { id: "TRA209", name: "Haier 11 Dientes (Polea Grande)", costoCompra: 3.10000000 },
+            { id: "TRA202", name: "Daka Eje Corto #4 (Polea Grande)", costoCompra: 3.10000000 },
+            { id: "TRA203", name: "Daka Eje Corto #4 (Polea Pequeña)", costoCompra: 3.10000000 },
+            { id: "TRA201", name: "Electrolux Celeste (Eje Cuadrado)", costoCompra: 3.20000000 },
+            { id: "TRA220", name: "LG 11 Dientes (Mod. Viejo YX-123 Rev)", costoCompra: 3.30000000 },
+            { id: "TRA212", name: "11 Dientes Polea Lateral (Estriado)", costoCompra: 3.40000000 },
+            { id: "TRA210", name: "AK Electronic (Eje Cuadrado)", costoCompra: 3.47000126 },
+            { id: "TRA211", name: "Mabe Asiática 12KG 11D (Con Polea)", costoCompra: 3.47000126 },
+            { id: "TRA219", name: "Sample (Eje Cuadrado Rev)", costoCompra: 3.60999747 },
+            { id: "TRA221", name: "General Plus 10 Dientes (Eje Largo)", costoCompra: 3.60000000 },
+            { id: "TRA216", name: "LG 11 Dientes (Tipo Platillo)", costoCompra: 3.72999874 },
+            { id: "TRA222", name: "Mabe Asiática 12KG 11D (Con Polea Alta)", costoCompra: 3.75000000 },
+            { id: "TRA215", name: "Eje Cuadrado (Polea Lateral)", costoCompra: 3.80000000 },
+            { id: "TRA213", name: "Tipo Campana Daewoo (YX-169)", costoCompra: 3.90000000 },
+            { id: "TRA214", name: "Haceb (Eje Cuadrado)", costoCompra: 3.90000000 },
+            { id: "TRA205", name: "10 Dientes Eje Corto (Polea Grande)", costoCompra: 5.20000000 },
+            { id: "TRA206", name: "10 Dientes Eje Corto (Polea Pequeña)", costoCompra: 5.20000000 },
+            { id: "TRA207", name: "11 Dientes Eje Corto (Polea Grande)", costoCompra: 6.00000000 },
+            { id: "TRA204", name: "Daka Eje Largo #5 (Polea Grande)", costoCompra: 6.50000000 }
+        ]
+    },
+
+    // --- AGITADORES ASIÁTICOS PEQUEÑOS Y ACCESORIOS ---
+    {
+        id: "AGT-ASIATICO-PEQ-VAR",
+        name: "Agitador Pequeño para Lavadora Asiática (18-20cm)",
+        category: "Lavadoras",
+        model: "18 cm / 20 cm",
+        desc: `<b>Pulsadores Pequeños para Lavadoras Asiáticas</b><br><br>Discos agitadores de diámetro reducido (18 y 20 centímetros) para lavadoras de baja capacidad. Disponibles para configuración de eje cuadrado, eje circular y eje ovalado.`,
+        costoCompra: 5.00000000, // Base (AGT021)
+        images: ["productos/AGT021.webp", "productos/AGT021-2.webp", "productos/AGT022.webp", "productos/AGT023.webp", "productos/AGT024.webp"],
+        specs: { "Tipo": "Pulsador Compacto", "Diámetro": "18cm y 20cm", "Uso": "Lavadoras Asiáticas Pequeñas" },
+        variants: [
+            { id: "AGT021", name: "18 cm (Eje Ovalado)", costoCompra: 5.00000000 },
+            { id: "AGT022", name: "18 cm (Eje Cuadrado)", costoCompra: 5.00000000 },
+            { id: "AGT024", name: "20 cm (Eje Circular)", costoCompra: 5.00000000 },
+            { id: "AGT023", name: "20 cm (Eje Cuadrado)", costoCompra: 5.25384615 }
+        ]
+    },
+    {
+        id: "TRA218",
+        name: "Polea Grande de Transmisión (17.2cm / 172mm)",
+        category: "Lavadoras",
+        model: "172 mm",
+        desc: `<b>Polea Grande de Repuesto para Transmisión</b><br><br>Anillo de tracción plástico (17.2 centímetros de diámetro) para acoplar la correa desde el motor hasta la caja de transmisión de la lavadora.`,
+        costoCompra: 0.72999874,
+        images: ["productos/TRA218.webp"],
+        specs: { "Diámetro": "17.2 cm", "Material": "Plástico de Alta Densidad", "Uso": "Transmisión" }
+    },
+    {
         id: "TRA-LAVADORA-VAR",
         name: "Transmisión Metálica para Lavadora",
         category: "Lavadoras",
