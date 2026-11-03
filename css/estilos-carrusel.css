@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ESTILOS CARRUSEL — NOVA REFRIMOTORS
    Diseño de Alta Gama con Identidad Cromática por Marca
    ========================================================================== */
@@ -804,7 +804,7 @@ body {
         overflow: hidden;
     }
 
-    .slider-btn { display: none; }
+    .slider-btn { display: none !important; }
     .carousel-wrapper { padding: 0; width: 100%; }
     .carousel-track {
         gap: 15px;
@@ -839,7 +839,7 @@ body {
     align-items: center !important;
 }
 .slider-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

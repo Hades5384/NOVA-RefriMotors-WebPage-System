@@ -207,8 +207,6 @@
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease; 
     position: relative; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    content-visibility: auto;
-    contain-intrinsic-size: auto 380px;
 }
 .product-card:hover { 
     transform: translateY(-5px); 
@@ -219,7 +217,6 @@
 .product-card img { 
     width: 100%; 
     height: 200px; 
-    aspect-ratio: 260 / 200;
     object-fit: contain; 
     margin-bottom: 15px; 
     cursor: pointer; 
@@ -356,15 +353,70 @@
 }
 
 /* ==========================================
-   RESPONSIVE CATALOGO (MOVIL)
+   RESPONSIVE CATALOGO (MOVIL Y TABLET)
 ========================================== */
 @media (max-width: 768px) {
+    .category-menu {
+        padding: 12px 16px;
+        gap: 8px;
+        cursor: default;
+    }
+    .cat-btn {
+        padding: 6px 13px;
+        font-size: 12px;
+    }
+    .cat-nav-arrow {
+        display: none;
+    }
+    .category-nav-wrapper::before,
+    .category-nav-wrapper::after {
+        width: 20px;
+    }
     .products-grid { 
-        grid-template-columns: 1fr; 
-        padding: 20px 5% 30px 5%; 
-        gap: 20px; 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        padding: 20px 16px 30px 16px; 
+        gap: 16px; 
+    }
+    .product-card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+    .product-card img {
+        height: 175px;
+        margin-bottom: 12px;
     }
     .pagination { 
-        justify-content: flex-start; 
+        justify-content: center; 
+        padding: 10px 16px 35px 16px;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid { 
+        grid-template-columns: 1fr; 
+        padding: 14px 16px 24px 16px; 
+        gap: 14px; 
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .product-card {
+        padding: 15px;
+    }
+    .product-card img {
+        height: 180px;
+    }
+    .product-title {
+        font-size: 14px;
+    }
+    .price-public-usd {
+        font-size: 17px;
+    }
+    .page-btn {
+        padding: 4px 8px;
+        font-size: 15px;
+    }
+    .page-btn.active {
+        font-size: 16px;
     }
 }

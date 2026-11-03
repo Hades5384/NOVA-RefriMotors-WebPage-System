@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * NOVA REFRIMOTORS - CARRITO DE COMPRAS Y CHECKOUT WHATSAPP
  * Archivo: css/carrito.css
@@ -330,5 +330,24 @@
 @media (max-width: 768px) {
     .cart-modal { 
         width: 100%; 
+    }
+    .cart-header {
+        padding: 14px 16px;
+    }
+    .cart-items {
+        padding: 12px 14px;
+    }
+    .cart-footer {
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-row-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .customer-form input {
+        margin-bottom: 8px;
     }
 }
