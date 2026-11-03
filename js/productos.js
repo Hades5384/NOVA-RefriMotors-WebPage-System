@@ -518,13 +518,13 @@ const products = [
     },
     {
         id: "PDV025",
-        name: "Programador Horario Digital Multivoltaje (Timer)",
+        name: "Programador Horario Digital Multivoltaje Exceline GTC-BL-MV (Timer)",
         category: "Protectores",
-        model: "Timer Digital",
-        desc: `<b>Programador Horario Digital Multivoltaje</b><br><br>Interruptor temporizador inteligente para automatizar el encendido y apagado de equipos eléctricos, luces o bombas de agua. Pantalla LCD y batería interna para no perder la configuración en cortes de luz.`,
+        model: "GTC-BL-MV",
+        desc: `<b>Programador Horario Digital Multivoltaje Exceline (GTC-BL-MV)</b><br><br>Interruptor horario digital programable para automatizar el encendido y apagado de equipos eléctricos, bombas de agua, calentadores y sistemas de iluminación. Opera en rango multivoltaje 120V / 220V, con pantalla LCD, múltiples ciclos de encendido/apagado y batería de respaldo para no perder la configuración ante cortes de energía.`,
         costoCompra: 19.88461538,
         images: ["productos/PDV025.webp"],
-        specs: { "Tipo": "Timer Digital", "Voltaje": "Multivoltaje", "Uso": "Automatización" }
+        specs: { "Marca": "Exceline", "Modelo": "GTC-BL-MV", "Voltaje": "120V / 220V~ (Multivoltaje)", "Capacidad": "16A / 250V~", "Programación": "Diaria / Semanal", "Tipo": "Timer Digital Programable", "Uso": "Automatización y Control Horario" }
     },
 
     // --- QUÍMICOS: SILICÓN Y ESPUMA ---
@@ -2128,7 +2128,7 @@ const products = [
         category: "Protectores",
         model: "Trifásico 220V",
         desc: `<b>Supervisor Trifásico 220V Exceline</b><br><br>Supervisor de voltaje de grado industrial para sistemas trifásicos. Protege contra fallas de fase, asimetría, alta y baja tensión, asegurando la integridad de motores y compresores pesados.`,
-        costoCompra: 11.93846154,
+        costoCompra: 16.57824934,
         images: ["productos/PDV049.webp"],
         specs: { "Marca": "Exceline", "Fase": "Trifásico", "Voltaje": "220V" }
     },
@@ -5064,49 +5064,49 @@ const products = [
     {
         id: "PDV020", name: "Protector de Voltaje 120V Enchufable Exceline para Nevera", category: "Protectores", model: "GSM-N120",
         desc: `<b>Protector de Voltaje 120V Enchufable Exceline para Nevera (GSM-N120)</b><br><br>Protección integral para refrigeradores, neveras y congeladores.`,
-        costoCompra: 6.9, images: ["productos/PDV020.webp"],
+        costoCompra: 6.63129973, images: ["productos/PDV020.webp"],
         specs: { "Voltaje": "120V", "Tipo": "Enchufable", "Uso": "Neveras" }
     },
     {
         id: "PDV023", name: "Protector de Voltaje Enchufable Exceline para Aires Acondicionados 120V", category: "Protectores", model: "GSM-RE120",
         desc: `<b>Protector de Voltaje Enchufable Exceline para Aires Acondicionados 120V</b><br><br>Diseñado específicamente para acondicionadores de aire de ventana o split de 120V.`,
-        costoCompra: 12.23, images: ["productos/PDV023.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV023.webp"],
         specs: { "Voltaje": "120V", "Tipo": "Enchufable", "Uso": "Aires Acondicionados" }
     },
     {
         id: "PDV021", name: "Protector de Voltaje Enchufable Exceline para Aires Acondicionados 220V", category: "Protectores", model: "GSM-RE220",
         desc: `<b>Protector de Voltaje Enchufable Exceline para Aires Acondicionados 220V</b><br><br>Protección especializada para equipos de aire acondicionado con alimentación a 220V.`,
-        costoCompra: 12.71, images: ["productos/PDV021.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV021.webp"],
         specs: { "Voltaje": "220V", "Tipo": "Enchufable", "Uso": "Aires Acondicionados" }
     },
     {
         id: "PDV022", name: "Protector de Voltaje Enchufable Exceline para Aires 220V Tipo Chino", category: "Protectores", model: "GSM-RE220CS",
         desc: `<b>Protector de Voltaje Enchufable Exceline 220V Tipo Chino</b><br><br>Diseñado para equipos de aire acondicionado de 220V con enchufe tipo chino.`,
-        costoCompra: 12.23, images: ["productos/PDV022.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV022.webp"],
         specs: { "Voltaje": "220V", "Tipo": "Enchufable Tipo Chino", "Uso": "Aires Acondicionados" }
     },
     {
         id: "PDV031", name: "Protector de Voltaje Exceline Cable a Cable 120V Alta Carga", category: "Protectores", model: "GSM-R120B",
         desc: `<b>Protector de Voltaje Exceline Cable a Cable 120V Alta Carga</b><br><br>Protector industrial/comercial para conexión directa por bornera para cargas pesadas en 120V.`,
-        costoCompra: 12.40, images: ["productos/PDV031.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV031.webp"],
         specs: { "Voltaje": "120V", "Tipo": "Cable a Cable", "Uso": "Alta Carga" }
     },
     {
         id: "PDV030", name: "Protector de Voltaje Exceline Cable a Cable 220V Alta Carga", category: "Protectores", model: "GSM-R220B",
         desc: `<b>Protector de Voltaje Exceline Cable a Cable 220V Alta Carga</b><br><br>Protector de alta capacidad para aires acondicionados de gran tonelaje y sistemas de refrigeración de 220V.`,
-        costoCompra: 12.40, images: ["productos/PDV030.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV030.webp"],
         specs: { "Voltaje": "220V", "Tipo": "Cable a Cable", "Uso": "Alta Carga" }
     },
     {
         id: "PDV029", name: "Protector de Voltaje Exceline para Compresores Monofásicos 120V", category: "Protectores", model: "GSM-RF120",
         desc: `<b>Protector de Voltaje Exceline para Compresores Monofásicos 120V</b><br><br>Dispositivo especializado en proteger motocompresores de refrigeración monofásicos de 120V.`,
-        costoCompra: 10.73, images: ["productos/PDV029.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV029.webp"],
         specs: { "Voltaje": "120V", "Tipo": "Bornera", "Uso": "Compresores Monofásicos" }
     },
     {
         id: "PDV051", name: "Protector de Voltaje Exceline para Motores Monofásicos 120V", category: "Protectores", model: "GSM-M120B",
         desc: `<b>Protector de Voltaje Exceline para Motores Monofásicos 120V</b><br><br>Módulo de protección para motores eléctricos monofásicos industriales y comerciales en 120V.`,
-        costoCompra: 12.40, images: ["productos/PDV051.webp"],
+        costoCompra: 13.26259947, images: ["productos/PDV051.webp"],
         specs: { "Voltaje": "120V", "Tipo": "Bornera", "Uso": "Motores Monofásicos" }
     },
     {

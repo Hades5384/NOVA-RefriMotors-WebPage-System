@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * NOVA REFRIMOTORS - CATALOGO, PRODUCTOS Y PAGINACION
  * Archivo: css/catalogo.css
@@ -8,42 +8,183 @@
  * ==============================================================================
  */
 
-/* ==========================================
-   MENU DE CATEGORIAS
-========================================== */
-.category-menu {
-    display: flex; 
-    gap: 10px; 
-    padding: 20px 5%; 
-    overflow-x: auto; 
-    white-space: nowrap; 
+/* ==============================================================================
+   MENU DE CATEGORIAS CON NAVEGACION FLUIDA
+============================================================================== */
+.category-nav-wrapper {
+    position: relative;
+    width: 100%;
+    background: var(--white);
     border-bottom: 1px solid var(--border-light);
-    background: var(--white); 
-    scrollbar-width: none;
+    display: flex;
+    align-items: center;
 }
-.category-menu::-webkit-scrollbar { 
-    display: none; 
+
+/* Indicadores de desvanecimiento sutil en los extremos para señalar desbordamiento */
+.category-nav-wrapper::before,
+.category-nav-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 56px;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.25s ease;
+    opacity: 0;
+}
+.category-nav-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.98) 25%, rgba(255, 255, 255, 0));
+}
+.category-nav-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.98) 25%, rgba(255, 255, 255, 0));
+}
+.category-nav-wrapper.has-scroll-left::before {
+    opacity: 1;
+}
+.category-nav-wrapper.has-scroll-right::after {
+    opacity: 1;
+}
+
+.category-menu {
+    display: flex;
+    gap: 10px;
+    padding: 16px 52px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 69, 138, 0.22) transparent;
+    user-select: none;
+    cursor: grab;
+}
+.category-menu.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+.category-menu::-webkit-scrollbar {
+    height: 4px;
+}
+.category-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.category-menu::-webkit-scrollbar-thumb {
+    background: rgba(0, 69, 138, 0.18);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+.category-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--nova-blue);
+}
+
+/* Espaciador al final para garantizar acceso al 100% al último elemento */
+.category-menu::after {
+    content: '';
+    flex-shrink: 0;
+    width: 24px;
+    height: 1px;
 }
 
 .cat-btn {
-    padding: 6px 14px; 
-    border: 1px solid var(--border-light); 
+    padding: 7px 16px;
+    border: 1px solid var(--border-light);
     background: var(--white);
-    border-radius: 20px; 
-    cursor: pointer; 
-    font-size: 13px; 
-    font-weight: 600; 
-    transition: 0.3s; 
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     color: var(--text-light);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
-.cat-btn:hover { 
-    border-color: var(--nova-blue); 
-    color: var(--nova-blue); 
+.cat-btn:hover {
+    border-color: var(--nova-blue);
+    color: var(--nova-blue);
+    background: #f4f8fe;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 69, 138, 0.1);
 }
-.cat-btn.active { 
-    background: var(--nova-blue); 
-    color: var(--white); 
-    border-color: var(--nova-blue); 
+.cat-btn.active {
+    background: var(--nova-blue);
+    color: var(--white);
+    border-color: var(--nova-blue);
+    box-shadow: 0 4px 12px rgba(0, 69, 138, 0.24);
+    transform: translateY(-1px);
+}
+.cat-btn:focus-visible {
+    outline: 2px solid var(--nova-blue);
+    outline-offset: 2px;
+}
+
+/* Botones flotantes interactivos de navegación */
+.cat-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 69, 138, 0.2);
+    color: var(--nova-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cat-nav-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+}
+.cat-nav-arrow:hover {
+    background: var(--nova-blue);
+    color: #ffffff;
+    border-color: var(--nova-blue);
+    box-shadow: 0 4px 14px rgba(0, 69, 138, 0.32);
+    transform: translateY(-50%) scale(1.08);
+}
+.cat-nav-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.cat-nav-prev {
+    left: 10px;
+}
+.cat-nav-next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .category-menu {
+        padding: 12px 14px;
+        gap: 8px;
+        cursor: default;
+    }
+    .cat-btn {
+        padding: 6px 13px;
+        font-size: 12px;
+    }
+    .cat-nav-arrow {
+        display: none;
+    }
+    .category-nav-wrapper::before,
+    .category-nav-wrapper::after {
+        width: 24px;
+    }
 }
 
 /* ==========================================
@@ -63,9 +204,11 @@
     padding: 20px; 
     display: flex; 
     flex-direction: column; 
-    transition: 0.3s; 
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease; 
     position: relative; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 380px;
 }
 .product-card:hover { 
     transform: translateY(-5px); 
@@ -76,10 +219,11 @@
 .product-card img { 
     width: 100%; 
     height: 200px; 
+    aspect-ratio: 260 / 200;
     object-fit: contain; 
     margin-bottom: 15px; 
     cursor: pointer; 
-    transition: 0.3s; 
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
 }
 .product-card:hover img { 
     transform: scale(1.05); 
@@ -199,6 +343,16 @@
 .page-arrow { 
     font-size: 14px; 
     font-weight: bold; 
+}
+
+.page-ellipsis {
+    color: var(--text-light);
+    padding: 5px 6px;
+    font-weight: 700;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==========================================

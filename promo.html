@@ -535,13 +535,68 @@
         }
 
         .scene-web .bcv-widget {
-            padding: 4px 8px;
-            font-size: 10.5px;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f8fe 100%);
+            border: 1px solid rgba(0, 69, 138, 0.22);
+            padding: 4px 10px;
+            border-radius: 10px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 69, 138, 0.06);
+            user-select: none;
         }
 
+        .scene-web .bcv-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 1px;
+        }
+
+        .scene-web .bcv-live-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: bcvLivePulse 2s infinite ease-in-out;
+        }
+
+        @keyframes bcvLivePulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .scene-web .bcv-label {
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #4b5563;
+            text-transform: uppercase;
+        }
+
+        .scene-web .bcv-rate-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .scene-web .bcv-trend-icon {
+            color: #059669;
+            flex-shrink: 0;
+        }
+
+        .scene-web .bcv-widget #bcv-display,
         .scene-web .bcv-widget span {
             font-size: 12px;
+            font-weight: 900;
+            color: var(--nova-blue);
         }
 
         .scene-web .cart-btn {
@@ -1002,19 +1057,23 @@
         }
 
         .motion-screen.ratio-16-9 .scene-web .bcv-widget {
-            background: #f0f7ff;
-            border: 1px solid rgba(2, 132, 199, 0.25);
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 11px;
-            color: #00458a;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f8fe 100%);
+            border: 1px solid rgba(0, 69, 138, 0.22);
+            border-radius: 10px;
+            padding: 5px 12px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 69, 138, 0.06);
             white-space: nowrap;
         }
 
+        .motion-screen.ratio-16-9 .scene-web .bcv-widget #bcv-display,
         .motion-screen.ratio-16-9 .scene-web .bcv-widget span {
-            font-size: 12px;
-            font-weight: 800;
-            color: #0284c7;
+            font-size: 13px;
+            font-weight: 900;
+            color: var(--nova-blue);
         }
 
         .motion-screen.ratio-16-9 .scene-web .cart-btn {
@@ -1122,23 +1181,34 @@
         }
 
         .motion-screen.ratio-9-16 .scene-web .bcv-widget {
-            width: 100%;
-            background: transparent;
-            border: none;
-            padding: 0;
-            text-align: center;
-            justify-content: center;
-            display: flex;
+            width: fit-content;
+            margin: 2px auto 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f4f8fe 100%);
+            border: 1px solid rgba(0, 69, 138, 0.2);
+            padding: 3px 10px;
+            border-radius: 16px;
+            display: inline-flex;
+            flex-direction: row;
             align-items: center;
-            gap: 5px;
-            color: #475569;
-            font-size: 10.5px;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 1px 4px rgba(0, 69, 138, 0.06);
         }
 
+        .motion-screen.ratio-9-16 .scene-web .bcv-header {
+            margin-bottom: 0;
+            gap: 4px;
+        }
+
+        .motion-screen.ratio-9-16 .scene-web .bcv-label {
+            font-size: 7.5px;
+        }
+
+        .motion-screen.ratio-9-16 .scene-web .bcv-widget #bcv-display,
         .motion-screen.ratio-9-16 .scene-web .bcv-widget span {
             color: var(--nova-blue);
-            font-size: 11.5px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 900;
         }
 
         .motion-screen.ratio-9-16 .scene-web .category-menu {
@@ -1857,7 +1927,7 @@
                 <span id="btnFxText">Efectos ON</span>
             </button>
 
-            <!-- 5. Toggle MÃºsica -->
+            <!-- 5. Toggle M&uacute;sica -->
             <button class="studio-btn active-toggle" id="btnMusicToggle" onclick="toggleMusic()"
                 title="Tecla M: Alternar M&uacute;sica Generativa">
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -1955,8 +2025,7 @@
                                 <line x1="12" y1="22" x2="12" y2="7"></line>
                                 <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
                                 <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-                            </svg><b>&iexcl;Promoci&oacute;n!</b> Por tu primera compra grande obt&eacute;n el delivery
-                            gratis.</span>
+                            </svg><b>&iexcl;Promoci&oacute;n!</b> Por tu primera compra de 20$ ll&eacute;vate el delivery totalmente gratis.</span>
                         <a href="https://wa.me/584246192394" target="_blank">&iexcl;Consulta al WhatsApp!</a>
                     </div>
 
@@ -1973,8 +2042,15 @@
                             </div>
 
                             <!-- WIDGET TASA BCV -->
-                            <div class="bcv-widget">
-                                Tasa BCV del D&iacute;a: <span id="bcv-display">Bs. 771.00</span>
+                            <div class="bcv-widget" title="Tasa Oficial del Banco Central de Venezuela">
+                                <div class="bcv-header">
+                                    <span class="bcv-live-dot"></span>
+                                    <span class="bcv-label">TASA OFICIAL BCV</span>
+                                </div>
+                                <div class="bcv-rate-row">
+                                    <svg class="bcv-trend-icon" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                    <span id="bcv-display">Bs. 771.00</span>
+                                </div>
                             </div>
 
                             <!-- DROPDOWN DE AUTOCOMPLETADO INTELIGENTE -->
@@ -2345,7 +2421,7 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
-                        <span>Galp&oacute;n S/N, al lado del Estacionamiento Centro Cl&iacute;nico, Av. Carabobo &bull;
+                        <span>Galp&oacute;n al lado del Estacionamiento Centro Cl&iacute;nico, Av. Carabobo &bull;
                             Cabimas 4013, Zulia</span>
                     </div>
                 </section>
@@ -2569,7 +2645,7 @@
         // ==========================================================
         // 4. MOTOR DE EFECTOS FOLEY ULTRA-REALISTA DINAMICO
         // ==========================================================
-        // WRAPPER SEGURO: Si el navegador bloquea AudioContext, la animaciÃ³n visual NUNCA se congela
+        // WRAPPER SEGURO: Si el navegador bloquea AudioContext, la animacion visual NUNCA se congela
         function safeAudio(fn) {
             try { fn(); } catch (e) { /* Audio fallback silencioso */ }
         }
@@ -3477,11 +3553,11 @@
                 const recBtn = document.getElementById('btnRecordPromo');
                 const recText = document.getElementById('btnRecordText');
                 recBtn.classList.add('recording');
-                recText.innerText = 'Detener GrabaciÃ³n';
+                recText.innerText = 'Detener Grabación';
 
                 if (!isPlaying) startCountdownAndPlay();
             } catch (err) {
-                console.warn('GrabaciÃ³n cancelada o no soportada:', err);
+                console.warn('Grabación cancelada o no soportada:', err);
             }
         }
 
