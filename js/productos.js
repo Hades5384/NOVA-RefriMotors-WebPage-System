@@ -192,6 +192,175 @@ const products = [
     // ============================================================== //
     // ============================================================== //
 
+    // ==========================================
+    // SECCIÓN: MOTORES DE LAVADO Y SECADO
+    // ==========================================
+
+    // --- MOTORES DE LAVADO ---
+    {
+        id: "MSL-LAVADO-VAR",
+        name: "Motor de Lavado para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Capacidades",
+        desc: `<b>Motores de Lavado de Reemplazo</b><br><br>Motores eléctricos de alta potencia (120W a 180W) para el ciclo de lavado en lavadoras de doble tina y carga superior. Disponibles en diferentes configuraciones de base (cuadrada o estándar) y diámetros de eje.`,
+        costoCompra: 10.97999874, // Base (MSL201)
+        images: ["productos/MSL200.webp", "productos/MSL201.webp", "productos/MSL300.webp", "productos/MSL302.webp", "productos/MSL303.webp"],
+        specs: { "Tipo": "Motor de Lavado", "Uso": "Lavadoras", "Compatibilidad": "Multimarca" },
+        variants: [
+            { id: "MSL201", name: "Genérico 120W (Eje 12mm)", costoCompra: 10.97999874 },
+            { id: "MSL400", name: "Base Cuadrada 90W/110V", costoCompra: 13.94000253 },
+            { id: "MSL200", name: "Genérico 120-170W (Eje 12mm)", costoCompra: 15.97000126 },
+            { id: "MSL402", name: "Base Cuadrada 150W/110V", costoCompra: 16.25999747 },
+            { id: "MSL303", name: "Haier 150W (Eje 10mm / HWM70)", costoCompra: 19.60000000 },
+            { id: "MSL300", name: "Haier 180W (HWM150)", costoCompra: 19.99000253 },
+            { id: "MSL302", name: "Haier 12mm (GWT750AW/00340)", costoCompra: 30.00000000 }
+        ]
+    },
+
+    // --- MOTORES DE SECADO (CENTRÍFUGA) ---
+    {
+        id: "MSL-SECADO-VAR",
+        name: "Motor de Secado (Centrífuga) para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Capacidades",
+        desc: `<b>Motores para Tina de Secado</b><br><br>Motores específicos para la tina de centrifugado en lavadoras semiautomáticas. Versiones reforzadas (Waterproof / Ala de Cobre) para resistir salpicaduras y garantizar larga vida útil.`,
+        costoCompra: 11.65000000, // Base (MSL102)
+        images: ["productos/MSL104.webp", "productos/MSL100.webp", "productos/MSL401.webp"],
+        specs: { "Tipo": "Motor de Centrifugado", "Uso": "Tina de Secado", "Características": "Resistente a Salpicaduras" },
+        variants: [
+            { id: "MSL102", name: "60W Waterproof", costoCompra: 11.65000000 },
+            { id: "MSL104", name: "60W Ala de Cobre (Eje 10mm)", costoCompra: 12.30999747 },
+            { id: "MSL301", name: "Haier 50W (3 Puntas Eje 12mm)", costoCompra: 13.60000000 },
+            { id: "MSL101", name: "60W Waterproof (Ala de Cobre)", costoCompra: 15.89000253 },
+            { id: "MSL100", name: "60-90W (Eje Corto 10mm)", costoCompra: 16.90000000 },
+            { id: "MSL103", name: "70W Waterproof (Ala de Cobre)", costoCompra: 18.25999747 },
+            { id: "MSL401", name: "90W Base Cuadrada (Eje 12mm)", costoCompra: 19.60999747 }
+        ]
+    },
+
+    // --- MOTORES DRAIN (ACTUADORES DE TRANSMISIÓN) ---
+    {
+        id: "MSL-DRAIN-VAR",
+        name: "Motor Drain (Actuador de Transmisión) para Lavadora",
+        category: "Lavadoras",
+        model: "LG / Samsung / Electrolux",
+        desc: `<b>Motor Actuador de Drenaje / Transmisión</b><br><br>Pequeños motores de tracción encargados de liberar el freno de la transmisión y abrir la válvula de desagüe para iniciar el centrifugado.`,
+        costoCompra: 5.97999874, // Base (MSL500)
+        images: ["productos/MSL500.webp", "productos/MSL501.webp", "productos/MSL502.webp"], // Usa imágenes de repuestos pequeños
+        specs: { "Tipo": "Motor Drain", "Uso": "Liberación de Transmisión" },
+        variants: [
+            { id: "MSL500", name: "Samsung / Electrolux (Con Cable)", costoCompra: 5.97999874 },
+            { id: "MSL502", name: "LG 2 Terminales Blanco (MD-60)", costoCompra: 6.20999747 },
+            { id: "MSL501", name: "LG 3 Terminales Blanco (ISYN)", costoCompra: 6.50000000 },
+            { id: "MSL503", name: "Haier Driver (XQB75-91S/003400)", costoCompra: 10.10999747 }
+        ]
+    },
+
+    // ==========================================
+    // SECCIÓN: TIMERS (RELOJES) MECÁNICOS PARA LAVADORA
+    // ==========================================
+    {
+        id: "TME-TIMER-VAR",
+        name: "Timer (Reloj) Mecánico para Lavadora",
+        category: "Lavadoras",
+        model: "2 a 7 Cables",
+        desc: `<b>Reloj Temporizador de Lavado y Secado</b><br><br>Timers mecánicos de repuesto para controlar los ciclos en lavadoras de doble tina. Amplia variedad según la cantidad de cables (desde 2 hasta 7 cables), el tipo de oreja de fijación y el formato de la carcasa (redonda o cuadrada).`,
+        costoCompra: 0.66923077, // Base (TME030)
+        images: ["productos/TME007.webp", "productos/TME010.webp", "productos/TME011.webp", "productos/TME028.webp", "productos/TME029.webp", "productos/TME030.webp", "productos/TME032.webp"],
+        specs: { "Tipo": "Reloj Mecánico", "Uso": "Control de Ciclos (Doble Tina)", "Variedad": "Múltiples Cables" },
+        variants: [
+            // Secado (2 y 3 cables)
+            { id: "TME030", name: "2 Cables Secado (Redondo Oreja Recta)", costoCompra: 0.66923077 },
+            { id: "TME029", name: "2 Cables Secado (Redondo Oreja Inclinada)", costoCompra: 0.74000253 },
+            { id: "TME003", name: "3 Cables Cuadrado (S/Normal XD-15-04)", costoCompra: 1.70000000 },
+            { id: "TME007", name: "3 Cables Doble (XD-15-004 Lav)", costoCompra: 2.06923077 },
+            { id: "TME008", name: "3 Cables Cuadrado (Oreja Recta C/Puente)", costoCompra: 2.26153846 },
+            { id: "TME027", name: "3 Terminales Haier (Sustituye Electrónico)", costoCompra: 4.00000000 },
+            // Lavado (4, 5, 6 y 7 cables)
+            { id: "TME011", name: "4 Terminales Haier (Cuadrado Oreja Recta)", costoCompra: 1.65384615 },
+            { id: "TME001", name: "4 Cables (C/Puente Cuadrado)", costoCompra: 1.67692308 },
+            { id: "TME010", name: "4 Cables Doble (XD-15-002 Lav)", costoCompra: 2.06923077 },
+            { id: "TME018", name: "5 Cables Cuadrado (C/Puente S/Normal)", costoCompra: 1.75384615 },
+            { id: "TME002", name: "6 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.70000000 },
+            { id: "TME004", name: "6 Cables Especial (Oreja Larga CTW-6)", costoCompra: 1.70000000 },
+            { id: "TME020", name: "6 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 1.83076923 },
+            { id: "TME019", name: "6 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
+            { id: "TME022", name: "6 Cables Cuadrado (S/Normal C/Protec)", costoCompra: 2.22307692 },
+            { id: "TME021", name: "6 Cables Cuadrado (O/Larga C/Puente)", costoCompra: 4.00000000 },
+            { id: "TME028", name: "7 Cables Cuadrado (O/Larga S/Cables)", costoCompra: 1.95384615 },
+            { id: "TME031", name: "7 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.99230769 },
+            { id: "TME025", name: "7 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
+            { id: "TME032", name: "7 Cables (C/Switch)", costoCompra: 3.15384615 },
+            { id: "TME026", name: "7 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 4.00000000 }
+        ]
+    },
+
+    // ==========================================
+    // SECCIÓN: SELLOS Y TUERCAS DE TINA
+    // ==========================================
+
+    // --- SELLOS DE TINA ---
+    {
+        id: "SLA-SELLOS-VAR",
+        name: "Sello de Tina para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Marcas",
+        desc: `<b>Retenedores y Sellos de Tina</b><br><br>Empacaduras o sellos centrales de goma que evitan la filtración de agua desde la tina hacia la transmisión y el motor. Vitales para el mantenimiento de lavadoras de carga superior.`,
+        costoCompra: 0.97000126, // Base (SLA108)
+        images: ["productos/SLA100.webp", "productos/SLA104.webp", "productos/SLA105.webp", "productos/SLA108.webp"],
+        specs: { "Material": "Goma Resistente", "Uso": "Prevención de Fugas Centrales" },
+        variants: [
+            { id: "SLA108", name: "Sello Transmisión Metálica LG", costoCompra: 0.97000126 },
+            { id: "SLA103", name: "Sello Amazonas / Olimpia (3 Labios Original)", costoCompra: 1.25999747 },
+            { id: "SLA100", name: "Sello Grande Híbrida (Importado Fino 1)", costoCompra: 1.57999874 },
+            { id: "SLA105", name: "Sello Grande Tina Whirlpool México", costoCompra: 1.92999874 },
+            { id: "SLA104", name: "Sello Grande Ancho Amazonas (Original)", costoCompra: 1.97999874 },
+            { id: "SLA107", name: "Sello Lavadora Whirlpool (3967581)", costoCompra: 4.02999874 },
+            { id: "SLA102", name: "Sello Kit Lavadora GE (WH8X291AP)", costoCompra: 4.12999874 },
+            { id: "SLA101", name: "Sello Frigidaire Tina (Original)", costoCompra: 4.40000000 }
+        ]
+    },
+
+    // --- TUERCAS Y ARANDELAS DE CANASTA ---
+    {
+        id: "TCL-TUERCAS-VAR",
+        name: "Tuerca de Transmisión y Fondo de Canasta",
+        category: "Lavadoras",
+        model: "Varias Marcas",
+        desc: `<b>Tuercas de Fijación para Transmisión y Tina</b><br><br>Tuercas especiales (rosca invertida o estándar) para fijar el tambor o canasta de lavado a la transmisión. Incluye bloques de acople para lavadoras Whirlpool.`,
+        costoCompra: 0.87999874, // Base (TCL005)
+        images: ["productos/TCL008.webp", "productos/TCL011.webp"],
+        specs: { "Tipo": "Tuerca de Fijación / Block", "Uso": "Montaje de Canasta" },
+        variants: [
+            { id: "TCL005", name: "Tuerca Transmisión Tina LG / Daewoo Plana", costoCompra: 0.87999874 },
+            { id: "TCL006", name: "Tuerca Aro Partido Amazonas (Azul)", costoCompra: 1.07000126 },
+            { id: "TCL007", name: "Tuerca Aro Partido Híbrida (Rojo)", costoCompra: 1.09000253 },
+            { id: "TCL003", name: "Tuerca Transmisión Tina Samsung Alta", costoCompra: 1.12999874 },
+            { id: "TCL004", name: "Tuerca Transmisión Metálica LG (Camisa Gruesa)", costoCompra: 1.12999874 },
+            { id: "TCL002", name: "Tuerca Fondo Canasta Amazonas (Rosca Fina)", costoCompra: 1.19000253 },
+            { id: "TCL001", name: "Tuerca Fondo Canasta Híbrida (Importada Azul)", costoCompra: 1.20999747 },
+            { id: "TCL012", name: "Tuerca Pesada Fondo Canasta Amazonas", costoCompra: 1.32000126 },
+            { id: "TCL011", name: "Tuerca Transmisión Lavadora Apolo Plástica", costoCompra: 1.37000126 },
+            { id: "TCL008", name: "Tuerca Transmisión Lavadora Apolo Aluminio", costoCompra: 2.52000126 },
+            { id: "TCL009", name: "Block con Tuerca Lavadora Whirlpool", costoCompra: 4.19000253 },
+            { id: "TCL010", name: "Block Sin Tuerca Whirlpool (WP389140)", costoCompra: 4.32000126 }
+        ]
+    },
+    {
+        id: "ARD-ARANDELAS-VAR",
+        name: "Arandela de Ajuste para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Formas",
+        desc: `<b>Arandelas de Ajuste y Guía</b><br><br>Separadores y rondanas metálicas o plásticas para el correcto ajuste de piezas en la transmisión y el agitador.`,
+        costoCompra: 0.03846154, // Base (ARD003)
+        images: ["productos/ARD001.webp", "productos/imjx9v11t8zh1.webp"],
+        specs: { "Tipo": "Arandela / Separador", "Uso": "Ajuste Mecánico" },
+        variants: [
+            { id: "ARD003", name: "Arandela Guía Philco", costoCompra: 0.03846154 },
+            { id: "ARD002", name: "Arandela Tina Tuba (Tipo Sombrero)", costoCompra: 0.30999747 },
+            { id: "ARD001", name: "Arandela de Ajuste Híbrida (Rondana W)", costoCompra: 0.44000253 }
+        ]
+    },
     {
         id: "BML-COMPLETA-VAR",
         name: "Bomba de Drenaje / Desagüe para Lavadora",

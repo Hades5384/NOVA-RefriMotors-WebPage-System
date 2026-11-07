@@ -1,7 +1,7 @@
 ﻿// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 891.11;
+const TASA_BCV = 897.54;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
@@ -97,8 +97,8 @@ function filterProducts() {
             }
 
             if (prod.variants && prod.variants.length > 0) {
-                const vi = prod.variants.findIndex(v => 
-                    (v.name && v.name.toLowerCase().includes(query)) || 
+                const vi = prod.variants.findIndex(v =>
+                    (v.name && v.name.toLowerCase().includes(query)) ||
                     (v.id && v.id.toLowerCase().includes(query))
                 );
                 if (vi !== -1) {
