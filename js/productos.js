@@ -261,7 +261,6 @@ const products = [
             { id: "EJE005", name: "Súper Corto Frigidaire (44.5cm)", costoCompra: 13.40999747 }
         ]
     },
->>>>>>> Stashed changes
     // SECCIÓN: MOTORES DE LAVADO Y SECADO
     // ==========================================
 
