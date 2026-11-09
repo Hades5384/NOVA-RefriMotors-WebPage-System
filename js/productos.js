@@ -193,6 +193,76 @@ const products = [
     // ============================================================== //
 
     // ==========================================
+<<<<<<< Updated upstream
+=======
+    // SECCIÓN: CAMISAS Y EJES DE TRANSMISIÓN PARA LAVADORAS
+    // ==========================================
+
+    {
+        id: "CMS-AMAZONAS-VAR",
+        name: "Camisa (Tubo de Centrifugado) para Lavadora Amazonas / Mabe",
+        category: "Lavadoras",
+        model: "Varias Medidas",
+        desc: `<b>Camisa de Centrifugado para Lavadoras de Carga Superior</b><br><br>Tubo o camisa externa de la transmisión, encargada de girar la canasta durante el centrifugado. Disponibles en múltiples variantes para lavadoras Amazonas, Mabe y General Electric. Verifique la longitud, el tipo de base y si su modelo requiere sistema de flotador (Aquasaver).`,
+        costoCompra: 5.62999874, // Base (CMS006)
+        images: ["productos/CMS001.webp", "productos/CMS002.webp", "productos/CMS013.webp"],
+        specs: { "Tipo": "Camisa de Transmisión", "Compatibilidad": "Amazonas / Mabe / GE" },
+        variants: [
+            { id: "CMS006", name: "Delfín con Tuerca Plástica (Corta 3/)", costoCompra: 5.62999874 },
+            { id: "CMS013", name: "Amazonas Morocha Flotador (Corta 13.6cm)", costoCompra: 6.00000000 },
+            { id: "CMS002", name: "Amazonas Morocha Flotador (Corta 13.7cm)", costoCompra: 6.90000000 },
+            { id: "CMS009", name: "Amazonas Troya (11cm) con Base 18cm", costoCompra: 6.90000000 },
+            { id: "CMS003", name: "Amazonas Flotador con Base Original (16.5cm)", costoCompra: 6.97000126 },
+            { id: "CMS001", name: "Amazonas 11/13KG con Base (18cm)", costoCompra: 7.47000126 },
+            { id: "CMS007", name: "Amazonas (7 a 9 Kilos / Cuña con B)", costoCompra: 8.05999747 },
+            { id: "CMS010", name: "Mabe Morocha (13cm 189D5197G001)", costoCompra: 8.85999747 },
+            { id: "CMS005", name: "Amazonas Flotador (Aquasaver Negra)", costoCompra: 9.97999874 },
+            { id: "CMS011", name: "Alado Amazonas Flotador (Con Base)", costoCompra: 13.09000253 }
+        ]
+    },
+
+    // --- CAMISAS ESPECIALES Y OTROS MODELOS ---
+    {
+        id: "CMS-OTROS-VAR",
+        name: "Camisa de Transmisión Especial (Whirlpool / Híbrida / Tuba)",
+        category: "Lavadoras",
+        model: "Sistemas Especiales",
+        desc: `<b>Camisas de Transmisión (Whirlpool y Sistemas Híbridos)</b><br><br>Tubos de centrifugado para sistemas mecánicos específicos. Incluye la camisa plástica para lavadoras Tuba (rosca fina), modelos híbridos negros y el conjunto completo de camisa con clutch para lavadoras Whirlpool americanas.`,
+        costoCompra: 2.00000000, // Base (CMS008)
+        images: ["productos/CMS001.webp"], // Puedes asignar una genérica
+        specs: { "Tipo": "Camisa Especial", "Sistemas": "Direct Drive / Híbridos" },
+        variants: [
+            { id: "CMS008", name: "Plástica Tuba (Rosca Fina Sin Estopera)", costoCompra: 2.00000000 },
+            { id: "CMS004", name: "Híbrida Negra Original (Con Buje)", costoCompra: 6.45000000 },
+            { id: "CMS012", name: "Whirlpool USA (Con Clutch Completo)", costoCompra: 38.49000253 }
+        ]
+    },
+
+    // --- EJES DE TRANSMISIÓN CENTRALES ---
+    {
+        id: "EJE-LAVADORA-VAR",
+        name: "Eje Central de Agitación para Lavadora",
+        category: "Lavadoras",
+        model: "Varias Medidas",
+        desc: `<b>Eje Central de Transmisión (Para Agitador)</b><br><br>Eje de acero que transmite el movimiento oscilatorio desde los piñones de la transmisión hasta el agitador. Indispensable para reparar cajas de transmisión atascadas o con estrías barridas. Disponibles en múltiples longitudes para sistemas Amazonas, Mabe, Frigidaire e ID System.`,
+        costoCompra: 3.55999747, // Base (EJE007)
+        images: ["productos/EJE001.webp", "productos/EJE003.webp", "productos/EJE006.webp", "productos/EJE011.webp"],
+        specs: { "Material": "Acero", "Tipo": "Eje de Agitación", "Compatibilidad": "Multimarca" },
+        variants: [
+            { id: "EJE007", name: "Inferior Mabe (Con Piñón / 11.2cm)", costoCompra: 3.55999747 },
+            { id: "EJE009", name: "Inferior Mabe/GE Amazonas (Original)", costoCompra: 3.75000000 },
+            { id: "EJE001", name: "Amazonas Sistema Flotador (24cm Importado)", costoCompra: 5.15999747 },
+            { id: "EJE004", name: "Inferior Mabe Amazonas (ID System)", costoCompra: 6.00000000 },
+            { id: "EJE006", name: "Amazonas 7 y 9 Kilos (20.5cm Importado)", costoCompra: 6.00000000 },
+            { id: "EJE008", name: "Amazonas 11 y 13 Kilos (22.5cm Importado)", costoCompra: 6.00000000 },
+            { id: "EJE003", name: "Corto Inferior Híbrida (De Rosca)", costoCompra: 6.49000253 },
+            { id: "EJE002", name: "Largo Superior Híbrida (23.5cm)", costoCompra: 6.77000126 },
+            { id: "EJE011", name: "Mabe Unificado (22.8cm Mexicano)", costoCompra: 7.45999747 },
+            { id: "EJE010", name: "Superior Largo Frigidaire (Modelo 5)", costoCompra: 11.50000000 },
+            { id: "EJE005", name: "Súper Corto Frigidaire (44.5cm)", costoCompra: 13.40999747 }
+        ]
+    },
+>>>>>>> Stashed changes
     // SECCIÓN: MOTORES DE LAVADO Y SECADO
     // ==========================================
 
