@@ -245,7 +245,15 @@ const products = [
         model: "Varias Medidas",
         desc: `<b>Eje Central de Transmisión (Para Agitador)</b><br><br>Eje de acero que transmite el movimiento oscilatorio desde los piñones de la transmisión hasta el agitador. Indispensable para reparar cajas de transmisión atascadas o con estrías barridas. Disponibles en múltiples longitudes para sistemas Amazonas, Mabe, Frigidaire e ID System.`,
         costoCompra: 3.55999747, // Base (EJE007)
-        images: ["productos/EJE001.webp", "productos/EJE003.webp", "productos/EJE006.webp", "productos/EJE011.webp"],
+        images: [
+            "productos/EJE001.webp",
+            "productos/EJE002.webp",
+            "productos/EJE003.webp",
+            "productos/EJE004.webp",
+            "productos/EJE006.webp",
+            "productos/EJE008.webp",
+            "productos/EJE011.webp"
+        ],
         specs: { "Material": "Acero", "Tipo": "Eje de Agitación", "Compatibilidad": "Multimarca" },
         variants: [
             { id: "EJE007", name: "Inferior Mabe (Con Piñón / 11.2cm)", costoCompra: 3.55999747 },
@@ -272,7 +280,7 @@ const products = [
         model: "Varias Capacidades",
         desc: `<b>Motores de Lavado de Reemplazo</b><br><br>Motores eléctricos de alta potencia (120W a 180W) para el ciclo de lavado en lavadoras de doble tina y carga superior. Disponibles en diferentes configuraciones de base (cuadrada o estándar) y diámetros de eje.`,
         costoCompra: 10.97999874, // Base (MSL201)
-        images: ["productos/MSL200.webp", "productos/MSL201.webp", "productos/MSL300.webp", "productos/MSL302.webp", "productos/MSL303.webp"],
+        images: ["productos/MSL200.webp", "productos/MSL201.webp", "productos/MSL300.webp", "productos/MSL303.webp", "productos/MSL400.webp"],
         specs: { "Tipo": "Motor de Lavado", "Uso": "Lavadoras", "Compatibilidad": "Multimarca" },
         variants: [
             { id: "MSL201", name: "Genérico 120W (Eje 12mm)", costoCompra: 10.97999874 },
@@ -293,7 +301,7 @@ const products = [
         model: "Varias Capacidades",
         desc: `<b>Motores para Tina de Secado</b><br><br>Motores específicos para la tina de centrifugado en lavadoras semiautomáticas. Versiones reforzadas (Waterproof / Ala de Cobre) para resistir salpicaduras y garantizar larga vida útil.`,
         costoCompra: 11.65000000, // Base (MSL102)
-        images: ["productos/MSL104.webp", "productos/MSL100.webp", "productos/MSL401.webp"],
+        images: ["productos/MSL104.webp"],
         specs: { "Tipo": "Motor de Centrifugado", "Uso": "Tina de Secado", "Características": "Resistente a Salpicaduras" },
         variants: [
             { id: "MSL102", name: "60W Waterproof", costoCompra: 11.65000000 },
@@ -421,7 +429,7 @@ const products = [
         model: "Varias Formas",
         desc: `<b>Arandelas de Ajuste y Guía</b><br><br>Separadores y rondanas metálicas o plásticas para el correcto ajuste de piezas en la transmisión y el agitador.`,
         costoCompra: 0.03846154, // Base (ARD003)
-        images: ["productos/ARD001.webp", "productos/imjx9v11t8zh1.webp"],
+        images: ["productos/ARD001.webp"],
         specs: { "Tipo": "Arandela / Separador", "Uso": "Ajuste Mecánico" },
         variants: [
             { id: "ARD003", name: "Arandela Guía Philco", costoCompra: 0.03846154 },
@@ -657,7 +665,14 @@ const products = [
         model: "Doble Tina / Semiautomáticas",
         desc: `<b>Chumacera / Caja de Transmisión Pequeña</b><br><br>Soportes de transmisión y engranajes para lavadoras de doble tina o semiautomáticas. Disponibles para marcas como Daka, Mabe, Samsung y Regina. Revise la longitud del eje y la forma de la base (plana o de 4 tornillos).`,
         costoCompra: 1.40000000, // Base (CMC205)
-        images: ["productos/CMC200.webp", "productos/CMC205.webp", "productos/CMC207.webp"],
+        images: [
+            "productos/CMC200.webp",
+            "productos/CMC202.webp",
+            "productos/CMC204.webp",
+            "productos/CMC205.webp",
+            "productos/CMC206.webp",
+            "productos/CMC207.webp"
+        ],
         specs: { "Tipo": "Chumacera (Caja Reductora)", "Uso": "Lavadoras Doble Tina" },
         variants: [
             { id: "CMC205", name: "Daka (Eje Corto #6 Rev)", costoCompra: 1.40000000 },
@@ -848,7 +863,7 @@ const products = [
         model: "Varias Medidas",
         desc: `<b>Micro Motores Axiales y Coolers</b><br><br>Ventiladores compactos de alta eficiencia ideales para la extracción de aire, enfriamiento de tableros eléctricos, cavas pequeñas y equipos electrónicos. Disponibles en versiones de corriente alterna (110V / 220V) y corriente directa (12V DC).`,
         costoCompra: 7.13076923, // Base (MVA307/308)
-        images: ["productos/MVA302.webp"], // Puedes asignar una imagen genérica para los coolers
+        images: ["productos/MVA300.webp"],
         specs: { "Tipo": "Micro Axial", "Uso": "Extracción y Enfriamiento", "Voltajes": "110V / 220V / 12VDC" },
         variants: [
             // Corriente Alterna (AC)
@@ -2685,11 +2700,9 @@ const products = [
             "productos/FIL130.webp",
             "productos/FIL131.webp",
             "productos/FIL146.webp",
-            "productos/FIL152.webp",
             "productos/FIL154.webp",
             "productos/FIL158.webp",
             "productos/FIL160.webp",
-            "productos/FIL161.webp",
             "productos/FIL170.webp",
             "productos/FIL171.webp"
         ],

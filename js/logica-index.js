@@ -1,4 +1,4 @@
-﻿// ==========================================
+// ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
 const TASA_BCV = 897.54;
@@ -7,8 +7,11 @@ const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
 const TASA_INTERNA = 1050;
 
-// Mostrar tasa BCV en el encabezado
-document.getElementById('bcv-display').innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
+// Mostrar tasa BCV en el encabezado de forma segura
+const bcvEl = document.getElementById('bcv-display');
+if (bcvEl) {
+    bcvEl.innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
+}
 
 // ============================================================================
 // 2. BASE DE DATOS DE PRODUCTOS CARGADA DESDE productos.js
@@ -85,7 +88,10 @@ function filterProducts() {
             const matchesCategory = (currentCategory === 'Todos') || (prod.category === currentCategory);
             if (!matchesCategory) return false;
 
-            if (!query) return true;
+            if (!query) {
+                prod._matchedVariantIndex = -1;
+                return true;
+            }
 
             const nameMatch = prod.name && prod.name.toLowerCase().includes(query);
             const idMatch = prod.id && prod.id.toLowerCase().includes(query);
@@ -499,7 +505,15 @@ function updateCartUI() {
         totalNovaUSD += preciosItem.novaClientesUSD * item.quantity;
         totalItems += item.quantity;
 
-        const imgSource = (item.images && item.images.length > 0) ? item.images[0] : 'productos/NO_PHOTO.webp';
+        let imgSource = 'productos/NO_PHOTO.webp';
+        if (item.images && item.images.length > 0) {
+            const cleanCode = (item.id || '').toUpperCase();
+            const matchedVariant = item.images.find(imgUrl => {
+                const fn = imgUrl.split('/').pop().toUpperCase().replace(/\.[^/.]+$/, "");
+                return fn === cleanCode || fn.includes(cleanCode);
+            });
+            imgSource = matchedVariant || item.images[0];
+        }
 
         htmlContent += `
             <div class="cart-item">
@@ -645,12 +659,19 @@ function sendWhatsApp() {
     }
 
     let messageLines = [
-        `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su web:\n`
+        `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su catálogo web:\n`
     ];
 
+    let totalEstimadoUSD = 0;
     cart.forEach(item => {
-        messageLines.push(`• Código: *${item.id}* - (Cantidad: ${item.quantity})`);
+        const precios = calcularPrecios(item.costoCompra);
+        const subtotalUSD = precios.publicoUSD * item.quantity;
+        totalEstimadoUSD += subtotalUSD;
+        messageLines.push(`• *${item.name}* [Código: ${item.id}] x${item.quantity} -> Ref: $${subtotalUSD.toFixed(2)}`);
     });
+
+    messageLines.push(`\n*Total Estimado:* $${totalEstimadoUSD.toFixed(2)}`);
+    messageLines.push(`¿Podrían confirmarme la disponibilidad en tienda? ¡Muchas gracias!`);
 
     const fullMessage = messageLines.join('\n');
     const destinationPhone = NUMERO_WHATSAPP.replace(/[^0-9]/g, '');
