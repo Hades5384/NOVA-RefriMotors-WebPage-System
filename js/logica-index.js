@@ -1,11 +1,11 @@
 // ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA
 // ==========================================
-const TASA_BCV = 897.54;
+const TASA_BCV = 904.45
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
-const TASA_INTERNA = 1050;
+const TASA_INTERNA = 1100;
 
 // Mostrar tasa BCV en el encabezado de forma segura
 const bcvEl = document.getElementById('bcv-display');
