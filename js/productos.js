@@ -1,8 +1,8 @@
-// ============================================================================
+﻿// ============================================================================
 // NOVA RefriMotors - Base de Datos Centralizada de Repuestos y Productos
 // Catalogo Oficial: Refrigeracion, Herramientas, Electricidad, Motores y Climatizacion
 // ============================================================================
-const products = [
+var products = [
 
     // ============================================================== //
     // ============================================================== //
@@ -207,16 +207,16 @@ const products = [
         images: ["productos/CMS001.webp", "productos/CMS002.webp", "productos/CMS013.webp"],
         specs: { "Tipo": "Camisa de Transmisión", "Compatibilidad": "Amazonas / Mabe / GE" },
         variants: [
-            { id: "CMS006", name: "Delfín con Tuerca Plástica (Corta 3/)", costoCompra: 5.62999874 },
-            { id: "CMS013", name: "Amazonas Morocha Flotador (Corta 13.6cm)", costoCompra: 6.00000000 },
-            { id: "CMS002", name: "Amazonas Morocha Flotador (Corta 13.7cm)", costoCompra: 6.90000000 },
-            { id: "CMS009", name: "Amazonas Troya (11cm) con Base 18cm", costoCompra: 6.90000000 },
-            { id: "CMS003", name: "Amazonas Flotador con Base Original (16.5cm)", costoCompra: 6.97000126 },
-            { id: "CMS001", name: "Amazonas 11/13KG con Base (18cm)", costoCompra: 7.47000126 },
-            { id: "CMS007", name: "Amazonas (7 a 9 Kilos / Cuña con B)", costoCompra: 8.05999747 },
-            { id: "CMS010", name: "Mabe Morocha (13cm 189D5197G001)", costoCompra: 8.85999747 },
-            { id: "CMS005", name: "Amazonas Flotador (Aquasaver Negra)", costoCompra: 9.97999874 },
-            { id: "CMS011", name: "Alado Amazonas Flotador (Con Base)", costoCompra: 13.09000253 }
+            { id: "CMS006", name: "Camisa Delfín con Tuerca Plástica (Corta 3/)", costoCompra: 5.62999874 },
+            { id: "CMS013", name: "Camisa Amazonas Morocha Flotador (Corta 13.6cm)", costoCompra: 6.00000000 },
+            { id: "CMS002", name: "Camisa Amazonas Morocha Flotador (Corta 13.7cm)", costoCompra: 6.90000000 },
+            { id: "CMS009", name: "Camisa Amazonas Troya (11cm) con Base 18cm", costoCompra: 6.90000000 },
+            { id: "CMS003", name: "Camisa Amazonas Flotador con Base Original (16.5cm)", costoCompra: 6.97000126 },
+            { id: "CMS001", name: "Camisa Amazonas 11/13KG con Base (18cm)", costoCompra: 7.47000126 },
+            { id: "CMS007", name: "Camisa Amazonas (7 a 9 Kilos / Cuña con B)", costoCompra: 8.05999747 },
+            { id: "CMS010", name: "Camisa Mabe Morocha (13cm 189D5197G001)", costoCompra: 8.85999747 },
+            { id: "CMS005", name: "Camisa Amazonas Flotador (Aquasaver Negra)", costoCompra: 9.97999874 },
+            { id: "CMS011", name: "Camisa Alado Amazonas Flotador (Con Base)", costoCompra: 13.09000253 }
         ]
     },
 
@@ -231,9 +231,9 @@ const products = [
         images: ["productos/CMS001.webp"], // Puedes asignar una genérica
         specs: { "Tipo": "Camisa Especial", "Sistemas": "Direct Drive / Híbridos" },
         variants: [
-            { id: "CMS008", name: "Plástica Tuba (Rosca Fina Sin Estopera)", costoCompra: 2.00000000 },
-            { id: "CMS004", name: "Híbrida Negra Original (Con Buje)", costoCompra: 6.45000000 },
-            { id: "CMS012", name: "Whirlpool USA (Con Clutch Completo)", costoCompra: 38.49000253 }
+            { id: "CMS008", name: "Camisa Plástica Tuba (Rosca Fina Sin Estopera)", costoCompra: 2.00000000 },
+            { id: "CMS004", name: "Camisa Híbrida Negra Original (Con Buje)", costoCompra: 6.45000000 },
+            { id: "CMS012", name: "Camisa Whirlpool USA (Con Clutch Completo)", costoCompra: 38.49000253 }
         ]
     },
 
@@ -256,17 +256,17 @@ const products = [
         ],
         specs: { "Material": "Acero", "Tipo": "Eje de Agitación", "Compatibilidad": "Multimarca" },
         variants: [
-            { id: "EJE007", name: "Inferior Mabe (Con Piñón / 11.2cm)", costoCompra: 3.55999747 },
-            { id: "EJE009", name: "Inferior Mabe/GE Amazonas (Original)", costoCompra: 3.75000000 },
-            { id: "EJE001", name: "Amazonas Sistema Flotador (24cm Importado)", costoCompra: 5.15999747 },
-            { id: "EJE004", name: "Inferior Mabe Amazonas (ID System)", costoCompra: 6.00000000 },
-            { id: "EJE006", name: "Amazonas 7 y 9 Kilos (20.5cm Importado)", costoCompra: 6.00000000 },
-            { id: "EJE008", name: "Amazonas 11 y 13 Kilos (22.5cm Importado)", costoCompra: 6.00000000 },
-            { id: "EJE003", name: "Corto Inferior Híbrida (De Rosca)", costoCompra: 6.49000253 },
-            { id: "EJE002", name: "Largo Superior Híbrida (23.5cm)", costoCompra: 6.77000126 },
-            { id: "EJE011", name: "Mabe Unificado (22.8cm Mexicano)", costoCompra: 7.45999747 },
-            { id: "EJE010", name: "Superior Largo Frigidaire (Modelo 5)", costoCompra: 11.50000000 },
-            { id: "EJE005", name: "Súper Corto Frigidaire (44.5cm)", costoCompra: 13.40999747 }
+            { id: "EJE007", name: "Eje Inferior Mabe (Con Piñón / 11.2cm)", costoCompra: 3.55999747 },
+            { id: "EJE009", name: "Eje Inferior Mabe/GE Amazonas (Original)", costoCompra: 3.75000000 },
+            { id: "EJE001", name: "Eje Amazonas Sistema Flotador (24cm Importado)", costoCompra: 5.15999747 },
+            { id: "EJE004", name: "Eje Inferior Mabe Amazonas (ID System)", costoCompra: 6.00000000 },
+            { id: "EJE006", name: "Eje Amazonas 7 y 9 Kilos (20.5cm Importado)", costoCompra: 6.00000000 },
+            { id: "EJE008", name: "Eje Amazonas 11 y 13 Kilos (22.5cm Importado)", costoCompra: 6.00000000 },
+            { id: "EJE003", name: "Eje Corto Inferior Híbrida (De Rosca)", costoCompra: 6.49000253 },
+            { id: "EJE002", name: "Eje Largo Superior Híbrida (23.5cm)", costoCompra: 6.77000126 },
+            { id: "EJE011", name: "Eje Mabe Unificado (22.8cm Mexicano)", costoCompra: 7.45999747 },
+            { id: "EJE010", name: "Eje Superior Largo Frigidaire (Modelo 5)", costoCompra: 11.50000000 },
+            { id: "EJE005", name: "Eje Súper Corto Frigidaire (44.5cm)", costoCompra: 13.40999747 }
         ]
     },
     // SECCIÓN: MOTORES DE LAVADO Y SECADO
@@ -283,13 +283,13 @@ const products = [
         images: ["productos/MSL200.webp", "productos/MSL201.webp", "productos/MSL300.webp", "productos/MSL303.webp", "productos/MSL400.webp"],
         specs: { "Tipo": "Motor de Lavado", "Uso": "Lavadoras", "Compatibilidad": "Multimarca" },
         variants: [
-            { id: "MSL201", name: "Genérico 120W (Eje 12mm)", costoCompra: 10.97999874 },
-            { id: "MSL400", name: "Base Cuadrada 90W/110V", costoCompra: 13.94000253 },
-            { id: "MSL200", name: "Genérico 120-170W (Eje 12mm)", costoCompra: 15.97000126 },
-            { id: "MSL402", name: "Base Cuadrada 150W/110V", costoCompra: 16.25999747 },
-            { id: "MSL303", name: "Haier 150W (Eje 10mm / HWM70)", costoCompra: 19.60000000 },
-            { id: "MSL300", name: "Haier 180W (HWM150)", costoCompra: 19.99000253 },
-            { id: "MSL302", name: "Haier 12mm (GWT750AW/00340)", costoCompra: 30.00000000 }
+            { id: "MSL201", name: "Motor Lavado Genérico 120W (Eje 12mm)", costoCompra: 10.97999874 },
+            { id: "MSL400", name: "Motor Lavado Base Cuadrada 90W/110V", costoCompra: 13.94000253 },
+            { id: "MSL200", name: "Motor Lavado Genérico 120-170W (Eje 12mm)", costoCompra: 15.97000126 },
+            { id: "MSL402", name: "Motor Lavado Base Cuadrada 150W/110V", costoCompra: 16.25999747 },
+            { id: "MSL303", name: "Motor Lavado Haier 150W (Eje 10mm / HWM70)", costoCompra: 19.60000000 },
+            { id: "MSL300", name: "Motor Lavado Haier 180W (HWM150)", costoCompra: 19.99000253 },
+            { id: "MSL302", name: "Motor Lavado Haier 12mm (GWT750AW/00340)", costoCompra: 30.00000000 }
         ]
     },
 
@@ -304,13 +304,13 @@ const products = [
         images: ["productos/MSL104.webp"],
         specs: { "Tipo": "Motor de Centrifugado", "Uso": "Tina de Secado", "Características": "Resistente a Salpicaduras" },
         variants: [
-            { id: "MSL102", name: "60W Waterproof", costoCompra: 11.65000000 },
-            { id: "MSL104", name: "60W Ala de Cobre (Eje 10mm)", costoCompra: 12.30999747 },
-            { id: "MSL301", name: "Haier 50W (3 Puntas Eje 12mm)", costoCompra: 13.60000000 },
-            { id: "MSL101", name: "60W Waterproof (Ala de Cobre)", costoCompra: 15.89000253 },
-            { id: "MSL100", name: "60-90W (Eje Corto 10mm)", costoCompra: 16.90000000 },
-            { id: "MSL103", name: "70W Waterproof (Ala de Cobre)", costoCompra: 18.25999747 },
-            { id: "MSL401", name: "90W Base Cuadrada (Eje 12mm)", costoCompra: 19.60999747 }
+            { id: "MSL102", name: "Motor Secado 60W Waterproof", costoCompra: 11.65000000 },
+            { id: "MSL104", name: "Motor Secado 60W Ala de Cobre (Eje 10mm)", costoCompra: 12.30999747 },
+            { id: "MSL301", name: "Motor Secado Haier 50W (3 Puntas Eje 12mm)", costoCompra: 13.60000000 },
+            { id: "MSL101", name: "Motor Secado 60W Waterproof (Ala de Cobre)", costoCompra: 15.89000253 },
+            { id: "MSL100", name: "Motor Secado 60-90W (Eje Corto 10mm)", costoCompra: 16.90000000 },
+            { id: "MSL103", name: "Motor Secado 70W Waterproof (Ala de Cobre)", costoCompra: 18.25999747 },
+            { id: "MSL401", name: "Motor Secado 90W Base Cuadrada (Eje 12mm)", costoCompra: 19.60999747 }
         ]
     },
 
@@ -325,10 +325,10 @@ const products = [
         images: ["productos/MSL500.webp", "productos/MSL501.webp", "productos/MSL502.webp"], // Usa imágenes de repuestos pequeños
         specs: { "Tipo": "Motor Drain", "Uso": "Liberación de Transmisión" },
         variants: [
-            { id: "MSL500", name: "Samsung / Electrolux (Con Cable)", costoCompra: 5.97999874 },
-            { id: "MSL502", name: "LG 2 Terminales Blanco (MD-60)", costoCompra: 6.20999747 },
-            { id: "MSL501", name: "LG 3 Terminales Blanco (ISYN)", costoCompra: 6.50000000 },
-            { id: "MSL503", name: "Haier Driver (XQB75-91S/003400)", costoCompra: 10.10999747 }
+            { id: "MSL500", name: "Motor Drain Samsung / Electrolux (Con Cable)", costoCompra: 5.97999874 },
+            { id: "MSL502", name: "Motor Drain LG 2 Terminales Blanco (MD-60)", costoCompra: 6.20999747 },
+            { id: "MSL501", name: "Motor Drain LG 3 Terminales Blanco (ISYN)", costoCompra: 6.50000000 },
+            { id: "MSL503", name: "Motor Drain Haier Driver (XQB75-91S/003400)", costoCompra: 10.10999747 }
         ]
     },
 
@@ -346,28 +346,28 @@ const products = [
         specs: { "Tipo": "Reloj Mecánico", "Uso": "Control de Ciclos (Doble Tina)", "Variedad": "Múltiples Cables" },
         variants: [
             // Secado (2 y 3 cables)
-            { id: "TME030", name: "2 Cables Secado (Redondo Oreja Recta)", costoCompra: 0.66923077 },
-            { id: "TME029", name: "2 Cables Secado (Redondo Oreja Inclinada)", costoCompra: 0.74000253 },
-            { id: "TME003", name: "3 Cables Cuadrado (S/Normal XD-15-04)", costoCompra: 1.70000000 },
-            { id: "TME007", name: "3 Cables Doble (XD-15-004 Lav)", costoCompra: 2.06923077 },
-            { id: "TME008", name: "3 Cables Cuadrado (Oreja Recta C/Puente)", costoCompra: 2.26153846 },
-            { id: "TME027", name: "3 Terminales Haier (Sustituye Electrónico)", costoCompra: 4.00000000 },
+            { id: "TME030", name: "Timer 2 Cables Secado (Redondo Oreja Recta)", costoCompra: 0.66923077 },
+            { id: "TME029", name: "Timer 2 Cables Secado (Redondo Oreja Inclinada)", costoCompra: 0.74000253 },
+            { id: "TME003", name: "Timer 3 Cables Cuadrado (S/Normal XD-15-04)", costoCompra: 1.70000000 },
+            { id: "TME007", name: "Timer 3 Cables Doble (XD-15-004 Lav)", costoCompra: 2.06923077 },
+            { id: "TME008", name: "Timer 3 Cables Cuadrado (Oreja Recta C/Puente)", costoCompra: 2.26153846 },
+            { id: "TME027", name: "Timer 3 Terminales Haier (Sustituye Electrónico)", costoCompra: 4.00000000 },
             // Lavado (4, 5, 6 y 7 cables)
-            { id: "TME011", name: "4 Terminales Haier (Cuadrado Oreja Recta)", costoCompra: 1.65384615 },
-            { id: "TME001", name: "4 Cables (C/Puente Cuadrado)", costoCompra: 1.67692308 },
-            { id: "TME010", name: "4 Cables Doble (XD-15-002 Lav)", costoCompra: 2.06923077 },
-            { id: "TME018", name: "5 Cables Cuadrado (C/Puente S/Normal)", costoCompra: 1.75384615 },
-            { id: "TME002", name: "6 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.70000000 },
-            { id: "TME004", name: "6 Cables Especial (Oreja Larga CTW-6)", costoCompra: 1.70000000 },
-            { id: "TME020", name: "6 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 1.83076923 },
-            { id: "TME019", name: "6 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
-            { id: "TME022", name: "6 Cables Cuadrado (S/Normal C/Protec)", costoCompra: 2.22307692 },
-            { id: "TME021", name: "6 Cables Cuadrado (O/Larga C/Puente)", costoCompra: 4.00000000 },
-            { id: "TME028", name: "7 Cables Cuadrado (O/Larga S/Cables)", costoCompra: 1.95384615 },
-            { id: "TME031", name: "7 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.99230769 },
-            { id: "TME025", name: "7 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
-            { id: "TME032", name: "7 Cables (C/Switch)", costoCompra: 3.15384615 },
-            { id: "TME026", name: "7 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 4.00000000 }
+            { id: "TME011", name: "Timer 4 Terminales Haier (Cuadrado Oreja Recta)", costoCompra: 1.65384615 },
+            { id: "TME001", name: "Timer 4 Cables (C/Puente Cuadrado)", costoCompra: 1.67692308 },
+            { id: "TME010", name: "Timer 4 Cables Doble (XD-15-002 Lav)", costoCompra: 2.06923077 },
+            { id: "TME018", name: "Timer 5 Cables Cuadrado (C/Puente S/Normal)", costoCompra: 1.75384615 },
+            { id: "TME002", name: "Timer 6 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.70000000 },
+            { id: "TME004", name: "Timer 6 Cables Especial (Oreja Larga CTW-6)", costoCompra: 1.70000000 },
+            { id: "TME020", name: "Timer 6 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 1.83076923 },
+            { id: "TME019", name: "Timer 6 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
+            { id: "TME022", name: "Timer 6 Cables Cuadrado (S/Normal C/Protec)", costoCompra: 2.22307692 },
+            { id: "TME021", name: "Timer 6 Cables Cuadrado (O/Larga C/Puente)", costoCompra: 4.00000000 },
+            { id: "TME028", name: "Timer 7 Cables Cuadrado (O/Larga S/Cables)", costoCompra: 1.95384615 },
+            { id: "TME031", name: "Timer 7 Cables Cuadrado (O/Corta S/Normal)", costoCompra: 1.99230769 },
+            { id: "TME025", name: "Timer 7 Cables Cuadrado (O/Larga S/Normal)", costoCompra: 2.19230769 },
+            { id: "TME032", name: "Timer 7 Cables (C/Switch)", costoCompra: 3.15384615 },
+            { id: "TME026", name: "Timer 7 Cables Cuadrado (O/Inclinada S/Normal)", costoCompra: 4.00000000 }
         ]
     },
 
@@ -418,8 +418,8 @@ const products = [
             { id: "TCL012", name: "Tuerca Pesada Fondo Canasta Amazonas", costoCompra: 1.32000126 },
             { id: "TCL011", name: "Tuerca Transmisión Lavadora Apolo Plástica", costoCompra: 1.37000126 },
             { id: "TCL008", name: "Tuerca Transmisión Lavadora Apolo Aluminio", costoCompra: 2.52000126 },
-            { id: "TCL009", name: "Block con Tuerca Lavadora Whirlpool", costoCompra: 4.19000253 },
-            { id: "TCL010", name: "Block Sin Tuerca Whirlpool (WP389140)", costoCompra: 4.32000126 }
+            { id: "TCL009", name: "Tuerca Block con Tuerca Lavadora Whirlpool", costoCompra: 4.19000253 },
+            { id: "TCL010", name: "Tuerca Block Sin Tuerca Whirlpool (WP389140)", costoCompra: 4.32000126 }
         ]
     },
     {
@@ -447,22 +447,22 @@ const products = [
         images: ["productos/BML115.webp", "productos/BML116.webp", "productos/BML118.webp"],
         specs: { "Tipo": "Bomba Completa", "Uso": "Desagüe de Tina", "Voltaje": "110V/115V" },
         variants: [
-            { id: "BML112", name: "Whirlpool (2 Bocas Planas)", costoCompra: 6.34000253 },
-            { id: "BML100", name: "Asiática Gris Daka 35W (ISYN)", costoCompra: 7.00000000 },
-            { id: "BML101", name: "Asiática Gris Daka 45W (ISYN)", costoCompra: 7.30000000 },
-            { id: "BML122", name: "Frigidaire / Electrolux (2 Bocas)", costoCompra: 7.99000253 },
-            { id: "BML118", name: "Genérica Blanca (C/Filtro 4 Picos)", costoCompra: 8.12999874 },
-            { id: "BML115", name: "Para LG (C/Filtro)", costoCompra: 8.15000000 },
-            { id: "BML120", name: "Whirlpool (2 Bocas Gruesas Reemplazo)", costoCompra: 8.24000253 },
-            { id: "BML121", name: "Asiática de Tornillos (85W/115V/60Hz)", costoCompra: 10.57000126 },
-            { id: "BML102", name: "Amazonas 11/13KG 85W (ISYN)", costoCompra: 10.60999747 },
-            { id: "BML116", name: "Frigidaire / Electrolux (ISYN)", costoCompra: 13.92999874 },
-            { id: "BML117", name: "Whirlpool Eléctrica (W1)", costoCompra: 14.50000000 },
-            { id: "BML113", name: "Haier 80W (GWT750A)", costoCompra: 14.62000126 },
-            { id: "BML109", name: "Amana / Maytag (27001233)", costoCompra: 15.00000000 },
-            { id: "BML119", name: "Frigidaire (Original 1)", costoCompra: 16.00000000 },
-            { id: "BML103", name: "Whirlpool (2 Bocas Planas Original)", costoCompra: 17.07000126 },
-            { id: "BML104", name: "Whirlpool (2 Bocas Gruesas Original)", costoCompra: 19.52999874 }
+            { id: "BML112", name: "Bomba Desagüe Whirlpool (2 Bocas Planas)", costoCompra: 6.34000253 },
+            { id: "BML100", name: "Bomba Desagüe Asiática Gris Daka 35W (ISYN)", costoCompra: 7.00000000 },
+            { id: "BML101", name: "Bomba Desagüe Asiática Gris Daka 45W (ISYN)", costoCompra: 7.30000000 },
+            { id: "BML122", name: "Bomba Desagüe Frigidaire / Electrolux (2 Bocas)", costoCompra: 7.99000253 },
+            { id: "BML118", name: "Bomba Desagüe Genérica Blanca (C/Filtro 4 Picos)", costoCompra: 8.12999874 },
+            { id: "BML115", name: "Bomba Desagüe Para LG (C/Filtro)", costoCompra: 8.15000000 },
+            { id: "BML120", name: "Bomba Desagüe Whirlpool (2 Bocas Gruesas Reemplazo)", costoCompra: 8.24000253 },
+            { id: "BML121", name: "Bomba Desagüe Asiática de Tornillos (85W/115V/60Hz)", costoCompra: 10.57000126 },
+            { id: "BML102", name: "Bomba Desagüe Amazonas 11/13KG 85W (ISYN)", costoCompra: 10.60999747 },
+            { id: "BML116", name: "Bomba Desagüe Frigidaire / Electrolux (ISYN)", costoCompra: 13.92999874 },
+            { id: "BML117", name: "Bomba Desagüe Whirlpool Eléctrica (W1)", costoCompra: 14.50000000 },
+            { id: "BML113", name: "Bomba Desagüe Haier 80W (GWT750A)", costoCompra: 14.62000126 },
+            { id: "BML109", name: "Bomba Desagüe Amana / Maytag (27001233)", costoCompra: 15.00000000 },
+            { id: "BML119", name: "Bomba Desagüe Frigidaire (Original 1)", costoCompra: 16.00000000 },
+            { id: "BML103", name: "Bomba Desagüe Whirlpool (2 Bocas Planas Original)", costoCompra: 17.07000126 },
+            { id: "BML104", name: "Bomba Desagüe Whirlpool (2 Bocas Gruesas Original)", costoCompra: 19.52999874 }
         ]
     },
 
@@ -477,13 +477,13 @@ const products = [
         images: ["productos/BML105.webp", "productos/BML108.webp", "productos/BML110.webp", "productos/BML114.webp"],
         specs: { "Tipo": "Solo Motor (Cuerpo)", "Uso": "Reemplazo de Motor de Drenaje", "Voltaje": "110V/115V" },
         variants: [
-            { id: "BML107", name: "ISYN 35W (Con Tornillo)", costoCompra: 4.95000000 },
-            { id: "BML111", name: "ISYN 45W (2118-45)", costoCompra: 5.22000126 },
-            { id: "BML114", name: "ISYN 35W (A Presión)", costoCompra: 5.49000253 },
-            { id: "BML106", name: "Haier 35W/40W (A Presión)", costoCompra: 6.17000126 },
-            { id: "BML110", name: "Electrolux 33W (Original)", costoCompra: 7.25000000 },
-            { id: "BML105", name: "ISYN 80W/85W (HWDP-09)", costoCompra: 9.57000126 },
-            { id: "BML108", name: "ISYN 65W (HWDP-09-65)", costoCompra: 9.84000253 }
+            { id: "BML107", name: "Cuerpo Bomba ISYN 35W (Con Tornillo)", costoCompra: 4.95000000 },
+            { id: "BML111", name: "Cuerpo Bomba ISYN 45W (2118-45)", costoCompra: 5.22000126 },
+            { id: "BML114", name: "Cuerpo Bomba ISYN 35W (A Presión)", costoCompra: 5.49000253 },
+            { id: "BML106", name: "Cuerpo Bomba Haier 35W/40W (A Presión)", costoCompra: 6.17000126 },
+            { id: "BML110", name: "Cuerpo Bomba Electrolux 33W (Original)", costoCompra: 7.25000000 },
+            { id: "BML105", name: "Cuerpo Bomba ISYN 80W/85W (HWDP-09)", costoCompra: 9.57000126 },
+            { id: "BML108", name: "Cuerpo Bomba ISYN 65W (HWDP-09-65)", costoCompra: 9.84000253 }
         ]
     },
 
@@ -519,12 +519,12 @@ const products = [
         images: ["productos/ACP004.webp", "productos/ACP008.webp", "productos/ACP009.webp", "productos/ACP013.webp"],
         specs: { "Material": "Metal / Aluminio", "Marca Compatible": "Samsung", "Instalación": "Base de Agitador" },
         variants: [
-            { id: "ACP007", name: "Pequeño (Buje 10mm)", costoCompra: 1.20000000 },
-            { id: "ACP008", name: "Grande (Buje 10mm)", costoCompra: 1.32000126 },
-            { id: "ACP013", name: "Mediano (Buje 12mm)", costoCompra: 1.52999874 },
-            { id: "ACP004", name: "Grande (Buje 12mm)", costoCompra: 1.60000000 },
-            { id: "ACP009", name: "Original Mod. DC97-03660A", costoCompra: 1.80000000 },
-            { id: "ACP005", name: "Mediano (Buje 10mm)", costoCompra: 2.14000253 }
+            { id: "ACP007", name: "Acople Pequeño (Buje 10mm)", costoCompra: 1.20000000 },
+            { id: "ACP008", name: "Acople Grande (Buje 10mm)", costoCompra: 1.32000126 },
+            { id: "ACP013", name: "Acople Mediano (Buje 12mm)", costoCompra: 1.52999874 },
+            { id: "ACP004", name: "Acople Grande (Buje 12mm)", costoCompra: 1.60000000 },
+            { id: "ACP009", name: "Acople Original Mod. DC97-03660A", costoCompra: 1.80000000 },
+            { id: "ACP005", name: "Acople Mediano (Buje 10mm)", costoCompra: 2.14000253 }
         ]
     },
 
@@ -539,12 +539,12 @@ const products = [
         images: [],
         specs: { "Tipo": "Plástico Estriado", "Compatibilidad": "LG / Marcas Asiáticas", "Uso": "Conexión de Agitador" },
         variants: [
-            { id: "ACP003", name: "Cuadrado Interno / 12D Externo", costoCompra: 0.67000126 },
-            { id: "ACP015", name: "LG Pequeño (11D Int / 12D Ext)", costoCompra: 0.75999747 },
-            { id: "ACP001", name: "Negro (10D Int / 12D Ext)", costoCompra: 0.77000126 },
-            { id: "ACP014", name: "LG Importado (11D Int / 15D Ext)", costoCompra: 0.87999874 },
-            { id: "ACP011", name: "Asiática Estándar (Cuadrado Interno)", costoCompra: 0.90000000 },
-            { id: "ACP002", name: "Negro (11D Int / 13D Ext)", costoCompra: 0.90999747 }
+            { id: "ACP003", name: "Acople Cuadrado Interno / 12D Externo", costoCompra: 0.67000126 },
+            { id: "ACP015", name: "Acople LG Pequeño (11D Int / 12D Ext)", costoCompra: 0.75999747 },
+            { id: "ACP001", name: "Acople Negro (10D Int / 12D Ext)", costoCompra: 0.77000126 },
+            { id: "ACP014", name: "Acople LG Importado (11D Int / 15D Ext)", costoCompra: 0.87999874 },
+            { id: "ACP011", name: "Acople Asiática Estándar (Cuadrado Interno)", costoCompra: 0.90000000 },
+            { id: "ACP002", name: "Acople Negro (11D Int / 13D Ext)", costoCompra: 0.90999747 }
         ]
     },
 
@@ -559,10 +559,10 @@ const products = [
         images: [],
         specs: { "Compatibilidad": "Whirlpool / Mabe / Frigidaire", "Uso": "Agitador de Columna" },
         variants: [
-            { id: "ACP006", name: "Frigidaire (Estriado)", costoCompra: 1.92999874 },
-            { id: "ACP010", name: "Whirlpool FSP Original (285753A)", costoCompra: 1.97999874 },
-            { id: "ACP100", name: "Mabe Híbrido Nacional", costoCompra: 2.00000000 },
-            { id: "ACP012", name: "Amazonas / Híbrida (Mexicano)", costoCompra: 3.40000000 }
+            { id: "ACP006", name: "Acople Frigidaire (Estriado)", costoCompra: 1.92999874 },
+            { id: "ACP010", name: "Acople Whirlpool FSP Original (285753A)", costoCompra: 1.97999874 },
+            { id: "ACP100", name: "Acople Mabe Híbrido Nacional", costoCompra: 2.00000000 },
+            { id: "ACP012", name: "Acople Amazonas / Híbrida (Mexicano)", costoCompra: 3.40000000 }
         ]
     },
     {
@@ -581,26 +581,26 @@ const products = [
         ],
         specs: { "Tipo": "Transmisión Plástica", "Uso": "Lavadoras de Doble Tina", "Compatibilidad": "Marcas Asiáticas" },
         variants: [
-            { id: "TRA208", name: "11 Dientes Eje Corto (Polea Pequeña)", costoCompra: 3.10000000 },
-            { id: "TRA209", name: "Haier 11 Dientes (Polea Grande)", costoCompra: 3.10000000 },
-            { id: "TRA202", name: "Daka Eje Corto #4 (Polea Grande)", costoCompra: 3.10000000 },
-            { id: "TRA203", name: "Daka Eje Corto #4 (Polea Pequeña)", costoCompra: 3.10000000 },
-            { id: "TRA201", name: "Electrolux Celeste (Eje Cuadrado)", costoCompra: 3.20000000 },
-            { id: "TRA220", name: "LG 11 Dientes (Mod. Viejo YX-123 Rev)", costoCompra: 3.30000000 },
-            { id: "TRA212", name: "11 Dientes Polea Lateral (Estriado)", costoCompra: 3.40000000 },
-            { id: "TRA210", name: "AK Electronic (Eje Cuadrado)", costoCompra: 3.47000126 },
-            { id: "TRA211", name: "Mabe Asiática 12KG 11D (Con Polea)", costoCompra: 3.47000126 },
-            { id: "TRA219", name: "Sample (Eje Cuadrado Rev)", costoCompra: 3.60999747 },
-            { id: "TRA221", name: "General Plus 10 Dientes (Eje Largo)", costoCompra: 3.60000000 },
-            { id: "TRA216", name: "LG 11 Dientes (Tipo Platillo)", costoCompra: 3.72999874 },
-            { id: "TRA222", name: "Mabe Asiática 12KG 11D (Con Polea Alta)", costoCompra: 3.75000000 },
-            { id: "TRA215", name: "Eje Cuadrado (Polea Lateral)", costoCompra: 3.80000000 },
-            { id: "TRA213", name: "Tipo Campana Daewoo (YX-169)", costoCompra: 3.90000000 },
-            { id: "TRA214", name: "Haceb (Eje Cuadrado)", costoCompra: 3.90000000 },
-            { id: "TRA205", name: "10 Dientes Eje Corto (Polea Grande)", costoCompra: 5.20000000 },
-            { id: "TRA206", name: "10 Dientes Eje Corto (Polea Pequeña)", costoCompra: 5.20000000 },
-            { id: "TRA207", name: "11 Dientes Eje Corto (Polea Grande)", costoCompra: 6.00000000 },
-            { id: "TRA204", name: "Daka Eje Largo #5 (Polea Grande)", costoCompra: 6.50000000 }
+            { id: "TRA208", name: "Transmisión Plástica 11 Dientes Eje Corto (Polea Pequeña)", costoCompra: 3.10000000 },
+            { id: "TRA209", name: "Transmisión Plástica Haier 11 Dientes (Polea Grande)", costoCompra: 3.10000000 },
+            { id: "TRA202", name: "Transmisión Plástica Daka Eje Corto #4 (Polea Grande)", costoCompra: 3.10000000 },
+            { id: "TRA203", name: "Transmisión Plástica Daka Eje Corto #4 (Polea Pequeña)", costoCompra: 3.10000000 },
+            { id: "TRA201", name: "Transmisión Plástica Electrolux Celeste (Eje Cuadrado)", costoCompra: 3.20000000 },
+            { id: "TRA220", name: "Transmisión Plástica LG 11 Dientes (Mod. Viejo YX-123 Rev)", costoCompra: 3.30000000 },
+            { id: "TRA212", name: "Transmisión Plástica 11 Dientes Polea Lateral (Estriado)", costoCompra: 3.40000000 },
+            { id: "TRA210", name: "Transmisión Plástica AK Electronic (Eje Cuadrado)", costoCompra: 3.47000126 },
+            { id: "TRA211", name: "Transmisión Plástica Mabe Asiática 12KG 11D (Con Polea)", costoCompra: 3.47000126 },
+            { id: "TRA219", name: "Transmisión Plástica Sample (Eje Cuadrado Rev)", costoCompra: 3.60999747 },
+            { id: "TRA221", name: "Transmisión Plástica General Plus 10 Dientes (Eje Largo)", costoCompra: 3.60000000 },
+            { id: "TRA216", name: "Transmisión Plástica LG 11 Dientes (Tipo Platillo)", costoCompra: 3.72999874 },
+            { id: "TRA222", name: "Transmisión Plástica Mabe Asiática 12KG 11D (Con Polea Alta)", costoCompra: 3.75000000 },
+            { id: "TRA215", name: "Transmisión Plástica Eje Cuadrado (Polea Lateral)", costoCompra: 3.80000000 },
+            { id: "TRA213", name: "Transmisión Plástica Tipo Campana Daewoo (YX-169)", costoCompra: 3.90000000 },
+            { id: "TRA214", name: "Transmisión Plástica Haceb (Eje Cuadrado)", costoCompra: 3.90000000 },
+            { id: "TRA205", name: "Transmisión Plástica 10 Dientes Eje Corto (Polea Grande)", costoCompra: 5.20000000 },
+            { id: "TRA206", name: "Transmisión Plástica 10 Dientes Eje Corto (Polea Pequeña)", costoCompra: 5.20000000 },
+            { id: "TRA207", name: "Transmisión Plástica 11 Dientes Eje Corto (Polea Grande)", costoCompra: 6.00000000 },
+            { id: "TRA204", name: "Transmisión Plástica Daka Eje Largo #5 (Polea Grande)", costoCompra: 6.50000000 }
         ]
     },
 
@@ -615,10 +615,10 @@ const products = [
         images: ["productos/AGT021.webp", "productos/AGT021-2.webp", "productos/AGT022.webp", "productos/AGT023.webp", "productos/AGT024.webp"],
         specs: { "Tipo": "Pulsador Compacto", "Diámetro": "18cm y 20cm", "Uso": "Lavadoras Asiáticas Pequeñas" },
         variants: [
-            { id: "AGT021", name: "18 cm (Eje Ovalado)", costoCompra: 5.00000000 },
-            { id: "AGT022", name: "18 cm (Eje Cuadrado)", costoCompra: 5.00000000 },
-            { id: "AGT024", name: "20 cm (Eje Circular)", costoCompra: 5.00000000 },
-            { id: "AGT023", name: "20 cm (Eje Cuadrado)", costoCompra: 5.25384615 }
+            { id: "AGT021", name: "Agitador 18 cm (Eje Ovalado)", costoCompra: 5.00000000 },
+            { id: "AGT022", name: "Agitador 18 cm (Eje Cuadrado)", costoCompra: 5.00000000 },
+            { id: "AGT024", name: "Agitador 20 cm (Eje Circular)", costoCompra: 5.00000000 },
+            { id: "AGT023", name: "Agitador 20 cm (Eje Cuadrado)", costoCompra: 5.25384615 }
         ]
     },
     {
@@ -641,19 +641,19 @@ const products = [
         images: ["productos/TRA302.webp", "productos/TRA300.webp", "productos/TRA308.webp", "productos/TRA311.webp", "productos/TRA312.webp"],
         specs: { "Material": "Metal", "Tipo": "Transmisión Completa", "Uso": "Lavadoras Automáticas" },
         variants: [
-            { id: "TRA311", name: "Samsung (GBW-10431C)", costoCompra: 27.17999874 },
-            { id: "TRA309", name: "LG / Electrolux (Eje 1)", costoCompra: 27.95000000 },
-            { id: "TRA308", name: "LG 15 KG (Grande Cam)", costoCompra: 30.50000000 },
-            { id: "TRA306", name: "Daewoo 10-13 KG (GM-3)", costoCompra: 31.15000000 },
-            { id: "TRA303", name: "Samsung 11 Dientes (GBW-104)", costoCompra: 31.15000000 },
-            { id: "TRA307", name: "Samsung (Eje Cuadrado)", costoCompra: 32.97999874 },
-            { id: "TRA310", name: "Genérica 11 Dientes (Puente Dorada)", costoCompra: 33.42999874 },
-            { id: "TRA301", name: "LG 11 Dientes (Un Piñón)", costoCompra: 33.45999747 },
-            { id: "TRA302", name: "LG 11 Dientes (Un Piñón GBW)", costoCompra: 33.45999747 },
-            { id: "TRA304", name: "Haier (Con Puente Pequeño)", costoCompra: 35.00000000 },
-            { id: "TRA305", name: "Haier (Con Puente Grande)", costoCompra: 35.00000000 },
-            { id: "TRA300", name: "Genérica (Con Puente Plateado)", costoCompra: 35.20999747 },
-            { id: "TRA312", name: "Haier 0030 (11 Dientes Lavado)", costoCompra: 52.00000000 }
+            { id: "TRA311", name: "Transmisión Samsung (GBW-10431C)", costoCompra: 27.17999874 },
+            { id: "TRA309", name: "Transmisión LG / Electrolux (Eje 1)", costoCompra: 27.95000000 },
+            { id: "TRA308", name: "Transmisión LG 15 KG (Grande Cam)", costoCompra: 30.50000000 },
+            { id: "TRA306", name: "Transmisión Daewoo 10-13 KG (GM-3)", costoCompra: 31.15000000 },
+            { id: "TRA303", name: "Transmisión Samsung 11 Dientes (GBW-104)", costoCompra: 31.15000000 },
+            { id: "TRA307", name: "Transmisión Samsung (Eje Cuadrado)", costoCompra: 32.97999874 },
+            { id: "TRA310", name: "Transmisión Genérica 11 Dientes (Puente Dorada)", costoCompra: 33.42999874 },
+            { id: "TRA301", name: "Transmisión LG 11 Dientes (Un Piñón)", costoCompra: 33.45999747 },
+            { id: "TRA302", name: "Transmisión LG 11 Dientes (Un Piñón GBW)", costoCompra: 33.45999747 },
+            { id: "TRA304", name: "Transmisión Haier (Con Puente Pequeño)", costoCompra: 35.00000000 },
+            { id: "TRA305", name: "Transmisión Haier (Con Puente Grande)", costoCompra: 35.00000000 },
+            { id: "TRA300", name: "Transmisión Genérica (Con Puente Plateado)", costoCompra: 35.20999747 },
+            { id: "TRA312", name: "Transmisión Haier 0030 (11 Dientes Lavado)", costoCompra: 52.00000000 }
         ]
     },
 
@@ -675,14 +675,14 @@ const products = [
         ],
         specs: { "Tipo": "Chumacera (Caja Reductora)", "Uso": "Lavadoras Doble Tina" },
         variants: [
-            { id: "CMC205", name: "Daka (Eje Corto #6 Rev)", costoCompra: 1.40000000 },
-            { id: "CMC207", name: "Pequeña 4 Tornillos (Eje Cuadrado)", costoCompra: 1.59000253 },
-            { id: "CMC204", name: "Plana Grande 13cm (Eje Cuadrado Largo)", costoCompra: 2.10000000 },
-            { id: "CMC202", name: "Plana 12cm (Eje Cuadrado #8 C/Polea)", costoCompra: 2.49000253 },
-            { id: "CMC206", name: "Samsung / Regina 10D (#7 C/Polea)", costoCompra: 2.55000000 },
-            { id: "CMC203", name: "Plana Grande 13cm (Eje Cuadrado Corto)", costoCompra: 2.65000000 },
-            { id: "CMC200", name: "Daka (Eje Largo YX-167 Cuadrado)", costoCompra: 2.72000126 },
-            { id: "CMC201", name: "Mabe Asiática 11D (Estriado Sem)", costoCompra: 2.72000126 }
+            { id: "CMC205", name: "Chumacera Daka (Eje Corto #6 Rev)", costoCompra: 1.40000000 },
+            { id: "CMC207", name: "Chumacera Pequeña 4 Tornillos (Eje Cuadrado)", costoCompra: 1.59000253 },
+            { id: "CMC204", name: "Chumacera Plana Grande 13cm (Eje Cuadrado Largo)", costoCompra: 2.10000000 },
+            { id: "CMC202", name: "Chumacera Plana 12cm (Eje Cuadrado #8 C/Polea)", costoCompra: 2.49000253 },
+            { id: "CMC206", name: "Chumacera Samsung / Regina 10D (#7 C/Polea)", costoCompra: 2.55000000 },
+            { id: "CMC203", name: "Chumacera Plana Grande 13cm (Eje Cuadrado Corto)", costoCompra: 2.65000000 },
+            { id: "CMC200", name: "Chumacera Daka (Eje Largo YX-167 Cuadrado)", costoCompra: 2.72000126 },
+            { id: "CMC201", name: "Chumacera Mabe Asiática 11D (Estriado Sem)", costoCompra: 2.72000126 }
         ]
     },
 
@@ -697,8 +697,8 @@ const products = [
         images: ["productos/FRM302.webp", "productos/FRM301.webp"],
         specs: { "Material": "Plástico Impermeable", "Uso": "Mantenimiento Preventivo", "Aplicación": "Evaporadores Split" },
         variants: [
-            { id: "FRM302", name: "Para Consolas de 9K a 18K BTU", costoCompra: 6.30000000 },
-            { id: "FRM301", name: "Para Consolas de 18K a 36K BTU", costoCompra: 9.93846154 }
+            { id: "FRM302", name: "Funda Impermeable Para Consolas de 9K a 18K BTU", costoCompra: 6.30000000 },
+            { id: "FRM301", name: "Funda Impermeable Para Consolas de 18K a 36K BTU", costoCompra: 9.93846154 }
         ]
     },
     {
@@ -753,9 +753,9 @@ const products = [
         images: ["productos/PDV044.webp", "productos/PDV042.webp", "productos/PDV043.webp"],
         specs: { "Marca": "Degar", "Tipo": "Digital con Pantalla", "Uso": "Protección de Equipos" },
         variants: [
-            { id: "PDV044", name: "110V Digital E-E (DPV3010)", costoCompra: 9.28461538 },
-            { id: "PDV042", name: "220V Digital E-E (DPV3020)", costoCompra: 10.60769231 },
-            { id: "PDV043", name: "220V Digital C-C (DPV4020)", costoCompra: 13.26153846 }
+            { id: "PDV044", name: "Protector de 110V Digital E-E (DPV3010)", costoCompra: 9.28461538 },
+            { id: "PDV042", name: "Protector de 220V Digital E-E (DPV3020)", costoCompra: 10.60769231 },
+            { id: "PDV043", name: "Protector de 220V Digital C-C (DPV4020)", costoCompra: 13.26153846 }
         ]
     },
     {
@@ -867,17 +867,17 @@ const products = [
         specs: { "Tipo": "Micro Axial", "Uso": "Extracción y Enfriamiento", "Voltajes": "110V / 220V / 12VDC" },
         variants: [
             // Corriente Alterna (AC)
-            { id: "MVA306", name: "110V 4\" (2800 RPM)", costoCompra: 8.00000000 },
-            { id: "MVA307", name: "220V 4\" (2800 RPM)", costoCompra: 7.13076923 },
-            { id: "MVA304", name: "110V 5\" Pulgadas", costoCompra: 10.00000000 },
-            { id: "MVA305", name: "220V 5\" Pulgadas", costoCompra: 9.50000000 },
-            { id: "MVA302", name: "110V 60Hz (0.17A)", costoCompra: 9.92307692 },
-            { id: "MVA311", name: "110V (0.23 / 0.14A)", costoCompra: 10.96923077 },
+            { id: "MVA306", name: "Motor 110V 4\" (2800 RPM)", costoCompra: 8.00000000 },
+            { id: "MVA307", name: "Motor 220V 4\" (2800 RPM)", costoCompra: 7.13076923 },
+            { id: "MVA304", name: "Motor 110V 5\" Pulgadas", costoCompra: 10.00000000 },
+            { id: "MVA305", name: "Motor 220V 5\" Pulgadas", costoCompra: 9.50000000 },
+            { id: "MVA302", name: "Motor 110V 60Hz (0.17A)", costoCompra: 9.92307692 },
+            { id: "MVA311", name: "Motor 110V (0.23 / 0.14A)", costoCompra: 10.96923077 },
             // Corriente Directa (DC)
-            { id: "MVA308", name: "12V DC (40x40x28mm)", costoCompra: 7.13076923 },
-            { id: "MVA309", name: "12V DC (60x60x25mm)", costoCompra: 7.13076923 },
-            { id: "MVA303", name: "13.6V DC (92x92x38mm)", costoCompra: 10.96923077 },
-            { id: "MVA310", name: "12V DC 2.7A (6200 RPM)", costoCompra: 14.26923077 }
+            { id: "MVA308", name: "Motor 12V DC (40x40x28mm)", costoCompra: 7.13076923 },
+            { id: "MVA309", name: "Motor 12V DC (60x60x25mm)", costoCompra: 7.13076923 },
+            { id: "MVA303", name: "Motor 13.6V DC (92x92x38mm)", costoCompra: 10.96923077 },
+            { id: "MVA310", name: "Motor 12V DC 2.7A (6200 RPM)", costoCompra: 14.26923077 }
         ]
     },
 
@@ -892,11 +892,11 @@ const products = [
         images: ["productos/MVA362.webp", "productos/MVA363.webp", "productos/MVA364.webp"],
         specs: { "Tipo": "Succión Axial Industrial", "Voltaje": "220V", "Marcas": "Steinmann / Degar" },
         variants: [
-            { id: "MVA362", name: "10\" Pulgadas (Steinmann 220V)", costoCompra: 43.10000000 },
-            { id: "MVA358", name: "10\" Pulgadas (Degar 220V)", costoCompra: 46.41538462 },
-            { id: "MVA363", name: "12\" Pulgadas (Steinmann 220V)", costoCompra: 49.73846154 },
-            { id: "MVA360", name: "14\" Pulgadas (Degar 220V)", costoCompra: 62.99230769 },
-            { id: "MVA364", name: "18\" Pulgadas (Steinmann 220V)", costoCompra: 76.26153846 }
+            { id: "MVA362", name: "Motor 10\" Pulgadas (Steinmann 220V)", costoCompra: 43.10000000 },
+            { id: "MVA358", name: "Motor 10\" Pulgadas (Degar 220V)", costoCompra: 46.41538462 },
+            { id: "MVA363", name: "Motor 12\" Pulgadas (Steinmann 220V)", costoCompra: 49.73846154 },
+            { id: "MVA360", name: "Motor 14\" Pulgadas (Degar 220V)", costoCompra: 62.99230769 },
+            { id: "MVA364", name: "Motor 18\" Pulgadas (Steinmann 220V)", costoCompra: 76.26153846 }
         ]
     },
 
@@ -912,18 +912,18 @@ const products = [
         specs: { "Tipo": "Succión Axial", "Rango de Medidas": "8\" a 24\"", "Uso": "Refrigeración Industrial" },
         variants: [
             // Modelos 220V
-            { id: "MVA054", name: "8\" Pulgadas (220V 1HP)", costoCompra: 43.09230769 },
-            { id: "MVA359", name: "10\" Pulgadas (220V 1HP)", costoCompra: 33.15384615 },
-            { id: "MVA351", name: "12\" Pulgadas (220V 1HP)", costoCompra: 39.78461538 },
-            { id: "MVA352", name: "14\" Pulgadas (220V 1HP)", costoCompra: 53.04615385 },
-            { id: "MVA353", name: "16\" Pulgadas (220V 1HP)", costoCompra: 62.99734748 },
-            { id: "MVA350", name: "18\" Pulgadas (220V 1HP)", costoCompra: 69.62307692 },
-            { id: "MVA354", name: "20\" Pulgadas (220V 1HP)", costoCompra: 86.20769231 },
-            { id: "MVA361", name: "24\" Pulgadas (220V 1HP)", costoCompra: 129.30000000 },
+            { id: "MVA054", name: "Motor 8\" Pulgadas (220V 1HP)", costoCompra: 43.09230769 },
+            { id: "MVA359", name: "Motor 10\" Pulgadas (220V 1HP)", costoCompra: 33.15384615 },
+            { id: "MVA351", name: "Motor 12\" Pulgadas (220V 1HP)", costoCompra: 39.78461538 },
+            { id: "MVA352", name: "Motor 14\" Pulgadas (220V 1HP)", costoCompra: 53.04615385 },
+            { id: "MVA353", name: "Motor 16\" Pulgadas (220V 1HP)", costoCompra: 62.99734748 },
+            { id: "MVA350", name: "Motor 18\" Pulgadas (220V 1HP)", costoCompra: 69.62307692 },
+            { id: "MVA354", name: "Motor 20\" Pulgadas (220V 1HP)", costoCompra: 86.20769231 },
+            { id: "MVA361", name: "Motor 24\" Pulgadas (220V 1HP)", costoCompra: 129.30000000 },
             // Modelos 110V
-            { id: "MVA356", name: "10\" Pulgadas (110V 1HP)", costoCompra: 53.05039788 },
-            { id: "MVA355", name: "14\" Pulgadas (110V 1HP)", costoCompra: 62.99230769 },
-            { id: "MVA357", name: "22\" Pulgadas (110V 1HP)", costoCompra: 99.46153846 }
+            { id: "MVA356", name: "Motor 10\" Pulgadas (110V 1HP)", costoCompra: 53.05039788 },
+            { id: "MVA355", name: "Motor 14\" Pulgadas (110V 1HP)", costoCompra: 62.99230769 },
+            { id: "MVA357", name: "Motor 22\" Pulgadas (110V 1HP)", costoCompra: 99.46153846 }
         ]
     },
     {
@@ -940,15 +940,15 @@ const products = [
         ],
         specs: { "Tipo": "Agitador / Plato de Lavado", "Compatibilidad": "Multimarca", "Uso": "Línea Blanca" },
         variants: [
-            { id: "AGT002", name: "Asiático Regina (30cm / Eje Cuadrado)", costoCompra: 5.00000000 },
-            { id: "AGT018", name: "Mabe 10 Dientes (37.5cm / Azul 3 Rodillos)", costoCompra: 6.54000253 },
-            { id: "AGT015", name: "Haier/Kalley 11 Dientes (33cm)", costoCompra: 6.79000253 },
-            { id: "AGT005", name: "Haier 11 Dientes (35cm / Mod 00302)", costoCompra: 7.25384615 },
-            { id: "AGT016", name: "Electrolux Asiático 11 Dientes (38cm)", costoCompra: 7.40000000 },
-            { id: "AGT001", name: "Electrolux Asiático 11 Dientes (35cm / Gris)", costoCompra: 8.72999874 },
-            { id: "AGT010", name: "LG Asiático 11 Dientes (40cm / 3 Discos)", costoCompra: 10.94000253 },
-            { id: "AGT014", name: "Samsung M/Nuevo 11 Dientes (43cm)", costoCompra: 11.50000000 },
-            { id: "AGT020", name: "Haceb/Whirlpool 11 Dientes (4 Discos)", costoCompra: 15.52000126 }
+            { id: "AGT002", name: "Agitador Asiático Regina (30cm / Eje Cuadrado)", costoCompra: 5.00000000 },
+            { id: "AGT018", name: "Agitador Mabe 10 Dientes (37.5cm / Azul 3 Rodillos)", costoCompra: 6.54000253 },
+            { id: "AGT015", name: "Agitador Haier/Kalley 11 Dientes (33cm)", costoCompra: 6.79000253 },
+            { id: "AGT005", name: "Agitador Haier 11 Dientes (35cm / Mod 00302)", costoCompra: 7.25384615 },
+            { id: "AGT016", name: "Agitador Electrolux Asiático 11 Dientes (38cm)", costoCompra: 7.40000000 },
+            { id: "AGT001", name: "Agitador Electrolux Asiático 11 Dientes (35cm / Gris)", costoCompra: 8.72999874 },
+            { id: "AGT010", name: "Agitador LG Asiático 11 Dientes (40cm / 3 Discos)", costoCompra: 10.94000253 },
+            { id: "AGT014", name: "Agitador Samsung M/Nuevo 11 Dientes (43cm)", costoCompra: 11.50000000 },
+            { id: "AGT020", name: "Agitador Haceb/Whirlpool 11 Dientes (4 Discos)", costoCompra: 15.52000126 }
         ]
     },
 
@@ -1029,15 +1029,15 @@ const products = [
         images: ["productos/MOI018.webp", "productos/MOI015.webp"],
         specs: { "Marca": "Emerson", "RPM": "1075 RPM", "Voltaje": "220V", "Uso": "Unidad Condensadora" },
         variants: [
-            { id: "MOI016", name: "1/6 HP (1075 RPM)", costoCompra: 79.56923077 },
-            { id: "MOI013", name: "1/4 HP (1075 RPM)", costoCompra: 72.94615385 },
-            { id: "MOI007", name: "1/3 HP (1075 RPM)", costoCompra: 96.15384615 },
-            { id: "MOI015", name: "1/3 a 1/6 HP (Multicapacidad)", costoCompra: 92.83846154 },
-            { id: "MOI008", name: "1/2 HP (1075 RPM)", costoCompra: 99.46153846 },
-            { id: "MOI006", name: "3/4 HP (1075 RPM)", costoCompra: 106.09230769 },
-            { id: "MOI033", name: "3/4 HP (1075 RPM - Mod A)", costoCompra: 102.77692308 },
-            { id: "MOI034", name: "1 HP (1075 RPM - Mod S)", costoCompra: 109.41538462 },
-            { id: "MOI035", name: "1 HP (1075 RPM - Mod A)", costoCompra: 109.41538462 }
+            { id: "MOI016", name: "Motor 1/6 HP (1075 RPM)", costoCompra: 79.56923077 },
+            { id: "MOI013", name: "Motor 1/4 HP (1075 RPM)", costoCompra: 72.94615385 },
+            { id: "MOI007", name: "Motor 1/3 HP (1075 RPM)", costoCompra: 96.15384615 },
+            { id: "MOI015", name: "Motor 1/3 a 1/6 HP (Multicapacidad)", costoCompra: 92.83846154 },
+            { id: "MOI008", name: "Motor 1/2 HP (1075 RPM)", costoCompra: 99.46153846 },
+            { id: "MOI006", name: "Motor 3/4 HP (1075 RPM)", costoCompra: 106.09230769 },
+            { id: "MOI033", name: "Motor 3/4 HP (1075 RPM - Mod A)", costoCompra: 102.77692308 },
+            { id: "MOI034", name: "Motor 1 HP (1075 RPM - Mod S)", costoCompra: 109.41538462 },
+            { id: "MOI035", name: "Motor 1 HP (1075 RPM - Mod A)", costoCompra: 109.41538462 }
         ]
     },
 
@@ -1052,9 +1052,9 @@ const products = [
         images: ["productos/MOI018.webp"],
         specs: { "Marca": "Emerson", "Voltaje": "220V", "Uso": "Unidad Condensadora" },
         variants: [
-            { id: "MOI018", name: "1/3 HP (825 RPM - TE)", costoCompra: 119.35384615 },
-            { id: "MOI032", name: "1/3 HP (1625 RPM)", costoCompra: 79.56923077 },
-            { id: "MOI009", name: "1/2 HP (1625 RPM)", costoCompra: 120.00000000 }
+            { id: "MOI018", name: "Motor 1/3 HP (825 RPM - TE)", costoCompra: 119.35384615 },
+            { id: "MOI032", name: "Motor 1/3 HP (1625 RPM)", costoCompra: 79.56923077 },
+            { id: "MOI009", name: "Motor 1/2 HP (1625 RPM)", costoCompra: 120.00000000 }
         ]
     },
 
@@ -1069,14 +1069,14 @@ const products = [
         images: ["productos/MOI011.webp"],
         specs: { "Marcas": "Unicool / MaxGold / Powersave", "RPM": "1075 RPM", "Voltaje": "220V" },
         variants: [
-            { id: "MOI014", name: "1/6 HP Unicool", costoCompra: 42.62307692 },
-            { id: "MOI002", name: "1/4 HP Unicool", costoCompra: 47.27692308 },
-            { id: "MOI026", name: "1/4 HP MaxGold", costoCompra: 56.36604775 },
-            { id: "MOI001", name: "1/3 HP Unicool", costoCompra: 57.10769231 },
-            { id: "MOI025", name: "1/3 HP MaxGold", costoCompra: 62.99734748 },
-            { id: "MOI011", name: "1/2 HP Unicool", costoCompra: 66.31538462 },
-            { id: "MOI003", name: "3/4 HP Unicool", costoCompra: 79.57692308 },
-            { id: "MOI012", name: "3/4 HP Powersave", costoCompra: 76.25384615 }
+            { id: "MOI014", name: "Motor 1/6 HP Unicool", costoCompra: 42.62307692 },
+            { id: "MOI002", name: "Motor 1/4 HP Unicool", costoCompra: 47.27692308 },
+            { id: "MOI026", name: "Motor 1/4 HP MaxGold", costoCompra: 56.36604775 },
+            { id: "MOI001", name: "Motor 1/3 HP Unicool", costoCompra: 57.10769231 },
+            { id: "MOI025", name: "Motor 1/3 HP MaxGold", costoCompra: 62.99734748 },
+            { id: "MOI011", name: "Motor 1/2 HP Unicool", costoCompra: 66.31538462 },
+            { id: "MOI003", name: "Motor 3/4 HP Unicool", costoCompra: 79.57692308 },
+            { id: "MOI012", name: "Motor 3/4 HP Powersave", costoCompra: 76.25384615 }
         ]
     },
 
@@ -1091,11 +1091,11 @@ const products = [
         images: ["productos/MOI019.webp", "productos/MOI020.webp"],
         specs: { "Marca": "Steinmann", "RPM": "1075 RPM", "Voltaje": "220V" },
         variants: [
-            { id: "MOI024", name: "1/6 HP Doble Eje", costoCompra: 59.67692308 },
-            { id: "MOI019", name: "1/4 HP", costoCompra: 69.62307692 },
-            { id: "MOI020", name: "1/3 HP", costoCompra: 76.25384615 },
-            { id: "MOI021", name: "1/2 HP", costoCompra: 89.51538462 },
-            { id: "MOI022", name: "3/4 HP", costoCompra: 86.20000000 }
+            { id: "MOI024", name: "Motor 1/6 HP Doble Eje", costoCompra: 59.67692308 },
+            { id: "MOI019", name: "Motor 1/4 HP", costoCompra: 69.62307692 },
+            { id: "MOI020", name: "Motor 1/3 HP", costoCompra: 76.25384615 },
+            { id: "MOI021", name: "Motor 1/2 HP", costoCompra: 89.51538462 },
+            { id: "MOI022", name: "Motor 3/4 HP", costoCompra: 86.20000000 }
         ]
     },
 
@@ -1110,9 +1110,9 @@ const products = [
         images: ["productos/MOI010.webp"],
         specs: { "Tipo": "Reversible", "Capacidad del Equipo": "3 a 5 Toneladas", "Voltaje": "220V" },
         variants: [
-            { id: "MOI005", name: "1/2 HP Reversible", costoCompra: 66.34615385 },
-            { id: "MOI004", name: "3/4 HP Reversible", costoCompra: 66.33076923 },
-            { id: "MOI010", name: "1 HP Reversible", costoCompra: 89.51538462 }
+            { id: "MOI005", name: "Motor 1/2 HP Reversible", costoCompra: 66.34615385 },
+            { id: "MOI004", name: "Motor 3/4 HP Reversible", costoCompra: 66.33076923 },
+            { id: "MOI010", name: "Motor 1 HP Reversible", costoCompra: 89.51538462 }
         ]
     },
 
@@ -1127,9 +1127,9 @@ const products = [
         images: ["productos/MOI036.webp"],
         specs: { "Capacidad": "1/20 HP", "RPM": "1550 RPM", "Voltaje": "220V" },
         variants: [
-            { id: "MOI030", name: "1/20 HP Emerson", costoCompra: 59.66923077 },
-            { id: "MOI036", name: "1/20 HP Motorvenca", costoCompra: 72.94615385 },
-            { id: "MOI017", name: "1/3 HP Rostock (825 RPM)", costoCompra: 72.93846154 } // Añadido Rostock aquí o como opción separada, lo incluí por voltaje/uso
+            { id: "MOI030", name: "Motor 1/20 HP Emerson", costoCompra: 59.66923077 },
+            { id: "MOI036", name: "Motor 1/20 HP Motorvenca", costoCompra: 72.94615385 },
+            { id: "MOI017", name: "Motor 1/3 HP Rostock (825 RPM)", costoCompra: 72.93846154 } // Añadido Rostock aquí o como opción separada, lo incluí por voltaje/uso
         ]
     },
     {
@@ -1142,18 +1142,18 @@ const products = [
         images: ["productos/RCB201.webp"],
         specs: { "Tipo": "Tanque Almacenador de Líquido", "Uso": "Sistemas de Refrigeración Comercial/Industrial" },
         variants: [
-            { id: "RCB207", name: "3/8\" x 3/8\" (0.5 HP)", costoCompra: 13.25384615 },
-            { id: "RCB200", name: "3/8\" x 3/8\" (0.5 HP Alta Capacidad)", costoCompra: 16.56923077 },
-            { id: "RCB201", name: "3/8\" x 3/8\" (1 HP)", costoCompra: 18.23846154 },
-            { id: "RCB205", name: "1/2\" x 3/8\" (2 HP - 3.2L)", costoCompra: 18.56153846 },
-            { id: "RCB204", name: "1/2\" x 1/2\" (3 HP - 4L)", costoCompra: 18.56153846 },
-            { id: "RCB202", name: "1/2\" x 1/2\" (5 HP - 5L)", costoCompra: 19.88461538 },
-            { id: "RCB211", name: "1/2\" x 1/2\" (5 HP - 6.5L)", costoCompra: 19.88461538 },
-            { id: "RCB203", name: "1/2\" x 1/2\" (8 HP - 7L)", costoCompra: 23.20000000 },
-            { id: "RCB209", name: "1/2\" x 1/2\" (6 Litros - V)", costoCompra: 31.82307692 },
-            { id: "RCB208", name: "1/2\" x 1/2\" (8 Litros - V)", costoCompra: 33.14615385 },
-            { id: "RCB212", name: "3/4\" x 5/8\" (12 HP - 12L)", costoCompra: 37.30769231 },
-            { id: "RCB210", name: "5/8\" x 5/8\" (6 Litros - V)", costoCompra: 43.10000000 }
+            { id: "RCB207", name: "Recibidor de 3/8\" x 3/8\" (0.5 HP)", costoCompra: 13.25384615 },
+            { id: "RCB200", name: "Recibidor de 3/8\" x 3/8\" (0.5 HP Alta Capacidad)", costoCompra: 16.56923077 },
+            { id: "RCB201", name: "Recibidor de 3/8\" x 3/8\" (1 HP)", costoCompra: 18.23846154 },
+            { id: "RCB205", name: "Recibidor de 1/2\" x 3/8\" (2 HP - 3.2L)", costoCompra: 18.56153846 },
+            { id: "RCB204", name: "Recibidor de 1/2\" x 1/2\" (3 HP - 4L)", costoCompra: 18.56153846 },
+            { id: "RCB202", name: "Recibidor de 1/2\" x 1/2\" (5 HP - 5L)", costoCompra: 19.88461538 },
+            { id: "RCB211", name: "Recibidor de 1/2\" x 1/2\" (5 HP - 6.5L)", costoCompra: 19.88461538 },
+            { id: "RCB203", name: "Recibidor de 1/2\" x 1/2\" (8 HP - 7L)", costoCompra: 23.20000000 },
+            { id: "RCB209", name: "Recibidor de 1/2\" x 1/2\" (6 Litros - V)", costoCompra: 31.82307692 },
+            { id: "RCB208", name: "Recibidor de 1/2\" x 1/2\" (8 Litros - V)", costoCompra: 33.14615385 },
+            { id: "RCB212", name: "Recibidor de 3/4\" x 5/8\" (12 HP - 12L)", costoCompra: 37.30769231 },
+            { id: "RCB210", name: "Recibidor de 5/8\" x 5/8\" (6 Litros - V)", costoCompra: 43.10000000 }
         ]
     },
     {
@@ -1166,12 +1166,12 @@ const products = [
         images: ["productos/MVA300.webp"], // Se usa la genérica de motor
         specs: { "Tipo": "Doble Eje", "Uso": "Aire de Ventana", "Capacidad": "12K BTU / 40W-60W" },
         variants: [
-            { id: "MVA203", name: "Genérico YDK-40-6 (40W 110V)", costoCompra: 33.15384615 },
-            { id: "MVA202", name: "Genérico YDK-60-6 (60W 220V)", costoCompra: 33.15384615 },
-            { id: "MVA101", name: "Para Samsung 12K BTU (110V)", costoCompra: 39.91538462 },
-            { id: "MVA100", name: "Para Samsung 12K BTU (220V)", costoCompra: 39.78461538 },
-            { id: "MVA201", name: "Para LG 12K BTU (110V)", costoCompra: 46.41538462 },
-            { id: "MVA200", name: "Para LG 12K BTU (220V)", costoCompra: 46.41538462 }
+            { id: "MVA203", name: "Motor Genérico YDK-40-6 (40W 110V)", costoCompra: 33.15384615 },
+            { id: "MVA202", name: "Motor Genérico YDK-60-6 (60W 220V)", costoCompra: 33.15384615 },
+            { id: "MVA101", name: "Motor Para Samsung 12K BTU (110V)", costoCompra: 39.91538462 },
+            { id: "MVA100", name: "Motor Para Samsung 12K BTU (220V)", costoCompra: 39.78461538 },
+            { id: "MVA201", name: "Motor Para LG 12K BTU (110V)", costoCompra: 46.41538462 },
+            { id: "MVA200", name: "Motor Para LG 12K BTU (220V)", costoCompra: 46.41538462 }
         ]
     },
     {
@@ -1184,13 +1184,13 @@ const products = [
         images: ["productos/ORIFICIO.webp"],
         specs: { "Marca Compatible": "Danfoss", "Tipo": "Orificio de Válvula", "Uso": "Expansión Termostática" },
         variants: [
-            { id: "ORI000", name: "Orificio #0 Danfoss", costoCompra: 13.25384615 },
-            { id: "ORI001", name: "Orificio #1 Danfoss", costoCompra: 13.26153846 },
-            { id: "ORI002", name: "Orificio #2 Danfoss", costoCompra: 13.25384615 },
-            { id: "ORI003", name: "Orificio #3 Danfoss", costoCompra: 13.25384615 },
-            { id: "ORI004", name: "Orificio #4 Danfoss", costoCompra: 13.25384615 },
-            { id: "ORI005", name: "Orificio #5 Danfoss", costoCompra: 13.26153846 },
-            { id: "ORI006", name: "Orificio #6 Danfoss", costoCompra: 13.25384615 }
+            { id: "ORI000", name: "Válvula Orificio #0 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI001", name: "Válvula Orificio #1 Danfoss", costoCompra: 13.26153846 },
+            { id: "ORI002", name: "Válvula Orificio #2 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI003", name: "Válvula Orificio #3 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI004", name: "Válvula Orificio #4 Danfoss", costoCompra: 13.25384615 },
+            { id: "ORI005", name: "Válvula Orificio #5 Danfoss", costoCompra: 13.26153846 },
+            { id: "ORI006", name: "Válvula Orificio #6 Danfoss", costoCompra: 13.25384615 }
         ]
     },
     {
@@ -1233,12 +1233,12 @@ const products = [
         images: ["productos/ACM101.webp"],
         specs: { "Tipo": "Acumulador de Succión", "Uso": "Protección contra Retorno de Líquido" },
         variants: [
-            { id: "ACM100", name: "Medida: 1/2\" (Landsfoss)", costoCompra: 16.56923077 },
-            { id: "ACM101", name: "Medida: 5/8\" (Landsfoss)", costoCompra: 18.30000000 },
-            { id: "ACM102", name: "Medida: 3/4\" (Landsfoss)", costoCompra: 20.34615385 },
-            { id: "ACM104", name: "Medida: 7/8\" (Landsfoss)", costoCompra: 22.24615385 },
-            { id: "ACM103", name: "Medida: 7/8\" (Blue Refrigeration)", costoCompra: 26.52307692 },
-            { id: "ACM105", name: "Medida: 1-1/8\" (Landsfoss)", costoCompra: 31.56923077 }
+            { id: "ACM100", name: "Acumulador de 1/2\" (Landsfoss)", costoCompra: 16.56923077 },
+            { id: "ACM101", name: "Acumulador de 5/8\" (Landsfoss)", costoCompra: 18.30000000 },
+            { id: "ACM102", name: "Acumulador de 3/4\" (Landsfoss)", costoCompra: 20.34615385 },
+            { id: "ACM104", name: "Acumulador de 7/8\" (Landsfoss)", costoCompra: 22.24615385 },
+            { id: "ACM103", name: "Acumulador de 7/8\" (Blue Refrigeration)", costoCompra: 26.52307692 },
+            { id: "ACM105", name: "Acumulador de 1-1/8\" (Landsfoss)", costoCompra: 31.56923077 }
         ]
     },
     {
@@ -1251,12 +1251,12 @@ const products = [
         images: ["productos/SPA005.webp"],
         specs: { "Marca": "Landsfoss", "Tipo": "Sellado", "Uso": "Retorno de Aceite" },
         variants: [
-            { id: "SPA006", name: "Medida: 3/8\"", costoCompra: 24.82307692 },
-            { id: "SPA003", name: "Medida: 1/2\"", costoCompra: 23.20000000 },
-            { id: "SPA001", name: "Medida: 5/8\"", costoCompra: 29.83076923 },
-            { id: "SPA005", name: "Medida: 3/4\"", costoCompra: 28.06153846 },
-            { id: "SPA004", name: "Medida: 7/8\"", costoCompra: 46.60769231 },
-            { id: "SPA002", name: "Medida: 1-1/8\"", costoCompra: 39.77692308 }
+            { id: "SPA006", name: "Separador de 3/8\"", costoCompra: 24.82307692 },
+            { id: "SPA003", name: "Separador de 1/2\"", costoCompra: 23.20000000 },
+            { id: "SPA001", name: "Separador de 5/8\"", costoCompra: 29.83076923 },
+            { id: "SPA005", name: "Separador de 3/4\"", costoCompra: 28.06153846 },
+            { id: "SPA004", name: "Separador de 7/8\"", costoCompra: 46.60769231 },
+            { id: "SPA002", name: "Separador de 1-1/8\"", costoCompra: 39.77692308 }
         ]
     },
     {
@@ -1269,12 +1269,12 @@ const products = [
         images: ["productos/IMP-IMPELE.webp"],
         specs: { "Material": "Bronce", "Tipo": "Impulsor de Bomba", "Uso": "Reparación de Bombeo" },
         variants: [
-            { id: "IMP010", name: "1/2 HP Estándar", costoCompra: 1.92000126 },
-            { id: "IMP015", name: "1/2 HP (91.5G 60x6.5M)", costoCompra: 3.07000126 },
-            { id: "IMP011", name: "1/2 HP Doble Media Luna (Pedrollo)", costoCompra: 5.07000126 },
-            { id: "IMP014", name: "3/4 HP (QB-70/G Rojo)", costoCompra: 4.12999874 },
-            { id: "IMP013", name: "1 HP (QB-80/G Azul)", costoCompra: 4.04000253 },
-            { id: "IMP012", name: "Estriado 90GR (Pedrollo)", costoCompra: 6.85999747 }
+            { id: "IMP010", name: "Impel (Impulsor) 1/2 HP Estándar", costoCompra: 1.92000126 },
+            { id: "IMP015", name: "Impel (Impulsor) 1/2 HP (91.5G 60x6.5M)", costoCompra: 3.07000126 },
+            { id: "IMP011", name: "Impel (Impulsor) 1/2 HP Doble Media Luna (Pedrollo)", costoCompra: 5.07000126 },
+            { id: "IMP014", name: "Impel (Impulsor) 3/4 HP (QB-70/G Rojo)", costoCompra: 4.12999874 },
+            { id: "IMP013", name: "Impel (Impulsor) 1 HP (QB-80/G Azul)", costoCompra: 4.04000253 },
+            { id: "IMP012", name: "Impel (Impulsor) Estriado 90GR (Pedrollo)", costoCompra: 6.85999747 }
         ]
     },
     {
@@ -1287,12 +1287,12 @@ const products = [
         images: ["productos/SBA-SELLO_BOMBA_AGUA.webp"],
         specs: { "Tipo": "Sello de Resorte", "Uso": "Prevención de Fugas", "Compatibilidad": "Bombas Periféricas/Centrífugas" },
         variants: [
-            { id: "SBA100", name: "1/2 HP (12mm)", costoCompra: 0.99230769 },
-            { id: "SBA111", name: "5/8 HP (Largo)", costoCompra: 2.00000000 },
-            { id: "SBA112", name: "5/8 HP (Corto)", costoCompra: 1.98461538 },
-            { id: "SBA110", name: "3/4 HP (14mm)", costoCompra: 0.66153846 },
-            { id: "SBA113", name: "3/4 HP (12mm)", costoCompra: 0.66153846 },
-            { id: "SBA101", name: "1 HP Estándar", costoCompra: 0.60000000 }
+            { id: "SBA100", name: "Sello 1/2 HP (12mm)", costoCompra: 0.99230769 },
+            { id: "SBA111", name: "Sello 5/8 HP (Largo)", costoCompra: 2.00000000 },
+            { id: "SBA112", name: "Sello 5/8 HP (Corto)", costoCompra: 1.98461538 },
+            { id: "SBA110", name: "Sello 3/4 HP (14mm)", costoCompra: 0.66153846 },
+            { id: "SBA113", name: "Sello 3/4 HP (12mm)", costoCompra: 0.66153846 },
+            { id: "SBA101", name: "Sello 1 HP Estándar", costoCompra: 0.60000000 }
         ]
     },
     {
@@ -1373,9 +1373,9 @@ const products = [
         images: ["productos/RLC114.webp", "productos/PLO100.webp", "productos/JLC019.webp"],
         specs: { "Marca": "Oster", "Tipo": "Partes Menores" },
         variants: [
-            { id: "RLC114", name: "Rosca Intermedia (5 Picos)", costoCompra: 0.65384615 },
-            { id: "PLO100", name: "Perilla Económica de Encendido", costoCompra: 0.23846154 },
-            { id: "JLC019", name: "Platico Acerado (Separador)", costoCompra: 0.20000000 }
+            { id: "RLC114", name: "Pequeñas Partes Rosca Intermedia (5 Picos)", costoCompra: 0.65384615 },
+            { id: "PLO100", name: "Pequeñas Partes Perilla Económica de Encendido", costoCompra: 0.23846154 },
+            { id: "JLC019", name: "Pequeñas Partes Platico Acerado (Separador)", costoCompra: 0.20000000 }
         ]
     },
     {
@@ -1390,7 +1390,7 @@ const products = [
         variants: [
             { id: "JLC021", name: "Acople de Motor Pren Line T", costoCompra: 1.65384615 },
             { id: "JLC005", name: "Acople de Motor (Modelo Nuevo)", costoCompra: 0.20000000 },
-            { id: "EMP101", name: "Empacadura Original Samuray", costoCompra: 0.13076923 }
+            { id: "EMP101", name: "Acople Empacadura Original Samuray", costoCompra: 0.13076923 }
         ]
     },
     {
@@ -1403,8 +1403,8 @@ const products = [
         images: ["productos/VRL001.webp", "productos/VRL002.webp"],
         specs: { "Tipo": "Válvula para Lata", "Material": "Bronce", "Uso": "Refrigerante Desechable" },
         variants: [
-            { id: "VRL001", name: "Salida 1/4\" x 1/4\" (Perilla Azul)", costoCompra: 2.65384615 },
-            { id: "VRL002", name: "Salida 1/4\" x 5/16\" (Perilla Roja)", costoCompra: 2.65384615 }
+            { id: "VRL001", name: "Válvula Salida 1/4\" x 1/4\" (Perilla Azul)", costoCompra: 2.65384615 },
+            { id: "VRL002", name: "Válvula Salida 1/4\" x 5/16\" (Perilla Roja)", costoCompra: 2.65384615 }
         ]
     },
     {
@@ -1501,9 +1501,9 @@ const products = [
         images: ["productos/EMP103.webp", "productos/JLC012.webp", "productos/ALO100.webp"],
         specs: { "Marca": "Oster", "Tipo": "Mantenimiento / Partes" },
         variants: [
-            { id: "EMP103", name: "Empacadura de Goma Original", costoCompra: 0.17692308 },
+            { id: "EMP103", name: "Accesorios y Empacadura de Goma Original", costoCompra: 0.17692308 },
             { id: "JLC012", name: "Juego de 4 Paticas de Goma", costoCompra: 0.46153846 },
-            { id: "ALO100", name: "Aspita de Ventilación del Motor", costoCompra: 0.99230769 }
+            { id: "ALO100", name: "Accesorios y Aspita de Ventilación del Motor", costoCompra: 0.99230769 }
         ]
     },
     {
@@ -1537,10 +1537,10 @@ const products = [
         images: ["productos/CLC005.webp", "productos/CLC004.webp", "productos/RLC112.webp", "productos/JLC010.webp"],
         specs: { "Marca": "Samuray", "Tipo": "Repuestos Originales / Genéricos", "Compatibilidad": "Licuadoras Samuray" },
         variants: [
-            { id: "CLC005", name: "Cuchilla Blanca (Para Hielo)", costoCompra: 2.97692308 },
-            { id: "CLC004", name: "Cuchilla GSC (Original)", costoCompra: 2.98461538 },
-            { id: "JLC010", name: "Rosca Inferior (Modelo Viejo)", costoCompra: 1.98461538 },
-            { id: "RLC112", name: "Tapa de Vaso (Original)", costoCompra: 0.66153846 }
+            { id: "CLC005", name: "Repuestos para Cuchilla Blanca (Para Hielo)", costoCompra: 2.97692308 },
+            { id: "CLC004", name: "Repuestos para Cuchilla GSC (Original)", costoCompra: 2.98461538 },
+            { id: "JLC010", name: "Repuestos para Rosca Inferior (Modelo Viejo)", costoCompra: 1.98461538 },
+            { id: "RLC112", name: "Repuestos para Tapa de Vaso (Original)", costoCompra: 0.66153846 }
         ]
     },
 
@@ -1555,9 +1555,9 @@ const products = [
         images: ["productos/CLC010.webp", "productos/CLC012.webp", "productos/RLC111.webp"],
         specs: { "Marca": "Premier", "Tipo": "Cuchillas y Roscas", "Material": "Acero Inoxidable / Plástico" },
         variants: [
-            { id: "CLC010", name: "Cuchilla Estándar Premier", costoCompra: 1.98461538 },
-            { id: "CLC012", name: "Cuchilla Premier con Rosca Mediana", costoCompra: 2.31538462 },
-            { id: "RLC111", name: "Rosca Inferior (Original)", costoCompra: 0.99230769 }
+            { id: "CLC010", name: "Repuestos para Cuchilla Estándar Premier", costoCompra: 1.98461538 },
+            { id: "CLC012", name: "Repuestos para Cuchilla Premier con Rosca Mediana", costoCompra: 2.31538462 },
+            { id: "RLC111", name: "Repuestos para Rosca Inferior (Original)", costoCompra: 0.99230769 }
         ]
     },
 
@@ -1589,8 +1589,8 @@ const products = [
         images: ["productos/CLC027.webp", "productos/RLC108.webp"],
         specs: { "Marca": "Miallegro", "Modelo Compatible": "7080", "Tipo": "Cuchilla y Rosca" },
         variants: [
-            { id: "CLC027", name: "Cuchilla de Corte (Mod 7080)", costoCompra: 3.31538462 },
-            { id: "RLC108", name: "Rosca Inferior (Mod 7080)", costoCompra: 1.98461538 }
+            { id: "CLC027", name: "Repuestos para Cuchilla de Corte (Mod 7080)", costoCompra: 3.31538462 },
+            { id: "RLC108", name: "Repuestos para Rosca Inferior (Mod 7080)", costoCompra: 1.98461538 }
         ]
     },
 
@@ -1635,9 +1635,9 @@ const products = [
         images: ["productos/VLC010.webp", "productos/VLC013.webp", "productos/VLC017.webp"],
         specs: { "Material": "Vidrio / Plástico", "Uso": "Reemplazo de Jarra", "Compatibilidad": "Oster, Hamilton, Imusa" },
         variants: [
-            { id: "VLC010", name: "Vaso de Vidrio Oster (Tipo Trébol)", costoCompra: 3.97692308 },
-            { id: "VLC013", name: "Vaso Plástico Hamilton Beach (Con Tapa)", costoCompra: 3.97692308 },
-            { id: "VLC017", name: "Vaso Vidrio XL Imusa Faciclick", costoCompra: 3.11538462 }
+            { id: "VLC010", name: "Vasos de Vaso de Vidrio Oster (Tipo Trébol)", costoCompra: 3.97692308 },
+            { id: "VLC013", name: "Vasos de Vaso Plástico Hamilton Beach (Con Tapa)", costoCompra: 3.97692308 },
+            { id: "VLC017", name: "Vasos de Vaso Vidrio XL Imusa Faciclick", costoCompra: 3.11538462 }
         ]
     },
     {
@@ -1675,10 +1675,10 @@ const products = [
         ],
         specs: { "Material": "Aluminio Flexible", "Uso": "Ventilación de Secadoras", "Tipo": "Kits de Instalación" },
         variants: [
-            { id: "DSC100", name: "Ducto con Recipiente (10.2cm x 1.5m)", costoCompra: 5.45384615 },
-            { id: "DSC106", name: "Ducto con Recipiente C. (10.2cm x 1.5m)", costoCompra: 7.50000000 },
-            { id: "DSC108", name: "Ducto con Recipiente Lambro (USA)", costoCompra: 11.02307692 },
-            { id: "DSC107", name: "Ducto con Rejilla Americana (4\" x 2.4m)", costoCompra: 23.16923077 }
+            { id: "DSC100", name: "Ducto de Ducto con Recipiente (10.2cm x 1.5m)", costoCompra: 5.45384615 },
+            { id: "DSC106", name: "Ducto de Ducto con Recipiente C. (10.2cm x 1.5m)", costoCompra: 7.50000000 },
+            { id: "DSC108", name: "Ducto de Ducto con Recipiente Lambro (USA)", costoCompra: 11.02307692 },
+            { id: "DSC107", name: "Ducto de Ducto con Rejilla Americana (4\" x 2.4m)", costoCompra: 23.16923077 }
         ]
     },
     {
@@ -1740,10 +1740,10 @@ const products = [
         images: ["productos/TEA300.webp", "productos/TEA302.webp", "productos/TEI005.webp"],
         specs: { "Tipo": "Cinta Metálica Adhesiva", "Uso": "Ductería y Aislamiento Térmico" },
         variants: [
-            { id: "TEA302", name: "Aluminio 2\" Pulgadas x 30 Metros", costoCompra: 1.98461538 },
-            { id: "TEA300", name: "Aluminio 2\" Pulgadas x 45 Metros", costoCompra: 2.98461538 },
-            { id: "TEI005", name: "Aluminizada 75mm x 45M (Landsfoss)", costoCompra: 4.63846154 },
-            { id: "TEA301", name: "Aluminio 3\" Pulgadas x 45 Metros", costoCompra: 5.30769231 }
+            { id: "TEA302", name: "Cinta de Aluminio 2\" Pulgadas x 30 Metros", costoCompra: 1.98461538 },
+            { id: "TEA300", name: "Cinta de Aluminio 2\" Pulgadas x 45 Metros", costoCompra: 2.98461538 },
+            { id: "TEI005", name: "Cinta de Aluminizada 75mm x 45M (Landsfoss)", costoCompra: 4.63846154 },
+            { id: "TEA301", name: "Cinta de Aluminio 3\" Pulgadas x 45 Metros", costoCompra: 5.30769231 }
         ]
     },
     {
@@ -1756,8 +1756,8 @@ const products = [
         images: ["productos/TEB320.webp", "productos/TEB321.webp"],
         specs: { "Material": "PVC", "Uso": "Revestimiento de Tuberías", "Aplicación": "Estética y Protección" },
         variants: [
-            { id: "TEB320", name: "Cinta PVC Lisa (Sin Adhesivo)", costoCompra: 1.00000000 },
-            { id: "TEB321", name: "Cinta PVC con Adhesivo", costoCompra: 1.65384615 }
+            { id: "TEB320", name: "Cinta PVC Cinta PVC Lisa (Sin Adhesivo)", costoCompra: 1.00000000 },
+            { id: "TEB321", name: "Cinta PVC Cinta PVC con Adhesivo", costoCompra: 1.65384615 }
         ]
     },
     {
@@ -1841,10 +1841,10 @@ const products = [
         images: ["productos/BRK-BREAKER(4).webp"],
         specs: { "Polos": "1 Polo (110V)", "Instalación": "Empotrar (Enchufable)", "Marca": "Pickens" },
         variants: [
-            { id: "BRK270", name: "15 Amperios (THQL)", costoCompra: 2.94615385 },
-            { id: "BRK280", name: "20 Amperios (THQL)", costoCompra: 2.50000000 },
-            { id: "BRK285", name: "30 Amperios (THQL)", costoCompra: 3.97692308 },
-            { id: "BRK231", name: "40 Amperios (THQL)", costoCompra: 3.20000000 }
+            { id: "BRK270", name: "Breaker 15 Amperios (THQL)", costoCompra: 2.94615385 },
+            { id: "BRK280", name: "Breaker 20 Amperios (THQL)", costoCompra: 2.50000000 },
+            { id: "BRK285", name: "Breaker 30 Amperios (THQL)", costoCompra: 3.97692308 },
+            { id: "BRK231", name: "Breaker 40 Amperios (THQL)", costoCompra: 3.20000000 }
         ]
     },
     {
@@ -1857,12 +1857,12 @@ const products = [
         images: ["productos/BRK-BREAKER(4).webp"],
         specs: { "Polos": "2 Polos (220V)", "Instalación": "Empotrar", "Marca": "Pickens" },
         variants: [
-            { id: "BRK261", name: "20 Amperios (THQL)", costoCompra: 5.50000000 },
-            { id: "BRK260", name: "30 Amperios (THQL)", costoCompra: 5.50000000 },
-            { id: "BRK250", name: "40 Amperios (THQL)", costoCompra: 5.60769231 },
-            { id: "BRK284", name: "60 Amperios (THQL)", costoCompra: 5.70000000 },
-            { id: "BRK233", name: "80 Amperios (TQL)", costoCompra: 8.40000000 },
-            { id: "BRK234", name: "100 Amperios (TQL)", costoCompra: 10.50000000 }
+            { id: "BRK261", name: "Breaker 20 Amperios (THQL)", costoCompra: 5.50000000 },
+            { id: "BRK260", name: "Breaker 30 Amperios (THQL)", costoCompra: 5.50000000 },
+            { id: "BRK250", name: "Breaker 40 Amperios (THQL)", costoCompra: 5.60769231 },
+            { id: "BRK284", name: "Breaker 60 Amperios (THQL)", costoCompra: 5.70000000 },
+            { id: "BRK233", name: "Breaker 80 Amperios (TQL)", costoCompra: 8.40000000 },
+            { id: "BRK234", name: "Breaker 100 Amperios (TQL)", costoCompra: 10.50000000 }
         ]
     },
     {
@@ -1875,10 +1875,10 @@ const products = [
         images: ["productos/BRK-BREAKER(4).webp"],
         specs: { "Polos": "1 Polo (110V)", "Instalación": "Superficial (Atornillable)", "Marca": "Pickens" },
         variants: [
-            { id: "BRK115", name: "15 Amperios (THQC)", costoCompra: 3.97692308 },
-            { id: "BRK281", name: "20 Amperios (THQC)", costoCompra: 4.63846154 },
-            { id: "BRK283", name: "30 Amperios (THQC)", costoCompra: 4.63846154 },
-            { id: "BRK232", name: "40 Amperios (THQC)", costoCompra: 4.03076923 }
+            { id: "BRK115", name: "Breaker 15 Amperios (THQC)", costoCompra: 3.97692308 },
+            { id: "BRK281", name: "Breaker 20 Amperios (THQC)", costoCompra: 4.63846154 },
+            { id: "BRK283", name: "Breaker 30 Amperios (THQC)", costoCompra: 4.63846154 },
+            { id: "BRK232", name: "Breaker 40 Amperios (THQC)", costoCompra: 4.03076923 }
         ]
     },
     {
@@ -1891,13 +1891,13 @@ const products = [
         images: ["productos/BRK-BREAKER(4).webp"],
         specs: { "Polos": "2 Polos (220V)", "Instalación": "Superficial (Atornillable)", "Marca": "Pickens" },
         variants: [
-            { id: "BRK271", name: "20 Amperios (THQC)", costoCompra: 7.95384615 },
-            { id: "BRK230", name: "30 Amperios (THQC)", costoCompra: 8.60769231 },
-            { id: "BRK240", name: "40 Amperios (THQC)", costoCompra: 8.10769231 },
-            { id: "BRK241", name: "50 Amperios (THQC)", costoCompra: 7.95384615 },
-            { id: "BRK282", name: "60 Amperios (THQC)", costoCompra: 9.40000000 },
-            { id: "BRK235", name: "80 Amperios (THQC)", costoCompra: 10.60000000 },
-            { id: "BRK236", name: "100 Amperios (THQC)", costoCompra: 12.60000000 }
+            { id: "BRK271", name: "Breaker 20 Amperios (THQC)", costoCompra: 7.95384615 },
+            { id: "BRK230", name: "Breaker 30 Amperios (THQC)", costoCompra: 8.60769231 },
+            { id: "BRK240", name: "Breaker 40 Amperios (THQC)", costoCompra: 8.10769231 },
+            { id: "BRK241", name: "Breaker 50 Amperios (THQC)", costoCompra: 7.95384615 },
+            { id: "BRK282", name: "Breaker 60 Amperios (THQC)", costoCompra: 9.40000000 },
+            { id: "BRK235", name: "Breaker 80 Amperios (THQC)", costoCompra: 10.60000000 },
+            { id: "BRK236", name: "Breaker 100 Amperios (THQC)", costoCompra: 12.60000000 }
         ]
     },
 
@@ -1912,9 +1912,9 @@ const products = [
         images: ["productos/BRK-BREAKER(3).webp", "productos/BRK-BREAKER(5).webp"],
         specs: { "Marca": "Tania", "Polos": "2 Polos (220V)", "Capacidad de Ruptura": "10KA" },
         variants: [
-            { id: "BRK001", name: "20 Amperios (Empotrar)", costoCompra: 8.62307692 },
-            { id: "BRK002", name: "40 Amperios (Empotrar)", costoCompra: 8.62307692 },
-            { id: "BRK003", name: "20 Amperios (Superficial)", costoCompra: 11.27692308 }
+            { id: "BRK001", name: "Breaker 20 Amperios (Empotrar)", costoCompra: 8.62307692 },
+            { id: "BRK002", name: "Breaker 40 Amperios (Empotrar)", costoCompra: 8.62307692 },
+            { id: "BRK003", name: "Breaker 20 Amperios (Superficial)", costoCompra: 11.27692308 }
         ]
     },
     {
@@ -1927,13 +1927,13 @@ const products = [
         images: ["productos/GBC-GOMAS_COMPRESOR.webp"],
         specs: { "Tipo": "Amortiguador (Goma)", "Material": "Caucho Resistente", "Uso": "Compresores y Motores" },
         variants: [
-            { id: "GBC001", name: "Para Compresor 12K BTU (Split)", costoCompra: 1.65384615 },
-            { id: "GBC002", name: "Para Compresor 18K BTU", costoCompra: 1.98461538 },
-            { id: "GBC004", name: "Para Compresor 24K BTU", costoCompra: 2.50000000 },
-            { id: "GBC003", name: "Para Compresor 5 Toneladas", costoCompra: 3.97692308 },
-            { id: "GBC007", name: "Para Compresor Perfil Alta", costoCompra: 2.50000000 },
-            { id: "GBC008", name: "Para Compresor Tipo Scroll (4 Pzas)", costoCompra: 2.50000000 },
-            { id: "GBC006", name: "Para Motor Ventilador Split (2 Pzas)", costoCompra: 1.98461538 }
+            { id: "GBC001", name: "Gomas Antivibración Para Compresor 12K BTU (Split)", costoCompra: 1.65384615 },
+            { id: "GBC002", name: "Gomas Antivibración Para Compresor 18K BTU", costoCompra: 1.98461538 },
+            { id: "GBC004", name: "Gomas Antivibración Para Compresor 24K BTU", costoCompra: 2.50000000 },
+            { id: "GBC003", name: "Gomas Antivibración Para Compresor 5 Toneladas", costoCompra: 3.97692308 },
+            { id: "GBC007", name: "Gomas Antivibración Para Compresor Perfil Alta", costoCompra: 2.50000000 },
+            { id: "GBC008", name: "Gomas Antivibración Para Compresor Tipo Scroll (4 Pzas)", costoCompra: 2.50000000 },
+            { id: "GBC006", name: "Gomas Antivibración Para Motor Ventilador Split (2 Pzas)", costoCompra: 1.98461538 }
         ]
     },
     {
@@ -1946,11 +1946,11 @@ const products = [
         images: ["productos/TIRRAP.webp"],
         specs: { "Tipo": "Abrazadera (Tirrap)", "Material": "Nylon", "Uso": "Fijación y Organización" },
         variants: [
-            { id: "TRR003", name: "Medio 5.2x250mm", costoCompra: 0.04615385 },
-            { id: "TRR004", name: "Largo 7.6x300mm", costoCompra: 0.04615385 },
-            { id: "TRR001", name: "Largo 4.8x350mm", costoCompra: 0.06923077 },
-            { id: "TRR005", name: "Largo 4.8x450mm", costoCompra: 0.10769231 },
-            { id: "TRR002", name: "Corto 3.8x350mm", costoCompra: 0.14615385 }
+            { id: "TRR003", name: "Tirrap Fino Medio 5.2x250mm", costoCompra: 0.04615385 },
+            { id: "TRR004", name: "Tirrap Fino Largo 7.6x300mm", costoCompra: 0.04615385 },
+            { id: "TRR001", name: "Tirrap Fino Largo 4.8x350mm", costoCompra: 0.06923077 },
+            { id: "TRR005", name: "Tirrap Fino Largo 4.8x450mm", costoCompra: 0.10769231 },
+            { id: "TRR002", name: "Tirrap Fino Corto 3.8x350mm", costoCompra: 0.14615385 }
         ]
     },
     {
@@ -1973,8 +1973,8 @@ const products = [
         images: ["productos/BPS001.webp", "productos/GBC013.webp"],
         specs: { "Tipo": "Soporte / Base", "Uso": "Instalación de A/A" },
         variants: [
-            { id: "BPS001", name: "Base Escuadra para Consola (Hasta 30k BTU)", costoCompra: 5.30769231 },
-            { id: "GBC013", name: "Base Condensadora de Piso PVC (Hasta 12k BTU)", costoCompra: 11.93076923 }
+            { id: "BPS001", name: "Base para Base Escuadra para Consola (Hasta 30k BTU)", costoCompra: 5.30769231 },
+            { id: "GBC013", name: "Base para Base Condensadora de Piso PVC (Hasta 12k BTU)", costoCompra: 11.93076923 }
         ]
     },
     {
@@ -1997,8 +1997,8 @@ const products = [
         images: ["productos/CAP251.webp", "productos/CAP250.webp"],
         specs: { "Tipo": "Capacímetro Digital", "Uso": "Medición de Capacitores" },
         variants: [
-            { id: "CAP251", name: "Capacímetro Digital Negro (CM7115A)", costoCompra: 9.93846154 },
-            { id: "CAP250", name: "Capacímetro Digital Zenic 2.8V (M6013)", costoCompra: 19.23076923 }
+            { id: "CAP251", name: "Capacímetro Digital Capacímetro Digital Negro (CM7115A)", costoCompra: 9.93846154 },
+            { id: "CAP250", name: "Capacímetro Digital Capacímetro Digital Zenic 2.8V (M6013)", costoCompra: 19.23076923 }
         ]
     },
     {
@@ -2011,8 +2011,8 @@ const products = [
         images: ["productos/CNA001.webp", "productos/CNA002.webp"],
         specs: { "Marca": "Wadfow", "Tipo": "Wire Caps", "Uso": "Empalmes Eléctricos" },
         variants: [
-            { id: "CNA001", name: "Conectores Amarillos P4 (12 Piezas)", costoCompra: 1.00000000 },
-            { id: "CNA002", name: "Conectores Naranjas P3 (20 Piezas)", costoCompra: 1.05384615 }
+            { id: "CNA001", name: "Conectores Aislantes Conectores Amarillos P4 (12 Piezas)", costoCompra: 1.00000000 },
+            { id: "CNA002", name: "Conectores Aislantes Conectores Naranjas P3 (20 Piezas)", costoCompra: 1.05384615 }
         ]
     },
     {
@@ -2045,8 +2045,8 @@ const products = [
         images: ["productos/HID013.webp", "productos/HID014.webp"],
         specs: { "Tipo": "Extensión de Lavado", "Uso": "Hidrojet Mantenimiento" },
         variants: [
-            { id: "HID013", name: "Extensión Curva 45°", costoCompra: 5.30769231 },
-            { id: "HID014", name: "Extensión Curva 90°", costoCompra: 5.30769231 }
+            { id: "HID013", name: "Extensión Larga Extensión Curva 45°", costoCompra: 5.30769231 },
+            { id: "HID014", name: "Extensión Larga Extensión Curva 90°", costoCompra: 5.30769231 }
         ]
     },
     {
@@ -2069,8 +2069,8 @@ const products = [
         images: ["productos/LIJA.webp"],
         specs: { "Marca": "Diesel Tools", "Tipo": "Esmeril", "Uso": "Limpieza de Tuberías" },
         variants: [
-            { id: "LJA100", name: "Lija Grano N° 100", costoCompra: 0.39230769 },
-            { id: "LJA101", name: "Lija Grano N° 180", costoCompra: 0.39230769 }
+            { id: "LJA100", name: "Lija de Lija Grano N° 100", costoCompra: 0.39230769 },
+            { id: "LJA101", name: "Lija de Lija Grano N° 180", costoCompra: 0.39230769 }
         ]
     },
     {
@@ -2209,9 +2209,9 @@ const products = [
         images: ["productos/SCG-EXTRACTOR_GUSANILLO.webp"],
         specs: { "Tipo": "Extractor de Gusanillo", "Uso": "Mantenimiento bajo presión" },
         variants: [
-            { id: "SCG500", name: "Para R22 y R410A (Refrigeración)", costoCompra: 11.93076923 },
-            { id: "SCG501", name: "Para R134a Baja (Automotriz)", costoCompra: 13.26153846 },
-            { id: "SCG502", name: "Para R134a Alta (Automotriz)", costoCompra: 13.26153846 }
+            { id: "SCG500", name: "Válvula Para R22 y R410A (Refrigeración)", costoCompra: 11.93076923 },
+            { id: "SCG501", name: "Válvula Para R134a Baja (Automotriz)", costoCompra: 13.26153846 },
+            { id: "SCG502", name: "Válvula Para R134a Alta (Automotriz)", costoCompra: 13.26153846 }
         ]
     },
     {
@@ -2229,10 +2229,10 @@ const products = [
         ],
         specs: { "Tipo": "Termómetro", "Uso": "Cavas y Congeladores" },
         variants: [
-            { id: "TRM302", name: "Digital c/Batería TPM30 (-50° a 70°)", costoCompra: 2.39230769 },
-            { id: "TRM301", name: "Digital c/Batería TPM10 (-50° a 70°)", costoCompra: 2.64615385 },
-            { id: "TRM155", name: "Digital Tipo Reloj en Acero (Cava)", costoCompra: 7.56923077 },
-            { id: "TRM150", name: "Analógico Reloj de Aguja (Cava Cuarto)", costoCompra: 9.94615385 }
+            { id: "TRM302", name: "Termómetro para Digital c/Batería TPM30 (-50° a 70°)", costoCompra: 2.39230769 },
+            { id: "TRM301", name: "Termómetro para Digital c/Batería TPM10 (-50° a 70°)", costoCompra: 2.64615385 },
+            { id: "TRM155", name: "Termómetro para Digital Tipo Reloj en Acero (Cava)", costoCompra: 7.56923077 },
+            { id: "TRM150", name: "Termómetro para Analógico Reloj de Aguja (Cava Cuarto)", costoCompra: 9.94615385 }
         ]
     },
     {
@@ -2245,13 +2245,13 @@ const products = [
         images: ["productos/VISOR.webp"],
         specs: { "Tipo": "Visor de Líquido", "Material": "Cobre / Latón" },
         variants: [
-            { id: "VIS103", name: "Medida: 3/8\" (Rosca)", costoCompra: 4.99230769 },
-            { id: "VIS101", name: "Medida: 1/4\" (Rosca)", costoCompra: 6.62307692 },
-            { id: "VIS100", name: "Medida: 1/2\" (Rosca)", costoCompra: 6.63076923 },
-            { id: "VIS105", name: "Medida: 5/8\" (Rosca)", costoCompra: 7.94615385 },
-            { id: "VIS102", name: "Medida: 3/4\" (Rosca)", costoCompra: 12.59230769 },
-            { id: "VIS104", name: "Medida: 7/8\" (Rosca)", costoCompra: 12.59230769 },
-            { id: "VIS106", name: "Medida: 7/8\" (Soldable)", costoCompra: 13.92307692 }
+            { id: "VIS103", name: "Visor de 3/8\" (Rosca)", costoCompra: 4.99230769 },
+            { id: "VIS101", name: "Visor de 1/4\" (Rosca)", costoCompra: 6.62307692 },
+            { id: "VIS100", name: "Visor de 1/2\" (Rosca)", costoCompra: 6.63076923 },
+            { id: "VIS105", name: "Visor de 5/8\" (Rosca)", costoCompra: 7.94615385 },
+            { id: "VIS102", name: "Visor de 3/4\" (Rosca)", costoCompra: 12.59230769 },
+            { id: "VIS104", name: "Visor de 7/8\" (Rosca)", costoCompra: 12.59230769 },
+            { id: "VIS106", name: "Visor de 7/8\" (Soldable)", costoCompra: 13.92307692 }
         ]
     },
     {
@@ -2394,8 +2394,8 @@ const products = [
         images: ["productos/PFV014-PDV050.webp"],
         specs: { "Marca": "Exceline", "Tipo": "Supervisor Monofásico", "Montaje": "Tablero / Riel DIN" },
         variants: [
-            { id: "PFV014", name: "Supervisor Monofásico 120V", costoCompra: 13.26153846 },
-            { id: "PDV050", name: "Supervisor Monofásico 220V", costoCompra: 13.26153846 }
+            { id: "PFV014", name: "Supervisor Monofásico Supervisor Monofásico 120V", costoCompra: 13.26153846 },
+            { id: "PDV050", name: "Supervisor Monofásico Supervisor Monofásico 220V", costoCompra: 13.26153846 }
         ]
     },
     {
@@ -2408,12 +2408,12 @@ const products = [
         images: ["productos/BIS-BISAGRA-CAVA.webp"],
         specs: { "Tipo": "Bisagra Comercial", "Uso": "Cavas Cuarto y Congeladores", "Material": "Metal Cromado Reforzado" },
         variants: [
-            { id: "BIS102", name: "CT-1432 Pequeña", costoCompra: 4.30769231 },
-            { id: "BIS105", name: "3.5MM YL-650 (Par / Congelador)", costoCompra: 7.95384615 },
-            { id: "BIS100", name: "LT-1460 Landsfoss", costoCompra: 16.57692308 },
-            { id: "BIS103", name: "CT-1230N Grande", costoCompra: 23.20000000 },
-            { id: "BIS101", name: "LT-1470 Landsfoss G", costoCompra: 29.83846154 },
-            { id: "BIS104", name: "LT-1480 Landsfoss", costoCompra: 47.03580902 }
+            { id: "BIS102", name: "Bisagras para CT-1432 Pequeña", costoCompra: 4.30769231 },
+            { id: "BIS105", name: "Bisagras para 3.5MM YL-650 (Par / Congelador)", costoCompra: 7.95384615 },
+            { id: "BIS100", name: "Bisagras para LT-1460 Landsfoss", costoCompra: 16.57692308 },
+            { id: "BIS103", name: "Bisagras para CT-1230N Grande", costoCompra: 23.20000000 },
+            { id: "BIS101", name: "Bisagras para LT-1470 Landsfoss G", costoCompra: 29.83846154 },
+            { id: "BIS104", name: "Bisagras para LT-1480 Landsfoss", costoCompra: 47.03580902 }
         ]
     },
     {
@@ -2510,11 +2510,11 @@ const products = [
         images: ["productos/TMP-SIFON.webp"],
         specs: { "Material": "Cobre", "Tipo": "Sifón (P-Trap)", "Uso": "Retorno de Aceite" },
         variants: [
-            { id: "TMP100", name: "Medida: 1/2\"", costoCompra: 1.98461538 },
-            { id: "TMP103", name: "Medida: 5/8\"", costoCompra: 2.87692308 },
-            { id: "TMP102", name: "Medida: 3/4\"", costoCompra: 5.63076923 },
-            { id: "TMP101", name: "Medida: 7/8\"", costoCompra: 7.54615385 },
-            { id: "TMP104", name: "Medida: 1-1/8\"", costoCompra: 10.13076923 }
+            { id: "TMP100", name: "Trampa Sifón 1/2\"", costoCompra: 1.98461538 },
+            { id: "TMP103", name: "Trampa Sifón 5/8\"", costoCompra: 2.87692308 },
+            { id: "TMP102", name: "Trampa Sifón 3/4\"", costoCompra: 5.63076923 },
+            { id: "TMP101", name: "Trampa Sifón 7/8\"", costoCompra: 7.54615385 },
+            { id: "TMP104", name: "Trampa Sifón 1-1/8\"", costoCompra: 10.13076923 }
         ]
     },
     {
@@ -2527,8 +2527,8 @@ const products = [
         images: ["productos/VFA100.webp", "productos/VFA101.webp"],
         specs: { "Tipo": "Válvula Dispensadora", "Color": "Azul y Rojo", "Uso": "Filtros y Dispensadores" },
         variants: [
-            { id: "VFA100", name: "Conexión: Rosca Macho (Par)", costoCompra: 2.64615385 },
-            { id: "VFA101", name: "Conexión: Rosca Hembra (Par)", costoCompra: 2.64615385 }
+            { id: "VFA100", name: "Filtro Agua Rosca Macho (Par)", costoCompra: 2.64615385 },
+            { id: "VFA101", name: "Filtro Agua Rosca Hembra (Par)", costoCompra: 2.64615385 }
         ]
     },
     {
@@ -2562,26 +2562,26 @@ const products = [
         specs: { "Tipo": "Motor Evaporador", "Voltaje": "220V", "Uso": "Consola Interna (Split)" },
         variants: [
             // Ejes Cortos (aprox 3.3cm - 3.5cm)
-            { id: "MVE016", name: "16W 220V (Eje 3.3 CM)", costoCompra: 16.41538462 },
-            { id: "MVE019", name: "19W 220V (Eje 3.3 CM)", costoCompra: 13.30769231 },
-            { id: "MVE024", name: "20W 220V (Eje 3.5 CM)", costoCompra: 13.26153846 },
-            { id: "MVE023", name: "23W 220V (Eje 3.3 CM)", costoCompra: 18.37692308 },
-            { id: "MVE006", name: "30W 220V (Eje 3.3 CM)", costoCompra: 13.26153846 },
-            { id: "MVE007", name: "33W 220V (Eje 3.3 CM)", costoCompra: 14.58461538 },
+            { id: "MVE016", name: "Motor 16W 220V (Eje 3.3 CM)", costoCompra: 16.41538462 },
+            { id: "MVE019", name: "Motor 19W 220V (Eje 3.3 CM)", costoCompra: 13.30769231 },
+            { id: "MVE024", name: "Motor 20W 220V (Eje 3.5 CM)", costoCompra: 13.26153846 },
+            { id: "MVE023", name: "Motor 23W 220V (Eje 3.3 CM)", costoCompra: 18.37692308 },
+            { id: "MVE006", name: "Motor 30W 220V (Eje 3.3 CM)", costoCompra: 13.26153846 },
+            { id: "MVE007", name: "Motor 33W 220V (Eje 3.3 CM)", costoCompra: 14.58461538 },
 
             // Ejes Largos (7.5cm - 7.8cm y Especiales)
-            { id: "MVE001", name: "12W 220V (Eje 7.5 CM)", costoCompra: 18.62307692 },
-            { id: "MVE003", name: "22W 220V (Eje 7.5 CM)", costoCompra: 18.30000000 },
-            { id: "MVC031", name: "25W 220V (Eje 7.5 CM)", costoCompra: 17.89230769 },
-            { id: "MVE005", name: "26W 220V (Eje 7.5 CM)", costoCompra: 24.33076923 },
-            { id: "MVE027", name: "26W 220V (Eje 7.8 CM)", costoCompra: 19.89230769 },
-            { id: "MVE025", name: "27W 220V (Eje Largo)", costoCompra: 23.21538462 },
+            { id: "MVE001", name: "Motor 12W 220V (Eje 7.5 CM)", costoCompra: 18.62307692 },
+            { id: "MVE003", name: "Motor 22W 220V (Eje 7.5 CM)", costoCompra: 18.30000000 },
+            { id: "MVC031", name: "Motor 25W 220V (Eje 7.5 CM)", costoCompra: 17.89230769 },
+            { id: "MVE005", name: "Motor 26W 220V (Eje 7.5 CM)", costoCompra: 24.33076923 },
+            { id: "MVE027", name: "Motor 26W 220V (Eje 7.8 CM)", costoCompra: 19.89230769 },
+            { id: "MVE025", name: "Motor 27W 220V (Eje Largo)", costoCompra: 23.21538462 },
 
             // Modelos Específicos / Marcas
-            { id: "MVE022", name: "22W 220V (Haier B 18kBTU)", costoCompra: 23.20769231 },
-            { id: "MVE026", name: "26W 220V (KSFD-20A)", costoCompra: 13.26153846 },
-            { id: "MVE008", name: "35W 220V (Landsfoss)", costoCompra: 14.58461538 },
-            { id: "MVE009", name: "40W 220V (Landsfoss)", costoCompra: 19.26923077 }
+            { id: "MVE022", name: "Motor 22W 220V (Haier B 18kBTU)", costoCompra: 23.20769231 },
+            { id: "MVE026", name: "Motor 26W 220V (KSFD-20A)", costoCompra: 13.26153846 },
+            { id: "MVE008", name: "Motor 35W 220V (Landsfoss)", costoCompra: 14.58461538 },
+            { id: "MVE009", name: "Motor 40W 220V (Landsfoss)", costoCompra: 19.26923077 }
         ]
     },
     {
@@ -2595,18 +2595,18 @@ const products = [
         specs: { "Tipo": "Motor Condensador", "Voltaje": "220V", "Uso": "Unidad Externa (Split)" },
         variants: [
             // Eje 5/16
-            { id: "MVC029", name: "25W 220V (Eje 5/16)", costoCompra: 17.89230769 },
-            { id: "MVC030", name: "30W 220V (Eje 5/16)", costoCompra: 17.89230769 },
-            { id: "MVC035", name: "35W 220V (Eje 5/16)", costoCompra: 17.90000000 },
-            { id: "MVC100", name: "40W 220V (Eje 5/16 YDK40)", costoCompra: 19.89230769 },
-            { id: "MVC051", name: "50W 220V (Eje 5/16)", costoCompra: 29.38461538 },
+            { id: "MVC029", name: "Motor 25W 220V (Eje 5/16)", costoCompra: 17.89230769 },
+            { id: "MVC030", name: "Motor 30W 220V (Eje 5/16)", costoCompra: 17.89230769 },
+            { id: "MVC035", name: "Motor 35W 220V (Eje 5/16)", costoCompra: 17.90000000 },
+            { id: "MVC100", name: "Motor 40W 220V (Eje 5/16 YDK40)", costoCompra: 19.89230769 },
+            { id: "MVC051", name: "Motor 50W 220V (Eje 5/16)", costoCompra: 29.38461538 },
 
             // Eje 1/2
-            { id: "MVC050", name: "50W 220V (Eje 1/2)", costoCompra: 23.20769231 },
+            { id: "MVC050", name: "Motor 50W 220V (Eje 1/2)", costoCompra: 23.20769231 },
 
             // Modelos Específicos / Marcas
-            { id: "MVC110", name: "33W 220V (Haier 12/18kBTU)", costoCompra: 16.56923077 },
-            { id: "MVC032", name: "36W 220V (CY 18kBTU)", costoCompra: 26.52307692 }
+            { id: "MVC110", name: "Motor 33W 220V (Haier 12/18kBTU)", costoCompra: 16.56923077 },
+            { id: "MVC032", name: "Motor 36W 220V (CY 18kBTU)", costoCompra: 26.52307692 }
         ]
     },
     {
@@ -2654,10 +2654,10 @@ const products = [
         ],
         specs: { "Tipo": "Línea de Succión", "Conexión": "Soldable (ODF)", "Uso": "Protección de Compresor" },
         variants: [
-            { id: "FIL150", name: "Medida: 3/8\" Soldable (SFX-283T)", costoCompra: 10.58461538 },
-            { id: "FIL108", name: "Medida: 1/2\" Soldable (SFX-284T)", costoCompra: 10.75384615 },
-            { id: "FIL109", name: "Medida: 5/8\" Soldable (SFX-285T)", costoCompra: 11.01538462 },
-            { id: "FIL104", name: "Medida: 7/8\" Soldable (SFX-287T)", costoCompra: 15.00000000 }
+            { id: "FIL150", name: "Filtro Secador 3/8\" Soldable (SFX-283T)", costoCompra: 10.58461538 },
+            { id: "FIL108", name: "Filtro Secador 1/2\" Soldable (SFX-284T)", costoCompra: 10.75384615 },
+            { id: "FIL109", name: "Filtro Secador 5/8\" Soldable (SFX-285T)", costoCompra: 11.01538462 },
+            { id: "FIL104", name: "Filtro Secador 7/8\" Soldable (SFX-287T)", costoCompra: 15.00000000 }
         ]
     },
     {
@@ -2678,13 +2678,13 @@ const products = [
         ],
         specs: { "Tipo": "Alta Capacidad (Núcleo Sólido)", "Conexión": "Rosca (Flare)", "Uso": "Equipos de Gran Tonelaje" },
         variants: [
-            { id: "FIL135", name: "3/8\" 303 ISYN (5 a 7.5 Toneladas)", costoCompra: 6.43076923 },
-            { id: "FIL151", name: "3/8\" S-303 (5 a 7.5 Toneladas)", costoCompra: 7.94615385 },
-            { id: "FIL169", name: "1/2\" S-304 (10 Toneladas)", costoCompra: 8.75384615 },
-            { id: "FIL129", name: "5/8\" S-305 (5 a 10 Toneladas)", costoCompra: 9.94615385 },
-            { id: "FIL132", name: "7/8\" S-307 (10 Toneladas)", costoCompra: 9.27692308 },
-            { id: "FIL113", name: "5/8\" S-415 (15 Toneladas)", costoCompra: 13.26153846 },
-            { id: "FIL118", name: "1/2\" S-414 (10 a 15 Toneladas)", costoCompra: 16.45384615 }
+            { id: "FIL135", name: "Filtro Secador 3/8\" 303 ISYN (5 a 7.5 Toneladas)", costoCompra: 6.43076923 },
+            { id: "FIL151", name: "Filtro Secador 3/8\" S-303 (5 a 7.5 Toneladas)", costoCompra: 7.94615385 },
+            { id: "FIL169", name: "Filtro Secador 1/2\" S-304 (10 Toneladas)", costoCompra: 8.75384615 },
+            { id: "FIL129", name: "Filtro Secador 5/8\" S-305 (5 a 10 Toneladas)", costoCompra: 9.94615385 },
+            { id: "FIL132", name: "Filtro Secador 7/8\" S-307 (10 Toneladas)", costoCompra: 9.27692308 },
+            { id: "FIL113", name: "Filtro Secador 5/8\" S-415 (15 Toneladas)", costoCompra: 13.26153846 },
+            { id: "FIL118", name: "Filtro Secador 1/2\" S-414 (10 a 15 Toneladas)", costoCompra: 16.45384615 }
         ]
     },
     {
@@ -2708,18 +2708,18 @@ const products = [
         ],
         specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Rosca (Flare)", "Uso": "A/A y Refrigeración" },
         variants: [
-            { id: "FIL171", name: "1/4 SEK-032 Landsfoss (3 TON)", costoCompra: 2.43076923 },
-            { id: "FIL170", name: "1/4 032 MEK-032 Maxwell", costoCompra: 2.59230769 },
-            { id: "FIL160", name: "1/4 Núcleo Sólido Maxwell", costoCompra: 3.04615385 },
-            { id: "FIL112", name: "1/4 SEK-052 (1-2 TON)", costoCompra: 3.20000000 },
-            { id: "FIL154", name: "1/4 FD032S Degar", costoCompra: 3.96923077 },
-            { id: "FIL130", name: "1/4 SD-162 ISYN (1-3 TON)", costoCompra: 4.96923077 },
-            { id: "FIL100", name: "3/8 SEK-163F Económico (3-5 TON)", costoCompra: 3.97692308 },
-            { id: "FIL131", name: "3/8 SEK-163 Landsfoss (3-5 TON)", costoCompra: 5.96923077 },
-            { id: "FIL152", name: "1/2 SEK-164 Landsfoss (3-5 TON)", costoCompra: 5.29230769 },
-            { id: "FIL161", name: "5/8 Núcleo Sólido Maxwell", costoCompra: 4.63076923 },
-            { id: "FIL146", name: "5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 },
-            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
+            { id: "FIL171", name: "Filtro Secador 1/4 SEK-032 Landsfoss (3 TON)", costoCompra: 2.43076923 },
+            { id: "FIL170", name: "Filtro Secador 1/4 032 MEK-032 Maxwell", costoCompra: 2.59230769 },
+            { id: "FIL160", name: "Filtro Secador 1/4 Núcleo Sólido Maxwell", costoCompra: 3.04615385 },
+            { id: "FIL112", name: "Filtro Secador 1/4 SEK-052 (1-2 TON)", costoCompra: 3.20000000 },
+            { id: "FIL154", name: "Filtro Secador 1/4 FD032S Degar", costoCompra: 3.96923077 },
+            { id: "FIL130", name: "Filtro Secador 1/4 SD-162 ISYN (1-3 TON)", costoCompra: 4.96923077 },
+            { id: "FIL100", name: "Filtro Secador 3/8 SEK-163F Económico (3-5 TON)", costoCompra: 3.97692308 },
+            { id: "FIL131", name: "Filtro Secador 3/8 SEK-163 Landsfoss (3-5 TON)", costoCompra: 5.96923077 },
+            { id: "FIL152", name: "Filtro Secador 1/2 SEK-164 Landsfoss (3-5 TON)", costoCompra: 5.29230769 },
+            { id: "FIL161", name: "Filtro Secador 5/8 Núcleo Sólido Maxwell", costoCompra: 4.63076923 },
+            { id: "FIL146", name: "Filtro Secador 5/8 FD-165 Núcleo Sólido", costoCompra: 8.62307692 },
+            { id: "FIL158", name: "Filtro Secador 7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
         ]
     },
     {
@@ -2737,10 +2737,10 @@ const products = [
         ],
         specs: { "Tipo": "Línea de Líquido (Núcleo Sólido)", "Conexión": "Soldable (ODF)", "Uso": "Refrigeración Comercial" },
         variants: [
-            { id: "FIL149", name: "1/4 SG-162S Soldable ISYN", costoCompra: 5.29230769 },
-            { id: "FIL153", name: "1/2 FD164S Soldable Degar", costoCompra: 7.95384615 },
-            { id: "FIL157", name: "5/8 FD305S Soldable Degar", costoCompra: 17.30000000 },
-            { id: "FIL158", name: "7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
+            { id: "FIL149", name: "Filtro Secador 1/4 SG-162S Soldable ISYN", costoCompra: 5.29230769 },
+            { id: "FIL153", name: "Filtro Secador 1/2 FD164S Soldable Degar", costoCompra: 7.95384615 },
+            { id: "FIL157", name: "Filtro Secador 5/8 FD305S Soldable Degar", costoCompra: 17.30000000 },
+            { id: "FIL158", name: "Filtro Secador 7/8 FD417S Degar (5-10 TON)", costoCompra: 19.89230769 }
         ]
     },
     {
@@ -2753,8 +2753,8 @@ const products = [
         images: ["productos/FIL122-172.webp"],
         specs: { "Característica": "Visor Integrado (Mirilla)", "Medida": "3/8", "Uso": "Monitoreo y Filtrado" },
         variants: [
-            { id: "FIL122", name: "3/8 163 Núcleo S. con Visor (Rosca)", costoCompra: 9.95384615 },
-            { id: "FIL172", name: "3/8 163S Núcleo S. con Visor (Soldable)", costoCompra: 9.95384615 }
+            { id: "FIL122", name: "Filtro Secador 3/8 163 Núcleo S. con Visor (Rosca)", costoCompra: 9.95384615 },
+            { id: "FIL172", name: "Filtro Secador 3/8 163S Núcleo S. con Visor (Soldable)", costoCompra: 9.95384615 }
         ]
     },
     {
@@ -2767,19 +2767,19 @@ const products = [
         images: ["productos/MTU-MOTOR_W.webp", "productos/MTU001.webp"],
         specs: { "Tipo": "Motor de Vatiaje (W)", "Uso": "Cavas / Neveras", "Conexión": "Universal" },
         variants: [
-            { id: "MTU001", name: "10W 110V (C/ Base y Aspa Aluminio)", costoCompra: 7.00000000 },
-            { id: "MTU002", name: "10W 110V (Con Rolinera)", costoCompra: 12.37692308 },
-            { id: "MTU015", name: "10W 220V (C/ Base y Aspa)", costoCompra: 14.00000000 },
-            { id: "MTU014", name: "10/15W 110-220V (Plástico 1300RPM)", costoCompra: 11.93076923 },
-            { id: "MTU009", name: "16W 110V (C/ Base y Aspa)", costoCompra: 13.26153846 },
-            { id: "MTU003", name: "18W 110V (C/ Base y Aspa)", costoCompra: 14.59230769 },
-            { id: "MTU008", name: "18W 110V (Con Rolinera)", costoCompra: 17.23846154 },
-            { id: "MTU004", name: "25W 110V (C/ Base y Aspa)", costoCompra: 16.57692308 },
-            { id: "MTU012", name: "25W 110V (Con Rolinera)", costoCompra: 18.56153846 },
-            { id: "MTU005", name: "34W 220V (C/ Base y Aspa)", costoCompra: 22.40000000 },
-            { id: "MTU006", name: "34W 110V (C/ Base y Aspa)", costoCompra: 18.56153846 },
-            { id: "MTU010", name: "34W 110V (Con Rolinera)", costoCompra: 22.40000000 },
-            { id: "MTU016", name: "50W 220V (C/ Base y Aspa)", costoCompra: 28.39230769 }
+            { id: "MTU001", name: "Motor W 10W 110V (C/ Base y Aspa Aluminio)", costoCompra: 7.00000000 },
+            { id: "MTU002", name: "Motor W 10W 110V (Con Rolinera)", costoCompra: 12.37692308 },
+            { id: "MTU015", name: "Motor W 10W 220V (C/ Base y Aspa)", costoCompra: 14.00000000 },
+            { id: "MTU014", name: "Motor W 10/15W 110-220V (Plástico 1300RPM)", costoCompra: 11.93076923 },
+            { id: "MTU009", name: "Motor W 16W 110V (C/ Base y Aspa)", costoCompra: 13.26153846 },
+            { id: "MTU003", name: "Motor W 18W 110V (C/ Base y Aspa)", costoCompra: 14.59230769 },
+            { id: "MTU008", name: "Motor W 18W 110V (Con Rolinera)", costoCompra: 17.23846154 },
+            { id: "MTU004", name: "Motor W 25W 110V (C/ Base y Aspa)", costoCompra: 16.57692308 },
+            { id: "MTU012", name: "Motor W 25W 110V (Con Rolinera)", costoCompra: 18.56153846 },
+            { id: "MTU005", name: "Motor W 34W 220V (C/ Base y Aspa)", costoCompra: 22.40000000 },
+            { id: "MTU006", name: "Motor W 34W 110V (C/ Base y Aspa)", costoCompra: 18.56153846 },
+            { id: "MTU010", name: "Motor W 34W 110V (Con Rolinera)", costoCompra: 22.40000000 },
+            { id: "MTU016", name: "Motor W 50W 220V (C/ Base y Aspa)", costoCompra: 28.39230769 }
         ]
     },
     {
@@ -2792,10 +2792,10 @@ const products = [
         images: ["productos/MTU-MOTOR_W.webp"],
         specs: { "Tipo": "Motor de Vatiaje (W)", "Uso": "Cavas / Neveras Comerciales", "Calidad": "Importada" },
         variants: [
-            { id: "MTU013", name: "10W 220V 1550RPM (Landsfoss)", costoCompra: 14.00000000 },
-            { id: "MTU109", name: "18W 220V 1550RPM (Landsfoss)", costoCompra: 15.06923077 },
-            { id: "MTU007", name: "50W 220V 1550RPM (Landsfoss)", costoCompra: 28.39230769 },
-            { id: "MTU011", name: "50W 220V 1550RPM (Cowplandt)", costoCompra: 23.18461538 }
+            { id: "MTU013", name: "Motor W 10W 220V 1550RPM (Landsfoss)", costoCompra: 14.00000000 },
+            { id: "MTU109", name: "Motor W 18W 220V 1550RPM (Landsfoss)", costoCompra: 15.06923077 },
+            { id: "MTU007", name: "Motor W 50W 220V 1550RPM (Landsfoss)", costoCompra: 28.39230769 },
+            { id: "MTU011", name: "Motor W 50W 220V 1550RPM (Cowplandt)", costoCompra: 23.18461538 }
         ]
     },
     {
@@ -2808,15 +2808,15 @@ const products = [
         images: ["productos/MTU-MOTOR_W_MOTORVENCA.webp"],
         specs: { "Marca": "Motorvenca", "Tipo": "Motor de Vatiaje (W)", "Origen": "Nacional (Alta Durabilidad)" },
         variants: [
-            { id: "MTU108", name: "5W 110V 1550RPM", costoCompra: 20.00000000 },
-            { id: "MTU100", name: "10W 110V 1550RPM", costoCompra: 23.53846154 },
-            { id: "MTU101", name: "10W 220V 1550RPM", costoCompra: 23.20769231 },
-            { id: "MTU102", name: "18W 110V 1550RPM", costoCompra: 25.19230769 },
-            { id: "MTU106", name: "18W 220V 1550RPM", costoCompra: 24.56923077 },
-            { id: "MTU103", name: "34W 110V 1550RPM", costoCompra: 34.83846154 },
-            { id: "MTU104", name: "34W 220V 1550RPM", costoCompra: 39.77692308 },
-            { id: "MTU107", name: "50W 110V 1625RPM", costoCompra: 46.41538462 },
-            { id: "MTU105", name: "50W 220V 1625RPM", costoCompra: 53.03846154 }
+            { id: "MTU108", name: "Motor W 5W 110V 1550RPM", costoCompra: 20.00000000 },
+            { id: "MTU100", name: "Motor W 10W 110V 1550RPM", costoCompra: 23.53846154 },
+            { id: "MTU101", name: "Motor W 10W 220V 1550RPM", costoCompra: 23.20769231 },
+            { id: "MTU102", name: "Motor W 18W 110V 1550RPM", costoCompra: 25.19230769 },
+            { id: "MTU106", name: "Motor W 18W 220V 1550RPM", costoCompra: 24.56923077 },
+            { id: "MTU103", name: "Motor W 34W 110V 1550RPM", costoCompra: 34.83846154 },
+            { id: "MTU104", name: "Motor W 34W 220V 1550RPM", costoCompra: 39.77692308 },
+            { id: "MTU107", name: "Motor W 50W 110V 1625RPM", costoCompra: 46.41538462 },
+            { id: "MTU105", name: "Motor W 50W 220V 1625RPM", costoCompra: 53.03846154 }
         ]
     },
     {
@@ -2829,9 +2829,9 @@ const products = [
         images: ["productos/CAR001.webp", "productos/CAR002.webp", "productos/CAR004.webp"],
         specs: { "Tipo": "Start Kit (Estado Sólido)", "Voltaje": "220V", "Uso": "Aires Acondicionados" },
         variants: [
-            { id: "CAR001", name: "Modelo: SPP5 (Pequeño 300%)", costoCompra: 2.96153846 },
-            { id: "CAR002", name: "Modelo: SPP6 (Mediano 500%)", costoCompra: 4.44615385 },
-            { id: "CAR004", name: "Modelo: SPP7 (Grande 600%)", costoCompra: 8.48461538 }
+            { id: "CAR001", name: "Start Kit SPP5 (Pequeño 300%)", costoCompra: 2.96153846 },
+            { id: "CAR002", name: "Start Kit SPP6 (Mediano 500%)", costoCompra: 4.44615385 },
+            { id: "CAR004", name: "Start Kit SPP7 (Grande 600%)", costoCompra: 8.48461538 }
         ]
     },
     {
@@ -2876,33 +2876,33 @@ const products = [
         specs: { "Tipo": "Timer Defrost", "Aplicación": "Refrigeración Doméstica" },
         variants: [
             // --- TIPO ASIATIC ---
-            { id: "TIM019", name: "Asiatic 10H-21M TMDGY35RB9", costoCompra: 7.95384615 },
-            { id: "TIM011", name: "Asiatic 10H-21M TMDJX21RB9", costoCompra: 5.33076923 },
-            { id: "TIM012", name: "Asiatic 10H-35M TMDJX35RB9", costoCompra: 9.94615385 },
-            { id: "TIM013", name: "Asiatic 8H-21M Sankyo Negro", costoCompra: 5.30000000 },
-            { id: "TIM027", name: "Asiatic 7H-30M TMDE625TA1", costoCompra: 3.10000000 },
-            { id: "TIM016", name: "Asiatic 6H-21M TMDJ621ZN9", costoCompra: 3.82307692 },
-            { id: "TIM023", name: "Asiatic 6H-25M TMDJ625ZQ9", costoCompra: 5.29230769 },
-            { id: "TIM003", name: "Asiatic 3x1 8H-21M TMDE807TD", costoCompra: 3.96923077 },
-            { id: "TIM007", name: "Asiatic 3x1 6H-25M DS-005", costoCompra: 3.96923077 },
-            { id: "TIM025", name: "Asiatic 3x1 6H-35M DS005-35", costoCompra: 3.35384615 },
+            { id: "TIM019", name: "Timer Asiatic 10H-21M TMDGY35RB9", costoCompra: 7.95384615 },
+            { id: "TIM011", name: "Timer Asiatic 10H-21M TMDJX21RB9", costoCompra: 5.33076923 },
+            { id: "TIM012", name: "Timer Asiatic 10H-35M TMDJX35RB9", costoCompra: 9.94615385 },
+            { id: "TIM013", name: "Timer Asiatic 8H-21M Sankyo Negro", costoCompra: 5.30000000 },
+            { id: "TIM027", name: "Timer Asiatic 7H-30M TMDE625TA1", costoCompra: 3.10000000 },
+            { id: "TIM016", name: "Timer Asiatic 6H-21M TMDJ621ZN9", costoCompra: 3.82307692 },
+            { id: "TIM023", name: "Timer Asiatic 6H-25M TMDJ625ZQ9", costoCompra: 5.29230769 },
+            { id: "TIM003", name: "Timer Asiatic 3x1 8H-21M TMDE807TD", costoCompra: 3.96923077 },
+            { id: "TIM007", name: "Timer Asiatic 3x1 6H-25M DS-005", costoCompra: 3.96923077 },
+            { id: "TIM025", name: "Timer Asiatic 3x1 6H-35M DS005-35", costoCompra: 3.35384615 },
 
             // --- TIPO METÁLICO ---
-            { id: "TIM004", name: "Metálico 6H-21M DS-002 M830", costoCompra: 4.06153846 },
-            { id: "TIM005", name: "Metálico 8H-21M DTB-820MAX", costoCompra: 7.50000000 },
-            { id: "TIM026", name: "Metálico 8H-21M Degar", costoCompra: 9.94615385 },
+            { id: "TIM004", name: "Timer Metálico 6H-21M DS-002 M830", costoCompra: 4.06153846 },
+            { id: "TIM005", name: "Timer Metálico 8H-21M DTB-820MAX", costoCompra: 7.50000000 },
+            { id: "TIM026", name: "Timer Metálico 8H-21M Degar", costoCompra: 9.94615385 },
 
             // --- TIPO KOREANO ---
-            { id: "TIM008", name: "Koreano 6H-30M DS-006", costoCompra: 3.60000000 },
-            { id: "TIM024", name: "Koreano 12H-8M TD-20LVM SA", costoCompra: 3.96923077 },
+            { id: "TIM008", name: "Timer Koreano 6H-30M DS-006", costoCompra: 3.60000000 },
+            { id: "TIM024", name: "Timer Koreano 12H-8M TD-20LVM SA", costoCompra: 3.96923077 },
 
             // --- TIPO AJUSTABLE ---
-            { id: "TIM021", name: "Ajustable 4-6-8-10-12H Mabe", costoCompra: 5.35384615 },
-            { id: "TIM020", name: "Ajustable 6-8-12H ISYN 220V", costoCompra: 5.96153846 },
+            { id: "TIM021", name: "Timer Ajustable 4-6-8-10-12H Mabe", costoCompra: 5.35384615 },
+            { id: "TIM020", name: "Timer Ajustable 6-8-12H ISYN 220V", costoCompra: 5.96153846 },
 
             // --- MARCAS ESPECÍFICAS (MABE / HAIER) ---
-            { id: "TIM010", name: "Peq Mabe/Haier 4321 DBYC100", costoCompra: 3.35384615 },
-            { id: "TIM028", name: "Haier Negro 8H-21MIN", costoCompra: 4.00000000 }
+            { id: "TIM010", name: "Timer Peq Mabe/Haier 4321 DBYC100", costoCompra: 3.35384615 },
+            { id: "TIM028", name: "Timer Haier Negro 8H-21MIN", costoCompra: 4.00000000 }
         ]
     },
     {
@@ -2915,8 +2915,8 @@ const products = [
         images: ["productos/RTK003.webp", "productos/RTK011.webp"],
         specs: { "Marca": "General Electric", "Tipo": "Kit de Arranque", "Uso": "Neveras G.E." },
         variants: [
-            { id: "RTK003", name: "Modelo: WR07X10131", costoCompra: 3.43846154 },
-            { id: "RTK011", name: "Modelo: WR09X10107", costoCompra: 3.63076923 }
+            { id: "RTK003", name: "Capacitor WR07X10131", costoCompra: 3.43846154 },
+            { id: "RTK011", name: "Capacitor WR09X10107", costoCompra: 3.63076923 }
         ]
     },
     {
@@ -2957,18 +2957,18 @@ const products = [
         ],
         specs: { "Tipo": "Termostato Mecánico", "Aplicación": "Refrigeración Doméstica / Comercial" },
         variants: [
-            { id: "TRM013", name: "Degar P1126 (Nevera/Vitrina)", costoCompra: 4.63846154 },
-            { id: "TRM014", name: "Degar P1127 (Nevera/Vitrina)", costoCompra: 4.63846154 },
-            { id: "TRM018", name: "K50P-1127-001 (+1.5C° a +5C°)", costoCompra: 6.06923077 },
-            { id: "TRM019", name: "K50P-1126-001 (-24.5C° a -18C°)", costoCompra: 6.03846154 },
-            { id: "TRM020", name: "RC-12473-8 (Puerta Sin Escarcha)", costoCompra: 5.90000000 },
-            { id: "TRM021", name: "WPF27-7AL 125/250V (Congelador)", costoCompra: 2.79230769 },
-            { id: "TRM022", name: "TSV0001-48 Robertshaw", costoCompra: 8.03846154 },
-            { id: "TRM023", name: "RFR-4000-4K (Cong. Horizontal)", costoCompra: 4.37692308 },
-            { id: "TRM001", name: "P1125 (Nev/Vitri/Exh)", costoCompra: 3.31538462 },
-            { id: "TRM002", name: "P1126 (Cong/Freezer)", costoCompra: 3.30769231 },
-            { id: "TRM003", name: "P1127 (Nev/Filtro Agua)", costoCompra: 3.30769231 },
-            { id: "TRM008", name: "P1133 (Nevera 1 Puerta)", costoCompra: 2.65384615 },
+            { id: "TRM013", name: "Termostato Degar P1126 (Nevera/Vitrina)", costoCompra: 4.63846154 },
+            { id: "TRM014", name: "Termostato Degar P1127 (Nevera/Vitrina)", costoCompra: 4.63846154 },
+            { id: "TRM018", name: "Termostato K50P-1127-001 (+1.5C° a +5C°)", costoCompra: 6.06923077 },
+            { id: "TRM019", name: "Termostato K50P-1126-001 (-24.5C° a -18C°)", costoCompra: 6.03846154 },
+            { id: "TRM020", name: "Termostato RC-12473-8 (Puerta Sin Escarcha)", costoCompra: 5.90000000 },
+            { id: "TRM021", name: "Termostato WPF27-7AL 125/250V (Congelador)", costoCompra: 2.79230769 },
+            { id: "TRM022", name: "Termostato TSV0001-48 Robertshaw", costoCompra: 8.03846154 },
+            { id: "TRM023", name: "Termostato RFR-4000-4K (Cong. Horizontal)", costoCompra: 4.37692308 },
+            { id: "TRM001", name: "Termostato P1125 (Nev/Vitri/Exh)", costoCompra: 3.31538462 },
+            { id: "TRM002", name: "Termostato P1126 (Cong/Freezer)", costoCompra: 3.30769231 },
+            { id: "TRM003", name: "Termostato P1127 (Nev/Filtro Agua)", costoCompra: 3.30769231 },
+            { id: "TRM008", name: "Termostato P1133 (Nevera 1 Puerta)", costoCompra: 2.65384615 },
         ]
     },
     {
@@ -2981,8 +2981,8 @@ const products = [
         images: ["productos/TIM001-002.webp"],
         specs: { "Tipo": "Temporizador de Deshielo", "Uso": "Universal", "Deshielo": "21 Minutos" },
         variants: [
-            { id: "TIM002", name: "Ciclo: 8 Horas (Económico)", costoCompra: 3.15384615 },
-            { id: "TIM001", name: "Ciclo: 6 Horas (DS-004)", costoCompra: 3.20000000 }
+            { id: "TIM002", name: "Reloj de 8 Horas (Económico)", costoCompra: 3.15384615 },
+            { id: "TIM001", name: "Reloj de 6 Horas (DS-004)", costoCompra: 3.20000000 }
         ]
     },
     {
@@ -3005,21 +3005,21 @@ const products = [
         images: ["productos/RESISTENCIAS_METALICAS.webp"],
         specs: { "Tipo": "Tubular Metálica", "Uso": "Sistema de Deshielo", "Compatibilidad": "Neveras No Frost" },
         variants: [
-            { id: "REM010", name: "Medida: 33 CM", costoCompra: 3.31538462 },
-            { id: "REM004", name: "Medida: 35 CM", costoCompra: 1.97692308 },
-            { id: "REM012", name: "Medida: 36 CM", costoCompra: 2.88461538 },
-            { id: "REM005", name: "Medida: 38 CM", costoCompra: 3.97692308 },
-            { id: "REM007", name: "Medida: 41 CM", costoCompra: 3.30769231 },
-            { id: "REM015", name: "Medida: 43 CM", costoCompra: 3.18461538 },
-            { id: "REM008", name: "Medida: 45 CM", costoCompra: 3.23076923 },
-            { id: "REM011", name: "Medida: 46 CM", costoCompra: 3.46153846 },
-            { id: "REM001", name: "Medida: 47 CM", costoCompra: 3.25384615 },
-            { id: "REM009", name: "Medida: 52 CM", costoCompra: 4.46153846 },
-            { id: "REM014", name: "Medida: 53 CM", costoCompra: 4.49230769 },
-            { id: "REM006", name: "Medida: 56 CM", costoCompra: 3.90000000 },
-            { id: "REM003", name: "Medida: 65 CM", costoCompra: 6.50000000 },
-            { id: "REM013", name: "Medida: 66 CM", costoCompra: 5.00000000 },
-            { id: "REM100", name: "Medida: 87x7x87 CM (Doble)", costoCompra: 46.42307692 }
+            { id: "REM010", name: "Resistencia de 33 CM", costoCompra: 3.31538462 },
+            { id: "REM004", name: "Resistencia de 35 CM", costoCompra: 1.97692308 },
+            { id: "REM012", name: "Resistencia de 36 CM", costoCompra: 2.88461538 },
+            { id: "REM005", name: "Resistencia de 38 CM", costoCompra: 3.97692308 },
+            { id: "REM007", name: "Resistencia de 41 CM", costoCompra: 3.30769231 },
+            { id: "REM015", name: "Resistencia de 43 CM", costoCompra: 3.18461538 },
+            { id: "REM008", name: "Resistencia de 45 CM", costoCompra: 3.23076923 },
+            { id: "REM011", name: "Resistencia de 46 CM", costoCompra: 3.46153846 },
+            { id: "REM001", name: "Resistencia de 47 CM", costoCompra: 3.25384615 },
+            { id: "REM009", name: "Resistencia de 52 CM", costoCompra: 4.46153846 },
+            { id: "REM014", name: "Resistencia de 53 CM", costoCompra: 4.49230769 },
+            { id: "REM006", name: "Resistencia de 56 CM", costoCompra: 3.90000000 },
+            { id: "REM003", name: "Resistencia de 65 CM", costoCompra: 6.50000000 },
+            { id: "REM013", name: "Resistencia de 66 CM", costoCompra: 5.00000000 },
+            { id: "REM100", name: "Resistencia de 87x7x87 CM (Doble)", costoCompra: 46.42307692 }
         ]
     },
     {
@@ -3032,18 +3032,18 @@ const products = [
         images: ["productos/RESISTENCIAS_DE_VIDRIO.webp"],
         specs: { "Tipo": "Tubo de Vidrio/Cuarzo", "Uso": "Sistema de Deshielo", "Compatibilidad": "Neveras No Frost" },
         variants: [
-            { id: "RES001", name: "Medida: 8\" (20.32 CM)", costoCompra: 3.51538462 },
-            { id: "RES002", name: "Medida: 9\" (22.86 CM)", costoCompra: 1.65384615 },
-            { id: "RES003", name: "Medida: 10\" (26 CM)", costoCompra: 1.65384615 },
-            { id: "RES013", name: "Medida: 10-5/8\" (276)", costoCompra: 3.56153846 },
-            { id: "RES014", name: "Medida: 11\" (27.94 CM)", costoCompra: 2.16153846 },
-            { id: "RES004", name: "Medida: 12\" (30 CM)", costoCompra: 2.31538462 },
-            { id: "RES005", name: "Medida: 14\" (36 CM)", costoCompra: 1.86153846 },
-            { id: "RES006", name: "Medida: 16\" (40.6 CM)", costoCompra: 3.07692308 },
-            { id: "RES007", name: "Medida: 18\" (46 CM)", costoCompra: 2.31538462 },
-            { id: "RES009", name: "Medida: 21-3/16\" (55 CM)", costoCompra: 3.97692308 },
-            { id: "RES010", name: "Medida: 21-5/8\" (263)", costoCompra: 4.45384615 },
-            { id: "RES012", name: "Medida: 22-13/16\" (60 CM)", costoCompra: 3.49230769 }
+            { id: "RES001", name: "Resistencia de 8\" (20.32 CM)", costoCompra: 3.51538462 },
+            { id: "RES002", name: "Resistencia de 9\" (22.86 CM)", costoCompra: 1.65384615 },
+            { id: "RES003", name: "Resistencia de 10\" (26 CM)", costoCompra: 1.65384615 },
+            { id: "RES013", name: "Resistencia de 10-5/8\" (276)", costoCompra: 3.56153846 },
+            { id: "RES014", name: "Resistencia de 11\" (27.94 CM)", costoCompra: 2.16153846 },
+            { id: "RES004", name: "Resistencia de 12\" (30 CM)", costoCompra: 2.31538462 },
+            { id: "RES005", name: "Resistencia de 14\" (36 CM)", costoCompra: 1.86153846 },
+            { id: "RES006", name: "Resistencia de 16\" (40.6 CM)", costoCompra: 3.07692308 },
+            { id: "RES007", name: "Resistencia de 18\" (46 CM)", costoCompra: 2.31538462 },
+            { id: "RES009", name: "Resistencia de 21-3/16\" (55 CM)", costoCompra: 3.97692308 },
+            { id: "RES010", name: "Resistencia de 21-5/8\" (263)", costoCompra: 4.45384615 },
+            { id: "RES012", name: "Resistencia de 22-13/16\" (60 CM)", costoCompra: 3.49230769 }
         ]
     },
     {
@@ -3056,11 +3056,11 @@ const products = [
         images: ["productos/BIMETALES_L.webp"],
         specs: { "Tipo": "Universal (Serie L)", "Uso": "Sistema de Deshielo", "Cables": "2 Cables" },
         variants: [
-            { id: "BIM002", name: "Modelo L45 (20F)", costoCompra: 1.32307692 },
-            { id: "BIM003", name: "Modelo L50 (20F)", costoCompra: 1.32307692 },
-            { id: "BIM004", name: "Modelo L55 (20F/35F)", costoCompra: 1.32307692 },
-            { id: "BIM005", name: "Modelo L60", costoCompra: 1.32307692 },
-            { id: "BIM006", name: "Modelo L70 (40F)", costoCompra: 1.31538462 }
+            { id: "BIM002", name: "Bimetal Modelo L45 (20F)", costoCompra: 1.32307692 },
+            { id: "BIM003", name: "Bimetal Modelo L50 (20F)", costoCompra: 1.32307692 },
+            { id: "BIM004", name: "Bimetal Modelo L55 (20F/35F)", costoCompra: 1.32307692 },
+            { id: "BIM005", name: "Bimetal Modelo L60", costoCompra: 1.32307692 },
+            { id: "BIM006", name: "Bimetal Modelo L70 (40F)", costoCompra: 1.31538462 }
         ]
     },
     {
@@ -3080,12 +3080,12 @@ const products = [
         ],
         specs: { "Marca": "Samsung", "Tipo": "Bimetal de Deshielo", "Conexión": "Conectores Específicos" },
         variants: [
-            { id: "BIM013", name: "Samsung N13-4 (TH-B2-004)", costoCompra: 0.79230769 },
-            { id: "BIM012", name: "Samsung N8 (2 Cables) Conector 6192", costoCompra: 0.93076923 },
-            { id: "BIM034", name: "Samsung N13 (3 Cables) C/Sensor", costoCompra: 1.26153846 },
-            { id: "BIM010", name: "Samsung N9 (2 Cables) Conector 3003", costoCompra: 1.97692308 },
-            { id: "BIM029", name: "Samsung N13-4 (2 Cables Naranja)", costoCompra: 1.97692308 },
-            { id: "BIM009", name: "Samsung N13 (2 Cables)", costoCompra: 2.84615385 }
+            { id: "BIM013", name: "Bimetal Samsung N13-4 (TH-B2-004)", costoCompra: 0.79230769 },
+            { id: "BIM012", name: "Bimetal Samsung N8 (2 Cables) Conector 6192", costoCompra: 0.93076923 },
+            { id: "BIM034", name: "Bimetal Samsung N13 (3 Cables) C/Sensor", costoCompra: 1.26153846 },
+            { id: "BIM010", name: "Bimetal Samsung N9 (2 Cables) Conector 3003", costoCompra: 1.97692308 },
+            { id: "BIM029", name: "Bimetal Samsung N13-4 (2 Cables Naranja)", costoCompra: 1.97692308 },
+            { id: "BIM009", name: "Bimetal Samsung N13 (2 Cables)", costoCompra: 2.84615385 }
         ]
     },
     {
@@ -3103,7 +3103,7 @@ const products = [
         ],
         specs: { "Marca": "LG", "Tipo": "Bimetal / Fusible", "Uso": "Deshielo Evaporador" },
         variants: [
-            { id: "BIM016", name: "Fusible Térmico LG (2 Cables Roj/Ama)", costoCompra: 0.46923077 },
+            { id: "BIM016", name: "Bimetal Fusible Térmico LG (2 Cables Roj/Ama)", costoCompra: 0.46923077 },
             { id: "BIM008", name: "Bimetal LG N8 (3 Cables 3002)", costoCompra: 1.97692308 },
             { id: "BIM017", name: "Bimetal LG (4 Cables C/Fusible/Sensor)", costoCompra: 2.33846154 },
             { id: "BIM020", name: "Bimetal LG N13-4 (4 Cables Azul)", costoCompra: 3.31538462 }
@@ -3123,9 +3123,9 @@ const products = [
         ],
         specs: { "Marca": "Mabe / G.E.", "Tipo": "Bimetal de Deshielo" },
         variants: [
-            { id: "BIM037", name: "Mabe Marrón KSD301B L15", costoCompra: 1.22307692 },
-            { id: "BIM024", name: "Mabe Negro 238C2208P002 (Open 18C)", costoCompra: 1.98461538 },
-            { id: "BIM025", name: "Mabe Negro KDS 8003 L55", costoCompra: 1.98461538 }
+            { id: "BIM037", name: "Bimetal Mabe Marrón KSD301B L15", costoCompra: 1.22307692 },
+            { id: "BIM024", name: "Bimetal Mabe Negro 238C2208P002 (Open 18C)", costoCompra: 1.98461538 },
+            { id: "BIM025", name: "Bimetal Mabe Negro KDS 8003 L55", costoCompra: 1.98461538 }
         ]
     },
     {
@@ -3144,10 +3144,10 @@ const products = [
         ],
         specs: { "Uso": "Sistema de Deshielo", "Compatibilidad": "Multimarca Específica" },
         variants: [
-            { id: "BIM030", name: "Fusible C/Conector (2 Cables Rojos)", costoCompra: 0.60769231 },
+            { id: "BIM030", name: "Bimetal Fusible C/Conector (2 Cables Rojos)", costoCompra: 0.60769231 },
             { id: "BIM015", name: "Bimetal N12-5 (3 Cables Doble Conector)", costoCompra: 1.36153846 },
-            { id: "BIM031", name: "Whirlpool B-261N 20T80K K-1", costoCompra: 1.79230769 },
-            { id: "BIM032", name: "Fusible Haier HRF6 (0060401909C)", costoCompra: 2.31538462 },
+            { id: "BIM031", name: "Bimetal Whirlpool B-261N 20T80K K-1", costoCompra: 1.79230769 },
+            { id: "BIM032", name: "Bimetal Fusible Haier HRF6 (0060401909C)", costoCompra: 2.31538462 },
             { id: "BIM033", name: "Bimetal C/Termofusible Asiática (Forma H)", costoCompra: 3.19230769 }
         ]
     },
@@ -3161,9 +3161,9 @@ const products = [
         images: ["productos/CRU100-102.webp"],
         specs: { "Marca": "Mabe", "Tipo": "Tarjeta de Control PCB", "Voltaje": "115V" },
         variants: [
-            { id: "CRU100", name: "Mabe 225D7291G003", costoCompra: 12.43076923 },
-            { id: "CRU101", name: "Mabe 225D7291G004", costoCompra: 12.43076923 },
-            { id: "CRU102", name: "Mabe 225D7291G005", costoCompra: 12.43076923 }
+            { id: "CRU100", name: "Tarjeta de Mabe 225D7291G003", costoCompra: 12.43076923 },
+            { id: "CRU101", name: "Tarjeta de Mabe 225D7291G004", costoCompra: 12.43076923 },
+            { id: "CRU102", name: "Tarjeta de Mabe 225D7291G005", costoCompra: 12.43076923 }
         ]
     },
     {
@@ -3191,9 +3191,9 @@ const products = [
         ],
         specs: { "Tipo": "Relay de Bobina (Negro)", "Voltaje": "115V", "Uso": "Neveras" },
         variants: [
-            { id: "REL004", name: "Capacidad: 1/6 HP", costoCompra: 1.32307692 },
-            { id: "REL003", name: "Capacidad: 1/4 HP", costoCompra: 1.73846154 },
-            { id: "REL002", name: "Capacidad: 1/3 HP", costoCompra: 0.95384615 }
+            { id: "REL004", name: "Relay 1/6 HP", costoCompra: 1.32307692 },
+            { id: "REL003", name: "Relay 1/4 HP", costoCompra: 1.73846154 },
+            { id: "REL002", name: "Relay 1/3 HP", costoCompra: 0.95384615 }
         ]
     },
     {
@@ -3211,10 +3211,10 @@ const products = [
         ],
         specs: { "Marca": "Embraco (Genérico)", "Tipo": "Relay Blanco", "Voltaje": "115V" },
         variants: [
-            { id: "REL010", name: "Capacidad: 1/4 HP", costoCompra: 1.32307692 },
-            { id: "REL011", name: "Capacidad: 1/3 HP", costoCompra: 1.32307692 },
-            { id: "REL012", name: "Capacidad: 1/2 HP", costoCompra: 1.43076923 },
-            { id: "REL013", name: "Capacidad: 3/4 HP", costoCompra: 1.43076923 }
+            { id: "REL010", name: "Relay 1/4 HP", costoCompra: 1.32307692 },
+            { id: "REL011", name: "Relay 1/3 HP", costoCompra: 1.32307692 },
+            { id: "REL012", name: "Relay 1/2 HP", costoCompra: 1.43076923 },
+            { id: "REL013", name: "Relay 3/4 HP", costoCompra: 1.43076923 }
         ]
     },
     {
@@ -3232,10 +3232,10 @@ const products = [
         ],
         specs: { "Tipo": "PTC (Estado Sólido)", "Rango": "1/12 a 1/2 HP", "Color": "Negro" },
         variants: [
-            { id: "REL015", name: "Americold PTC 1 Pin (115V)", costoCompra: 0.86923077 },
-            { id: "REL016", name: "Americold PTC 2 Pines (115V)", costoCompra: 0.71538462 },
-            { id: "REL017", name: "Americold PTC 3 Pines (115V)", costoCompra: 0.91538462 },
-            { id: "REL018", name: "Landsfoss PTC 3 Pines IC-5 (220V)", costoCompra: 1.32307692 }
+            { id: "REL015", name: "Relay Americold PTC 1 Pin (115V)", costoCompra: 0.86923077 },
+            { id: "REL016", name: "Relay Americold PTC 2 Pines (115V)", costoCompra: 0.71538462 },
+            { id: "REL017", name: "Relay Americold PTC 3 Pines (115V)", costoCompra: 0.91538462 },
+            { id: "REL018", name: "Relay Landsfoss PTC 3 Pines IC-5 (220V)", costoCompra: 1.32307692 }
         ]
     },
     {
@@ -3252,8 +3252,8 @@ const products = [
         ],
         specs: { "Tipo": "Relé de Placa (PCB)", "Uso": "Tarjetas de A/A", "Voltaje": "DC/AC" },
         variants: [
-            { id: "REL402", name: "Modelo: MPQ1-S-112D-A", costoCompra: 1.99230769 },
-            { id: "REL403", name: "Modelo: MPQ4-S-112D-A", costoCompra: 1.99230769 }
+            { id: "REL402", name: "Relay MPQ1-S-112D-A", costoCompra: 1.99230769 },
+            { id: "REL403", name: "Relay MPQ4-S-112D-A", costoCompra: 1.99230769 }
         ]
     },
     {
@@ -3271,10 +3271,10 @@ const products = [
         ],
         specs: { "Tipo": "Relay Largo", "Uso": "Compresores", "Marca": "Danfoss / Degar" },
         variants: [
-            { id: "REL103", name: "Capacidad: 1/6 HP (Danfoss)", costoCompra: 1.97692308 },
-            { id: "REL102", name: "Capacidad: 1/4 HP (Danfoss)", costoCompra: 1.97692308 },
-            { id: "REL104", name: "Capacidad: 1/3 HP (Danfoss)", costoCompra: 1.49230769 },
-            { id: "REL105", name: "Capacidad: 1/3 HP (Degar)", costoCompra: 2.07692308 }
+            { id: "REL103", name: "Relay 1/6 HP (Danfoss)", costoCompra: 1.97692308 },
+            { id: "REL102", name: "Relay 1/4 HP (Danfoss)", costoCompra: 1.97692308 },
+            { id: "REL104", name: "Relay 1/3 HP (Danfoss)", costoCompra: 1.49230769 },
+            { id: "REL105", name: "Relay 1/3 HP (Degar)", costoCompra: 2.07692308 }
         ]
     },
     {
@@ -3291,10 +3291,10 @@ const products = [
         ],
         specs: { "Tipo": "Protector Térmico", "Voltaje": "115V", "Uso": "Neveras y Enfriadores" },
         variants: [
-            { id: "TER004", name: "Capacidad: 1/6 HP", costoCompra: 0.99230769 },
-            { id: "TER003", name: "Capacidad: 1/4 HP", costoCompra: 0.99230769 },
-            { id: "TER002", name: "Capacidad: 1/3 HP", costoCompra: 0.99230769 },
-            { id: "TER001", name: "Capacidad: 1/2 HP", costoCompra: 0.99230769 }
+            { id: "TER004", name: "Térmico 1/6 HP", costoCompra: 0.99230769 },
+            { id: "TER003", name: "Térmico 1/4 HP", costoCompra: 0.99230769 },
+            { id: "TER002", name: "Térmico 1/3 HP", costoCompra: 0.99230769 },
+            { id: "TER001", name: "Térmico 1/2 HP", costoCompra: 0.99230769 }
         ]
     },
     {
@@ -3307,10 +3307,10 @@ const products = [
         images: ["productos/TER-TERMICO_ELECTRONICO.webp"],
         specs: { "Marca": "Americold", "Tipo": "Electrónico", "Uso": "Compresores" },
         variants: [
-            { id: "TER103", name: "Capacidad: 1/6 HP (OL3)", costoCompra: 0.48461538 },
-            { id: "TER005", name: "Capacidad: 1/5 HP", costoCompra: 0.66153846 },
-            { id: "TER102", name: "Capacidad: 1/4 HP (OL1)", costoCompra: 0.66153846 },
-            { id: "TER101", name: "Capacidad: 1/3 HP (OL2)", costoCompra: 0.60769231 }
+            { id: "TER103", name: "Térmico 1/6 HP (OL3)", costoCompra: 0.48461538 },
+            { id: "TER005", name: "Térmico 1/5 HP", costoCompra: 0.66153846 },
+            { id: "TER102", name: "Térmico 1/4 HP (OL1)", costoCompra: 0.66153846 },
+            { id: "TER101", name: "Térmico 1/3 HP (OL2)", costoCompra: 0.60769231 }
         ]
     },
     {
@@ -3336,8 +3336,8 @@ const products = [
         ],
         specs: { "Tipo": "Interruptor de Puerta", "Modelo": "1 Botón", "Uso": "Neveras" },
         variants: [
-            { id: "SWU304", name: "Conexión: 2 Pines", costoCompra: 4.97692308 },
-            { id: "SWU303", name: "Conexión: 3 Pines", costoCompra: 4.97692308 }
+            { id: "SWU304", name: "Switch Universal 2 Pines", costoCompra: 4.97692308 },
+            { id: "SWU303", name: "Switch Universal 3 Pines", costoCompra: 4.97692308 }
         ]
     },
     {
@@ -3354,16 +3354,16 @@ const products = [
         ],
         specs: { "Tipo": "Cerámico", "Uso": "Evaporadores de Nevera" },
         variants: [
-            { id: "MDN011", name: "9.75V DC - 3.25W (Con Sensor)", costoCompra: 14.58461538 },
-            { id: "MDN004", name: "9.75V DC - 3.25W (Sin Sensor)", costoCompra: 13.25384615 },
-            { id: "MDN022", name: "12V - 2.1W - 2950 RPM", costoCompra: 7.95384615 },
-            { id: "MDN019", name: "12V - 2150 RPM (Hyundai)", costoCompra: 10.07692308 },
-            { id: "MDN007", name: "12V - 3.21W - 2520 RPM", costoCompra: 11.26153846 },
-            { id: "MDN003", name: "12V - 3.48W - 2770 RPM", costoCompra: 13.25384615 },
-            { id: "MDN012", name: "13V - 3.3W - 1120 RPM", costoCompra: 16.57692308 },
-            { id: "MDN014", name: "Haier 1.5W / 1130 RPM", costoCompra: 16.57692308 },
-            { id: "MDN013", name: "Haier 2.0W / 1160 RPM", costoCompra: 13.26153846 },
-            { id: "MDN015", name: "Haier 2.5W / 1650 RPM", costoCompra: 18.56153846 }
+            { id: "MDN011", name: "Micro Motor 9.75V DC - 3.25W (Con Sensor)", costoCompra: 14.58461538 },
+            { id: "MDN004", name: "Micro Motor 9.75V DC - 3.25W (Sin Sensor)", costoCompra: 13.25384615 },
+            { id: "MDN022", name: "Micro Motor 12V - 2.1W - 2950 RPM", costoCompra: 7.95384615 },
+            { id: "MDN019", name: "Micro Motor 12V - 2150 RPM (Hyundai)", costoCompra: 10.07692308 },
+            { id: "MDN007", name: "Micro Motor 12V - 3.21W - 2520 RPM", costoCompra: 11.26153846 },
+            { id: "MDN003", name: "Micro Motor 12V - 3.48W - 2770 RPM", costoCompra: 13.25384615 },
+            { id: "MDN012", name: "Micro Motor 13V - 3.3W - 1120 RPM", costoCompra: 16.57692308 },
+            { id: "MDN014", name: "Micro Motor Haier 1.5W / 1130 RPM", costoCompra: 16.57692308 },
+            { id: "MDN013", name: "Micro Motor Haier 2.0W / 1160 RPM", costoCompra: 13.26153846 },
+            { id: "MDN015", name: "Micro Motor Haier 2.5W / 1650 RPM", costoCompra: 18.56153846 }
         ]
     },
     {
@@ -3436,11 +3436,11 @@ const products = [
         images: ["productos/VLB-BOLA.webp"],
         specs: { "Marca": "Landsfoss", "Tipo": "Válvula de Bola", "Uso": "Refrigeración / HVAC" },
         variants: [
-            { id: "VLB104", name: "Medida: 3/8\"", costoCompra: 12.60000000 },
-            { id: "VLB102", name: "Medida: 1/2\"", costoCompra: 14.22307692 },
-            { id: "VLB103", name: "Medida: 5/8\"", costoCompra: 13.26153846 },
-            { id: "VLB100", name: "Medida: 3/4\"", costoCompra: 18.20000000 },
-            { id: "VLB101", name: "Medida: 7/8\"", costoCompra: 20.70000000 }
+            { id: "VLB104", name: "Válvula 3/8\"", costoCompra: 12.60000000 },
+            { id: "VLB102", name: "Válvula 1/2\"", costoCompra: 14.22307692 },
+            { id: "VLB103", name: "Válvula 5/8\"", costoCompra: 13.26153846 },
+            { id: "VLB100", name: "Válvula 3/4\"", costoCompra: 18.20000000 },
+            { id: "VLB101", name: "Válvula 7/8\"", costoCompra: 20.70000000 }
         ]
     },
     {
@@ -3453,14 +3453,14 @@ const products = [
         images: ["productos/TER200-208.webp"],
         specs: { "Marca": "Articco", "Tipo": "Protector Térmico", "Uso": "Compresores de A/A" },
         variants: [
-            { id: "TER206", name: "Capacidad: 5.000 BTU - 110V", costoCompra: 1.32307692 },
-            { id: "TER207", name: "Capacidad: 8.000 BTU - 110V", costoCompra: 1.32307692 },
-            { id: "TER208", name: "Capacidad: 10.000 BTU - 110V", costoCompra: 1.32307692 },
-            { id: "TER201", name: "Capacidad: 12.000 BTU - 110V", costoCompra: 1.32307692 },
-            { id: "TER202", name: "Capacidad: 12.000 BTU - 220V", costoCompra: 1.32307692 },
-            { id: "TER205", name: "Capacidad: 15.000 BTU - 220V", costoCompra: 1.32307692 },
-            { id: "TER203", name: "Capacidad: 18.000 BTU - 220V", costoCompra: 1.06153846 },
-            { id: "TER204", name: "Capacidad: 24.000 BTU - 220V", costoCompra: 1.32307692 }
+            { id: "TER206", name: "Térmico 5.000 BTU - 110V", costoCompra: 1.32307692 },
+            { id: "TER207", name: "Térmico 8.000 BTU - 110V", costoCompra: 1.32307692 },
+            { id: "TER208", name: "Térmico 10.000 BTU - 110V", costoCompra: 1.32307692 },
+            { id: "TER201", name: "Térmico 12.000 BTU - 110V", costoCompra: 1.32307692 },
+            { id: "TER202", name: "Térmico 12.000 BTU - 220V", costoCompra: 1.32307692 },
+            { id: "TER205", name: "Térmico 15.000 BTU - 220V", costoCompra: 1.32307692 },
+            { id: "TER203", name: "Térmico 18.000 BTU - 220V", costoCompra: 1.06153846 },
+            { id: "TER204", name: "Térmico 24.000 BTU - 220V", costoCompra: 1.32307692 }
         ]
     },
     {
@@ -3763,13 +3763,13 @@ const products = [
         images: ["productos/ANT-ANTIVIBRADOR.webp"],
         specs: { "Tipo": "Flexible Antivibración", "Material": "Cobre y Acero Inox", "Uso": "Refrigeración" },
         variants: [
-            { id: "ANT038", name: "Medida: 3/8\"", costoCompra: 6.64615385 },
-            { id: "ANT012", name: "Medida: 1/2\"", costoCompra: 7.29230769 },
-            { id: "ANT058", name: "Medida: 5/8\"", costoCompra: 7.96923077 },
-            { id: "ANT079", name: "Medida: 3/4\"", costoCompra: 9.94615385 },
-            { id: "ANT078", name: "Medida: 7/8\"", costoCompra: 12.26923077 },
-            { id: "ANT080", name: "Medida: 1-1/8\"", costoCompra: 13.32307692 },
-            { id: "ANT081", name: "Medida: 1-5/8\"", costoCompra: 26.51538462 }
+            { id: "ANT038", name: "Antivibrador Flexible 3/8\"", costoCompra: 6.64615385 },
+            { id: "ANT012", name: "Antivibrador Flexible 1/2\"", costoCompra: 7.29230769 },
+            { id: "ANT058", name: "Antivibrador Flexible 5/8\"", costoCompra: 7.96923077 },
+            { id: "ANT079", name: "Antivibrador Flexible 3/4\"", costoCompra: 9.94615385 },
+            { id: "ANT078", name: "Antivibrador Flexible 7/8\"", costoCompra: 12.26923077 },
+            { id: "ANT080", name: "Antivibrador Flexible 1-1/8\"", costoCompra: 13.32307692 },
+            { id: "ANT081", name: "Antivibrador Flexible 1-5/8\"", costoCompra: 26.51538462 }
         ]
     },
     {
@@ -3782,9 +3782,9 @@ const products = [
         images: ["productos/VLB-VALVULA_CHECK.webp"],
         specs: { "Marca": "Landsfoss HVAC", "Tipo": "Check (Retención)" },
         variants: [
-            { id: "VLC502", name: "Medida: 1/2\"", costoCompra: 10.90000000 },
-            { id: "VLC500", name: "Medida: 3/4\"", costoCompra: 16.59230769 },
-            { id: "VLC501", name: "Medida: 7/8\"", costoCompra: 17.90000000 }
+            { id: "VLC502", name: "Válvula 1/2\"", costoCompra: 10.90000000 },
+            { id: "VLC500", name: "Válvula 3/4\"", costoCompra: 16.59230769 },
+            { id: "VLC501", name: "Válvula 7/8\"", costoCompra: 17.90000000 }
         ]
     },
     {
@@ -3797,10 +3797,10 @@ const products = [
         images: ["productos/VLS-VALVULA_SOLENOIDE.webp"],
         specs: { "Tipo": "Solenoide", "Control": "Electromagnético" },
         variants: [
-            { id: "VLS101", name: "3/8\" Flare EVR3-38", costoCompra: 23.85384615 },
-            { id: "VLS102", name: "1/2\" Flare EVR15", costoCompra: 30.70769231 },
-            { id: "VLS200", name: "5/8\" Soldable EVR15-58", costoCompra: 36.12732095 },
-            { id: "VLS201", name: "7/8\" Soldable EVR15-78", costoCompra: 37.06896552 }
+            { id: "VLS101", name: "Válvula 3/8\" Flare EVR3-38", costoCompra: 23.85384615 },
+            { id: "VLS102", name: "Válvula 1/2\" Flare EVR15", costoCompra: 30.70769231 },
+            { id: "VLS200", name: "Válvula 5/8\" Soldable EVR15-58", costoCompra: 36.12732095 },
+            { id: "VLS201", name: "Válvula 7/8\" Soldable EVR15-78", costoCompra: 37.06896552 }
         ]
     },
     {
@@ -3813,11 +3813,11 @@ const products = [
         images: ["productos/VFV-VALVULA_TIPO_BLOCK.webp"],
         specs: { "Tipo": "Block / Cierre", "Uso": "Aire Central", "Conexión": "ODF" },
         variants: [
-            { id: "VFV-001", name: "Medida: 3/8\"", costoCompra: 8.61538462 },
-            { id: "VFV-002", name: "Medida: 1/2\"", costoCompra: 11.15384615 },
-            { id: "VFV-005", name: "Medida: 5/8\"", costoCompra: 16.67692308 },
-            { id: "VFV-003", name: "Medida: 3/4\"", costoCompra: 18.66923077 },
-            { id: "VFV-004", name: "Medida: 7/8\"", costoCompra: 22.03846154 }
+            { id: "VFV-001", name: "Válvula 3/8\"", costoCompra: 8.61538462 },
+            { id: "VFV-002", name: "Válvula 1/2\"", costoCompra: 11.15384615 },
+            { id: "VFV-005", name: "Válvula 5/8\"", costoCompra: 16.67692308 },
+            { id: "VFV-003", name: "Válvula 3/4\"", costoCompra: 18.66923077 },
+            { id: "VFV-004", name: "Válvula 7/8\"", costoCompra: 22.03846154 }
         ]
     },
     {
@@ -3830,15 +3830,15 @@ const products = [
         images: ["productos/VLB-VALVULA_ROTALOCK.webp"],
         specs: { "Tipo": "Rotalock", "Compatibilidad": "Compresores Maneurop" },
         variants: [
-            { id: "VLB500", name: "Conexión: 3/8\"", costoCompra: 6.06923077 },
-            { id: "VLB504", name: "Conexión: 1/2\"", costoCompra: 6.63076923 },
-            { id: "VLB502", name: "Conexión: 5/8\"", costoCompra: 6.62307692 },
-            { id: "VLB501", name: "Conexión: 3/4\"", costoCompra: 10.61538462 },
-            { id: "VLB503", name: "Conexión: 7/8\"", costoCompra: 11.93846154 },
-            { id: "VLB508", name: "Adaptador: 3/8\" x 1-1/2\"", costoCompra: 7.50769231 },
-            { id: "VLB507", name: "Adaptador: 5/8\" x 1-1/4\"", costoCompra: 6.45384615 },
-            { id: "VLB506", name: "Adaptador: 7/8\" x 1-3/4\"", costoCompra: 11.93076923 },
-            { id: "VLB505", name: "Adaptador: 1-1/8\" x 1-3/4\"", costoCompra: 11.93076923 }
+            { id: "VLB500", name: "Válvula 3/8\"", costoCompra: 6.06923077 },
+            { id: "VLB504", name: "Válvula 1/2\"", costoCompra: 6.63076923 },
+            { id: "VLB502", name: "Válvula 5/8\"", costoCompra: 6.62307692 },
+            { id: "VLB501", name: "Válvula 3/4\"", costoCompra: 10.61538462 },
+            { id: "VLB503", name: "Válvula 7/8\"", costoCompra: 11.93846154 },
+            { id: "VLB508", name: "Válvula Adaptador: 3/8\" x 1-1/2\"", costoCompra: 7.50769231 },
+            { id: "VLB507", name: "Válvula Adaptador: 5/8\" x 1-1/4\"", costoCompra: 6.45384615 },
+            { id: "VLB506", name: "Válvula Adaptador: 7/8\" x 1-3/4\"", costoCompra: 11.93076923 },
+            { id: "VLB505", name: "Válvula Adaptador: 1-1/8\" x 1-3/4\"", costoCompra: 11.93076923 }
         ]
     },
     {
@@ -3851,13 +3851,13 @@ const products = [
         images: ["productos/UNR-UNION_BRONCE_FLARE.webp"],
         specs: { "Material": "Bronce", "Tipo": "Unión Flare" },
         variants: [
-            { id: "UNR101", name: "Medida: 1/4\"", costoCompra: 1.97692308 },
-            { id: "UNR112", name: "Medida: 5/16\"", costoCompra: 0.99230769 },
-            { id: "UNR100", name: "Medida: 3/8\"", costoCompra: 1.31538462 },
-            { id: "UNR102", name: "Medida: 1/2\"", costoCompra: 1.97692308 },
-            { id: "UNR104", name: "Medida: 5/8\"", costoCompra: 1.75384615 },
-            { id: "UNR103", name: "Medida: 3/4\"", costoCompra: 1.75384615 },
-            { id: "UNR113", name: "Medida: 7/8\"", costoCompra: 2.98461538 }
+            { id: "UNR101", name: "Unión de 1/4\"", costoCompra: 1.97692308 },
+            { id: "UNR112", name: "Unión de 5/16\"", costoCompra: 0.99230769 },
+            { id: "UNR100", name: "Unión de 3/8\"", costoCompra: 1.31538462 },
+            { id: "UNR102", name: "Unión de 1/2\"", costoCompra: 1.97692308 },
+            { id: "UNR104", name: "Unión de 5/8\"", costoCompra: 1.75384615 },
+            { id: "UNR103", name: "Unión de 3/4\"", costoCompra: 1.75384615 },
+            { id: "UNR113", name: "Unión de 7/8\"", costoCompra: 2.98461538 }
         ]
     },
     {
@@ -3870,13 +3870,13 @@ const products = [
         images: ["productos/SAS-SENSOR_K.webp", "productos/SAS017.webp"],
         specs: { "Tipo": "Termistor (NTC)", "Uso": "Tarjetas de Split" },
         variants: [
-            { id: "SAS004", name: "Doble Universal 5K (Negro/Rojo)", costoCompra: 0.99230769 },
-            { id: "SAS002", name: "Sencillo 5K Azul (Haier / GPlus)", costoCompra: 1.31538462 },
-            { id: "SAS003", name: "Gris 5K/10K (LG Artcool)", costoCompra: 1.32307692 },
-            { id: "SAS001", name: "Doble Universal 10K (Negro/Rojo)", costoCompra: 1.32307692 },
-            { id: "SAS017", name: "Doble 10K (Haier 12-18KBTU)", costoCompra: 1.52307692 },
-            { id: "SAS005", name: "Doble Universal 15K (Negro/Rojo)", costoCompra: 1.32307692 },
-            { id: "SAS006", name: "Doble Universal 20K (Negro/Rojo)", costoCompra: 1.32307692 }
+            { id: "SAS004", name: "Sensor Doble Universal 5K (Negro/Rojo)", costoCompra: 0.99230769 },
+            { id: "SAS002", name: "Sensor Sencillo 5K Azul (Haier / GPlus)", costoCompra: 1.31538462 },
+            { id: "SAS003", name: "Sensor Gris 5K/10K (LG Artcool)", costoCompra: 1.32307692 },
+            { id: "SAS001", name: "Sensor Doble Universal 10K (Negro/Rojo)", costoCompra: 1.32307692 },
+            { id: "SAS017", name: "Sensor Doble 10K (Haier 12-18KBTU)", costoCompra: 1.52307692 },
+            { id: "SAS005", name: "Sensor Doble Universal 15K (Negro/Rojo)", costoCompra: 1.32307692 },
+            { id: "SAS006", name: "Sensor Doble Universal 20K (Negro/Rojo)", costoCompra: 1.32307692 }
         ]
     },
     {
@@ -3889,8 +3889,8 @@ const products = [
         images: ["productos/TRM004-005.webp"],
         specs: { "Tipo": "Mecánico (Bulbo)", "Uso": "A/A Ventana" },
         variants: [
-            { id: "TRM004", name: "Capacidad: 12.000 a 18.000 BTU", costoCompra: 3.30769231 },
-            { id: "TRM005", name: "Capacidad: 18.000 a 24.000 BTU", costoCompra: 3.30769231 }
+            { id: "TRM004", name: "Termostato 12.000 a 18.000 BTU", costoCompra: 3.30769231 },
+            { id: "TRM005", name: "Termostato 18.000 a 24.000 BTU", costoCompra: 3.30769231 }
         ]
     },
     {
@@ -3903,18 +3903,18 @@ const products = [
         images: ["productos/FIL-FILTRO_CON_VALVULA.webp", "productos/FIL010.webp", "productos/FIL303.webp"],
         specs: { "Material": "Cobre", "Uso": "Refrigeración Doméstica" },
         variants: [
-            { id: "FIL007", name: "Pequeño Gigante Topflo", costoCompra: 1.49230769 },
-            { id: "FIL301", name: "Mediano 20/25G", costoCompra: 1.55384615 },
-            { id: "FIL008", name: "Mediano Kodiak Topflo", costoCompra: 1.65384615 },
-            { id: "FIL304", name: "Mediano Soldable Original", costoCompra: 1.65384615 },
-            { id: "FIL022", name: "Pequeño 10/15G (Con Válvula)", costoCompra: 1.77692308 },
-            { id: "FIL300", name: "Grande 30/35G", costoCompra: 1.84615385 },
-            { id: "FIL303", name: "Extra-Grande 50G", costoCompra: 2.35384615 },
-            { id: "FIL009", name: "Grande Hercules Topflo", costoCompra: 2.39230769 },
-            { id: "FIL020", name: "Grande (Con Válvula de Servicio)", costoCompra: 2.64615385 },
+            { id: "FIL007", name: "Filtro Secador Pequeño Gigante Topflo", costoCompra: 1.49230769 },
+            { id: "FIL301", name: "Filtro Secador Mediano 20/25G", costoCompra: 1.55384615 },
+            { id: "FIL008", name: "Filtro Secador Mediano Kodiak Topflo", costoCompra: 1.65384615 },
+            { id: "FIL304", name: "Filtro Secador Mediano Soldable Original", costoCompra: 1.65384615 },
+            { id: "FIL022", name: "Filtro Secador Pequeño 10/15G (Con Válvula)", costoCompra: 1.77692308 },
+            { id: "FIL300", name: "Filtro Secador Grande 30/35G", costoCompra: 1.84615385 },
+            { id: "FIL303", name: "Filtro Secador Extra-Grande 50G", costoCompra: 2.35384615 },
+            { id: "FIL009", name: "Filtro Secador Grande Hercules Topflo", costoCompra: 2.39230769 },
+            { id: "FIL020", name: "Filtro Secador Grande (Con Válvula de Servicio)", costoCompra: 2.64615385 },
             { id: "FIL010", name: "Filtro 1/4 con Rosca", costoCompra: 3.31538462 },
-            { id: "FIL021", name: "Pequeño Topflo 10G (Con Válvula)", costoCompra: 3.83846154 },
-            { id: "FIL012", name: "Grande Topflo 30G (Con Válvula)", costoCompra: 4.12307692 }
+            { id: "FIL021", name: "Filtro Secador Pequeño Topflo 10G (Con Válvula)", costoCompra: 3.83846154 },
+            { id: "FIL012", name: "Filtro Secador Grande Topflo 30G (Con Válvula)", costoCompra: 4.12307692 }
         ]
     },
     {
@@ -3927,8 +3927,8 @@ const products = [
         images: ["productos/FIL350.webp", "productos/FIL351.webp"],
         specs: { "Uso": "Purificación de Agua", "Instalación": "Interna" },
         variants: [
-            { id: "FIL350", name: "Para Samsung DA29-00020", costoCompra: 5.63076923 },
-            { id: "FIL351", name: "Para Whirlpool 4396841/WF-31", costoCompra: 6.62307692 }
+            { id: "FIL350", name: "Filtro Agua Para Samsung DA29-00020", costoCompra: 5.63076923 },
+            { id: "FIL351", name: "Filtro Agua Para Whirlpool 4396841/WF-31", costoCompra: 6.62307692 }
         ]
     },
     {
@@ -3941,14 +3941,14 @@ const products = [
         images: ["productos/TMH-TERMINALES.webp", "productos/TMH203.webp"],
         specs: { "Tipo": "Terminal de Cobre/Aleación", "Uso": "Conexiones Eléctricas" },
         variants: [
-            { id: "TMH205", name: "Tipo U 10-12 (SVS5.5-6)", costoCompra: 0.03846154 },
-            { id: "TMH200", name: "Metal Amarillo Sencillo", costoCompra: 0.06153846 },
-            { id: "TMH201", name: "Forro Amarillo Hembra", costoCompra: 0.06153846 },
-            { id: "TMH204", name: "Desconectables Macho-Hembra", costoCompra: 0.06153846 },
-            { id: "TMH206", name: "Tipo Ojo 1/4 (RNB8-6S)", costoCompra: 0.10769231 },
-            { id: "TMH207", name: "Tipo Ojo 5/16 (RNB8-8)", costoCompra: 0.13076923 },
-            { id: "TMH202", name: "Regleta Cable 15A 12MM (12 Polos)", costoCompra: 0.66153846 },
-            { id: "TMH203", name: "Regleta Doble Fila 1012P", costoCompra: 0.79230769 }
+            { id: "TMH205", name: "Terminal Tipo U 10-12 (SVS5.5-6)", costoCompra: 0.03846154 },
+            { id: "TMH200", name: "Terminal Metal Amarillo Sencillo", costoCompra: 0.06153846 },
+            { id: "TMH201", name: "Terminal Forro Amarillo Hembra", costoCompra: 0.06153846 },
+            { id: "TMH204", name: "Terminal Desconectables Macho-Hembra", costoCompra: 0.06153846 },
+            { id: "TMH206", name: "Terminal Tipo Ojo 1/4 (RNB8-6S)", costoCompra: 0.10769231 },
+            { id: "TMH207", name: "Terminal Tipo Ojo 5/16 (RNB8-8)", costoCompra: 0.13076923 },
+            { id: "TMH202", name: "Terminal Regleta Cable 15A 12MM (12 Polos)", costoCompra: 0.66153846 },
+            { id: "TMH203", name: "Terminal Regleta Doble Fila 1012P", costoCompra: 0.79230769 }
         ]
     },
     {
@@ -4122,9 +4122,9 @@ const products = [
         images: ["productos/TRM106-109.webp"],
         specs: { "Material": "Acrílico Transparente", "Seguridad": "Cerradura con llave", "Uso": "Termostatos de pared" },
         variants: [
-            { id: "TRM108", name: "Tamaño: Pequeña", costoCompra: 5.30769231 },
-            { id: "TRM106", name: "Tamaño: Mediana", costoCompra: 5.96153846 },
-            { id: "TRM109", name: "Tamaño: Grande", costoCompra: 6.63846154 }
+            { id: "TRM108", name: "Termostato Pequeña", costoCompra: 5.30769231 },
+            { id: "TRM106", name: "Termostato Mediana", costoCompra: 5.96153846 },
+            { id: "TRM109", name: "Termostato Grande", costoCompra: 6.63846154 }
         ]
     },
     {
@@ -4372,17 +4372,17 @@ const products = [
         images: ["productos/TUB001-TUB011.webp"],
         specs: { "Material": "Cobre", "Tipo": "Capilar", "Uso": "Refrigeración" },
         variants: [
-            { id: "TUB001", name: "Medida: 0.26", costoCompra: 0.43846154 },
-            { id: "TUB002", name: "Medida: 0.31", costoCompra: 0.56923077 },
-            { id: "TUB003", name: "Medida: 0.36", costoCompra: 0.59230769 },
-            { id: "TUB004", name: "Medida: 0.42", costoCompra: 0.66153846 },
-            { id: "TUB005", name: "Medida: 0.49", costoCompra: 0.72307692 },
-            { id: "TUB006", name: "Medida: 0.54", costoCompra: 0.80769231 },
-            { id: "TUB007", name: "Medida: 0.59", costoCompra: 0.99230769 },
-            { id: "TUB008", name: "Medida: 0.64", costoCompra: 1.12307692 },
-            { id: "TUB009", name: "Medida: 0.70", costoCompra: 1.16153846 },
-            { id: "TUB010", name: "Medida: 0.75", costoCompra: 1.65384615 },
-            { id: "TUB011", name: "Medida: 0.80", costoCompra: 1.96923077 }
+            { id: "TUB001", name: "Capilar Cobre 0.26 (Metro)", costoCompra: 0.43846154 },
+            { id: "TUB002", name: "Capilar Cobre 0.31 (Metro)", costoCompra: 0.56923077 },
+            { id: "TUB003", name: "Capilar Cobre 0.36 (Metro)", costoCompra: 0.59230769 },
+            { id: "TUB004", name: "Capilar Cobre 0.42 (Metro)", costoCompra: 0.66153846 },
+            { id: "TUB005", name: "Capilar Cobre 0.49 (Metro)", costoCompra: 0.72307692 },
+            { id: "TUB006", name: "Capilar Cobre 0.54 (Metro)", costoCompra: 0.80769231 },
+            { id: "TUB007", name: "Capilar Cobre 0.59 (Metro)", costoCompra: 0.99230769 },
+            { id: "TUB008", name: "Capilar Cobre 0.64 (Metro)", costoCompra: 1.12307692 },
+            { id: "TUB009", name: "Capilar Cobre 0.70 (Metro)", costoCompra: 1.16153846 },
+            { id: "TUB010", name: "Capilar Cobre 0.75 (Metro)", costoCompra: 1.65384615 },
+            { id: "TUB011", name: "Capilar Cobre 0.80 (Metro)", costoCompra: 1.96923077 }
         ]
     },
     {
@@ -4395,14 +4395,14 @@ const products = [
         images: ["productos/TUB100-107.webp"],
         specs: { "Material": "Cobre", "Tipo": "Flexible (Rollo)", "Uso": "Instalación" },
         variants: [
-            { id: "TUB107", name: "Medida: 3/16\"", costoCompra: 1.25384615 },
-            { id: "TUB100", name: "Medida: 1/4\"", costoCompra: 2.16923077 },
-            { id: "TUB106", name: "Medida: 5/16\"", costoCompra: 2.65384615 },
-            { id: "TUB101", name: "Medida: 3/8\"", costoCompra: 3.97692308 },
-            { id: "TUB102", name: "Medida: 1/2\"", costoCompra: 5.63846154 },
-            { id: "TUB103", name: "Medida: 5/8\"", costoCompra: 8.29230769 },
-            { id: "TUB104", name: "Medida: 3/4\"", costoCompra: 9.10769231 },
-            { id: "TUB105", name: "Medida: 7/8\"", costoCompra: 13.26153846 }
+            { id: "TUB107", name: "Tubería Cobre 3/16\" (Metro)", costoCompra: 1.25384615 },
+            { id: "TUB100", name: "Tubería Cobre 1/4\" (Metro)", costoCompra: 2.16923077 },
+            { id: "TUB106", name: "Tubería Cobre 5/16\" (Metro)", costoCompra: 2.65384615 },
+            { id: "TUB101", name: "Tubería Cobre 3/8\" (Metro)", costoCompra: 3.97692308 },
+            { id: "TUB102", name: "Tubería Cobre 1/2\" (Metro)", costoCompra: 5.63846154 },
+            { id: "TUB103", name: "Tubería Cobre 5/8\" (Metro)", costoCompra: 8.29230769 },
+            { id: "TUB104", name: "Tubería Cobre 3/4\" (Metro)", costoCompra: 9.10769231 },
+            { id: "TUB105", name: "Tubería Cobre 7/8\" (Metro)", costoCompra: 13.26153846 }
         ]
     },
     {
@@ -4465,26 +4465,26 @@ const products = [
         images: ["productos/CAP NEGRO.webp"],
         specs: { "Tipo": "Plástico Negro", "Voltaje": "450V / 250V", "Uso": "Motores Fan" },
         variants: [
-            { id: "CAP001", name: "1 MFD 450V", costoCompra: 0.39787798 },
-            { id: "CAP002", name: "1.2 MFD 450V", costoCompra: 0.43103448 },
-            { id: "CAP003", name: "1.5 MFD 450V", costoCompra: 0.46419098 },
-            { id: "CAP004", name: "2 MFD 450V", costoCompra: 0.49734748 },
-            { id: "CAP005", name: "2.5 MFD 450V", costoCompra: 0.53050398 },
-            { id: "CAP006", name: "3 MFD 450V", costoCompra: 0.56366048 },
-            { id: "CAP007", name: "3.5 MFD 450V", costoCompra: 0.59681698 },
-            { id: "CAP008", name: "4 MFD 450V", costoCompra: 0.62997347 },
-            { id: "CAP009", name: "4.5 MFD 450V", costoCompra: 0.66312997 },
-            { id: "CAP010", name: "5 MFD 450V", costoCompra: 0.69628647 },
-            { id: "CAP011", name: "6 MFD 450V", costoCompra: 0.72944297 },
-            { id: "CAP012", name: "7.5 MFD 450V", costoCompra: 0.76259947 },
-            { id: "CAP013", name: "8 MFD 450V", costoCompra: 0.79575597 },
-            { id: "CAP014", name: "10 MFD 450V", costoCompra: 0.82891247 },
-            { id: "CAP066", name: "12 MFD 450V", costoCompra: 0.73846154 },
-            { id: "CAP015", name: "12.5 MFD 450V", costoCompra: 0.86206897 },
-            { id: "CAP057", name: "13 MFD 450V", costoCompra: 1.25384615 },
-            { id: "CAP016", name: "15 MFD 450V", costoCompra: 0.89522546 },
-            { id: "CAP068", name: "15 MFD 450V Original", costoCompra: 3.09230769 },
-            { id: "CAP161", name: "15 MFD 250V (Eq. Pequeños)", costoCompra: 1.19230769 }
+            { id: "CAP001", name: "Capacitor Negro 1 MFD 450V", costoCompra: 0.39787798 },
+            { id: "CAP002", name: "Capacitor Negro 1.2 MFD 450V", costoCompra: 0.43103448 },
+            { id: "CAP003", name: "Capacitor Negro 1.5 MFD 450V", costoCompra: 0.46419098 },
+            { id: "CAP004", name: "Capacitor Negro 2 MFD 450V", costoCompra: 0.49734748 },
+            { id: "CAP005", name: "Capacitor Negro 2.5 MFD 450V", costoCompra: 0.53050398 },
+            { id: "CAP006", name: "Capacitor Negro 3 MFD 450V", costoCompra: 0.56366048 },
+            { id: "CAP007", name: "Capacitor Negro 3.5 MFD 450V", costoCompra: 0.59681698 },
+            { id: "CAP008", name: "Capacitor Negro 4 MFD 450V", costoCompra: 0.62997347 },
+            { id: "CAP009", name: "Capacitor Negro 4.5 MFD 450V", costoCompra: 0.66312997 },
+            { id: "CAP010", name: "Capacitor Negro 5 MFD 450V", costoCompra: 0.69628647 },
+            { id: "CAP011", name: "Capacitor Negro 6 MFD 450V", costoCompra: 0.72944297 },
+            { id: "CAP012", name: "Capacitor Negro 7.5 MFD 450V", costoCompra: 0.76259947 },
+            { id: "CAP013", name: "Capacitor Negro 8 MFD 450V", costoCompra: 0.79575597 },
+            { id: "CAP014", name: "Capacitor Negro 10 MFD 450V", costoCompra: 0.82891247 },
+            { id: "CAP066", name: "Capacitor Negro 12 MFD 450V", costoCompra: 0.73846154 },
+            { id: "CAP015", name: "Capacitor Negro 12.5 MFD 450V", costoCompra: 0.86206897 },
+            { id: "CAP057", name: "Capacitor Negro 13 MFD 450V", costoCompra: 1.25384615 },
+            { id: "CAP016", name: "Capacitor Negro 15 MFD 450V", costoCompra: 0.89522546 },
+            { id: "CAP068", name: "Capacitor Negro 15 MFD 450V Original", costoCompra: 3.09230769 },
+            { id: "CAP161", name: "Capacitor Negro 15 MFD 250V (Eq. Pequeños)", costoCompra: 1.19230769 }
         ]
     },
     {
@@ -4498,50 +4498,50 @@ const products = [
         specs: { "Tipo": "Metálico Cilíndrico", "Voltaje": "370V / 440V", "Uso": "Compresores" },
         variants: [
             // Sencillos Actualizados
-            { id: "CAP081", name: "4 MFD 370/440V", costoCompra: 1.06100796 },
-            { id: "CAP020", name: "5 MFD 370/440V", costoCompra: 1.12732095 },
-            { id: "CAP082", name: "6 MFD 370/440V", costoCompra: 1.19363395 },
-            { id: "CAP-S75", name: "7.5 MFD 370/440V", costoCompra: 1.25994695 },
-            { id: "CAP085", name: "8 MFD 370/440V", costoCompra: 1.32625995 },
-            { id: "CAP022", name: "10 MFD 370/440V", costoCompra: 1.32625995 },
-            { id: "CAP023", name: "12.5 MFD 370/440V", costoCompra: 1.32625995 },
-            { id: "CAP024", name: "15 MFD 370/450V", costoCompra: 1.49204244 },
-            { id: "CAP025", name: "20 MFD 370/450V", costoCompra: 1.65782493 },
-            { id: "CAP026", name: "25 MFD 370/450V", costoCompra: 1.82360743 },
-            { id: "CAP027", name: "30 MFD 370/450V", costoCompra: 1.98938992 },
-            { id: "CAP028", name: "35 MFD 370/450V", costoCompra: 2.15517241 },
-            { id: "CAP029", name: "40 MFD 370/450V", costoCompra: 2.32095491 },
-            { id: "CAP030", name: "45 MFD 370/450V", costoCompra: 2.48673740 },
-            { id: "CAP031", name: "50 MFD 370/450V", costoCompra: 2.65251989 },
-            { id: "CAP032", name: "55 MFD 370/450V", costoCompra: 2.81830239 },
-            { id: "CAP033", name: "60 MFD 370/450V", costoCompra: 2.98408488 },
-            { id: "CAP034", name: "65 MFD 370/450V", costoCompra: 3.14986737 },
-            { id: "CAP035", name: "70 MFD 370/450V", costoCompra: 3.31564987 },
-            { id: "CAP038", name: "75 MFD 370/450V", costoCompra: 3.48143236 },
-            { id: "CAP036", name: "80 MFD 370/450V", costoCompra: 3.64721485 },
-            { id: "CAP037", name: "85 MFD 370/450V", costoCompra: 3.81299735 },
-            { id: "CAP039", name: "100 MFD 370/450V", costoCompra: 5.96816976 },
+            { id: "CAP081", name: "Capacitor Marcha 4 MFD 370/440V", costoCompra: 1.06100796 },
+            { id: "CAP020", name: "Capacitor Marcha 5 MFD 370/440V", costoCompra: 1.12732095 },
+            { id: "CAP082", name: "Capacitor Marcha 6 MFD 370/440V", costoCompra: 1.19363395 },
+            { id: "CAP-S75", name: "Capacitor Marcha 7.5 MFD 370/440V", costoCompra: 1.25994695 },
+            { id: "CAP085", name: "Capacitor Marcha 8 MFD 370/440V", costoCompra: 1.32625995 },
+            { id: "CAP022", name: "Capacitor Marcha 10 MFD 370/440V", costoCompra: 1.32625995 },
+            { id: "CAP023", name: "Capacitor Marcha 12.5 MFD 370/440V", costoCompra: 1.32625995 },
+            { id: "CAP024", name: "Capacitor Marcha 15 MFD 370/450V", costoCompra: 1.49204244 },
+            { id: "CAP025", name: "Capacitor Marcha 20 MFD 370/450V", costoCompra: 1.65782493 },
+            { id: "CAP026", name: "Capacitor Marcha 25 MFD 370/450V", costoCompra: 1.82360743 },
+            { id: "CAP027", name: "Capacitor Marcha 30 MFD 370/450V", costoCompra: 1.98938992 },
+            { id: "CAP028", name: "Capacitor Marcha 35 MFD 370/450V", costoCompra: 2.15517241 },
+            { id: "CAP029", name: "Capacitor Marcha 40 MFD 370/450V", costoCompra: 2.32095491 },
+            { id: "CAP030", name: "Capacitor Marcha 45 MFD 370/450V", costoCompra: 2.48673740 },
+            { id: "CAP031", name: "Capacitor Marcha 50 MFD 370/450V", costoCompra: 2.65251989 },
+            { id: "CAP032", name: "Capacitor Marcha 55 MFD 370/450V", costoCompra: 2.81830239 },
+            { id: "CAP033", name: "Capacitor Marcha 60 MFD 370/450V", costoCompra: 2.98408488 },
+            { id: "CAP034", name: "Capacitor Marcha 65 MFD 370/450V", costoCompra: 3.14986737 },
+            { id: "CAP035", name: "Capacitor Marcha 70 MFD 370/450V", costoCompra: 3.31564987 },
+            { id: "CAP038", name: "Capacitor Marcha 75 MFD 370/450V", costoCompra: 3.48143236 },
+            { id: "CAP036", name: "Capacitor Marcha 80 MFD 370/450V", costoCompra: 3.64721485 },
+            { id: "CAP037", name: "Capacitor Marcha 85 MFD 370/450V", costoCompra: 3.81299735 },
+            { id: "CAP039", name: "Capacitor Marcha 100 MFD 370/450V", costoCompra: 5.96816976 },
 
             // Dobles (Dual) Mantenidos
-            { id: "CAP042", name: "20+5 MFD 440V", costoCompra: 2.50000000 },
-            { id: "CAP040", name: "25+5 MFD 440V", costoCompra: 2.50000000 },
-            { id: "CAP069", name: "30+4 MFD 440V", costoCompra: 2.43846154 },
-            { id: "CAP043", name: "30+5 MFD 440V", costoCompra: 2.32307692 },
-            { id: "CAP058", name: "30+6 MFD 440V", costoCompra: 2.58461538 },
-            { id: "CAP083", name: "35+4 MFD 440V", costoCompra: 2.72307692 },
-            { id: "CAP046", name: "35+5 MFD 440V", costoCompra: 2.67692308 },
-            { id: "CAP041", name: "35+6 MFD 440V", costoCompra: 2.56923077 },
-            { id: "CAP044", name: "40+5 MFD 440V", costoCompra: 3.25384615 },
-            { id: "CAP062", name: "40+6 MFD 440V", costoCompra: 2.80000000 },
-            { id: "CAP064", name: "45+3 MFD 440V", costoCompra: 2.98461538 },
-            { id: "CAP045", name: "45+5 MFD 440V", costoCompra: 2.98461538 },
-            { id: "CAP065", name: "45+6 MFD 440V", costoCompra: 2.98461538 },
-            { id: "CAP047", name: "50+5 MFD 440V", costoCompra: 3.31538462 },
-            { id: "CAP059", name: "50+6 MFD 440V", costoCompra: 3.15384615 },
-            { id: "CAP060", name: "55+5 MFD 440V", costoCompra: 3.15384615 },
-            { id: "CAP067", name: "55+6 MFD 440V", costoCompra: 3.31538462 },
-            { id: "CAP084", name: "60+5 MFD 440V", costoCompra: 3.33846154 },
-            { id: "CAP061", name: "60+6 MFD 440V", costoCompra: 3.60000000 }
+            { id: "CAP042", name: "Capacitor Marcha 20+5 MFD 440V", costoCompra: 2.50000000 },
+            { id: "CAP040", name: "Capacitor Marcha 25+5 MFD 440V", costoCompra: 2.50000000 },
+            { id: "CAP069", name: "Capacitor Marcha 30+4 MFD 440V", costoCompra: 2.43846154 },
+            { id: "CAP043", name: "Capacitor Marcha 30+5 MFD 440V", costoCompra: 2.32307692 },
+            { id: "CAP058", name: "Capacitor Marcha 30+6 MFD 440V", costoCompra: 2.58461538 },
+            { id: "CAP083", name: "Capacitor Marcha 35+4 MFD 440V", costoCompra: 2.72307692 },
+            { id: "CAP046", name: "Capacitor Marcha 35+5 MFD 440V", costoCompra: 2.67692308 },
+            { id: "CAP041", name: "Capacitor Marcha 35+6 MFD 440V", costoCompra: 2.56923077 },
+            { id: "CAP044", name: "Capacitor Marcha 40+5 MFD 440V", costoCompra: 3.25384615 },
+            { id: "CAP062", name: "Capacitor Marcha 40+6 MFD 440V", costoCompra: 2.80000000 },
+            { id: "CAP064", name: "Capacitor Marcha 45+3 MFD 440V", costoCompra: 2.98461538 },
+            { id: "CAP045", name: "Capacitor Marcha 45+5 MFD 440V", costoCompra: 2.98461538 },
+            { id: "CAP065", name: "Capacitor Marcha 45+6 MFD 440V", costoCompra: 2.98461538 },
+            { id: "CAP047", name: "Capacitor Marcha 50+5 MFD 440V", costoCompra: 3.31538462 },
+            { id: "CAP059", name: "Capacitor Marcha 50+6 MFD 440V", costoCompra: 3.15384615 },
+            { id: "CAP060", name: "Capacitor Marcha 55+5 MFD 440V", costoCompra: 3.15384615 },
+            { id: "CAP067", name: "Capacitor Marcha 55+6 MFD 440V", costoCompra: 3.31538462 },
+            { id: "CAP084", name: "Capacitor Marcha 60+5 MFD 440V", costoCompra: 3.33846154 },
+            { id: "CAP061", name: "Capacitor Marcha 60+6 MFD 440V", costoCompra: 3.60000000 }
         ]
     },
     {
@@ -4554,27 +4554,27 @@ const products = [
         images: ["productos/CAP BOMBA DE AGUA.webp"],
         specs: { "Tipo": "Cilíndrico Blanco", "Voltaje": "250V / 450V", "Uso": "Bombas de Agua" },
         variants: [
-            { id: "CAP080", name: "12 MFD 250V (Plástico Orig. Nevera)", costoCompra: 1.92307692 },
-            { id: "CAP048", name: "12 MFD 250V", costoCompra: 1.25384615 },
-            { id: "CAP049", name: "14 MFD 250V", costoCompra: 1.25384615 },
-            { id: "CAP050", name: "16 MFD 250V", costoCompra: 1.13846154 },
-            { id: "CAP063", name: "18 MFD 250V", costoCompra: 1.73076923 },
-            { id: "CAP051", name: "20 MFD 250V", costoCompra: 0.90000000 },
-            { id: "CAP052", name: "22 MFD 250V", costoCompra: 1.32307692 },
-            { id: "CAP053", name: "25 MFD 250V", costoCompra: 1.43076923 },
-            { id: "CAP075", name: "30 MFD 250V", costoCompra: 1.55384615 },
-            { id: "CAP078", name: "31.5 MFD 250V", costoCompra: 2.35384615 },
-            { id: "CAP074", name: "35 MFD 250V", costoCompra: 1.72307692 },
-            { id: "CAP072", name: "40 MFD 250V", costoCompra: 2.03846154 },
-            { id: "CAP054", name: "45 MFD 250V", costoCompra: 2.64615385 },
-            { id: "CAP079", name: "50 MFD 250V", costoCompra: 2.90769231 },
-            { id: "CAP077", name: "55 MFD 250V", costoCompra: 2.91538462 },
-            { id: "CAP055", name: "60 MFD 250V", costoCompra: 3.07692308 },
-            { id: "CAP056", name: "65 MFD 250V", costoCompra: 2.09230769 },
-            { id: "CAP073", name: "80 MFD 450V", costoCompra: 5.86153846 },
-            { id: "CAP070", name: "100 MFD 250V", costoCompra: 5.98461538 },
-            { id: "CAP071", name: "120 MFD 250V", costoCompra: 7.10769231 },
-            { id: "CAP086", name: "150 MFD 250V", costoCompra: 9.13846154 }
+            { id: "CAP080", name: "Capacitor Bomba 12 MFD 250V (Plástico Orig. Nevera)", costoCompra: 1.92307692 },
+            { id: "CAP048", name: "Capacitor Bomba 12 MFD 250V", costoCompra: 1.25384615 },
+            { id: "CAP049", name: "Capacitor Bomba 14 MFD 250V", costoCompra: 1.25384615 },
+            { id: "CAP050", name: "Capacitor Bomba 16 MFD 250V", costoCompra: 1.13846154 },
+            { id: "CAP063", name: "Capacitor Bomba 18 MFD 250V", costoCompra: 1.73076923 },
+            { id: "CAP051", name: "Capacitor Bomba 20 MFD 250V", costoCompra: 0.90000000 },
+            { id: "CAP052", name: "Capacitor Bomba 22 MFD 250V", costoCompra: 1.32307692 },
+            { id: "CAP053", name: "Capacitor Bomba 25 MFD 250V", costoCompra: 1.43076923 },
+            { id: "CAP075", name: "Capacitor Bomba 30 MFD 250V", costoCompra: 1.55384615 },
+            { id: "CAP078", name: "Capacitor Bomba 31.5 MFD 250V", costoCompra: 2.35384615 },
+            { id: "CAP074", name: "Capacitor Bomba 35 MFD 250V", costoCompra: 1.72307692 },
+            { id: "CAP072", name: "Capacitor Bomba 40 MFD 250V", costoCompra: 2.03846154 },
+            { id: "CAP054", name: "Capacitor Bomba 45 MFD 250V", costoCompra: 2.64615385 },
+            { id: "CAP079", name: "Capacitor Bomba 50 MFD 250V", costoCompra: 2.90769231 },
+            { id: "CAP077", name: "Capacitor Bomba 55 MFD 250V", costoCompra: 2.91538462 },
+            { id: "CAP055", name: "Capacitor Bomba 60 MFD 250V", costoCompra: 3.07692308 },
+            { id: "CAP056", name: "Capacitor Bomba 65 MFD 250V", costoCompra: 2.09230769 },
+            { id: "CAP073", name: "Capacitor Bomba 80 MFD 450V", costoCompra: 5.86153846 },
+            { id: "CAP070", name: "Capacitor Bomba 100 MFD 250V", costoCompra: 5.98461538 },
+            { id: "CAP071", name: "Capacitor Bomba 120 MFD 250V", costoCompra: 7.10769231 },
+            { id: "CAP086", name: "Capacitor Bomba 150 MFD 250V", costoCompra: 9.13846154 }
         ]
     },
     {
@@ -4588,71 +4588,71 @@ const products = [
         specs: { "Tipo": "Cilíndrico Plástico", "Función": "Arranque (Start)", "Uso": "Compresores" },
         variants: [
             // Rango 110/125V
-            { id: "CAP126", name: "88-106 µF 110/125V", costoCompra: 1.54615385 },
-            { id: "CAP148", name: "88-108 µF 110/125V", costoCompra: 1.96153846 },
-            { id: "CAP101", name: "108-130 µF 110/125V", costoCompra: 1.96153846 },
-            { id: "CAP103", name: "124-149 µF 110/125V", costoCompra: 1.45384615 },
-            { id: "CAP139", name: "128-154 µF 110/125V", costoCompra: 1.65384615 },
-            { id: "CAP149", name: "130-156 µF 110/125V", costoCompra: 1.74615385 },
-            { id: "CAP104", name: "145-175 µF 110/125V", costoCompra: 1.55384615 },
-            { id: "CAP106", name: "161-193 µF 110/125V", costoCompra: 2.37692308 },
-            { id: "CAP108", name: "189-227 µF 110/125V", costoCompra: 1.68461538 },
-            { id: "CAP152", name: "200-240 µF 110/125V", costoCompra: 1.86153846 },
-            { id: "CAP110", name: "216-259 µF 110/125V", costoCompra: 1.77692308 },
-            { id: "CAP112", name: "243-292 µF 110/125V", costoCompra: 2.63846154 },
-            { id: "CAP114", name: "270-324 µF 110/125V", costoCompra: 2.86153846 },
-            { id: "CAP153", name: "300-360 µF 110/125V", costoCompra: 2.31538462 },
-            { id: "CAP117", name: "324-389 µF 110/125V", costoCompra: 2.24615385 },
-            { id: "CAP118", name: "340-408 µF 110/125V", costoCompra: 2.71538462 },
-            { id: "CAP119", name: "378-454 µF 110/125V", costoCompra: 3.42307692 },
-            { id: "CAP155", name: "400-480 µF 110/125V", costoCompra: 2.95384615 },
-            { id: "CAP121", name: "430-516 µF 110/125V", costoCompra: 2.45384615 },
-            { id: "CAP122", name: "460-552 µF 110/125V", costoCompra: 2.62307692 },
-            { id: "CAP146", name: "485-533 µF 110/125V", costoCompra: 4.53076923 },
-            { id: "CAP123", name: "540-648 µF 110/125V", costoCompra: 3.30769231 },
-            { id: "CAP124", name: "590-708 µF 110/125V", costoCompra: 4.83846154 },
-            { id: "CAP125", name: "645-774 µF 110/125V", costoCompra: 5.08461538 },
-            { id: "CAP158", name: "650-780 µF 110/125V", costoCompra: 3.64615385 },
-            { id: "CAP154", name: "708-850 µF 110/125V", costoCompra: 3.80769231 },
-            { id: "CAP145", name: "720-864 µF 110/125V", costoCompra: 4.58461538 },
-            { id: "CAP160", name: "829-995 µF 110/125V", costoCompra: 3.77692308 },
+            { id: "CAP126", name: "Capacitor Arranque 88-106 µF 110/125V", costoCompra: 1.54615385 },
+            { id: "CAP148", name: "Capacitor Arranque 88-108 µF 110/125V", costoCompra: 1.96153846 },
+            { id: "CAP101", name: "Capacitor Arranque 108-130 µF 110/125V", costoCompra: 1.96153846 },
+            { id: "CAP103", name: "Capacitor Arranque 124-149 µF 110/125V", costoCompra: 1.45384615 },
+            { id: "CAP139", name: "Capacitor Arranque 128-154 µF 110/125V", costoCompra: 1.65384615 },
+            { id: "CAP149", name: "Capacitor Arranque 130-156 µF 110/125V", costoCompra: 1.74615385 },
+            { id: "CAP104", name: "Capacitor Arranque 145-175 µF 110/125V", costoCompra: 1.55384615 },
+            { id: "CAP106", name: "Capacitor Arranque 161-193 µF 110/125V", costoCompra: 2.37692308 },
+            { id: "CAP108", name: "Capacitor Arranque 189-227 µF 110/125V", costoCompra: 1.68461538 },
+            { id: "CAP152", name: "Capacitor Arranque 200-240 µF 110/125V", costoCompra: 1.86153846 },
+            { id: "CAP110", name: "Capacitor Arranque 216-259 µF 110/125V", costoCompra: 1.77692308 },
+            { id: "CAP112", name: "Capacitor Arranque 243-292 µF 110/125V", costoCompra: 2.63846154 },
+            { id: "CAP114", name: "Capacitor Arranque 270-324 µF 110/125V", costoCompra: 2.86153846 },
+            { id: "CAP153", name: "Capacitor Arranque 300-360 µF 110/125V", costoCompra: 2.31538462 },
+            { id: "CAP117", name: "Capacitor Arranque 324-389 µF 110/125V", costoCompra: 2.24615385 },
+            { id: "CAP118", name: "Capacitor Arranque 340-408 µF 110/125V", costoCompra: 2.71538462 },
+            { id: "CAP119", name: "Capacitor Arranque 378-454 µF 110/125V", costoCompra: 3.42307692 },
+            { id: "CAP155", name: "Capacitor Arranque 400-480 µF 110/125V", costoCompra: 2.95384615 },
+            { id: "CAP121", name: "Capacitor Arranque 430-516 µF 110/125V", costoCompra: 2.45384615 },
+            { id: "CAP122", name: "Capacitor Arranque 460-552 µF 110/125V", costoCompra: 2.62307692 },
+            { id: "CAP146", name: "Capacitor Arranque 485-533 µF 110/125V", costoCompra: 4.53076923 },
+            { id: "CAP123", name: "Capacitor Arranque 540-648 µF 110/125V", costoCompra: 3.30769231 },
+            { id: "CAP124", name: "Capacitor Arranque 590-708 µF 110/125V", costoCompra: 4.83846154 },
+            { id: "CAP125", name: "Capacitor Arranque 645-774 µF 110/125V", costoCompra: 5.08461538 },
+            { id: "CAP158", name: "Capacitor Arranque 650-780 µF 110/125V", costoCompra: 3.64615385 },
+            { id: "CAP154", name: "Capacitor Arranque 708-850 µF 110/125V", costoCompra: 3.80769231 },
+            { id: "CAP145", name: "Capacitor Arranque 720-864 µF 110/125V", costoCompra: 4.58461538 },
+            { id: "CAP160", name: "Capacitor Arranque 829-995 µF 110/125V", costoCompra: 3.77692308 },
 
             // Rango 220/250V
-            { id: "CAP127", name: "88-106 µF 220/250V", costoCompra: 2.43076923 },
-            { id: "CAP150", name: "88-108 µF 220/250V", costoCompra: 2.43076923 },
-            { id: "CAP102", name: "108-130 µF 220/250V", costoCompra: 1.63076923 },
-            { id: "CAP138", name: "124-149 µF 220/250V", costoCompra: 2.08461538 },
-            { id: "CAP151", name: "130-156 µF 220/250V", costoCompra: 2.64615385 },
-            { id: "CAP163", name: "145-174 µF 220/250V", costoCompra: 3.03846154 },
-            { id: "CAP105", name: "145-175 µF 220/250V", costoCompra: 3.09230769 },
-            { id: "CAP135", name: "161-193 µF 220/250V", costoCompra: 3.49230769 },
-            { id: "CAP107", name: "189-227 µF 220/250V", costoCompra: 3.53076923 },
-            { id: "CAP144", name: "216-259 µF 220/250V", costoCompra: 3.87692308 },
-            { id: "CAP147", name: "233-280 µF 220/250V", costoCompra: 3.73076923 },
-            { id: "CAP113", name: "243-292 µF 220/250V", costoCompra: 2.50769231 },
-            { id: "CAP116", name: "270-324 µF 220/250V", costoCompra: 4.24615385 },
-            { id: "CAP133", name: "324-389 µF 220/250V", costoCompra: 4.12307692 },
-            { id: "CAP134", name: "340-408 µF 220/250V", costoCompra: 2.95384615 },
-            { id: "CAP130", name: "378-464 µF 220/250V", costoCompra: 3.06153846 },
-            { id: "CAP162", name: "378-454 µF 220/250V", costoCompra: 4.10000000 },
-            { id: "CAP120", name: "400-480 µF 220/250V", costoCompra: 2.86923077 },
-            { id: "CAP131", name: "430-516 µF 220/250V", costoCompra: 3.22307692 },
-            { id: "CAP128", name: "460-552 µF 220/250V", costoCompra: 3.11538462 },
-            { id: "CAP132", name: "540-648 µF 220/250V", costoCompra: 3.75384615 },
-            { id: "CAP137", name: "570-608 µF 220/250V", costoCompra: 4.08461538 },
-            { id: "CAP136", name: "590-708 µF 220/250V", costoCompra: 4.50000000 },
-            { id: "CAP129", name: "708-850 µF 220/250V", costoCompra: 4.03076923 },
+            { id: "CAP127", name: "Capacitor Arranque 88-106 µF 220/250V", costoCompra: 2.43076923 },
+            { id: "CAP150", name: "Capacitor Arranque 88-108 µF 220/250V", costoCompra: 2.43076923 },
+            { id: "CAP102", name: "Capacitor Arranque 108-130 µF 220/250V", costoCompra: 1.63076923 },
+            { id: "CAP138", name: "Capacitor Arranque 124-149 µF 220/250V", costoCompra: 2.08461538 },
+            { id: "CAP151", name: "Capacitor Arranque 130-156 µF 220/250V", costoCompra: 2.64615385 },
+            { id: "CAP163", name: "Capacitor Arranque 145-174 µF 220/250V", costoCompra: 3.03846154 },
+            { id: "CAP105", name: "Capacitor Arranque 145-175 µF 220/250V", costoCompra: 3.09230769 },
+            { id: "CAP135", name: "Capacitor Arranque 161-193 µF 220/250V", costoCompra: 3.49230769 },
+            { id: "CAP107", name: "Capacitor Arranque 189-227 µF 220/250V", costoCompra: 3.53076923 },
+            { id: "CAP144", name: "Capacitor Arranque 216-259 µF 220/250V", costoCompra: 3.87692308 },
+            { id: "CAP147", name: "Capacitor Arranque 233-280 µF 220/250V", costoCompra: 3.73076923 },
+            { id: "CAP113", name: "Capacitor Arranque 243-292 µF 220/250V", costoCompra: 2.50769231 },
+            { id: "CAP116", name: "Capacitor Arranque 270-324 µF 220/250V", costoCompra: 4.24615385 },
+            { id: "CAP133", name: "Capacitor Arranque 324-389 µF 220/250V", costoCompra: 4.12307692 },
+            { id: "CAP134", name: "Capacitor Arranque 340-408 µF 220/250V", costoCompra: 2.95384615 },
+            { id: "CAP130", name: "Capacitor Arranque 378-464 µF 220/250V", costoCompra: 3.06153846 },
+            { id: "CAP162", name: "Capacitor Arranque 378-454 µF 220/250V", costoCompra: 4.10000000 },
+            { id: "CAP120", name: "Capacitor Arranque 400-480 µF 220/250V", costoCompra: 2.86923077 },
+            { id: "CAP131", name: "Capacitor Arranque 430-516 µF 220/250V", costoCompra: 3.22307692 },
+            { id: "CAP128", name: "Capacitor Arranque 460-552 µF 220/250V", costoCompra: 3.11538462 },
+            { id: "CAP132", name: "Capacitor Arranque 540-648 µF 220/250V", costoCompra: 3.75384615 },
+            { id: "CAP137", name: "Capacitor Arranque 570-608 µF 220/250V", costoCompra: 4.08461538 },
+            { id: "CAP136", name: "Capacitor Arranque 590-708 µF 220/250V", costoCompra: 4.50000000 },
+            { id: "CAP129", name: "Capacitor Arranque 708-850 µF 220/250V", costoCompra: 4.03076923 },
 
             // Rango 330V
-            { id: "CAP157", name: "88-106 µF 330V", costoCompra: 1.30000000 },
-            { id: "CAP165", name: "108-130 µF 330V", costoCompra: 1.39230769 },
-            { id: "CAP156", name: "130-156 µF 330V", costoCompra: 3.02307692 },
-            { id: "CAP166", name: "130-156 µF 330V (Descarga)", costoCompra: 1.56153846 },
-            { id: "CAP167", name: "161-193 µF 330V", costoCompra: 1.72307692 },
-            { id: "CAP109", name: "189-227 µF 330V", costoCompra: 1.82307692 },
-            { id: "CAP159", name: "233-280 µF 330V", costoCompra: 4.04615385 },
-            { id: "CAP164", name: "250 µF 330V", costoCompra: 7.16153846 },
-            { id: "CAP115", name: "270-324 µF 330V", costoCompra: 5.34615385 }
+            { id: "CAP157", name: "Capacitor Arranque 88-106 µF 330V", costoCompra: 1.30000000 },
+            { id: "CAP165", name: "Capacitor Arranque 108-130 µF 330V", costoCompra: 1.39230769 },
+            { id: "CAP156", name: "Capacitor Arranque 130-156 µF 330V", costoCompra: 3.02307692 },
+            { id: "CAP166", name: "Capacitor Arranque 130-156 µF 330V (Descarga)", costoCompra: 1.56153846 },
+            { id: "CAP167", name: "Capacitor Arranque 161-193 µF 330V", costoCompra: 1.72307692 },
+            { id: "CAP109", name: "Capacitor Arranque 189-227 µF 330V", costoCompra: 1.82307692 },
+            { id: "CAP159", name: "Capacitor Arranque 233-280 µF 330V", costoCompra: 4.04615385 },
+            { id: "CAP164", name: "Capacitor Arranque 250 µF 330V", costoCompra: 7.16153846 },
+            { id: "CAP115", name: "Capacitor Arranque 270-324 µF 330V", costoCompra: 5.34615385 }
         ]
     },
     {
@@ -4665,14 +4665,14 @@ const products = [
         images: ["productos/ANC001-008.webp"],
         specs: { "Material": "Cobre", "Tipo": "Unión / Anillo", "Uso": "Soldable" },
         variants: [
-            { id: "ANC001", name: "Medida: 1/4\"", costoCompra: 0.14615385 },
-            { id: "ANC002", name: "Medida: 3/8\"", costoCompra: 0.11538462 },
-            { id: "ANC003", name: "Medida: 1/2\"", costoCompra: 0.16153846 },
-            { id: "ANC004", name: "Medida: 5/8\"", costoCompra: 0.30000000 },
-            { id: "ANC005", name: "Medida: 3/4\"", costoCompra: 0.43076923 },
-            { id: "ANC006", name: "Medida: 7/8\"", costoCompra: 0.69230769 },
-            { id: "ANC007", name: "Medida: 1-1/8\"", costoCompra: 1.13846154 },
-            { id: "ANC008", name: "Medida: 1-3/8\"", costoCompra: 1.76923077 }
+            { id: "ANC001", name: "Anillo Cobre 1/4\"", costoCompra: 0.14615385 },
+            { id: "ANC002", name: "Anillo Cobre 3/8\"", costoCompra: 0.11538462 },
+            { id: "ANC003", name: "Anillo Cobre 1/2\"", costoCompra: 0.16153846 },
+            { id: "ANC004", name: "Anillo Cobre 5/8\"", costoCompra: 0.30000000 },
+            { id: "ANC005", name: "Anillo Cobre 3/4\"", costoCompra: 0.43076923 },
+            { id: "ANC006", name: "Anillo Cobre 7/8\"", costoCompra: 0.69230769 },
+            { id: "ANC007", name: "Anillo Cobre 1-1/8\"", costoCompra: 1.13846154 },
+            { id: "ANC008", name: "Anillo Cobre 1-3/8\"", costoCompra: 1.76923077 }
         ]
     },
     {
@@ -4685,16 +4685,16 @@ const products = [
         images: ["productos/VRA100-VRA602.webp"],
         specs: { "Tipo": "Restrictora", "Aplicación": "Expansión de Gas", "Uso": "Aires Acondicionados" },
         variants: [
-            { id: "VRA100", name: "Capacidad: 12.000 BTU", costoCompra: 1.74615385 },
-            { id: "VRA200", name: "Capacidad: 18.000 BTU", costoCompra: 1.56153846 },
-            { id: "VRA300", name: "Capacidad: 24.000 BTU", costoCompra: 1.95384615 },
-            { id: "VRA350", name: "Capacidad: 30.000 BTU", costoCompra: 1.66153846 },
-            { id: "VRA400", name: "Capacidad: 36.000 BTU", costoCompra: 1.65384615 },
-            { id: "VRA450", name: "Capacidad: 48.000 BTU", costoCompra: 1.98461538 },
-            { id: "VRA500", name: "Capacidad: 60.000 BTU", costoCompra: 1.98461538 },
-            { id: "VRA600", name: "Capacidad: 2 HP (R410A Degar)", costoCompra: 2.64615385 },
-            { id: "VRA601", name: "Capacidad: 3 HP (R410A Degar)", costoCompra: 2.64615385 },
-            { id: "VRA602", name: "Capacidad: 5 HP (R410A Degar)", costoCompra: 2.64615385 }
+            { id: "VRA100", name: "Válvula Restrictora 12.000 BTU", costoCompra: 1.74615385 },
+            { id: "VRA200", name: "Válvula Restrictora 18.000 BTU", costoCompra: 1.56153846 },
+            { id: "VRA300", name: "Válvula Restrictora 24.000 BTU", costoCompra: 1.95384615 },
+            { id: "VRA350", name: "Válvula Restrictora 30.000 BTU", costoCompra: 1.66153846 },
+            { id: "VRA400", name: "Válvula Restrictora 36.000 BTU", costoCompra: 1.65384615 },
+            { id: "VRA450", name: "Válvula Restrictora 48.000 BTU", costoCompra: 1.98461538 },
+            { id: "VRA500", name: "Válvula Restrictora 60.000 BTU", costoCompra: 1.98461538 },
+            { id: "VRA600", name: "Válvula Restrictora 2 HP (R410A Degar)", costoCompra: 2.64615385 },
+            { id: "VRA601", name: "Válvula Restrictora 3 HP (R410A Degar)", costoCompra: 2.64615385 },
+            { id: "VRA602", name: "Válvula Restrictora 5 HP (R410A Degar)", costoCompra: 2.64615385 }
         ]
     },
     {
@@ -4707,12 +4707,12 @@ const products = [
         images: ["productos/VRS12-VRA078.webp"],
         specs: { "Tipo": "Válvula de Servicio", "Uso": "Equipos Split", "Material": "Latón Forjado" },
         variants: [
-            { id: "VRS014", name: "Medida: 1/4\"", costoCompra: 2.10769231 },
-            { id: "VRS038", name: "Medida: 3/8\"", costoCompra: 3.30769231 },
-            { id: "VRS012", name: "Medida: 1/2\"", costoCompra: 4.99230769 },
-            { id: "VRS058", name: "Medida: 5/8\"", costoCompra: 6.62307692 },
-            { id: "VRS034", name: "Medida: 3/4\"", costoCompra: 7.95384615 },
-            { id: "VRS078", name: "Medida: 7/8\"", costoCompra: 18.56153846 }
+            { id: "VRS014", name: "Válvula Servicio 1/4\"", costoCompra: 2.10769231 },
+            { id: "VRS038", name: "Válvula Servicio 3/8\"", costoCompra: 3.30769231 },
+            { id: "VRS012", name: "Válvula Servicio 1/2\"", costoCompra: 4.99230769 },
+            { id: "VRS058", name: "Válvula Servicio 5/8\"", costoCompra: 6.62307692 },
+            { id: "VRS034", name: "Válvula Servicio 3/4\"", costoCompra: 7.95384615 },
+            { id: "VRS078", name: "Válvula Servicio 7/8\"", costoCompra: 18.56153846 }
         ]
     },
     {
@@ -4725,8 +4725,8 @@ const products = [
         images: ["productos/VAL002-003.webp"],
         specs: { "Tipo": "De Pinchar (Perforadora)", "Uso": "Acceso a líneas selladas", "Material": "Aleación metálica" },
         variants: [
-            { id: "VAL002", name: "Medidas: 1/4\", 3/8\", 5/16\"", costoCompra: 1.75384615 },
-            { id: "VAL003", name: "Medida: 1/2\" (Grande)", costoCompra: 2.31538462 }
+            { id: "VAL002", name: "Válvula Pinchar 1/4\", 3/8\", 5/16\"", costoCompra: 1.75384615 },
+            { id: "VAL003", name: "Válvula Pinchar 1/2\" (Grande)", costoCompra: 2.31538462 }
         ]
     },
     {
@@ -4749,13 +4749,13 @@ const products = [
         images: ["productos/TEE102---TEE708.webp"],
         specs: { "Material": "Cobre", "Tipo": "Conexión en T", "Uso": "Soldable" },
         variants: [
-            { id: "TEE104", name: "Medida: 1/4", costoCompra: 0.33076923 },
-            { id: "TEE308", name: "Medida: 3/8", costoCompra: 0.33076923 },
-            { id: "TEE102", name: "Medida: 1/2", costoCompra: 0.40000000 },
-            { id: "TEE508", name: "Medida: 5/8", costoCompra: 0.66153846 },
-            { id: "TEE304", name: "Medida: 3/4", costoCompra: 1.65384615 },
-            { id: "TEE708", name: "Medida: 7/8", costoCompra: 1.65384615 },
-            { id: "TEE158", name: "Medida: 1-5/8", costoCompra: 4.75384615 }
+            { id: "TEE104", name: "T de Cobre 1/4", costoCompra: 0.33076923 },
+            { id: "TEE308", name: "T de Cobre 3/8", costoCompra: 0.33076923 },
+            { id: "TEE102", name: "T de Cobre 1/2", costoCompra: 0.40000000 },
+            { id: "TEE508", name: "T de Cobre 5/8", costoCompra: 0.66153846 },
+            { id: "TEE304", name: "T de Cobre 3/4", costoCompra: 1.65384615 },
+            { id: "TEE708", name: "T de Cobre 7/8", costoCompra: 1.65384615 },
+            { id: "TEE158", name: "T de Cobre 1-5/8", costoCompra: 4.75384615 }
         ]
     },
     {
@@ -4768,16 +4768,16 @@ const products = [
         images: ["productos/COC001---010.webp"],
         specs: { "Material": "Cobre", "Tipo": "Codo", "Uso": "Soldable" },
         variants: [
-            { id: "COC001", name: "Medida: 1/4\"", costoCompra: 0.55384615 },
-            { id: "COC002", name: "Medida: 3/8\"", costoCompra: 0.48461538 },
-            { id: "COC003", name: "Medida: 1/2\"", costoCompra: 0.48461538 },
-            { id: "COC004", name: "Medida: 5/8\"", costoCompra: 0.46923077 },
-            { id: "COC005", name: "Medida: 3/4\"", costoCompra: 0.66153846 },
-            { id: "COC006", name: "Medida: 7/8\"", costoCompra: 0.96153846 },
-            { id: "COC007", name: "Medida: 1-1/8\" (Grande)", costoCompra: 2.74615385 },
-            { id: "COC010", name: "Medida: 1-1/4\" (Grande)", costoCompra: 2.65384615 },
-            { id: "COC008", name: "Medida: 1-3/8\" (Grande)", costoCompra: 3.06923077 },
-            { id: "COC009", name: "Medida: 2-1/8\" (Grande)", costoCompra: 6.63076923 }
+            { id: "COC001", name: "Codo Cobre 1/4\"", costoCompra: 0.55384615 },
+            { id: "COC002", name: "Codo Cobre 3/8\"", costoCompra: 0.48461538 },
+            { id: "COC003", name: "Codo Cobre 1/2\"", costoCompra: 0.48461538 },
+            { id: "COC004", name: "Codo Cobre 5/8\"", costoCompra: 0.46923077 },
+            { id: "COC005", name: "Codo Cobre 3/4\"", costoCompra: 0.66153846 },
+            { id: "COC006", name: "Codo Cobre 7/8\"", costoCompra: 0.96153846 },
+            { id: "COC007", name: "Codo Cobre 1-1/8\" (Grande)", costoCompra: 2.74615385 },
+            { id: "COC010", name: "Codo Cobre 1-1/4\" (Grande)", costoCompra: 2.65384615 },
+            { id: "COC008", name: "Codo Cobre 1-3/8\" (Grande)", costoCompra: 3.06923077 },
+            { id: "COC009", name: "Codo Cobre 2-1/8\" (Grande)", costoCompra: 6.63076923 }
         ]
     },
     {
@@ -4804,13 +4804,13 @@ const products = [
         images: ["productos/TUR001---007.webp"],
         specs: { "Material": "Bronce", "Tipo": "Reforzada", "Uso": "Sistemas Flare" },
         variants: [
-            { id: "TUR001", name: "Medida: 1/4", costoCompra: 0.33076923 },
-            { id: "TUR007", name: "Medida: 5/16", costoCompra: 0.36153846 },
-            { id: "TUR002", name: "Medida: 3/8", costoCompra: 0.56923077 },
-            { id: "TUR003", name: "Medida: 1/2", costoCompra: 0.86153846 },
-            { id: "TUR004", name: "Medida: 5/8", costoCompra: 1.05384615 },
-            { id: "TUR006", name: "Medida: 3/4", costoCompra: 1.05384615 },
-            { id: "TUR005", name: "Medida: 7/8", costoCompra: 1.63076923 }
+            { id: "TUR001", name: "Tuerca 1/4", costoCompra: 0.33076923 },
+            { id: "TUR007", name: "Tuerca 5/16", costoCompra: 0.36153846 },
+            { id: "TUR002", name: "Tuerca 3/8", costoCompra: 0.56923077 },
+            { id: "TUR003", name: "Tuerca 1/2", costoCompra: 0.86153846 },
+            { id: "TUR004", name: "Tuerca 5/8", costoCompra: 1.05384615 },
+            { id: "TUR006", name: "Tuerca 3/4", costoCompra: 1.05384615 },
+            { id: "TUR005", name: "Tuerca 7/8", costoCompra: 1.63076923 }
         ]
     },
     {
@@ -4834,38 +4834,38 @@ const products = [
         specs: { "Componente": "Rodamiento", "Aplicación": "Motores Eléctricos y Lavadoras" },
         variants: [
             // Series 6000
-            { id: "ROL006", name: "Modelo: 6000 2RS", costoCompra: 0.66153846 },
-            { id: "ROL012", name: "Modelo: 6001 2RS", costoCompra: 0.93076923 },
-            { id: "ROL205", name: "Modelo: 6002 2RS S/Naranja Industrial", costoCompra: 0.96923077 },
-            { id: "ROL206", name: "Modelo: 6003 RS Asia", costoCompra: 0.99230769 },
+            { id: "ROL006", name: "Rolinera 6000 2RS", costoCompra: 0.66153846 },
+            { id: "ROL012", name: "Rolinera 6001 2RS", costoCompra: 0.93076923 },
+            { id: "ROL205", name: "Rolinera 6002 2RS S/Naranja Industrial", costoCompra: 0.96923077 },
+            { id: "ROL206", name: "Rolinera 6003 RS Asia", costoCompra: 0.99230769 },
             // Series 6200
-            { id: "ROL007", name: "Modelo: 6200 2RS", costoCompra: 0.79230769 },
-            { id: "ROL024", name: "Modelo: 6200 ZZ Metal", costoCompra: 0.66153846 },
-            { id: "ROL010", name: "Modelo: 62000 2RS Isyn", costoCompra: 0.72307692 },
-            { id: "ROL002", name: "Modelo: 6201 2RS", costoCompra: 0.86153846 },
-            { id: "ROL003", name: "Modelo: 6201 x 1/2", costoCompra: 0.80000000 },
-            { id: "ROL200", name: "Modelo: 6201 ZZ Metal", costoCompra: 0.71538462 },
-            { id: "ROL201", name: "Modelo: 6201 NSK", costoCompra: 0.99230769 },
-            { id: "ROL008", name: "Modelo: 6202 1/2", costoCompra: 0.66923077 },
-            { id: "ROL004", name: "Modelo: 6202 2RS S/Naranja Industrial", costoCompra: 1.02307692 },
-            { id: "ROL202", name: "Modelo: 6202 NSK Alta Calidad", costoCompra: 1.31538462 },
-            { id: "ROL204", name: "Modelo: 6202 5/8 RS Asia", costoCompra: 0.99230769 },
-            { id: "ROL005", name: "Modelo: 6203 2RS", costoCompra: 0.99230769 },
-            { id: "ROL203", name: "Modelo: 6203 5/8 2RS", costoCompra: 1.05384615 },
-            { id: "ROL014", name: "Modelo: 6204 2RS", costoCompra: 1.32307692 },
-            { id: "ROL013", name: "Modelo: 6205 2RS Alta Calidad", costoCompra: 1.32307692 },
-            { id: "ROL500", name: "Modelo: 6205 - 1\" 2RS Lavadora Mabe C3", costoCompra: 1.14058355 },
-            { id: "ROL501", name: "Modelo: 6205 Con Ratchet 134 (Frigidaire)", costoCompra: 5.96153846 },
-            { id: "ROL021", name: "Modelo: 626 2RS Maxwell", costoCompra: 0.53076923 },
-            { id: "ROL009", name: "Modelo: 627 2RS", costoCompra: 0.66153846 },
+            { id: "ROL007", name: "Rolinera 6200 2RS", costoCompra: 0.79230769 },
+            { id: "ROL024", name: "Rolinera 6200 ZZ Metal", costoCompra: 0.66153846 },
+            { id: "ROL010", name: "Rolinera 62000 2RS Isyn", costoCompra: 0.72307692 },
+            { id: "ROL002", name: "Rolinera 6201 2RS", costoCompra: 0.86153846 },
+            { id: "ROL003", name: "Rolinera 6201 x 1/2", costoCompra: 0.80000000 },
+            { id: "ROL200", name: "Rolinera 6201 ZZ Metal", costoCompra: 0.71538462 },
+            { id: "ROL201", name: "Rolinera 6201 NSK", costoCompra: 0.99230769 },
+            { id: "ROL008", name: "Rolinera 6202 1/2", costoCompra: 0.66923077 },
+            { id: "ROL004", name: "Rolinera 6202 2RS S/Naranja Industrial", costoCompra: 1.02307692 },
+            { id: "ROL202", name: "Rolinera 6202 NSK Alta Calidad", costoCompra: 1.31538462 },
+            { id: "ROL204", name: "Rolinera 6202 5/8 RS Asia", costoCompra: 0.99230769 },
+            { id: "ROL005", name: "Rolinera 6203 2RS", costoCompra: 0.99230769 },
+            { id: "ROL203", name: "Rolinera 6203 5/8 2RS", costoCompra: 1.05384615 },
+            { id: "ROL014", name: "Rolinera 6204 2RS", costoCompra: 1.32307692 },
+            { id: "ROL013", name: "Rolinera 6205 2RS Alta Calidad", costoCompra: 1.32307692 },
+            { id: "ROL500", name: "Rolinera 6205 - 1\" 2RS Lavadora Mabe C3", costoCompra: 1.14058355 },
+            { id: "ROL501", name: "Rolinera 6205 Con Ratchet 134 (Frigidaire)", costoCompra: 5.96153846 },
+            { id: "ROL021", name: "Rolinera 626 2RS Maxwell", costoCompra: 0.53076923 },
+            { id: "ROL009", name: "Rolinera 627 2RS", costoCompra: 0.66153846 },
             // Otras Medidas
-            { id: "ROL011", name: "Modelo: 6303 2RS", costoCompra: 1.16153846 },
-            { id: "ROL022", name: "Modelo: 607 2RS Asia", costoCompra: 0.54615385 },
-            { id: "ROL001", name: "Modelo: 608 2RS S/Naranja Industrial", costoCompra: 0.60769231 },
-            { id: "ROL020", name: "Modelo: 608 2RS S/Azul Alta Calidad", costoCompra: 0.33076923 },
-            { id: "ROL100", name: "Modelo: 608 ZZ Sello Metálico", costoCompra: 0.46153846 },
-            { id: "ROL023", name: "Modelo: 6900 2RS Asia", costoCompra: 0.56153846 },
-            { id: "ROL502", name: "Modelo: Axial Mabe/G.E Híbrida 7410469", costoCompra: 3.31538462 }
+            { id: "ROL011", name: "Rolinera 6303 2RS", costoCompra: 1.16153846 },
+            { id: "ROL022", name: "Rolinera 607 2RS Asia", costoCompra: 0.54615385 },
+            { id: "ROL001", name: "Rolinera 608 2RS S/Naranja Industrial", costoCompra: 0.60769231 },
+            { id: "ROL020", name: "Rolinera 608 2RS S/Azul Alta Calidad", costoCompra: 0.33076923 },
+            { id: "ROL100", name: "Rolinera 608 ZZ Sello Metálico", costoCompra: 0.46153846 },
+            { id: "ROL023", name: "Rolinera 6900 2RS Asia", costoCompra: 0.56153846 },
+            { id: "ROL502", name: "Rolinera Axial Mabe/G.E Híbrida 7410469", costoCompra: 3.31538462 }
         ]
     },
     {
@@ -5190,11 +5190,11 @@ const products = [
         specs: { "Tipo": "Placa", "Incluye": "Capilar", "Material": "Aluminio" },
         // VARIANTES DE MEDIDAS
         variants: [
-            { id: "PUN104", name: "Medida: 80x40cm", costoCompra: 14.59230769 },
-            { id: "PUN107", name: "Medida: 84x45cm", costoCompra: 19.89230769 },
-            { id: "PUN108", name: "Medida: 94x45cm", costoCompra: 23.20769231 },
-            { id: "PUN105", name: "Medida: 105x45cm", costoCompra: 26.52307692 },
-            { id: "PUN106", name: "Medida: 150x50cm", costoCompra: 29.84615385 }
+            { id: "PUN104", name: "Evaporador de 80x40cm", costoCompra: 14.59230769 },
+            { id: "PUN107", name: "Evaporador de 84x45cm", costoCompra: 19.89230769 },
+            { id: "PUN108", name: "Evaporador de 94x45cm", costoCompra: 23.20769231 },
+            { id: "PUN105", name: "Evaporador de 105x45cm", costoCompra: 26.52307692 },
+            { id: "PUN106", name: "Evaporador de 150x50cm", costoCompra: 29.84615385 }
         ]
     },
     {
@@ -5703,13 +5703,13 @@ const products = [
         specs: { "Marca": "Steinmann", "Alimentación": "Batería 18V", "Tipo": "Inalámbrica", "Incluye": "Batería y Cargador" }
     },
     {
-        id: "MOI019", name: "Motor Ventilador 1/4HP 220V 1075RPM Steinmann", category: "Motores", model: "1/4 HP",
+        id: "MOI019", name: "Motor 1/4 HP", category: "Motores", model: "1/4 HP",
         desc: `<b>Motor Ventilador Steinmann 1/4HP 220V 1075RPM</b><br><br>Motor para condensador de aire acondicionado. Alto rendimiento térmico y rodamientos sellados.`,
         costoCompra: 69.623076, images: ["productos/MOI019.webp"],
         specs: { "Marca": "Steinmann", "Potencia": "1/4 HP", "RPM": "1075", "Voltaje": "220V" }
     },
     {
-        id: "MOI020", name: "Motor Ventilador 1/3HP 220V 1075RPM Steinmann", category: "Motores", model: "1/3 HP",
+        id: "MOI020", name: "Motor 1/3 HP", category: "Motores", model: "1/3 HP",
         desc: `<b>Motor Ventilador Steinmann 1/3HP 220V 1075RPM</b><br><br>Motor potente para equipos de refrigeración y aires acondicionados centrales de gran capacidad.`,
         costoCompra: 76.253846, images: ["productos/MOI020.webp"],
         specs: { "Marca": "Steinmann", "Potencia": "1/3 HP", "RPM": "1075", "Voltaje": "220V" }

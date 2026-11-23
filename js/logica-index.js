@@ -1,16 +1,215 @@
 // ==========================================
-// 1. CONFIGURACIÓN DEL SISTEMA
+// 1. CONFIGURACIÓN DEL SISTEMA Y SESIÓN
 // ==========================================
-const TASA_BCV = 914.02;
+let TASA_BCV = 919.82;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
-const TASA_INTERNA = 1100;
+let TASA_INTERNA = 1100;
+
+const SUPABASE_CRM_URL = "https://krsahhdkxfeehyernwmf.supabase.co";
+const SUPABASE_CRM_KEY = "sb_publishable_4dLnKHj89ri1Z9qV0JE3mw_nRGLhxbE";
+
+let _pendingUnlockTargetId = null;
+
+// Sincronizar tasa BCV oficial desde Supabase si hay conexión
+(async function syncCloudSettings() {
+    try {
+        if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
+            const client = window.supabase.createClient(SUPABASE_CRM_URL, SUPABASE_CRM_KEY);
+            const { data } = await client.from('configuracion').select('*').eq('id', 'default').maybeSingle();
+            if (data) {
+                const bcv = parseFloat(data.tasa_bcv);
+                if (!isNaN(bcv) && bcv > 0) {
+                    TASA_BCV = bcv;
+                    const el = document.getElementById('bcv-display');
+                    if (el) el.innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
+                }
+                const interna = parseFloat(data.tasa_interna);
+                if (!isNaN(interna) && interna > 0) TASA_INTERNA = interna;
+            }
+        }
+    } catch (e) {}
+})();
 
 // Mostrar tasa BCV en el encabezado de forma segura
 const bcvEl = document.getElementById('bcv-display');
 if (bcvEl) {
     bcvEl.innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
+}
+
+// --- GESTIÓN DE SESIÓN DE CLIENTES Y ACCESO A PRECIOS ---
+function getCustomerSession() {
+    try {
+        const raw = localStorage.getItem('nova_customer_session') || localStorage.getItem('nova_cliente_sesion');
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (parsed && (parsed.nombre || parsed.name)) return parsed;
+    } catch (e) {}
+    return null;
+}
+
+function hasCustomerSession() {
+    return !!getCustomerSession();
+}
+
+function updateClientSessionPill() {
+    const container = document.getElementById('clientSessionPill');
+    if (!container) return;
+    const session = getCustomerSession();
+    if (session) {
+        const firstName = (session.nombre || session.name || '').trim().split(' ')[0] || 'Cliente';
+        container.innerHTML = `
+            <button class="client-pill-btn" onclick="openClientProfileModal()" title="Sesión activa: ${session.nombre} (${session.rif})">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>${firstName}</span>
+            </button>
+        `;
+    } else {
+        container.innerHTML = `
+            <button class="client-pill-btn unauth" onclick="openClientRegisterModal()" title="Inicia sesión para acceder">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Acceder</span>
+            </button>
+        `;
+    }
+}
+
+function openClientRegisterModal(targetProductId = null) {
+    _pendingUnlockTargetId = targetProductId;
+    const modal = document.getElementById('clientRegisterModal');
+    if (modal) {
+        modal.classList.add('active');
+        const input = document.getElementById('clientFullName');
+        if (input) setTimeout(() => input.focus(), 150);
+    }
+}
+
+function closeClientRegisterModal(e) {
+    if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('client-modal-close')) {
+        return;
+    }
+    const modal = document.getElementById('clientRegisterModal');
+    if (modal) modal.classList.remove('active');
+}
+
+function openClientProfileModal() {
+    const session = getCustomerSession();
+    if (!session) {
+        openClientRegisterModal();
+        return;
+    }
+    showNovaAlert({
+        title: "Sesión de Cliente",
+        message: `Estás identificado como <b>${session.nombre}</b><br>Cédula/RIF: <b>${session.rif}</b><br>Teléfono: <b>${session.telefono}</b><br><br>¿Deseas cambiar los datos de cliente?`,
+        confirmText: "Cambiar Datos",
+        onConfirm: () => {
+            localStorage.removeItem('nova_customer_session');
+            localStorage.removeItem('nova_cliente_sesion');
+            updateClientSessionPill();
+            filterProducts();
+            openClientRegisterModal();
+        }
+    });
+}
+
+async function submitClientRegister(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const nameInput = document.getElementById('clientFullName');
+    const rifTypeInput = document.getElementById('clientRifType');
+    const rifNumInput = document.getElementById('clientRifNum');
+    const phoneInput = document.getElementById('clientPhone');
+
+    const fullName = nameInput ? nameInput.value.trim() : '';
+    const rifPrefix = rifTypeInput ? rifTypeInput.value : 'V-';
+    const rifNumber = rifNumInput ? rifNumInput.value.trim() : '';
+    const fullRif = (rifPrefix + rifNumber).toUpperCase();
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+
+    if (!fullName || !rifNumber || !phone) {
+        showNovaAlert({
+            title: "Datos Incompletos",
+            message: "Por favor, completa tu Nombre y Apellido, Cédula y Teléfono de contacto.",
+            type: "warning"
+        });
+        return;
+    }
+
+    // 1. Guardar sesión persistente
+    const clientData = {
+        id: 'CLI-' + Date.now().toString().slice(-4),
+        nombre: fullName,
+        rif: fullRif,
+        telefono: phone,
+        tipo: 'cliente',
+        timestamp: Date.now()
+    };
+    localStorage.setItem('nova_customer_session', JSON.stringify(clientData));
+    localStorage.setItem('nova_cliente_sesion', JSON.stringify(clientData));
+
+    // 2. Prellenar datos en el carrito
+    const cartName = document.getElementById('customerName');
+    const cartPhone = document.getElementById('customerPhone');
+    if (cartName) cartName.value = fullName;
+    if (cartPhone) cartPhone.value = phone;
+
+    // 3. Sincronizar de inmediato con Supabase CRM (ERP)
+    try {
+        if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
+            const client = window.supabase.createClient(SUPABASE_CRM_URL, SUPABASE_CRM_KEY);
+            (async () => {
+                const { data: existing } = await client.from('clientes').select('id').eq('rif', clientData.rif).maybeSingle();
+                if (existing && existing.id) {
+                    await client.from('clientes').update({
+                        nombre: clientData.nombre,
+                        telefono: clientData.telefono,
+                        notas: 'Actualizado desde Catálogo Web Oficial'
+                    }).eq('id', existing.id);
+                    console.log('[Supabase CRM] Cliente existente actualizado:', existing.id);
+                } else {
+                    await client.from('clientes').insert([{
+                        id: clientData.id,
+                        nombre: clientData.nombre,
+                        rif: clientData.rif,
+                        telefono: clientData.telefono,
+                        tipo: 'cliente',
+                        notas: 'Registrado desde Catálogo Web Oficial'
+                    }]);
+                    console.log('[Supabase CRM] Nuevo cliente insertado con éxito:', clientData.id);
+                }
+            })().catch(err => console.warn('[Supabase CRM] Error sincronizando cliente:', err));
+        }
+    } catch (dbErr) {
+        console.warn('[Supabase CRM] Error de conexión:', dbErr);
+    }
+
+    // 4. Notificación automática por WhatsApp a NOVA
+    const waMsgText = `¡Hola NOVA RefriMotors! Acabo de ingresar a su catálogo web y deseo consultar repuestos y precios:\n\n👤 *Nombre:* ${fullName}\n🪪 *Cédula/RIF:* ${fullRif}\n📱 *Teléfono:* ${phone}\n\nQuedo atento a su asesoría técnica.`;
+    const waUrl = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(waMsgText)}`;
+    window.open(waUrl, '_blank');
+
+    // 5. Cerrar modal y desbloquear catálogo
+    const modal = document.getElementById('clientRegisterModal');
+    if (modal) modal.classList.remove('active');
+
+    updateClientSessionPill();
+    filterProducts();
+
+    // 6. Mensaje de bienvenida
+    showNovaAlert({
+        title: "¡Precios Desbloqueados!",
+        message: `Bienvenido <b>${fullName}</b>. Ahora puedes consultar todos los precios en divisas y bolívares a tasa oficial.`,
+        type: "success"
+    });
+
+    // 7. Si intentaba ver un repuesto específico, abrirlo
+    if (_pendingUnlockTargetId) {
+        const targetId = _pendingUnlockTargetId;
+        _pendingUnlockTargetId = null;
+        setTimeout(() => {
+            openQuickView(targetId);
+        }, 350);
+    }
 }
 
 // ============================================================================
@@ -189,6 +388,7 @@ function renderProducts(productList) {
         container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">No se encontraron repuestos con estos filtros.</p>';
         return;
     }
+    const isUnlocked = hasCustomerSession();
     let htmlContent = '';
     productList.forEach(prod => {
         const precios = calcularPrecios(prod.costoCompra);
@@ -201,19 +401,30 @@ function renderProducts(productList) {
         // Creamos la etiqueta de imagen usando la variable segura que acabamos de crear
         const imgTag = `<img src="${imgSrc}" alt="${prod.name}" width="260" height="200" loading="lazy" decoding="async" onclick="${onClk}" onerror="this.src='productos/NO_PHOTO.webp'">`;
 
-        // Si el producto tiene variantes (ej: la placa PUN), el botón dice "Ver Opciones"
-        const btnText = prod.variants ? 'Ver Opciones' : 'Agregar al Pedido';
-        const btnAction = prod.variants ? onClk : `addToCart('${prod.id}')`;
+        let priceHtml = '';
+        let btnText = '';
+        let btnAction = '';
+
+        if (isUnlocked) {
+            priceHtml = `
+                <div class="price-container" style="margin-top: auto;">
+                    <div class="price-public-usd">Precio: $${precios.publicoUSD.toFixed(2)}</div>
+                    <div class="price-public-bs">Ref: Bs. ${precios.publicoBs.toFixed(2)}</div>
+                </div>`;
+            btnText = prod.variants ? 'Ver Opciones' : 'Agregar al Pedido';
+            btnAction = prod.variants ? onClk : `addToCart('${prod.id}')`;
+        } else {
+            priceHtml = '';
+            btnText = prod.variants ? 'Ver Opciones' : 'Consultar Repuesto';
+            btnAction = onClk;
+        }
 
         htmlContent += `
             <div class="product-card">
                 ${imgTag}
                 <div class="product-code" onclick="${onClk}">CÓDIGO: ${prod.id}</div>
                 <div class="product-title" onclick="${onClk}">${prod.name}</div>
-                <div class="price-container" style="margin-top: auto;">
-                    <div class="price-public-usd">Precio: $${precios.publicoUSD.toFixed(2)}</div>
-                    <div class="price-public-bs">Ref: Bs. ${precios.publicoBs.toFixed(2)}</div>
-                </div>
+                ${priceHtml}
                 <button class="add-btn" onclick="${btnAction}">${btnText}</button>
             </div>
         `;
@@ -301,23 +512,32 @@ function openQuickView(productId, autoVariantIndex = -1) {
 
     // Botón Agregar al Pedido desde el Modal
     const addBtn = document.getElementById('qvAddBtn');
-    addBtn.onclick = function () {
-        if (currentViewedProduct.variants) {
-            // Si tiene variantes, agregamos el hijo específico seleccionado
-            const variant = currentViewedProduct.variants[currentVariantIndex];
-            const item = {
-                id: variant.id,
-                name: currentViewedProduct.name + " (" + variant.name + ")",
-                costoCompra: variant.costoCompra,
-                images: currentViewedProduct.images
-            };
-            addItemToCart(item);
-        } else {
-            // Producto normal
-            addItemToCart(currentViewedProduct);
-        }
-        closeQuickView();
-    };
+    const isUnlocked = hasCustomerSession();
+    if (isUnlocked) {
+        addBtn.innerText = 'Agregar al Pedido';
+        addBtn.onclick = function () {
+            if (currentViewedProduct.variants) {
+                // Si tiene variantes, agregamos el hijo específico seleccionado
+                const variant = currentViewedProduct.variants[currentVariantIndex];
+                const item = {
+                    id: variant.id,
+                    name: currentViewedProduct.name + " (" + variant.name + ")",
+                    costoCompra: variant.costoCompra,
+                    images: currentViewedProduct.images
+                };
+                addItemToCart(item);
+            } else {
+                // Producto normal
+                addItemToCart(currentViewedProduct);
+            }
+            closeQuickView();
+        };
+    } else {
+        addBtn.innerText = 'Consultar Precio / Pedir';
+        addBtn.onclick = function () {
+            openClientRegisterModal(currentViewedProduct.id);
+        };
+    }
 
     document.getElementById('quickViewModal').classList.add('active');
     openProductInHash(productId);
@@ -335,10 +555,20 @@ function updateQuickViewPrices() {
 
     document.getElementById('qvCode').innerText = `CÓDIGO: ${codigo}`;
 
-    const precios = calcularPrecios(costo);
-    document.getElementById('qvPrice').innerText = `Precio: $${precios.publicoUSD.toFixed(2)}`;
-    document.getElementById('qvPriceVes').innerText = `Ref: Bs. ${precios.publicoBs.toFixed(2)}`;
-    document.getElementById('qvPriceNova').innerText = `$${precios.novaClientesUSD.toFixed(2)}`;
+    const isUnlocked = hasCustomerSession();
+    const priceBox = document.querySelector('.qv-price-box');
+    const existingGated = document.getElementById('qvPriceGatedContainer');
+    if (existingGated) existingGated.remove();
+
+    if (!isUnlocked) {
+        if (priceBox) priceBox.style.display = 'none';
+    } else {
+        if (priceBox) priceBox.style.display = 'block';
+        const precios = calcularPrecios(costo);
+        document.getElementById('qvPrice').innerText = `Precio: $${precios.publicoUSD.toFixed(2)}`;
+        document.getElementById('qvPriceVes').innerText = `Ref: Bs. ${precios.publicoBs.toFixed(2)}`;
+        document.getElementById('qvPriceNova').innerText = `$${precios.novaClientesUSD.toFixed(2)}`;
+    }
 }
 
 // Utilidades del Modal
@@ -459,6 +689,10 @@ function closeQuickView(event) {
 // 6. CARRITO DE COMPRAS Y WHATSAPP
 // ==========================================
 function addToCart(productId) {
+    if (!hasCustomerSession()) {
+        openClientRegisterModal(productId);
+        return;
+    }
     const product = products.find(p => p.id === productId);
     if (product && !product.variants) {
         addItemToCart(product);
@@ -466,6 +700,10 @@ function addToCart(productId) {
 }
 
 function addItemToCart(item) {
+    if (!hasCustomerSession()) {
+        openClientRegisterModal(item.id);
+        return;
+    }
     const existingItem = cart.find(i => i.id === item.id);
     if (existingItem) { existingItem.quantity += 1; }
     else { cart.push({ ...item, quantity: 1 }); }
@@ -551,7 +789,19 @@ function removeFromCart(index) {
 }
 
 function toggleCart() {
-    document.getElementById('cartModal').classList.toggle('active');
+    const modal = document.getElementById('cartModal');
+    if (!modal) return;
+    const willOpen = !modal.classList.contains('active');
+    modal.classList.toggle('active');
+    if (willOpen) {
+        const session = getCustomerSession();
+        if (session) {
+            const nameEl = document.getElementById('customerName');
+            const phoneEl = document.getElementById('customerPhone');
+            if (nameEl && !nameEl.value) nameEl.value = session.nombre || '';
+            if (phoneEl && !phoneEl.value) phoneEl.value = session.telefono || '';
+        }
+    }
 }
 
 // ==========================================
@@ -658,8 +908,10 @@ function sendWhatsApp() {
         return;
     }
 
+    const session = getCustomerSession();
+    const rifInfo = (session && session.rif) ? ` (CI/RIF: ${session.rif})` : '';
     let messageLines = [
-        `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}* (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su catálogo web:\n`
+        `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}*${rifInfo} (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su catálogo web:\n`
     ];
 
     let totalEstimadoUSD = 0;
@@ -682,6 +934,11 @@ function sendWhatsApp() {
 // Cerrar modales con la tecla Escape
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+        const regModal = document.getElementById('clientRegisterModal');
+        if (regModal && regModal.classList.contains('active')) {
+            regModal.classList.remove('active');
+            return;
+        }
         const alertModal = document.getElementById('novaAlertModal');
         if (alertModal && alertModal.classList.contains('active')) {
             closeNovaAlert();
@@ -922,6 +1179,20 @@ function initCategoryNavigation() {
 }
 
 initCategoryNavigation();
+updateClientSessionPill();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
+
+// Si el usuario no tiene sesión iniciada, mostrar el modal de bienvenida/registro a los 800ms
+if (!hasCustomerSession()) {
+    setTimeout(() => {
+        const qvModal = document.getElementById('quickViewModal');
+        const alertModal = document.getElementById('novaAlertModal');
+        const isQvOpen = qvModal && qvModal.classList.contains('active');
+        const isAlertOpen = alertModal && alertModal.classList.contains('active');
+        if (!isQvOpen && !isAlertOpen) {
+            openClientRegisterModal();
+        }
+    }, 800);
+}
 
