@@ -58,6 +58,42 @@
 }
 
 /* ==========================================
+   MARCADOR DE TASA OFICIAL BCV EN CARRITO
+========================================== */
+.cart-bcv-bar {
+    background: linear-gradient(135deg, #f8fafc 0%, #edf4fc 100%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 8px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #334155;
+    flex-shrink: 0;
+}
+.cart-bcv-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+}
+.cart-bcv-bar .bcv-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+    display: inline-block;
+    animation: bcvPulse 2s infinite ease-in-out;
+}
+.cart-bcv-val {
+    color: var(--nova-blue);
+    font-weight: 800;
+    font-size: 12.5px;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================
    LISTADO DE ITEMS EN EL CARRITO
 ========================================== */
 .cart-items { 
@@ -221,6 +257,142 @@
     border-color: var(--nova-blue); 
     background: var(--white); 
     box-shadow: 0 0 0 3.5px rgba(0, 69, 138, 0.12); 
+}
+
+/* Grupo de Cédula / RIF en el Carrito */
+.cart-id-input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.cart-id-prefix {
+    width: 76px;
+    height: 40px;
+    padding: 0 8px;
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: var(--nova-blue);
+    background: #f8fafc;
+    outline: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+.cart-id-prefix:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+}
+.cart-id-prefix:focus {
+    border-color: var(--nova-blue);
+    background: #ffffff;
+    box-shadow: 0 0 0 3.5px rgba(0, 69, 138, 0.12);
+}
+.cart-id-input-group input {
+    margin-bottom: 0 !important;
+}
+
+/* Intro cordial para datos de contacto en carrito */
+.cart-notice-box {
+    background: transparent;
+    border: none;
+    border-left: 3px solid var(--nova-blue);
+    padding: 3px 0 3px 10px;
+    margin-bottom: 12px;
+}
+.cart-notice-badge {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--nova-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+.cart-notice-text {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.35;
+    margin: 0;
+}
+
+/* Banner de sesión activa dentro del carrito */
+.cart-session-info {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 9px 12px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.cart-session-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.cart-session-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #15803d;
+    letter-spacing: 0.3px;
+}
+.cart-session-text strong {
+    font-size: 13px;
+    color: #14532d;
+    font-weight: 800;
+}
+.cart-session-rif {
+    font-size: 11px;
+    color: #166534;
+    font-weight: 600;
+}
+.cart-session-edit-btn {
+    background: #ffffff;
+    border: 1px solid #86efac;
+    color: #15803d;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    flex-shrink: 0;
+}
+.cart-session-edit-btn:hover {
+    background: #dcfce7;
+    border-color: #4ade80;
+}
+
+/* Caja de estimación de cotización en carrito */
+.cart-prices-locked-box {
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.cart-locked-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--nova-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.cart-locked-sub {
+    font-size: 11.5px;
+    color: #64748b;
+    margin-top: 3px;
+    line-height: 1.35;
 }
 
 .form-row-2 {

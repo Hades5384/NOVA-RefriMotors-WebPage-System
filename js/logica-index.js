@@ -12,6 +12,15 @@ const SUPABASE_CRM_KEY = "sb_publishable_4dLnKHj89ri1Z9qV0JE3mw_nRGLhxbE";
 
 let _pendingUnlockTargetId = null;
 
+// Función para sincronizar la visualización de la tasa BCV en cabecera y carrito
+function updateBcvDisplays() {
+    const formatted = `Bs. ${TASA_BCV.toFixed(2)}`;
+    const elHeader = document.getElementById('bcv-display');
+    const elCart = document.getElementById('cart-bcv-display');
+    if (elHeader) elHeader.innerText = formatted;
+    if (elCart) elCart.innerText = formatted;
+}
+
 // Sincronizar tasa BCV oficial desde Supabase si hay conexión
 (async function syncCloudSettings() {
     try {
@@ -22,8 +31,7 @@ let _pendingUnlockTargetId = null;
                 const bcv = parseFloat(data.tasa_bcv);
                 if (!isNaN(bcv) && bcv > 0) {
                     TASA_BCV = bcv;
-                    const el = document.getElementById('bcv-display');
-                    if (el) el.innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
+                    updateBcvDisplays();
                 }
                 const interna = parseFloat(data.tasa_interna);
                 if (!isNaN(interna) && interna > 0) TASA_INTERNA = interna;
@@ -32,11 +40,8 @@ let _pendingUnlockTargetId = null;
     } catch (e) {}
 })();
 
-// Mostrar tasa BCV en el encabezado de forma segura
-const bcvEl = document.getElementById('bcv-display');
-if (bcvEl) {
-    bcvEl.innerText = `Bs. ${TASA_BCV.toFixed(2)}`;
-}
+// Mostrar tasa BCV de forma segura al inicio
+updateBcvDisplays();
 
 // --- GESTIÓN DE SESIÓN DE CLIENTES Y ACCESO A PRECIOS ---
 function getCustomerSession() {
@@ -45,6 +50,14 @@ function getCustomerSession() {
         if (!raw) return null;
         const parsed = JSON.parse(raw);
         if (parsed && (parsed.nombre || parsed.name)) return parsed;
+    } catch (e) {}
+    return null;
+}
+
+function getLastCustomerInfo() {
+    try {
+        const raw = localStorage.getItem('nova_last_client_info');
+        if (raw) return JSON.parse(raw);
     } catch (e) {}
     return null;
 }
@@ -67,7 +80,7 @@ function updateClientSessionPill() {
         `;
     } else {
         container.innerHTML = `
-            <button class="client-pill-btn unauth" onclick="openClientRegisterModal()" title="Inicia sesión para acceder">
+            <button class="client-pill-btn unauth" onclick="openClientRegisterModal()" title="Acceder o Registrarse">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 <span>Acceder</span>
             </button>
@@ -79,9 +92,33 @@ function openClientRegisterModal(targetProductId = null) {
     _pendingUnlockTargetId = targetProductId;
     const modal = document.getElementById('clientRegisterModal');
     if (modal) {
+        // Autocompletar automáticamente con datos de sesión o última información guardada
+        const data = getCustomerSession() || getLastCustomerInfo();
+        const nameInput = document.getElementById('clientFullName');
+        const rifTypeInput = document.getElementById('clientRifType');
+        const rifNumInput = document.getElementById('clientRifNum');
+        const phoneInput = document.getElementById('clientPhone');
+
+        if (data) {
+            if (nameInput && (!nameInput.value || nameInput.value.trim() === '') && (data.nombre || data.name)) {
+                nameInput.value = data.nombre || data.name;
+            }
+            if (data.rif) {
+                const match = data.rif.match(/^([VJECG]-?)(.+)$/i);
+                if (match) {
+                    if (rifTypeInput) rifTypeInput.value = match[1].toUpperCase().replace(/-?$/, '-');
+                    if (rifNumInput && (!rifNumInput.value || rifNumInput.value.trim() === '')) rifNumInput.value = match[2];
+                } else if (rifNumInput && (!rifNumInput.value || rifNumInput.value.trim() === '')) {
+                    rifNumInput.value = data.rif;
+                }
+            }
+            if (phoneInput && (!phoneInput.value || phoneInput.value.trim() === '') && (data.telefono || data.phone)) {
+                phoneInput.value = data.telefono || data.phone;
+            }
+        }
+
         modal.classList.add('active');
-        const input = document.getElementById('clientFullName');
-        if (input) setTimeout(() => input.focus(), 150);
+        if (nameInput) setTimeout(() => nameInput.focus(), 150);
     }
 }
 
@@ -99,17 +136,62 @@ function openClientProfileModal() {
         openClientRegisterModal();
         return;
     }
-    showNovaAlert({
-        title: "Sesión de Cliente",
-        message: `Estás identificado como <b>${session.nombre}</b><br>Cédula/RIF: <b>${session.rif}</b><br>Teléfono: <b>${session.telefono}</b><br><br>¿Deseas cambiar los datos de cliente?`,
-        confirmText: "Cambiar Datos",
-        onConfirm: () => {
-            localStorage.removeItem('nova_customer_session');
-            localStorage.removeItem('nova_cliente_sesion');
-            updateClientSessionPill();
-            filterProducts();
-            openClientRegisterModal();
+    const modal = document.getElementById('clientProfileModal');
+    if (!modal) return;
+
+    const nameEl = document.getElementById('profileModalName');
+    const rifEl = document.getElementById('profileModalRif');
+    const phoneEl = document.getElementById('profileModalPhone');
+
+    if (nameEl) nameEl.innerText = session.nombre || 'Mi Perfil';
+    if (rifEl) rifEl.innerText = session.rif || '-';
+    if (phoneEl) phoneEl.innerText = session.telefono || '-';
+
+    modal.classList.add('active');
+}
+
+function closeClientProfileModal(e) {
+    if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('client-modal-close')) {
+        return;
+    }
+    const modal = document.getElementById('clientProfileModal');
+    if (modal) modal.classList.remove('active');
+}
+
+function editCustomerData() {
+    closeClientProfileModal();
+    const session = getCustomerSession();
+    openClientRegisterModal();
+    if (session) {
+        const nameInput = document.getElementById('clientFullName');
+        const rifTypeInput = document.getElementById('clientRifType');
+        const rifNumInput = document.getElementById('clientRifNum');
+        const phoneInput = document.getElementById('clientPhone');
+
+        if (nameInput) nameInput.value = session.nombre || '';
+        if (session.rif) {
+            const match = session.rif.match(/^([VJECG]-?)(.+)$/i);
+            if (match) {
+                if (rifTypeInput) rifTypeInput.value = match[1].toUpperCase().replace(/-?$/, '-');
+                if (rifNumInput) rifNumInput.value = match[2];
+            } else if (rifNumInput) {
+                rifNumInput.value = session.rif;
+            }
         }
+        if (phoneInput) phoneInput.value = session.telefono || '';
+    }
+}
+
+function logoutCustomerSession() {
+    closeClientProfileModal();
+    localStorage.removeItem('nova_customer_session');
+    localStorage.removeItem('nova_cliente_sesion');
+    updateClientSessionPill();
+    filterProducts();
+    showNovaAlert({
+        title: "Sesión Cerrada",
+        message: "Has cerrado sesión correctamente. Los precios se han bloqueado hasta tu próximo ingreso.",
+        type: "info"
     });
 }
 
@@ -146,6 +228,7 @@ async function submitClientRegister(e) {
     };
     localStorage.setItem('nova_customer_session', JSON.stringify(clientData));
     localStorage.setItem('nova_cliente_sesion', JSON.stringify(clientData));
+    localStorage.setItem('nova_last_client_info', JSON.stringify(clientData));
 
     // 2. Prellenar datos en el carrito
     const cartName = document.getElementById('customerName');
@@ -195,10 +278,10 @@ async function submitClientRegister(e) {
     updateClientSessionPill();
     filterProducts();
 
-    // 6. Mensaje de bienvenida
+    // 6. Mensaje de bienvenida cordial
     showNovaAlert({
-        title: "¡Precios Desbloqueados!",
-        message: `Bienvenido <b>${fullName}</b>. Ahora puedes consultar todos los precios en divisas y bolívares a tasa oficial.`,
+        title: "¡Bienvenido a NOVA!",
+        message: `Hola <b>${fullName}</b>. Ya puedes consultar todo nuestro catálogo con precios actualizados a tasa oficial BCV.`,
         type: "success"
     });
 
@@ -415,8 +498,8 @@ function renderProducts(productList) {
             btnAction = prod.variants ? onClk : `addToCart('${prod.id}')`;
         } else {
             priceHtml = '';
-            btnText = prod.variants ? 'Ver Opciones' : 'Consultar Repuesto';
-            btnAction = onClk;
+            btnText = prod.variants ? 'Ver Opciones' : 'Agregar al Pedido';
+            btnAction = prod.variants ? onClk : `addToCart('${prod.id}')`;
         }
 
         htmlContent += `
@@ -510,34 +593,26 @@ function openQuickView(productId, autoVariantIndex = -1) {
     // Actualizamos la imagen inicial del modal (según variante seleccionada o predeterminada)
     updateQuickViewVariantImage();
 
-    // Botón Agregar al Pedido desde el Modal
+    // Botón Agregar al Pedido desde el Modal (siempre permite agregar sin bloquear)
     const addBtn = document.getElementById('qvAddBtn');
-    const isUnlocked = hasCustomerSession();
-    if (isUnlocked) {
-        addBtn.innerText = 'Agregar al Pedido';
-        addBtn.onclick = function () {
-            if (currentViewedProduct.variants) {
-                // Si tiene variantes, agregamos el hijo específico seleccionado
-                const variant = currentViewedProduct.variants[currentVariantIndex];
-                const item = {
-                    id: variant.id,
-                    name: currentViewedProduct.name + " (" + variant.name + ")",
-                    costoCompra: variant.costoCompra,
-                    images: currentViewedProduct.images
-                };
-                addItemToCart(item);
-            } else {
-                // Producto normal
-                addItemToCart(currentViewedProduct);
-            }
-            closeQuickView();
-        };
-    } else {
-        addBtn.innerText = 'Consultar Precio / Pedir';
-        addBtn.onclick = function () {
-            openClientRegisterModal(currentViewedProduct.id);
-        };
-    }
+    addBtn.innerText = 'Agregar al Pedido';
+    addBtn.onclick = function () {
+        if (currentViewedProduct.variants) {
+            // Si tiene variantes, agregamos el hijo específico seleccionado
+            const variant = currentViewedProduct.variants[currentVariantIndex];
+            const item = {
+                id: variant.id,
+                name: currentViewedProduct.name + " (" + variant.name + ")",
+                costoCompra: variant.costoCompra,
+                images: currentViewedProduct.images
+            };
+            addItemToCart(item);
+        } else {
+            // Producto normal
+            addItemToCart(currentViewedProduct);
+        }
+        closeQuickView();
+    };
 
     document.getElementById('quickViewModal').classList.add('active');
     openProductInHash(productId);
@@ -689,10 +764,6 @@ function closeQuickView(event) {
 // 6. CARRITO DE COMPRAS Y WHATSAPP
 // ==========================================
 function addToCart(productId) {
-    if (!hasCustomerSession()) {
-        openClientRegisterModal(productId);
-        return;
-    }
     const product = products.find(p => p.id === productId);
     if (product && !product.variants) {
         addItemToCart(product);
@@ -700,21 +771,25 @@ function addToCart(productId) {
 }
 
 function addItemToCart(item) {
-    if (!hasCustomerSession()) {
-        openClientRegisterModal(item.id);
-        return;
-    }
     const existingItem = cart.find(i => i.id === item.id);
-    if (existingItem) { existingItem.quantity += 1; }
-    else { cart.push({ ...item, quantity: 1 }); }
+    if (existingItem) { 
+        existingItem.quantity += 1; 
+    } else { 
+        cart.push({ ...item, quantity: 1 }); 
+    }
     updateCartUI();
-    document.getElementById('cartModal').classList.add('active');
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) cartModal.classList.add('active');
 }
 
 function changeQuantity(index, amount) {
+    if (!cart[index]) return;
     cart[index].quantity += amount;
-    if (cart[index].quantity <= 0) removeFromCart(index);
-    else updateCartUI();
+    if (cart[index].quantity <= 0) {
+        removeFromCart(index);
+    } else {
+        updateCartUI();
+    }
 }
 
 function updateCartUI() {
@@ -722,16 +797,28 @@ function updateCartUI() {
     const cartCount = document.getElementById('cart-count');
     const cartTotalPublic = document.getElementById('cart-total-public');
     const cartTotalNova = document.getElementById('cart-total-nova');
+    const cartPricesUnlocked = document.getElementById('cartPricesUnlocked');
+    const cartPricesLocked = document.getElementById('cartPricesLocked');
+    const cartCustomerUnauthNotice = document.getElementById('cartCustomerUnauthNotice');
+    const cartCustomerAuthNotice = document.getElementById('cartCustomerAuthNotice');
+    const cartCustomerInputs = document.getElementById('cartCustomerInputs');
+    const cartCustomerActiveName = document.getElementById('cartCustomerActiveName');
+    const cartCustomerActiveRif = document.getElementById('cartCustomerActiveRif');
+    const cartSubmitBtnText = document.getElementById('cartSubmitBtnText');
+
+    const isUnlocked = hasCustomerSession();
     let totalPublicUSD = 0;
     let totalPublicBs = 0;
     let totalNovaUSD = 0;
     let totalItems = 0;
 
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top: 20px;">Tu carrito está vacío.</p>';
-        cartCount.innerText = "0";
-        cartTotalPublic.innerText = "$0.00 (Bs. 0.00)";
-        cartTotalNova.innerText = "$0.00";
+        if (cartContainer) cartContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top: 20px;">Tu carrito está vacío.</p>';
+        if (cartCount) cartCount.innerText = "0";
+        if (cartTotalPublic) cartTotalPublic.innerText = "$0.00 (Bs. 0.00)";
+        if (cartTotalNova) cartTotalNova.innerText = "$0.00";
+        if (cartPricesUnlocked) cartPricesUnlocked.style.display = isUnlocked ? 'flex' : 'none';
+        if (cartPricesLocked) cartPricesLocked.style.display = isUnlocked ? 'none' : 'block';
         return;
     }
 
@@ -753,6 +840,11 @@ function updateCartUI() {
             imgSource = matchedVariant || item.images[0];
         }
 
+        let priceText = '';
+        if (isUnlocked) {
+            priceText = `<div style="font-size: 11.5px; font-weight: 700; color: #1e3a8a; margin-top: 2px;">Ref: $${(preciosItem.publicoUSD * item.quantity).toFixed(2)} <span style="font-size:10px; font-weight:500; color:#64748b;">($${preciosItem.publicoUSD.toFixed(2)} c/u)</span></div>`;
+        }
+
         htmlContent += `
             <div class="cart-item">
                 <div class="cart-item-info">
@@ -760,6 +852,7 @@ function updateCartUI() {
                     <div class="cart-item-details">
                         <span class="cart-item-code">${item.id}</span>
                         <span class="cart-item-name">${item.name}</span>
+                        ${priceText}
                     </div>
                 </div>
                 <div class="cart-controls">
@@ -777,15 +870,77 @@ function updateCartUI() {
         `;
     });
 
-    cartContainer.innerHTML = htmlContent;
-    cartCount.innerText = totalItems;
-    cartTotalPublic.innerText = `$${totalPublicUSD.toFixed(2)} (Bs. ${totalPublicBs.toFixed(2)})`;
-    cartTotalNova.innerText = `$${totalNovaUSD.toFixed(2)}`;
+    if (cartContainer) cartContainer.innerHTML = htmlContent;
+    if (cartCount) cartCount.innerText = totalItems;
+
+    // Configuración de visualización de precios y totales
+    if (isUnlocked) {
+        if (cartTotalPublic) cartTotalPublic.innerText = `$${totalPublicUSD.toFixed(2)} (Bs. ${totalPublicBs.toFixed(2)})`;
+        if (cartTotalNova) cartTotalNova.innerText = `$${totalNovaUSD.toFixed(2)}`;
+        if (cartPricesUnlocked) cartPricesUnlocked.style.display = 'flex';
+        if (cartPricesLocked) cartPricesLocked.style.display = 'none';
+
+        const session = getCustomerSession();
+        if (cartCustomerAuthNotice) {
+            cartCustomerAuthNotice.style.display = 'flex';
+            if (cartCustomerActiveName) cartCustomerActiveName.innerText = (session && session.nombre) ? session.nombre : 'Cliente';
+            if (cartCustomerActiveRif) cartCustomerActiveRif.innerText = (session && session.rif) ? `(${session.rif})` : '';
+        }
+        if (cartCustomerUnauthNotice) cartCustomerUnauthNotice.style.display = 'none';
+        if (cartCustomerInputs) cartCustomerInputs.style.display = 'none';
+        if (cartSubmitBtnText) cartSubmitBtnText.innerText = 'Consultar Disponibilidad por WhatsApp';
+    } else {
+        if (cartPricesUnlocked) cartPricesUnlocked.style.display = 'none';
+        if (cartPricesLocked) cartPricesLocked.style.display = 'block';
+
+        if (cartCustomerAuthNotice) cartCustomerAuthNotice.style.display = 'none';
+        if (cartCustomerUnauthNotice) cartCustomerUnauthNotice.style.display = 'block';
+        if (cartCustomerInputs) cartCustomerInputs.style.display = 'block';
+        if (cartSubmitBtnText) cartSubmitBtnText.innerText = 'Consultar Disponibilidad por WhatsApp';
+    }
+
+    // Autocompletar inputs si están vacíos
+    const savedData = getCustomerSession() || getLastCustomerInfo();
+    if (savedData) {
+        const nameInput = document.getElementById('customerName');
+        const rifTypeInput = document.getElementById('customerRifType');
+        const rifNumInput = document.getElementById('customerRifNum');
+        const phoneInput = document.getElementById('customerPhone');
+
+        if (nameInput && (!nameInput.value || nameInput.value.trim() === '') && (savedData.nombre || savedData.name)) {
+            nameInput.value = savedData.nombre || savedData.name;
+        }
+        if (savedData.rif) {
+            const match = savedData.rif.match(/^([VJECG]-?)(.+)$/i);
+            if (match) {
+                if (rifTypeInput) rifTypeInput.value = match[1].toUpperCase().replace(/-?$/, '-');
+                if (rifNumInput && (!rifNumInput.value || rifNumInput.value.trim() === '')) rifNumInput.value = match[2];
+            } else if (rifNumInput && (!rifNumInput.value || rifNumInput.value.trim() === '')) {
+                rifNumInput.value = savedData.rif;
+            }
+        }
+        if (phoneInput && (!phoneInput.value || phoneInput.value.trim() === '') && (savedData.telefono || savedData.phone)) {
+            phoneInput.value = savedData.telefono || savedData.phone;
+        }
+    }
 }
 
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartUI();
+}
+
+function editCustomerDataFromCart() {
+    const cartCustomerInputs = document.getElementById('cartCustomerInputs');
+    if (cartCustomerInputs) {
+        if (cartCustomerInputs.style.display === 'none') {
+            cartCustomerInputs.style.display = 'block';
+            const nameInput = document.getElementById('customerName');
+            if (nameInput) nameInput.focus();
+        } else {
+            cartCustomerInputs.style.display = 'none';
+        }
+    }
 }
 
 function toggleCart() {
@@ -794,13 +949,7 @@ function toggleCart() {
     const willOpen = !modal.classList.contains('active');
     modal.classList.toggle('active');
     if (willOpen) {
-        const session = getCustomerSession();
-        if (session) {
-            const nameEl = document.getElementById('customerName');
-            const phoneEl = document.getElementById('customerPhone');
-            if (nameEl && !nameEl.value) nameEl.value = session.nombre || '';
-            if (phoneEl && !phoneEl.value) phoneEl.value = session.telefono || '';
-        }
+        updateCartUI();
     }
 }
 
@@ -823,8 +972,8 @@ function showNovaAlert({ title, message, type = 'info', confirmText = 'Entendido
         return;
     }
 
-    if (titleEl) titleEl.innerText = title;
-    if (msgEl) msgEl.innerText = message;
+    if (titleEl) titleEl.innerHTML = title;
+    if (msgEl) msgEl.innerHTML = message;
     if (btnEl) btnEl.innerText = confirmText;
 
     if (iconEl) {
@@ -876,7 +1025,7 @@ function closeNovaAlert(event) {
 }
 
 // ==========================================
-// ENVÍO DE PEDIDO POR WHATSAPP
+// ENVÍO DE PEDIDO POR WHATSAPP Y DESBLOQUEO
 // ==========================================
 function sendWhatsApp() {
     if (cart.length === 0) {
@@ -888,30 +1037,111 @@ function sendWhatsApp() {
         return;
     }
 
-    const clientName = document.getElementById('customerName').value.trim();
-    const clientPhone = document.getElementById('customerPhone').value.trim();
+    const nameInput = document.getElementById('customerName');
+    const rifTypeInput = document.getElementById('customerRifType');
+    const rifNumInput = document.getElementById('customerRifNum');
+    const phoneInput = document.getElementById('customerPhone');
 
-    if (clientName === "" || clientPhone === "") {
-        showNovaAlert({
-            type: 'warning',
-            title: 'Datos Requeridos',
-            message: 'Por favor, ingresa tu Nombre y tu número de WhatsApp para registrar el pedido.',
-            confirmText: 'Completar Datos',
-            onConfirm: () => {
-                const nameInput = document.getElementById('customerName');
-                if (nameInput) {
-                    nameInput.focus();
-                    nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const clientName = nameInput ? nameInput.value.trim() : '';
+    const rifPrefix = rifTypeInput ? rifTypeInput.value : 'V-';
+    const rifNumber = rifNumInput ? rifNumInput.value.trim() : '';
+    const clientPhone = phoneInput ? phoneInput.value.trim() : '';
+
+    const isUnlocked = hasCustomerSession();
+
+    if (!isUnlocked) {
+        if (!clientName) {
+            showNovaAlert({
+                type: 'warning',
+                title: 'Nombre Requerido',
+                message: 'Por favor, indícanos tu Nombre y Apellido para preparar tu cotización.',
+                confirmText: 'Completar Nombre',
+                onConfirm: () => {
+                    if (nameInput) {
+                        nameInput.focus();
+                        nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 }
-            }
-        });
-        return;
+            });
+            return;
+        }
+
+        if (!rifNumber || rifNumber.length < 5) {
+            showNovaAlert({
+                type: 'warning',
+                title: 'Cédula o RIF Requerido',
+                message: 'Por favor, indícanos tu número de Cédula o RIF para emitir tu presupuesto formal.',
+                confirmText: 'Completar Cédula',
+                onConfirm: () => {
+                    if (rifNumInput) {
+                        rifNumInput.focus();
+                        rifNumInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+            return;
+        }
+
+        if (!clientPhone || clientPhone.length < 7) {
+            showNovaAlert({
+                type: 'warning',
+                title: 'Teléfono Requerido',
+                message: 'Por favor, indícanos tu número de WhatsApp para enviarte la cotización.',
+                confirmText: 'Completar Teléfono',
+                onConfirm: () => {
+                    if (phoneInput) {
+                        phoneInput.focus();
+                        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+            return;
+        }
+
+        const fullRif = `${rifPrefix}${rifNumber}`;
+        const newClientData = {
+            id: `CLI-${Date.now().toString().slice(-6)}`,
+            nombre: clientName,
+            rif: fullRif,
+            telefono: clientPhone,
+            tipo: 'cliente',
+            fecha_registro: new Date().toISOString()
+        };
+
+        localStorage.setItem('nova_customer_session', JSON.stringify(newClientData));
+        localStorage.setItem('nova_cliente_sesion', JSON.stringify(newClientData));
+        localStorage.setItem('nova_last_client_info', JSON.stringify(newClientData));
+
+        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            (async () => {
+                try {
+                    await supabaseClient.from('clientes').insert([{
+                        nombre: newClientData.nombre,
+                        rif: newClientData.rif,
+                        telefono: newClientData.telefono,
+                        tipo: 'cliente',
+                        notas: 'Registrado desde Carrito del Catálogo Web'
+                    }]);
+                } catch (dbErr) {
+                    console.warn('[CRM Sync Error]', dbErr);
+                }
+            })();
+        }
+
+        // Desbloquear catálogo en pantalla inmediatamente
+        updateClientSessionPill();
+        filterProducts();
     }
 
     const session = getCustomerSession();
-    const rifInfo = (session && session.rif) ? ` (CI/RIF: ${session.rif})` : '';
+    const finalName = clientName || (session ? session.nombre : 'Cliente');
+    const finalRif = rifNumber ? `${rifPrefix}${rifNumber}` : (session ? session.rif : '');
+    const finalPhone = clientPhone || (session ? session.telefono : '');
+    const rifString = finalRif ? `\n🪪 *Cédula/RIF:* ${finalRif}` : '';
+    const phoneString = finalPhone ? `\n📱 *Teléfono:* ${finalPhone}` : '';
+
     let messageLines = [
-        `Hola equipo de *NOVA RefriMotors*. Mi nombre es *${clientName}*${rifInfo} (Tlf: ${clientPhone}) y quisiera consultar la disponibilidad de los siguientes repuestos de su catálogo web:\n`
+        `¡Hola equipo de *NOVA RefriMotors*! Mi nombre es *${finalName}*${rifString}${phoneString}.\n\nDeseo consultar la disponibilidad y precios de los siguientes repuestos de su catálogo web:\n`
     ];
 
     let totalEstimadoUSD = 0;
@@ -929,11 +1159,28 @@ function sendWhatsApp() {
     const destinationPhone = NUMERO_WHATSAPP.replace(/[^0-9]/g, '');
     const whatsappURL = `https://wa.me/${destinationPhone}?text=${encodeURIComponent(fullMessage)}`;
     window.open(whatsappURL, '_blank');
+
+    // Actualizar UI del carrito ahora desbloqueado
+    updateCartUI();
+
+    // Mensaje de bienvenida cordial si se registró en este envío
+    if (!isUnlocked) {
+        showNovaAlert({
+            title: "¡Bienvenido a NOVA!",
+            message: `Hola <b>${finalName}</b>. Tu solicitud ha sido enviada por WhatsApp y ya puedes consultar todos nuestros repuestos con sus precios oficiales.`,
+            type: "success"
+        });
+    }
 }
 
 // Cerrar modales con la tecla Escape
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+        const profModal = document.getElementById('clientProfileModal');
+        if (profModal && profModal.classList.contains('active')) {
+            closeClientProfileModal();
+            return;
+        }
         const regModal = document.getElementById('clientRegisterModal');
         if (regModal && regModal.classList.contains('active')) {
             regModal.classList.remove('active');
@@ -1183,16 +1430,4 @@ updateClientSessionPill();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
 
-// Si el usuario no tiene sesión iniciada, mostrar el modal de bienvenida/registro a los 800ms
-if (!hasCustomerSession()) {
-    setTimeout(() => {
-        const qvModal = document.getElementById('quickViewModal');
-        const alertModal = document.getElementById('novaAlertModal');
-        const isQvOpen = qvModal && qvModal.classList.contains('active');
-        const isAlertOpen = alertModal && alertModal.classList.contains('active');
-        if (!isQvOpen && !isAlertOpen) {
-            openClientRegisterModal();
-        }
-    }, 800);
-}
 
