@@ -96,6 +96,49 @@
     <!-- PAGINACIÓN -->
     <div class="pagination" id="pagination-container"></div>
 
+    <!-- BANNER DE PEDIDO PARTICULAR / REPUESTO ESPECIAL -->
+    <section class="custom-request-section" id="customRequestBanner">
+        <div class="custom-request-card">
+            <div class="custom-request-badge">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Atención Personalizada</span>
+            </div>
+            <h3 class="custom-request-title">¿No encuentras lo que buscas?</h3>
+            <p class="custom-request-desc">
+                Puedes escribirlo aquí <span class="custom-request-arrow-down" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></span> y gestionaremos un <strong>pedido particular</strong> para ti:
+            </p>
+            <form class="custom-request-form" id="customRequestForm" onsubmit="handleCustomPartRequest(event)">
+                <div class="custom-request-input-wrap">
+                    <svg class="custom-request-input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    <input type="text" id="customPartInput" class="custom-request-input"
+                        placeholder="Escribe el repuesto, marca o modelo que necesitas..."
+                        autocomplete="off" aria-label="Repuesto que buscas">
+                </div>
+                <button type="submit" class="custom-request-btn" id="customPartSubmitBtn">
+                    <img src="assets/whatsapp-icono.png" alt="WhatsApp" class="custom-request-btn-icon">
+                    <span>Solicitar Repuesto</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+            <div class="custom-request-hint">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Cotización directa por WhatsApp • Disponibilidad en tienda y pedidos bajo encargo</span>
+            </div>
+        </div>
+    </section>
+
     <!-- ==========================================
          MODAL DE VISTA RÁPIDA (QUICK VIEW)
     =========================================== -->

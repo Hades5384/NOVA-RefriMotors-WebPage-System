@@ -1,11 +1,11 @@
 // ==========================================
 // 1. CONFIGURACIÓN DEL SISTEMA Y SESIÓN
 // ==========================================
-let TASA_BCV = 919.82;
+let TASA_BCV = 922.56;
 const NUMERO_WHATSAPP = "584246192394";
 const PORCENTAJE_UTILIDAD = 1.30;
 const PORCENTAJE_IVA = 1.16;
-let TASA_INTERNA = 1100;
+let TASA_INTERNA = 1150;
 
 const SUPABASE_CRM_URL = "https://krsahhdkxfeehyernwmf.supabase.co";
 const SUPABASE_CRM_KEY = "sb_publishable_4dLnKHj89ri1Z9qV0JE3mw_nRGLhxbE";
@@ -37,7 +37,7 @@ function updateBcvDisplays() {
                 if (!isNaN(interna) && interna > 0) TASA_INTERNA = interna;
             }
         }
-    } catch (e) {}
+    } catch (e) { }
 })();
 
 // Mostrar tasa BCV de forma segura al inicio
@@ -50,7 +50,7 @@ function getCustomerSession() {
         if (!raw) return null;
         const parsed = JSON.parse(raw);
         if (parsed && (parsed.nombre || parsed.name)) return parsed;
-    } catch (e) {}
+    } catch (e) { }
     return null;
 }
 
@@ -58,7 +58,7 @@ function getLastCustomerInfo() {
     try {
         const raw = localStorage.getItem('nova_last_client_info');
         if (raw) return JSON.parse(raw);
-    } catch (e) {}
+    } catch (e) { }
     return null;
 }
 
@@ -772,10 +772,10 @@ function addToCart(productId) {
 
 function addItemToCart(item) {
     const existingItem = cart.find(i => i.id === item.id);
-    if (existingItem) { 
-        existingItem.quantity += 1; 
-    } else { 
-        cart.push({ ...item, quantity: 1 }); 
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...item, quantity: 1 });
     }
     updateCartUI();
     const cartModal = document.getElementById('cartModal');
@@ -1429,5 +1429,45 @@ initCategoryNavigation();
 updateClientSessionPill();
 readHashAndRestore();
 window.addEventListener('hashchange', readHashAndRestore);
+
+// ==========================================
+// BANNER DE PEDIDO PARTICULAR / REPUESTO ESPECIAL
+// ==========================================
+function handleCustomPartRequest(event) {
+    if (event) event.preventDefault();
+    const input = document.getElementById('customPartInput');
+    const query = input ? input.value.trim() : '';
+
+    if (!query) {
+        if (typeof showNovaAlert === 'function') {
+            showNovaAlert({
+                title: "¿Qué repuesto buscas?",
+                message: "Por favor, escribe el nombre, código o modelo del repuesto que necesitas para poder cotizártelo.",
+                type: "warning"
+            });
+        } else {
+            alert("Por favor, escribe el repuesto que necesitas.");
+        }
+        if (input) input.focus();
+        return;
+    }
+
+    const session = typeof getCustomerSession === 'function' ? getCustomerSession() : null;
+    let message = `¡Hola NOVA RefriMotors! 🛠️\nEstuve revisando su catálogo web y no encontré el siguiente repuesto:\n\n`;
+    message += `🔍 *Repuesto solicitado:* ${query}\n`;
+
+    if (session && (session.nombre || session.name)) {
+        message += `👤 *Cliente:* ${session.nombre || session.name}\n`;
+        if (session.rif) message += `🪪 *Cédula/RIF:* ${session.rif}\n`;
+        if (session.telefono || session.phone) message += `📱 *Teléfono:* ${session.telefono || session.phone}\n`;
+    }
+
+    message += `\n¿Podrían verificar si tienen disponibilidad en tienda o si es posible hacer un pedido particular para mí? ¡Muchas gracias!`;
+
+    const destPhone = (typeof NUMERO_WHATSAPP !== 'undefined' ? NUMERO_WHATSAPP : "584246192394").replace(/[^0-9]/g, '');
+    const waUrl = `https://wa.me/${destPhone}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
+}
+
 
 
